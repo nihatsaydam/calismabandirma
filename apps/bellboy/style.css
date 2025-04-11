@@ -1,0 +1,658 @@
+/* Genel Sayfa Stili */
+body {
+  font-family: 'Montserrat';
+  background-color: #f6f0e6; /* Krem arka plan */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+/* Başlık */
+
+
+/* Beyaz alan (menü kapsayıcı) */
+.menu-container {
+
+    width: 100%; /* Tam genişlik */
+    height: calc(100vh - 160px); /* Chat ekranı yüksekliği */
+    padding: 10px; /* Genel iç kenarlıklar */
+    padding-top: 20px; /* Üst boşluk */
+    background-color: #fff; /* Beyaz arka plan */
+    box-sizing: border-box; /* Kenarlık ve padding dahil */
+    display: flex;
+    flex-direction: column; /* Mesajları dikey hizala */
+    gap: 10px; /* Mesajlar arası boşluk */
+    justify-content: flex-start; /* Mesajları yukarıda tut */
+    position: fixed; /* Sabit konum */
+    top: 59%; /* Dikey konumu biraz aşağıya indir */
+    left: 50%; /* Yatay merkezleme */
+    transform: translate(-50%, -50%); /* Merkezi hizalamayı koru */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    border-radius: 20px; /* Yuvarlak köşeler */
+  }
+  
+  
+  
+
+/* Başlık */
+#menu-header {
+  text-align: center; /* Başlığı ortala */
+  margin-bottom: 20px; /* Kartlar ile başlık arasına boşluk ekle */
+}
+
+#menu-header h2 {
+  font-size: 20px; /* Daha okunabilir başlık boyutu */
+  color: #9b795c;
+  margin-bottom: 10px; /* Başlık ile açıklama arasına boşluk */
+}
+
+#menu-header p {
+  position: relative;
+  max-width: 100%; /* Mesaj genişliği tam alana yayılsın */
+  margin: 0 auto; /* Ortala */
+  padding: 12px 18px; /* İçerik kenarlıkları */
+  background-color: #f5eede; /* Arka plan rengi */
+  color: #333; /* Yazı rengi */
+  font-size: 0.9rem; /* Yazı boyutu */
+  line-height: 1.4; /* Daha rahat okunabilirlik */
+  border-radius: 0 26px 26px 26px; /* Sol üst düz, diğer köşeler oval */
+  word-break: break-word; /* Uzun kelimeleri böl */
+  white-space: pre-wrap; /* Boşlukları koru */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+}
+
+/* Seçeneklerin düzeni */
+.menu-options {
+  display: flex;
+  flex-wrap: nowrap; /* Alt satıra geçmeye izin ver */
+  justify-content: center; /* Kartları yatayda merkeze al */
+  gap: 10px; /* Kartlar arasındaki boşluk */
+  padding: 10px; /* İçerik kenarlıkları */
+}
+
+/* Her bir seçenek */
+.menu-option {
+  display: flex;
+  flex-wrap: nowrap; /* Alt satıra geçmeye izin ver */
+  justify-content: center; /* Kartları yatayda merkeze al */
+  gap: 10px; /* Kartlar arasındaki boşluk */
+  padding: 10px; /* İçerik kenarlıkları */
+  background-color: #f5eede;
+  border: 1px solid #d8cdbf;
+  border-radius: 16px;
+  text-align: center;
+  padding: 15px;
+  width: 110px; /* Daha dengeli kart genişliği */
+  height: 300px; /* Kart yüksekliğini küçülttük */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-top: 100px; /* Her kartı biraz aşağıya kaydır */
+}
+
+.menu-option:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Kart içindeki görsel */
+.menu-option img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px; /* Görsel ile başlık arasına boşluk */
+}
+
+.menu-option h3 {
+  font-size: 14px; /* Başlık boyutunu artırdık */
+  color: #000000;
+  margin: 0;
+}
+
+.menu-option p {
+  font-size: 12px; /* Açıklama yazısı boyutu */
+  color: #000000;
+  margin: 0 0 10px 0; /* Alt boşluk ekledik */
+}
+
+.menu-option button {
+  padding: 8px 15px; /* Daha dengeli buton kenarlıkları */
+  border: none;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 12px; /* Yazı boyutunu büyüttük */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-option button:hover {
+  background-color: #7a5b48; /* Hover rengi */
+  color: #fff; /* Yazı rengi */
+}
+
+
+/* Kart Görünümü */
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5eede;
+  border: 1px solid #d8cdbf;
+  border-radius: 16px;
+  padding: 15px;
+  gap: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.menu-item .item-details {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.menu-item .item-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.menu-item .item-description {
+  font-size: 0.85rem;
+  color: #7a6c5e;
+}
+
+.menu-item .item-price {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5c4b40;
+}
+
+.menu-item button {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-item button:hover {
+  background-color: #45a049;
+}
+
+
+/* Sabit Butonlar */
+#action-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+#cart-icon,
+#menu-back-button,
+#back-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+#cart-icon:hover,
+#menu-back-button:hover,
+#back-button:hover {
+  background-color: #ffd633;
+}
+
+
+/* Pop-up arka planı */
+#time-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; /* Genel genişlik */
+  max-width: 350px; /* Masaüstü için maksimum genişlik */
+  background-color: #fff;
+  border: 2px solid #d8cdbf;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 15px; /* İç boşluğu küçült */
+  font-family: 'Poppins', sans-serif;
+  display: none;
+}
+
+
+#confirm-time {
+  background-color: #6b5151; /* Keepsty yeşil tonu */
+  color: white;
+}
+
+#cancel-time {
+  background-color: #D9C4A8; /* Keepsty kahverengi tonu */
+  color: white;
+}
+
+
+/* "You’re All Done!" Başlığı */
+.success-title {
+  font-size: 24px;
+  margin-top: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffe4b5; /* Hafif krem tonu */
+  display: none; /* Başlangıçta gizli */
+}
+
+/* Keepsty Logosu */
+.keepsty-logo {
+  width: 120px;
+  margin: 20px auto;
+  display: none; /* Başlangıçta gizli */
+}
+
+
+/* Animasyon */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+#action-container {
+  position: fixed; /* Sabit pozisyon */
+  bottom: 0; /* Ekranın en altına hizala */
+  left: 0; /* Sol hizalı */
+  width: 100%; /* Tam genişlik */
+  background-color: #99d3d5; /* Mevcut arka plan rengi korundu */
+  padding: 5px 10px; /* Daha ince iç boşluk */
+  display: flex; /* Esnek düzen */
+  justify-content: space-around; /* Elemanları eşit aralıklarla hizala */
+  align-items: center; /* Dikey ortala */
+  border-top: 1px solid #d8cdbf; /* Hafif bir üst kenar */
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1); /* Daha ince gölge efekti */
+  z-index: 10; /* Footer'ın altında */
+  box-sizing: border-box;
+  height: 60px; /* Sabit bir yükseklik (Twitter benzeri) */
+}
+
+/* Görsel Kutuları (Renk Korundu) */
+.action-item {
+  display: flex;
+  flex-direction: column; /* Görsel ve yazıyı dikey hizala */
+  align-items: center; /* Ortala */
+  gap: 4px; /* Görsel ve yazı arasında daha az boşluk */
+  cursor: pointer; /* Tıklanabilir olduğunu belirt */
+  transition: transform 0.3s ease; /* Hover animasyonu */
+}
+
+.action-item:hover {
+  transform: scale(1.2); /* Hover sırasında biraz büyüt */
+}
+
+.action-item img {
+  width: 30px; /* Daha küçük görsel boyutu */
+  height: 30px; /* Daha küçük görsel boyutu */
+  object-fit: contain; /* Görsel oranlarını koru */
+  border-radius: 10px; /* Hafif yuvarlak köşeler (mevcut tarz) */
+}
+
+/* Görsel Altındaki Yazı (Renk Korundu) */
+.action-item p {
+  margin: 0;
+  font-size: 12px; /* Daha küçük yazı */
+  color: #fff; /* Mevcut beyaz yazı rengi korundu */
+  text-align: center;
+}
+
+
+@media (max-width: 480px) {
+  /* Chatbot Genel Ayarları */
+  #chatbot {
+    height: calc(100vh - 60px); /* Alt gezinme çubuğuna göre yükseklik ayarla */
+  }
+
+  /* Chat Kutusu */
+  #chat-box {
+    margin-bottom: 100px; /* Mesaj yazma alanı ve alt bar için boşluk bırak */
+    padding-top: 20px; /* Üstte biraz daha alan bırak */
+  }
+
+  /* Kullanıcı Yazı Giriş Alanı */
+  #footer-container {
+    bottom: 80px; /* Mobilde biraz daha yukarı al */
+  }
+
+  /* Chat Seçenekleri (Opsiyonlar) */
+  #chat-options {
+    bottom: 140px; /* Mesaj yazma alanı ile alt bar arasında */
+  }
+
+  /* Alt Gezinme Çubuğu */
+  #bottom-nav {
+    height: 60px; /* Alt gezinme çubuğu sabit yüksekliği */
+  }
+
+}
+
+
+/* Başlık Stili */
+#time-popup h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #5c4b40; /* Sıcak kahverengi */
+  margin-bottom: 20px;
+}
+
+
+/* Sabit Başlık Alanı (Daha Büyütülmüş) */
+.header-container {
+  position: fixed; /* Sabit pozisyon */
+  top: 0; /* Ekranın üstüne hizala */
+  left: 0; /* Sol kenara hizala */
+  width: 100%; /* Tam genişlik */
+  height: 150px; /* Daha büyük yükseklik */
+  background-color: #99d3d5; /* Arka plan rengi korundu */
+  padding: 10px 15px; /* Daha fazla içerik boşluğu */
+  display: flex; /* Esnek düzen */
+  align-items: center; /* Dikey ortala */
+  justify-content: space-between; /* Elemanları aralıklı hizala */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Daha belirgin gölge */
+  z-index: 10; /* Diğer elemanların üstünde */
+  box-sizing: border-box; /* Padding ve border dahil */
+}
+
+/* Yuvarlak Karakter Alanı (Daha Büyütülmüş) */
+.circle {
+  width: 90px; /* Daha büyük genişlik */
+  height: 90px; /* Daha büyük yükseklik */
+  background-color: #fff; /* Beyaz yuvarlak */
+  border-radius: 50%; /* Tam daire */
+  display: flex;
+  align-items: center; /* Dikey ortala */
+  justify-content: center; /* Yatay ortala */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Daha büyük gölge efekti */
+}
+
+.circle img {
+  width: 100px; /* Görsel genişliği artırıldı */
+  height: auto; /* Oran koruma */
+  object-fit: contain;
+}
+
+/* Çizgi ve Yazılar (Daha Büyütülmüş) */
+.text-and-line {
+  display: flex;
+  flex-direction: column; /* Dikey düzen */
+  align-items: center; /* Ortala */
+  gap: 0px; /* Yazılar ve çizgi arasındaki boşluk artırıldı */
+  position: relative; /* Çizgiyi hizalamak için */
+  margin-top: 40px; /* Daha yukarı taşır */
+  width: 100%;
+  z-index: 0; /* Daha doğal bir katman */
+}
+
+/* Çizgi (Daha Büyütülmüş) */
+.horizontal-line {
+  width: 100%; /* Çizginin genişliği tam */
+  height: 4px; /* Daha kalın çizgi */
+  background-color: #fff; /* Beyaz çizgi */
+  margin: 0px; /* Yazılarla daha belirgin boşluk bırakıldı */
+}
+
+/* Yazılar (Daha Büyütülmüş) */
+.title {
+  font-size: 20px; /* Daha büyük başlık boyutu */
+  font-weight: bold;
+  color: #9b795c; 
+  margin-bottom: 0px; /* Alt boşluk artırıldı */
+}
+
+.subtitle {
+  font-size: 20px; /* Daha büyük alt başlık boyutu */
+  font-weight: bold;
+  color: #9b795c; 
+  margin-top: 0px; /* Alt başlık yukarıdan daha fazla boşluk aldı */
+}
+
+.tagline {
+  font-size: 18px; /* Daha büyük yazı boyutu */
+  font-weight: lighter;
+  color: #000000; 
+  margin-top: -10px; /* Hafif yukarı boşluk */
+}
+#footer-container {
+  position: fixed; /* Sabit pozisyon */
+  bottom: 0px; /* Action Container'ın hemen üstüne yerleştir */
+  left: 0; /* Sol hizalı */
+  width: 100%; /* Tam genişlik */
+  background-color: #99d3d5; /* Beyaz arka plan */
+  padding: 10px 20px; /* İçerik boşlukları */
+  display: flex; /* Esnek düzen */
+  gap: 10px; /* Elemanlar arası boşluk */
+  align-items: center; /* Dikey ortala */
+  z-index: 20; /* Diğer elemanların üstünde */
+  box-sizing: border-box;
+  border-top: 1px solid rgba(0, 0, 0, 0.2); /* Hafif üst kenar çerçevesi */
+}
+#footer-container {
+  position: fixed; /* Sabit pozisyon */
+  bottom: 0px; /* Action Container'ın hemen üstüne yerleştir */
+  left: 0; /* Sol hizalı */
+  width: 100%; /* Tam genişlik */
+  background-color: #99d3d5; /* Beyaz arka plan */
+  padding: 10px 20px; /* İçerik boşlukları */
+  display: flex; /* Esnek düzen */
+  gap: 10px; /* Elemanlar arası boşluk */
+  align-items: center; /* Dikey ortala */
+  z-index: 20; /* Diğer elemanların üstünde */
+  box-sizing: border-box;
+  border-top: 1px solid rgba(0, 0, 0, 0.2); /* Hafif üst kenar çerçevesi */
+}
+
+#time-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 125px;
+}
+
+#time-options button {
+  background-color: #e8dfd3;
+  border: none;
+  border-radius: 15px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #5a4b3b;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  min-width: 120px; /* Butonların eşit genişlikte olması için */
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+#time-options button:hover {
+  background-color: #d6c4b8;
+  transform: scale(1.05);
+}
+
+#time-options button:active {
+  background-color: #c3b2a3;
+  transform: scale(0.95);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.option {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #9b795c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.option:hover {
+  background-color: #0056b3;
+}
+#confirmation {
+  display: none;
+  text-align: center;
+  font-size: 16px;
+  color: #9b795c;
+  margin-top: 20px;
+}
+#success-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Yarı saydam koyu arka plan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Üstte görünmesi için */
+  backdrop-filter: blur(4px); /* Arka planı bulanıklaştırır */
+}
+
+
+.keepsty-character {
+  width: 160px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Butonlar */
+.popup-buttons .keepsty-button {
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Pop-up butonları */
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Popup Overlay (arka plan bulanıklığı ve karartma) */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
+/* Success Popup Genel Ayarları */
+.popup-content.success {
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Popup başlığı */
+.popup-content.success h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-top: 15px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Animasyon efekti */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}

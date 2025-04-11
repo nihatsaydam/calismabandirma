@@ -1,0 +1,471 @@
+{
+  "start": {
+    "question": "مرحبًا بعودتك إلى مكتب الكونسيرج في [اسم الفندق]. اسمي [اسم الكونسيرج]، وأنا الكونسيرج المخصص لخدمتك. أنا هنا لضمان أن إقامتك معنا ستكون سلسة وممتعة قدر الإمكان. سواء كنت بحاجة إلى حجز مطاعم، توصيات محلية، أو مساعدة في وسائل النقل، أنا دائمًا جاهز لمساعدتك.مع معرفة عميقة بالمدينة وشغف بالخدمة الشخصية، أملك مفاتيح تجربة أفضل ما تقدمه [اسم المدينة]. أنا في خدمتك، في أي وقت وفي أي مكان، لأوفر لك أرقى الخدمات التي تقدمها المدينة.أوافق على أن يقوم [اسم الفندق] بمعالجة معلوماتي الشخصية، بما في ذلك الهوية، الاتصال، التعاملات التجارية، التسويق، وبيانات تأمين السيارات. يتم هذا المعالجة لتخصيص السلع والخدمات المقدمة لي بناءً على تفضيلاتي وعادات الاستخدام واحتياجاتي. كما أوافق على تلقي الرسائل الإلكترونية التجارية، مثل الإعلانات والعروض والحملات، وأوافق على مشاركة هذه المعلومات مع مقدمي الخدمات من الأطراف الثالثة الذين يساعدون في تقديم هذه الخدمات.",
+    "options": [
+      { "text": "أوافق", "next": "arabic_service_list" },
+      { "text": "أرفض", "next": "arabic_thank_you" }
+    ]
+  },
+  "arabic_service_list": {
+      "question": "شكرًا لموافقتك على الشروط والأحكام. أنا في خدمتك! كيف يمكنني مساعدتك اليوم؟",
+      "options": [
+        { "text": "الخدمة-1: نقل من وإلى المطار أو خدمة سيارات بسائق", "next": "arabic_service_1" },
+        { "text": "الخدمة-2: جولة عادية أو خاصة", "next": "arabic_service_2" },
+        { "text": "الخدمة-3: حجز مطاعم", "next": "arabic_service_3" },
+        { "text": "الخدمة-4: أفضل مراكز التسوق", "next": "arabic_service_4" },
+        { "text": "الخدمة-5: طلبات أخرى", "next": "arabic_service_5" },
+        { "text": "الخروج", "next": "arabic_end_chat" }
+      ]
+    },
+  "arabic_service_1": {
+    "question": "يرجى اختيار أحد الخيارات التالية للخدمة-1:",
+    "options": [
+      { "text": "خدمات النقل من وإلى المطار", "next": "arabic_airport_transfer_start" },
+      { "text": "خدمات السيارة الخاصة بالساعة", "next": "arabic_hourly_private_car_start" },
+      { "text": "طلبات أخرى تتعلق بالسيارة الخاصة", "next": "arabic_private_car_other" },
+      { "text": "الرجوع إلى قائمة الخدمات", "next": "arabic_service_list" }
+    ]
+  },
+  "arabic_airport_transfer_start": {
+    "question": "خدمة النقل من وإلى المطار جاهزة لك. سيكون السائق الخاص بك في نقطة الالتقاء المحددة، وسيتم متابعة تغييرات الرحلة. هل ترغب في متابعة خدمة النقل من وإلى المطار؟",
+    "options": [
+      { "text": "نعم", "next": "arabic_airport_transfer_direction" },
+      { "text": "رجوع", "next": "arabic_service_1" }
+    ]
+  },
+  "arabic_airport_transfer_direction": {
+    "question": "هل ترغب في تحديد اتجاه النقل الخاص بك: الوصول (من المطار إلى الفندق) أو المغادرة (من الفندق إلى المطار)؟",
+    "options": [
+      { "text": "الوصول (من المطار)", "next": "arabic_arrival_airport_select" },
+      { "text": "المغادرة (إلى المطار)", "next": "arabic_departure_airport_select" }
+    ]
+  },
+  "arabic_departure_airport_select": {
+      "question": "يرجى اختيار المطار الذي ستصل رحلتك إليه.",
+      "options": [
+        { "text": "مطار إسطنبول (IST)", "next": "arabic_arrival_date_input" },
+        { "text": "مطار صبيحة كوكجن الدولي (SAW)", "next": "arabic_arrival_date_input" }
+      ]
+    },
+  "arabic_arrival_airport_select": {
+    "question": "يرجى اختيار المطار الذي ستصل رحلتك إليه.",
+    "options": [
+      { "text": "مطار إسطنبول (IST)", "next": "arabic_arrival_date_input" },
+      { "text": "مطار صبيحة كوكجن الدولي (SAW)", "next": "arabic_arrival_date_input" }
+    ]
+  },
+  "arabic_arrival_date_input": {
+    "question": "يرجى تحديد تاريخ وصولك. (dd.mm.yyyy)",
+    "options": [
+      { "text": "يرجى تحديد تاريخ الوصول:", "input": "date", "name": "arrival_date", "next": "arabic_flight_code_input" },
+      { "text": "الرجوع إلى اختيار المطار", "next": "arabic_arrival_airport_select" }
+    ]
+  },
+  "arabic_flight_code_input": {
+    "question": "يرجى تقديم رمز رحلتك.",
+    "options": [
+      { "text": "يرجى تقديم رمز رحلتك:", "input": "text", "name": "flight_code", "next": "arabic_vehicle_category_select" },
+      { "text": "الرجوع إلى اختيار المطار", "next": "arabic_arrival_airport_select" }
+    ]
+  },
+  "arabic_vehicle_category_select": {
+    "question": "ما فئة السيارة التي ترغب في طلبها؟",
+    "options": [
+      { "text": "درجة أولى (BMW7 أو ما يشابهها)، تصل إلى 2 ركاب و2 حقائب.", "next": "arabic_booking_confirmation" },
+      { "text": "درجة رجال الأعمال (BMW5 أو ما يشابهها)، تصل إلى 2 ركاب و2 حقائب.", "next": "arabic_booking_confirmation" },
+      { "text": "ميني فان (Mercedes V Class أو ما يشابهها)، تصل إلى 6 ركاب و6 حقائب.", "next": "arabic_booking_confirmation" },
+      { "text": "فان (Mercedes Sprinter أو ما يشابهها)، تصل إلى 10 ركاب و10 حقائب.", "next": "arabic_booking_confirmation" },
+      { "text": "الرجوع إلى قائمة الخدمات", "next": "arabic_service_list" }
+    ]
+  },
+
+"arabic_contact_info_input": {
+  "question": "يرجى تقديم اسمك الكامل ورقم الاتصال (بما في ذلك رمز البلد).",
+  "options": [
+      { "text": "يرجى إدخال اسمك الكامل:", "input": "text", "name": "full_name" },
+      { "text": "يرجى إدخال رقم هاتفك (بما في ذلك رمز البلد):", "input": "tel", "name": "phone_number" },
+      { "text": "إنهاء المحادثة", "next": "arabic_thank_you", "disabled": true },
+      { "text": "الرجوع إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+
+"arabic_hourly_private_car_start": {
+  "question": "خدمات السيارات الخاصة بالساعة\nتم تصميم خدمتنا بالسائق بالساعة لتوفير المرونة والراحة. سواء كنت بحاجة إلى النقل للاجتماعات أو مشاهدة المعالم أو المناسبات الخاصة، سيكون السائق متاحًا حسب الحاجة. اختر من أسطولنا من السيارات الفاخرة - سيارات الصالون التنفيذية، سيارات الدفع الرباعي، أو الفانات - لرحلة سلسة ومريحة. إذا تغيرت خططك أو كانت لديك طلبات خاصة، أخبرنا وسنقوم بالتعديلات اللازمة. نحن ملتزمون بجعل كل رحلة سهلة وسلسة.\nهل ترغب في المتابعة؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_hourly_vehicle_category_select" },
+      { "text": "لا", "next": "arabic_service_1" }
+  ]
+},
+
+"arabic_hourly_vehicle_category_select": {
+  "question": "ما الفئة من المركبات التي ترغب في طلبها؟",
+  "options": [
+      { "text": "الفئة الأولى (BMW7 أو ما شابه)، حتى راكبين وحقيبتين.", "next": "arabic_hourly_duration_choice" },
+      { "text": "الفئة التجارية (BMW5 أو ما شابه)، حتى راكبين وحقيبتين.", "next": "arabic_hourly_duration_choice" },
+      { "text": "ميني فان (مرسيدس V Class أو ما شابه)، حتى 6 ركاب و6 حقائب.", "next": "arabic_hourly_duration_choice" },
+      { "text": "فان (مرسيدس سبرنتر أو ما شابه)، حتى 10 ركاب و10 حقائب.", "next": "arabic_hourly_duration_choice" },
+      { "text": "إيكو لايت (MG ZS EV أو ما شابه)، حتى راكبين وحقيبتين.", "next": "arabic_hourly_duration_choice" },
+      { "text": "الرجوع إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+
+"arabic_hourly_duration_choice": {
+  "question": "كم ساعة من خدمة الليموزين ترغب في الحجز؟",
+  "options": [
+      { "text": "4 ساعات", "next": "arabic_hourly_starting_location" },
+      { "text": "8 ساعات", "next": "arabic_hourly_starting_location" },
+      { "text": "12 ساعة", "next": "arabic_hourly_starting_location" },
+      { "text": "24 ساعة", "next": "arabic_hourly_starting_location" },
+      { "text": "الرجوع إلى اختيار فئة المركبات", "next": "arabic_hourly_vehicle_category_select" }
+  ]
+},
+
+"arabic_hourly_starting_location": {
+  "question": "من أين تريد أن تبدأ خدمة الليموزين الخاصة بك؟",
+  "options": [
+      { "text": "الفندق", "next": "arabic_hourly_confirmation" },
+      { "text": "يرجى تقديم عنوان المحطة.", "input": "text", "name": "starting_address", "next": "arabic_hourly_confirmation" },
+      { "text": "الرجوع إلى اختيار المدة", "next": "arabic_hourly_duration_choice" },
+      { "text": "التالي", "next": "arabic_hourly_confirmation" }
+  ]
+},
+
+"arabic_hourly_confirmation": {
+  "question": "لتأكيد طلبك، خيار المركبة المختار هو \"الخيار المحدد\" لمدة \"المدة المحددة\". هل ترغب في المتابعة بهذا الاختيار؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_booking_now" },
+      { "text": "لا", "next": "arabic_hourly_vehicle_category_select" }
+  ]
+},
+"arabic_booking_now": {
+  "question": "هل ترغب في الحجز الآن؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_contact_details" },
+      { "text": "لا", "next": "arabic_service_list" }
+  ]
+},
+"arabic_contact_details": {
+  "question": "يرجى تقديم تفاصيل الاتصال الخاصة بك.",
+  "options": [
+      { "text": "يرجى إدخال اسمك الكامل.", "input": "text", "name": "full_name" },
+      { "text": "يرجى إدخال رقم الاتصال الخاص بك (بما في ذلك رمز البلد).", "input": "tel", "name": "phone_number" },
+      { "text": "التالي", "next": "arabic_reservation_details" }
+  ]
+},
+"arabic_reservation_details": {
+  "question": "لأي عدد من الأشخاص ترغب في إجراء الحجز؟",
+  "options": [
+      { "text": "أدخل عدد الأشخاص:", "input": "number", "name": "number_of_people" },
+      { "text": "التالي", "next": "arabic_reservation_date_time" }
+  ]
+},
+"arabic_reservation_date_time": {
+  "question": "لأي تاريخ ووقت ترغب في إجراء الحجز؟",
+  "options": [
+      { "text": "أدخل تاريخ الحجز (dd.mm.yyyy):", "input": "date", "name": "reservation_date" },
+      { "text": "أدخل وقت الحجز (hh:mm):", "input": "text", "name": "reservation_time" },
+      { "text": "التالي", "next": "arabic_thank_you" }
+  ]
+},
+"arabic_thank_you": {
+  "question": "شكرًا لتواصلك مع خدمة الكونسيرج لدينا. فريقنا متاح من الساعة 8:00 صباحًا إلى 11:00 مساءً، وسنتواصل معك خلال هذه الساعات لتأكيد طلباتك. نتمنى لك يومًا سعيدًا!",
+  "options": [
+      { "text": "إنهاء المحادثة", "next": "arabic_end_chat" },
+      { "text": "الرجوع إلى قائمة الخدمات", "next": "arabic_end_chat" }
+  ]
+},
+"arabic_private_car_other": {
+  "question": "نفهم أن هناك أوقاتًا تحتاج فيها إلى رحلة شخصية بالكامل. مع خدمة السيارة الخاصة لدينا، تحصل على ذلك بالضبط - تنقل مصمم خصيصًا لاحتياجاتك الفريدة. سواء كان ذلك لمسار معين أو توقيت أو أي متطلبات خاصة، نحن هنا لتلبية طلبك. فقط أخبرنا بتفضيلاتك، وسنتأكد من أن كل شيء مُعد بشكل مثالي، مما يمنحك تجربة خدمة سيارة خاصة لا مثيل لها.\nرحلات آمنة!\nيرجى وصف طلبك بإيجاز.",
+  "options": [
+      { "text": "يرجى وصف طلبك بإيجاز", "input": "text", "name": "describe_your_request" },
+      { "text": "الرجوع", "next": "arabic_service_1" },
+      { "text": "التالي", "next": "arabic_thank_you" }
+  ]
+},
+"arabic_service_2": {
+  "question": "يرجى اختيار إحدى الخيارات التالية للخدمة-2:",
+  "options": [
+      { "text": "جولات مشاهدة المعالم العادية", "next": "arabic_regular_sightseeing_tours" },
+      { "text": "جولات مع دليل خاص", "next": "arabic_private_guide_tours" },
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+"arabic_regular_sightseeing_tours": {
+  "question": "تم تصميم جولات مشاهدة المعالم العادية لدينا لتوفر لك تجربة موجهة لأهم معالم المدينة. انضم إلينا في جولة شاملة للمعالم التاريخية والمواقع الثقافية والمناظر الخلابة. يتم تنظيم كل جولة بعناية لتوفير رحلة ممتعة ومفيدة، مما يمنحك وقتًا كافيًا للاستكشاف والتقاط جمال ما حولك. إذا كنت ترغب في تخصيص جولتك أو إضافة محطات محددة، فنحن سعداء بتعديل الجدول الزمني بما يتناسب مع اهتماماتك. نتمنى لك رحلة ممتعة ومشاهدة ممتعة للمعالم! \nهل ترغب في تجربة خدمة الجولة العادية؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_tour_list" },
+      { "text": "لا", "next": "arabic_service_2" }
+  ]
+},
+"arabic_tour_list": {
+  "question": "يرجى اختيار الجولة التي تهمك والتي ترغب في معرفة المزيد عنها.",
+  "options": [
+      { "text": "اكتشف المدينة القديمة (الانطلاق صباحًا / 4 ساعات)\nاستكشاف قلب إسطنبول التاريخي بزيارة بعض معالمها الأكثر شهرة:\nميدان سباق الخيل: مركز القسطنطينية القديمة حيث تلاقت الرياضة والترفيه والسياسة. \nجامع السلطان أحمد (المسجد الأزرق): تحفة مذهلة من العمارة العثمانية مزينة ببلاط دقيق ومصاحبة بتاريخ مميز. \nآيا صوفيا: بازيليكا بيزنطية مذهلة من القرن السادس تمثل العصر الذهبي للإمبراطور جستنيان.\nالبازار الكبير: أكبر وأقدم سوق مغطى في العالم، يقدم مجموعة متنوعة من الكنوز بما في ذلك المجوهرات والسجاد والطعام والعطور والمزيد.\nالسعر: 50 يورو + ضريبة القيمة المضافة (18%) للشخص الواحد.\nهل ترغب في حجز مكانك في هذه الجولة المثيرة الآن؟", "next": "arabic_booking_confirmation" },
+      { "text": "معالم الإمبراطورية العثمانية (الانطلاق صباحًا / 8 ساعات)\nميدان سباق الخيل: كان في السابق مركزًا مزدحمًا بالرياضة والترفيه والسياسة في القسطنطينية القديمة.\nجامع السلطان أحمد (المسجد الأزرق): مثال مذهل للعمارة العثمانية مزين ببلاط دقيق ويحمل تاريخًا مؤثرًا.\nآيا صوفيا: بازيليكا بيزنطية رائعة من القرن السادس، ترمز للعصر الذهبي للإمبراطور جستنيان.\nالبازار الكبير: أكبر وأقدم سوق مغطى في العالم يقدم مجموعة من الكنوز من المجوهرات والسجاد إلى الطعام والعطور.\nقصر توبكابي: المقر الإمبراطوري ومقر الحكومة للسلاطين العثمانيين من القرن الخامس عشر إلى التاسع عشر.\nقبور السلاطين: أماكن الراحة الأخيرة للسلاطين العثمانيين وشخصيات بارزة أخرى شكلت تاريخ الإمبراطورية.", "next": "arabic_booking_confirmation" },
+      { "text": "تجربة آسيا (الانطلاق صباحًا / 4 ساعات)\nجسر البوسفور:\nالجسر الوحيد الذي يربط بين قارتين، ويقدم مناظر رائعة للمدينة أثناء امتداده بين أوروبا وآسيا.\nتلة تشامليجا:\nواحدة من أعلى النقاط في إسطنبول، توفر إطلالة بانورامية خلابة على المدينة—مثالية لالتقاط الصور.\nقصر بيلاربي:\nقصر رائع من القرن التاسع عشر يقع تحت جسر البوسفور، كان يومًا مقر إقامة السلاطين العثمانيين.\nشارع بغداد:\nشارع حيوي وعصري مليء بالمقاهي والمتاجر والبوتيكات، مما يجعله وجهة شعبية للإفطار يوم الأحد والتنزه.", "next": "arabic_booking_confirmation" },
+      { "text": "جولة في البوسفور (الانطلاق بعد الظهر / 4 ساعات)\nرحلة بالقارب: الإبحار على طول البوسفور، مع القارات على مرمى حجر من كل جانب. أثناء الإبحار، استمتع بالجمال الأبدي للقصور الساحلية الأيقونية في إسطنبول، بينما يلعب نسيم البحر المنعش على بشرتك.\nسوق التوابل: استمتع بمناظر وأصوات وروائح إسطنبول النابضة في سوق التوابل. تجول في ممراته المزدحمة، واكتشف مجموعة رائعة من التوابل النادرة والأعشاب والفواكه والخضروات والزهور وحتى الحيوانات الحية.", "next": "arabic_booking_confirmation" },
+      { "text": "الهروب إلى جزر الأمراء (الانطلاق صباحًا / 8 ساعات)\nكانت يومًا مكانًا للمنفى للأمراء البيزنطيين المنكوبين وملاذًا للرهبان، أصبحت جزر الأمراء الآن وجهات صيفية شهيرة بالقرب من المدينة. لكل جزيرة سحرها وجوها الخاص، ومع توقف العبّارة القصير في كل جزيرة، ستتاح لك الفرصة لملاحظة خصائصها المميزة. ستنزل في بيوكادا، الأكبر والأكثر شهرة من بين الجزر، لتجربة لا تُنسى.", "next": "arabic_booking_confirmation" },
+      { "text": "لا", "next": "arabic_service_list" }
+  ]
+},
+"arabic_booking_confirmation": {
+  "question": "هل ترغب في حجز خدمة النقل من المطار؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_contact_info_input" },
+      { "text": "لا", "next": "arabic_thank_you" }
+  ]
+},
+"arabic_private_guide_tours": {
+  "question": "استمتع بتجربة مخصصة حيث يمكنك استكشاف المعالم بوتيرتك الخاصة والتركيز على الموضوعات التي تهمك أكثر، مع إرشاد خبراء المرشدين الخاصين لدينا. سواء كنت تبحث عن جولة تاريخية متعمقة، أو رؤية ثقافية، أو ببساطة رحلة مخصصة عبر المدينة، فإن مرشدينا هنا لتخصيص التجربة وفقًا لتفضيلاتك. تم تصميم كل جولة لتقديم المرونة، مما يضمن أن يكون يومك لا يُنسى حقًا. إذا كانت لديك طلبات خاصة أو اهتمامات معينة، فأخبرنا وسنقوم بإنشاء جولة خصيصًا لك. رحلات آمنة واستمتع باستكشافك!\nهل ترغب في تجربة خدمة دليل خاص؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_language_details" },
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+"arabic_language_details": {
+  "question": "لأي عدد من الأشخاص ترغب في إجراء الحجز؟",
+  "options": [
+      { "text": "إنجليزي", "next": "arabic_private_reservation_details" },
+      { "text": "تركي", "next": "arabic_private_reservation_details" },
+      { "text": "ألماني", "next": "arabic_private_reservation_details" },
+      { "text": "ياباني", "next": "arabic_private_reservation_details" },
+      { "text": "هندي", "next": "arabic_private_reservation_details" },
+      { "text": "برتغالي", "next": "arabic_private_reservation_details" },
+      { "text": "إيطالي", "next": "arabic_private_reservation_details" },
+      { "text": "إسباني", "next": "arabic_private_reservation_details" },
+      { "text": "روسي", "next": "arabic_private_reservation_details" },
+      { "text": "عربي", "next": "arabic_private_reservation_details" },
+      { "text": "فرنسي", "next": "arabic_private_reservation_details" }
+  ]
+},
+"arabic_private_reservation_details": {
+  "question": "لأي عدد من الأشخاص ترغب في إجراء الحجز؟",
+  "options": [
+      { "text": "أدخل عدد الأشخاص:", "input": "number", "name": "number_of_people" },
+      { "text": "التالي", "next": "arabic_reservation_duration_choice" }
+  ]
+},
+"arabic_reservation_duration_choice": {
+  "question": "كم ساعة ترغب في حجز خدمة الدليل الخاص؟",
+  "options": [
+      { "text": "4 ساعات.xx$", "next": "arabic_reservation_booking_now" },
+      { "text": "8 ساعات.xx$", "next": "arabic_reservation_booking_now" },
+      { "text": "12 ساعة.xx$", "next": "arabic_reservation_booking_now" },
+      { "text": "24 ساعة.xx$", "next": "arabic_reservation_booking_now" },
+      { "text": "الرجوع إلى اختيار فئة السيارة", "next": "arabic_hourly_vehicle_category_select" }
+  ]
+},
+"arabic_reservation_booking_now": {
+  "question": "هل ترغب في الحجز للخيار المحدد للغة مع الخيار المحدد لمدة الحجز؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_contact_details" },
+      { "text": "لا", "next": "arabic_service_list" }
+  ]
+},
+"arabic_service_3": {
+  "question": "اكتشف مجموعة مختارة بعناية من أفضل المطاعم في إسطنبول، مصممة لتلبية حتى أكثر التفضيلات الطهوية تميزًا. قمنا بتصنيف أفضل أماكن الطعام عبر تسعة موضوعات مميزة، لضمان وجود شيء يناسب كل ذوق. تصفح قائمتنا المفصلة للعثور على كل ما تحتاجه، بما في ذلك نطاق السعر المتوسط وقواعد اللباس، مما يجعل قرارك أسهل. ببساطة اختر الفئة المفضلة لديك لاستكشاف خياراتك وابدأ في التخطيط لتجربة طعام استثنائية.\nبالعافية! (استمتع بوجبتك!):\nهل ترغب في إجراء حجز في مطعم؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_restaurant_type_selection" },
+      { "text": "لا", "next": "arabic_no_message" },
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+"arabic_no_message": {
+  "question": "نقدر اهتمامك اللطيف. يمكنك العودة إلى قائمة خدماتنا لاستكشاف عروضنا أو اختيار إنهاء المحادثة.",
+  "options": [
+      { "text": "إنهاء المحادثة", "next": "arabic_thank_you" },
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+"arabic_restaurant_type_selection": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "المأكولات العالمية", "next": "arabic_international_cuisine" },
+      { "text": "المأكولات التركية", "next": "arabic_turkish_cuisine" },
+      { "text": "المأكولات الشرق آسيوية", "next": "arabic_far_east_cuisine" },
+      { "text": "ميشلان", "next": "arabic_michelin" },
+      { "text": "المأكولات الإيطالية", "next": "arabic_italian_cuisine" },
+      { "text": "المأكولات البحرية", "next": "arabic_seafood" },
+      { "text": "الستيك", "next": "arabic_steak" },
+      { "text": "الأندية", "next": "arabic_clubs" },
+      { "text": "المأكولات التركية الحديثة الأناضولية", "next": "arabic_modern_turkish_anatolian" },
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+"arabic_international_cuisine": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "Sunset Grill&Bar $$$، سمارت كاجوال، 25 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Topaz Restaurant $$$، سمارت كاجوال، 10 دقائق سيراً على الأقدام.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Ulus 29 $$$، سمارت كاجوال، 25 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Vogue $$$، سمارت كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "360 $$، سمارت كاجوال، 15 دقيقة سيراً على الأقدام.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "العودة إلى اختيار نوع المطعم", "next": "arabic_restaurant_type_selection" }
+  ]
+},
+"arabic_turkish_cuisine": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "Nişantaşı Başköşe $$، كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Ali Ocakbaşı Gümüşsuyu $، كاجوال، 10 دقائق سيراً على الأقدام.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Günaydın Maçka $$، كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Sütiş Kebap Dünyası $$، كاجوال، 5 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Zübeyir Ocakbaşı $، كاجوال، 10 دقائق سيراً على الأقدام.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "العودة إلى اختيار نوع المطعم", "next": "arabic_restaurant_type_selection" }
+  ]
+},
+"arabic_far_east_cuisine": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "Zuma $$$، سمارت كاجوال، 20 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Roka $$، كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Maromi $$، كاجوال، 5 دقائق سيراً على الأقدام.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Banyan $$، كاجوال، 20 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Çok Çok Pera $$، كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "العودة إلى اختيار نوع المطعم", "next": "arabic_restaurant_type_selection" }
+  ]
+},
+"arabic_michelin": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "Turk Fatih Tutak $$$، سمارت كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Araka $$$، سمارت كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Mikla $$$، سمارت كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Neolokal $$$، سمارت كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Nicole $$$، سمارت كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "العودة إلى اختيار نوع المطعم", "next": "arabic_restaurant_type_selection" }
+  ]
+},
+"arabic_italian_cuisine": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "CECCONİ'S $$$، سمارت كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "PAPERMOON $$$، سمارت كاجوال، 30 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "DA MARIO $$$، سمارت كاجوال، 30 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Neolokal $$$، سمارت كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Cipriani $$$، سمارت كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "العودة إلى اختيار نوع المطعم", "next": "arabic_restaurant_type_selection" }
+  ]
+},
+"arabic_seafood": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "Sait Balık $$$، سمارت كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Park Fora $$، كاجوال، 20 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Akıntı Burnu $$، كاجوال، 25 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Sur Balık Arnavutköy $$، كاجوال، 20 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "العودة إلى اختيار نوع المطعم", "next": "arabic_restaurant_type_selection" }
+  ]
+},
+"arabic_steak": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "Nusret $$، سمارت كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Gürkan Şef $$، سمارت كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Günaydın Steak&Kebap Galataport- Maçka $$، كاجوال، 15 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "العودة إلى اختيار نوع المطعم", "next": "arabic_restaurant_type_selection" }
+  ]
+},
+"arabic_clubs": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "Ruby $$$، سمارت كاجوال، 20 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Oligark $$$، سمارت كاجوال، 25 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Sortie $$$، سمارت كاجوال، 20 دقيقة بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "العودة إلى اختيار نوع المطعم", "next": "arabic_restaurant_type_selection" }
+  ]
+},
+"arabic_modern_turkish_anatolian": {
+  "question": "يمكنك عرض الخيارات ذات الصلة عن طريق اختيار فئة المطعم التي تهتم بها.",
+  "options": [
+      { "text": "Mikla $$$، سمارت كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Mürver $$، سمارت كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Madera $$، سمارت كاجوال، 5 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "Karaköy Lokantası $$، سمارت كاجوال، 10 دقائق بالسيارة.", "next": "arabic_restaurant_type_selection_booking" },
+      { "text": "العودة إلى اختيار نوع المطعم", "next": "arabic_restaurant_type_selection" }
+  ]
+},
+"arabic_restaurant_type_selection_booking": {
+  "question": "هل ترغب في إجراء حجز للخيار المحدد الآن؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_contact_details_restaurant" },
+      { "text": "لا", "next": "arabic_no_message" }
+  ]
+},
+"arabic_contact_details_restaurant": {
+  "question": "يرجى تقديم تفاصيل الاتصال الخاصة بك.",
+  "options": [
+      { "text": "يرجى تقديم اسمك الكامل.", "input": "text", "name": "full_name" },
+      { "text": "يرجى تقديم رقم هاتفك (بما في ذلك رمز البلد).", "input": "tel", "name": "phone_number" },
+      { "text": "لأي عدد من الأشخاص ترغب في إجراء الحجز؟", "input": "number", "name": "number_of_people" },
+      { "text": "ما التاريخ الذي ترغب في إجراء الحجز فيه؟", "input": "date", "name": "reservation_date" },
+      { "text": "ما الوقت الذي ترغب في إجراء الحجز فيه؟", "input": "text", "name": "reservation_time" },
+      { "text": "التالي", "next": "arabic_thank_you" }
+  ]
+},
+"arabic_service_5": {
+  "question": "نحن هنا لمساعدتك في أي احتياجات فريدة قد تكون لديك. تتيح لك خدمة الطلبات الأخرى التواصل مع أعضاء فريقنا المخصصين للحصول على دعم مصمم حسب الطلب. سواء كنت بحاجة إلى ترتيبات خاصة أو توصيات شخصية أو مساعدة في طلبات معينة، فقط أخبرنا وسنقوم بتحقيق ذلك. رضاك هو أولويتنا!",
+  "options": [
+      { "text": "نعم", "next": "arabic_other_request_booking" },
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+"arabic_other_request_booking": {
+  "question": "يرجى تقديم تفاصيل الاتصال الخاصة بك.",
+  "options": [
+      { "text": "يرجى تقديم اسمك الكامل", "input": "text", "name": "full_name" },
+      { "text": "يرجى وصف طلبك بإيجاز.", "input": "text", "name": "describe_your_request" },
+      { "text": "يرجى تقديم رقم هاتفك (بما في ذلك رمز البلد).", "input": "tel", "name": "phone_number" },
+      { "text": "التالي", "next": "arabic_other_request_thank_you" }
+  ]
+},
+"arabic_other_request_thank_you": {
+  "question": "يرجى العلم أننا قمنا بتدوين جميع الملاحظات اللازمة المتعلقة بطلباتك وسنعود إليك في أقرب وقت ممكن للتأكيد. يمكنك العودة إلى قائمة خدماتنا لاستكشاف عروضنا الأخرى، أو يمكنك اختيار إنهاء المحادثة.",
+  "options": [
+      { "text": "إنهاء المحادثة", "next": "arabic_end_chat" },
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+"arabic_end_chat": {
+  "question": "شكرًا لاهتمامك الكريم. لا تتردد في الاتصال بنا إذا كنت بحاجة إلى مزيد من المساعدة.",
+  "options": [
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" },
+      { "text": "العودة إلى قائمة اللغات", "next": "language-selection" }
+  ]
+},
+"arabic_service_4": {
+  "question": "اكتشف تجربة التسوق المثالية في إسطنبول: عيش في جنة تسوق حيث تلبي المتاجر المختارة رغباتك. من البوتيكات الفاخرة إلى الكنوز المحلية، تقدم إسطنبول مجموعة متنوعة من الخيارات التي تعرض التراث الغني والحرفية العالية في المدينة. دعنا نرشدك عبر معالم هذا المشهد التجاري النابض. خطط لمغامرتك التسوقية التي لا تُنسى في إسطنبول اليوم!\nهل ترغب في إجراء حجز للتسوق؟",
+  "options": [
+      { "text": "نعم", "next": "arabic_shopping_info" },
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+"arabic_shopping_info": {
+  "question": "ما الخيار الأفضل لك؟",
+  "options": [
+      { "text": "منتجات الجلد: استمتع بفن الحرفيين المحليين أثناء تصميمهم لمنتجات جلدية يدوية رائعة، بما في ذلك الحقائب والمحافظ والملابس.", "next": "arabic_contact_details_shopping" },
+      { "text": "متاجر السجاد والكليم: ادخل إلى عالم من الجمال الخالد مع متاجر مخصصة للسجاد اليدوي والكليم والإكسسوارات التقليدية.", "next": "arabic_contact_details_shopping" },
+      { "text": "المجوهرات: استكشف عالم الفخامة والأناقة أثناء تصفح المتاجر المزينة بالأحجار الكريمة والمجوهرات اليدوية الرائعة.", "next": "arabic_contact_details_shopping" },
+      { "text": "الهدايا التذكارية: انغمس في الأجواء التاريخية والثقافية من خلال متاجر تعرض مجموعة رائعة من الهدايا التذكارية.", "next": "arabic_contact_details_shopping" },
+      { "text": "الحرف اليدوية: انطلق في رحلة عبر التراث الفني الغني لتركيا مع متاجر تعرض مجموعة مذهلة من الحرف اليدوية التقليدية.", "next": "arabic_contact_details_shopping" },
+      { "text": "التوابل والشاي: اكتشف النكهات الأصيلة لتركيا من خلال التوابل والشاي التركي.", "next": "arabic_contact_details_shopping" },
+      { "text": "الحرف العثمانية: انغمس في عظمة العصر العثماني مع متاجر تقدم عناصر تاريخية فريدة مثل الخط العربي ولوحات المنمنمات.", "next": "arabic_contact_details_shopping" },
+      { "text": "الملابس التقليدية: تذوق جوهر الثقافة التركية من خلال متاجر تقدم مجموعة مميزة من الملابس التقليدية والإكسسوارات.", "next": "arabic_contact_details_shopping" },
+      { "text": "متاجر التحف: اكتشف كنوز الماضي في متاجر التحف التي تضم مجموعة متنوعة من العناصر الفريدة.", "next": "arabic_contact_details_shopping" },
+      { "text": "الزجاج والبورسلين: اكتشف روعة المنتجات الزجاجية والبورسلينية اليدوية.", "next": "arabic_contact_details_shopping" },
+      { "text": "العودة إلى قائمة الخدمات", "next": "arabic_service_list" }
+  ]
+},
+
+"arabic_contact_details_shopping": {
+  "question": "يرجى تقديم تفاصيل الاتصال الخاصة بك.",
+  "options": [
+      { "text": "يرجى تقديم اسمك الكامل.", "input": "text", "name": "full_name" },
+      { "text": "يرجى تقديم رقم هاتفك (بما في ذلك رمز البلد).", "input": "tel", "name": "phone_number" },
+      { "text": "لأي عدد من الأشخاص ترغب في إجراء الحجز؟", "input": "number", "name": "number_of_people" },
+      { "text": "ما التاريخ الذي ترغب في إجراء الحجز فيه؟", "input": "date", "name": "reservation_date" },
+      { "text": "ما الوقت الذي ترغب في إجراء الحجز فيه؟", "input": "tel", "name": "reservation_time" },
+      { "text": "التالي", "next": "arabic_thank_you" }
+  ]
+}
+}

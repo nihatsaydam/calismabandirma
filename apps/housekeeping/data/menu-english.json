@@ -1,0 +1,75 @@
+{
+    "menuTitles": {
+        "itemListTitle": "Item List Request",
+        "itemListDescription": "Please select the item you require from the list.",
+        "cleaningTitle": "Cleaning Request",
+        "cleaningDescription": "Specify your preferred time and type of cleaning."
+    },
+    "popup": {
+        "popupMessage": "What service would you like to request?",
+        "cleaningTitle": "Select Cleaning Option",
+        "cleaningOptions": "Cleaning Options:",
+        "room": "Room",
+        "bathroom": "Bathroom",
+        "wholeRoom": "Whole Room",
+        "refresh": "Refresh",
+        "confirm": "Confirm",
+        "cancel": "Cancel"
+    },
+    "menu": [
+        {
+            "key": "Room Needs",
+            "name": "Room Needs",
+            "description": "Request additional items for your room, we will provide them as soon as possible.",
+            "image": "assets/icons/room-needs.png",
+            "items": [
+                { "name": "Extra Bed" },
+                { "name": "Extra Pillow" },
+                { "name": "Extra Duvet" },
+                { "name": "Blanket" },
+                { "name": "Bed Sheets" },
+                { "name": "TV Remote" },
+                { "name": "Remote Battery" }
+            ]
+        },
+        {
+            "key": "Bathroom Needs",
+            "name": "Bathroom Needs",
+            "description": "Request additional items for your bathroom, we will provide them as soon as possible.",
+            "image": "assets/icons/bathroom-needs.png",
+            "items": [
+                { "name": "Extra Towel" },
+                { "name": "Bathrobe" },
+                { "name": "Shaving Kit" },
+                { "name": "Comb" },
+                { "name": "Nail Clipper" },
+                { "name": "Makeup Cotton" },
+                { "name": "Cotton Swab" },
+                { "name": "Shower Gel" },
+                { "name": "Shampoo" }
+            ]
+        },
+        {
+            "key": "Personnel Needs",
+            "name": "Personnel Needs",
+            "description": "Request assistance from our personnel to make your stay more comfortable.",
+            "image": "assets/icons/personel-needs.png",
+            "items": [
+                { "name": "Water" },
+                { "name": "Tea" },
+                { "name": "Coffee" },
+                { "name": "Sugar" },
+                { "name": "Milk Powder" },
+                { "name": "Slippers" },
+                { "name": "Iron & Ironing Board" },
+                { "name": "Plug Adapter" },
+                { "name": "Phone Charger" },
+                { "name": "Ashtray" },
+                { "name": "Tissues" },
+                { "name": "Wet Wipes" },
+                { "name": "Cologne" },
+                { "name": "Disinfectant" }
+            ]
+        }
+    ]
+}

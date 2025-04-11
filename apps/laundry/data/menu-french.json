@@ -1,0 +1,287 @@
+{
+  "popup": {
+    "popupMessage": "À quelle heure souhaitez-vous obtenir un service ?",
+    "time30": "Dans 30 minutes",
+    "time60": "Dans 1 heure",
+    "time120": "Dans 2 heures",
+    "time240": "Dans 4 heures"
+  },
+    "menu": [
+      {
+        "key": "Laundry Service",
+        "name": "Service de blanchisserie",
+        "description": "Service professionnel de blanchisserie pour le nettoyage et le repassage.",
+        "image": "assets/icons/laundry-service.png",
+        "items": [
+          {
+            "name": "Chemise",
+            "price": "160₺ per"
+          },
+          {
+            "name": "Pantolon",
+            "price": "200₺ per"
+          },
+          {
+            "name": "T-shirt",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Cardigan",
+            "price": "200₺ per"
+          },       
+          {
+            "name": "Gilet",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Pyjama",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Survêtement",
+            "price": "250₺ per"
+          },
+          {
+            "name": "Salopette",
+            "price": "350₺ per"
+          },
+          {
+            "name": "Débardeur",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Short",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Culotte",
+            "price": "85₺ per"
+          },
+          {
+            "name": "Chaussettes",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Mouchoir",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Cravate",
+            "price": "125 per"
+          },
+          {
+            "name": "Casquette",
+            "price": "125₺ per"
+          },
+          {
+            "name": "Brassière",
+            "price": "125₺ per"
+          },
+          {
+            "name": "Robe",
+            "price": "400₺ per"
+          },
+          {
+            "name": "Jupe",
+            "price": "230₺ per"
+          },
+          {
+            "name": "Écharpe",
+            "price": "175₺ per"
+          },
+          {
+            "name": "Blouse",
+            "price": "250₺ per"
+          }
+      ]
+      },
+      {
+        "key": "Dry Cleaning",
+        "name": "Nettoyage à sec",
+        "description": "Nettoyage à sec et repassage professionnels",
+        "image": "assets/icons/drycleaningicon.png",
+        "items": [
+          {
+            "name": "Chemise",
+            "price": "160₺ per"
+          },
+          {
+            "name": "Pantolon",
+            "price": "200₺ per"
+          },
+          {
+            "name": "T-shirt",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Cardigan",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Gilet",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Salopette",
+            "price": "350₺ per"
+          },
+          {
+            "name": "Cravate",
+            "price": "125₺ per"
+          },
+          { 
+            "name": "Robe",
+            "price": "400₺ per"
+          },
+          {
+            "name": "Jupe",
+            "price": "230₺ per"
+          },
+          {
+            "name": "Écharpe",
+            "price": "175₺ per"
+          }   ,
+          {
+            "name": "Blouse",
+            "price": "250₺ per"
+          },
+          {
+            "name": "Gilet de manteau",
+            "price": "300₺ per"
+          }    ,   
+          {
+            "name": "Costume complet",
+            "price": "480₺ per"
+          },
+          {
+            "name": "Veste",
+            "price": "280₺ per"
+          }   ,
+          {
+            "name": "Manteau",
+            "price": "450₺ per"
+          },
+          {
+            "name": "Blouson",
+            "price": "400₺ per"
+          },
+          {
+            "name": "Imperméable",
+            "price": "450₺ per"
+          }    
+         ]
+      },
+      {
+        "key": "Pressing Service",
+        "name": "Service de pressing",
+        "description": "Service de repassage professionnel pour vos vêtements.",
+        "image": "assets/icons/ironing-service.png",
+        "items": [
+             {
+            "name": "Chemise",
+            "price": "80₺ per"
+          },
+          {
+            "name": "Pantalon",
+            "price": "100₺ per"
+          },
+          {
+            "name": "T-shirt",
+            "price": "75₺ per"
+          },
+          {
+            "name": "Cardigan",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Gilet",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Pyjama",
+            "price": "75₺ per"
+          },
+          {
+            "name": "Survêtement",
+            "price": "125₺ per"
+          },        
+          {
+            "name": "Salopette",
+            "price": "175₺ per"
+          },
+          {
+            "name": "Débardeur",
+            "price": "50₺ per"
+          },
+          {
+            "name": "Shorts",
+            "price": "75₺ per"
+          },
+          {
+            "name": "Culotte",
+            "price": "45₺ per"
+          },
+          {
+            "name": "Chaussettes",
+            "price": "30₺ per"
+          },
+          {
+            "name": "Mouchoir",
+            "price": "30₺ per"
+          },
+          {
+            "name": "Cravate",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Casquette",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Brassière",
+            "price": "60₺ per"
+          } ,       
+          { 
+            "name": "Robe",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Jupe",
+            "price": "115₺ per"
+          },
+          {
+            "name": "Écharpe",
+            "price": "80₺ per"
+          }  , 
+          {
+            "name": "Blouse",
+            "price": "175₺ per"
+          },
+          {
+            "name": "Gilet de manteau",
+            "price": "150₺ per"
+          }     ,  
+          {
+            "name": "Costume complet",
+            "price": "240₺ per"
+          },
+          {
+            "name": "Veste",
+            "price": "140₺ per"
+          }   ,
+          {
+            "name": "Manteau",
+            "price": "225₺ per"
+          },
+          {
+            "name": "Blouson",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Imperméable",
+            "price": "225₺ per"
+          }  
+        ]
+      }
+    ]
+  }

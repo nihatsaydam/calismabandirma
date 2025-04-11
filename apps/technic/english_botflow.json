@@ -1,0 +1,25 @@
+{
+
+        "start": {
+          "question": "Welcome to Keepsty Technic! I am here to ensure all technical, mechanical, and IT-related issues during your stay are resolved swiftly and efficiently. If you encounter any difficulties, simply let me know, and I will ensure the appropriate team is informed immediately.\n\n<b>Please briefly explain the issue that you are faced with!<b/>",
+          "options": [
+            { "text": "Please write your problem", "input": "text", "next": "start1" }
+          ]
+        },
+      
+
+        "start1": {
+            "question": "We are sorry for the inconvenience you are experiencing. Your reported issue has been successfully received and forwarded to the appropriate technical team. They are currently working on resolving the matter. Our team will keep you updated on the progress shortly.",
+            "options": [
+              { "text": "Do you have a different problem?", "input": "text", "next": "start2" }
+            ]
+          },
+            "start2": {
+              "question": "Dear Valued Guest,\nThank you for reaching out to us again. We sincerely apologize for any inconvenience caused. Please rest assured that your reported issue has already been received and is being addressed by the technical team. They are actively working on finding a resolution, and our team will update you as soon as possible. <b>We appreciate your patience and understanding.</b>",
+              "options": [
+                { "text": "Do you have a different problem?", "input": "text", "next": "start2" }
+              ]
+          }
+      
+        
+          }

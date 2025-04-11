@@ -1,0 +1,23 @@
+{
+    "start": {
+      "question": "<b>Keepsty Şikayet'e Hoş Geldiniz!</b> Konaklamanızı mümkün olduğunca konforlu ve keyifli hale getirmek için buradayım. Herhangi bir memnuniyetsizlik veya sorun yaşarsanız, sadece bir mesaj uzağınızdayım ve hızlı bir çözüm sunmaya hazırım.\n\n<b>Lütfen yaşadığınız sorunu kısaca açıklayın.</b>",
+      "options": [
+        { "text": "Lütfen sorununuzu yazın", "input": "text", "next": "start1" }
+      ]
+    },
+  
+    "start1": {
+      "question": "Yaşadığınız sorun için üzgünüz. Şikayetiniz başarıyla alındı ve inceleniyor. <b>Size en kısa sürede çözüm hakkında bilgi vereceğiz.</b>",
+      "options": [
+        { "text": "Farklı bir sorununuz var mı?", "input": "text", "next": "start2" }
+      ]
+    },
+  
+    "start2": {
+      "question": "Değerli Misafirimiz,\nBizimle tekrar iletişime geçtiğiniz için teşekkür ederiz. Yaşadığınız rahatsızlık için içtenlikle özür dileriz. Şikayetinizin alındığını ve ilgili ekibe yönlendirildiğini size temin ederiz. Şu anda sorunun çözümü üzerinde çalışıyoruz ve ekibimiz en kısa sürede sizi bilgilendirecektir. <b>Sabır ve anlayışınız için teşekkür ederiz.<b/>",
+      "options": [
+        { "text": "Farklı bir sorununuz var mı?", "input": "text", "next": "start2" }
+      ]
+    }
+  }
+  

@@ -1,0 +1,290 @@
+
+
+  {
+    "popup": {
+      "popupMessage": "What time would you like to get a service?",
+      "time30": "In 30 minutes",
+      "time60": "In 1 hour",
+      "time120": "In 2 hours",
+      "time240": "In 4 hours"
+    },
+    "menu": [
+      {
+        "key": "Laundry Service",
+        "name": "Laundry Service",
+        "description": "Professional laundry service to cleaning and pressing.",
+        "image": "assets/icons/laundry-service.png",
+        "items": [
+          {
+            "name": "Shirt",
+            "price": "160₺ per"
+          },
+          {
+            "name": "Trousers",
+            "price": "200₺ per"
+          },
+          {
+            "name": "T-shirt",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Pullover",
+            "price": "200₺ per"
+          },       
+          {
+            "name": "Waistcoat",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Pyjamas",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Tracksuit",
+            "price": "250₺ per"
+          },
+          {
+            "name": "Overalls",
+            "price": "350₺ per"
+          },
+          {
+            "name": "Undershirt",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Shorts",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Undershorts",
+            "price": "85₺ per"
+          },
+          {
+            "name": "Socks",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Handkerchief",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Tie",
+            "price": "125 per"
+          },
+          {
+            "name": "Cap",
+            "price": "125₺ per"
+          },
+          {
+            "name": "Brassiere",
+            "price": "125₺ per"
+          },
+          {
+            "name": "Dress",
+            "price": "400₺ per"
+          },
+          {
+            "name": "Skirt",
+            "price": "230₺ per"
+          },
+          {
+            "name": "Scarf",
+            "price": "175₺ per"
+          },
+          {
+            "name": "Blouse",
+            "price": "250₺ per"
+          }
+      ]
+      },
+      {
+        "key": "Dry Cleaning",
+        "name": "Dry Cleaning",
+        "description": "Professional Dry Cleaning and pressing",
+        "image": "assets/icons/drycleaningicon.png",
+        "items": [
+          {
+            "name": "Shirt",
+            "price": "160₺ per"
+          },
+          {
+            "name": "Trousers",
+            "price": "200₺ per"
+          },
+          {
+            "name": "T-shirt",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Pullover",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Waistcoat",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Overalls",
+            "price": "350₺ per"
+          },
+          {
+            "name": "Tie",
+            "price": "125₺ per"
+          },
+          { 
+            "name": "Dress",
+            "price": "400₺ per"
+          },
+          {
+            "name": "Skirt",
+            "price": "230₺ per"
+          },
+          {
+            "name": "Scarf",
+            "price": "175₺ per"
+          },   
+          {
+            "name": "Blouse",
+            "price": "250₺ per"
+          },
+          {
+            "name": "Coat Vest",
+            "price": "300₺ per"
+          } ,      
+          {
+            "name": "Suit",
+            "price": "480₺ per"
+          },
+          {
+            "name": "Jacket",
+            "price": "280₺ per"
+          }   ,
+          {
+            "name": "Coat",
+            "price": "450₺ per"
+          },
+          {
+            "name": "Mont",
+            "price": "400₺ per"
+          },
+          {
+            "name": "Raincoat",
+            "price": "450₺ per"
+          }    
+         ]
+      },
+      {
+        "key": "Pressing Service",
+        "name": "Pressing Service",
+        "description": "Professional pressing service for your clothes.",
+        "image": "assets/icons/ironing-service.png",
+        "items": [
+             {
+            "name": "Shirt",
+            "price": "80₺ per"
+          },
+          {
+            "name": "Trousers",
+            "price": "100₺ per"
+          },
+          {
+            "name": "T-shirt",
+            "price": "75₺ per"
+          },
+          {
+            "name": "Pullover",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Waistcoat",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Pyjamas",
+            "price": "75₺ per"
+          },
+          {
+            "name": "Tracksuit",
+            "price": "125₺ per"
+          },        
+          {
+            "name": "Overalls",
+            "price": "175₺ per"
+          },
+          {
+            "name": "Undershirt",
+            "price": "50₺ per"
+          },
+          {
+            "name": "Shorts",
+            "price": "75₺ per"
+          },
+          {
+            "name": "Undershorts",
+            "price": "45₺ per"
+          },
+          {
+            "name": "Socks",
+            "price": "30₺ per"
+          },
+          {
+            "name": "Handkerchief",
+            "price": "30₺ per"
+          },
+          {
+            "name": "Tie",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Cap",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Brassiere",
+            "price": "60₺ per"
+          }  ,      
+          { 
+            "name": "Dress",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Skirt",
+            "price": "115₺ per"
+          },
+          {
+            "name": "Scarf",
+            "price": "80₺ per"
+          }   ,
+          {
+            "name": "Blouse",
+            "price": "175₺ per"
+          },
+          {
+            "name": "Coat Vest",
+            "price": "150₺ per"
+          } ,      
+          {
+            "name": "Suit",
+            "price": "240₺ per"
+          },
+          {
+            "name": "Jacket",
+            "price": "140₺ per"
+          }  , 
+          {
+            "name": "Coat",
+            "price": "225₺ per"
+          },
+          {
+            "name": "Mont",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Raincoat",
+            "price": "225₺ per"
+          }  
+        ]
+      }
+    ]
+  }
+  

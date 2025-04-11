@@ -1,0 +1,25 @@
+{
+
+    "start": {
+      "question": "<b>Bienvenue à Keepsty Technic!</b> Je suis ici pour m'assurer que tous les problèmes techniques, mécaniques et informatiques pendant votre séjour soient résolus rapidement et efficacement. Si vous rencontrez des difficultés, faites-le moi savoir et je m'assurerai que l'équipe appropriée soit informée immédiatement.\n\n<b>Veuillez expliquer brièvement le problème que vous rencontrez !<b/>",
+      "options": [
+        { "text": "Veuillez décrire votre problème", "input": "text", "next": "start1" }
+      ]
+    },
+  
+
+    "start1": {
+        "question": "Nous sommes désolés pour le désagrément que vous rencontrez. Votre problème a bien été reçu et transmis à l’équipe technique appropriée. Ils travaillent actuellement à résoudre la situation. Notre équipe vous tiendra informé de l’avancement sous peu.",
+        "options": [
+          { "text": "Do you have a different problem?", "input": "text", "next": "start2" }
+        ]
+      },
+        "start2": {
+          "question": "<b>Cher(e) invité(e) précieux(se)</b>,\nMerci de nous avoir contactés à nouveau. Nous vous présentons nos sincères excuses pour tout désagrément causé. Soyez assuré(e) que le problème que vous avez signalé a bien été reçu et qu’il est en cours de traitement par notre équipe technique. Ils travaillent activement à trouver une solution, et notre équipe vous tiendra informé(e) dès que possible. <b>Nous vous remercions pour votre patience et votre compréhension.</b>",
+          "options": [
+            { "text": "Do you have a different problem?", "input": "text", "next": "start2" }
+          ]
+      }
+  
+    
+      }

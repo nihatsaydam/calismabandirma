@@ -1,0 +1,249 @@
+{
+    "menu": [
+      {
+        "key": "Hot Coffee",
+        "name": "Hot Coffee",
+        "items": [
+          {
+            "name": "Espresso",
+            "price": "139₺"
+          },
+          {
+            "name": "Espresso Macchiato",
+            "price": "159₺"
+          },
+          {
+            "name": "Americano",
+            "price": "149₺"
+          },
+          {
+            "name": "Cafe Latte",
+            "price": "169₺"
+          },
+          {
+            "name": "Cafe Latte Macchiato",
+            "price": "169₺"
+          },
+          {
+            "name": "Cappuccino",
+            "price": "179₺"
+          },
+          {
+            "name": "Cortado",
+            "price": "169₺"
+          },
+          {
+            "name": "Flat White",
+            "price": "169₺"
+          },
+          {
+            "name": "Turkish Coffee(Small)",
+            "price": "129₺"
+          },
+          {
+            "name": "Turkish Coffee(Large)",
+            "price": "149₺"
+          },
+          {
+            "name": "Turkish Coffee with Milk",
+            "price": "159₺"
+          },
+          {
+            "name": "Filter Coffee",
+            "price": "149₺"
+          }
+  
+          
+        ]
+      },
+      {
+        "key": "Tea",
+        "name": "Tea",
+        "items": [
+          {
+            "name": "Tea",
+            "price": "50₺"
+          },
+          {
+            "name": "Green Tea",
+            "price": "169₺"
+          },
+          {
+            "name": "Winter Tea",
+            "price": "169₺"
+          },
+          {
+            "name": "Jasmin Tea",
+            "price": "169₺"
+          },
+          {
+            "name": "Chamomile Tea",
+            "price": "169₺"
+          },
+          {
+            "name": "SageTea",
+            "price": "169₺"
+          },
+          {
+            "name": "Mint Lemon Tea",
+            "price": "169₺"
+          },
+          {
+            "name": "Apple Cinnamon Tea",
+            "price": "169₺"
+          }
+        ]
+      },
+      {
+        "key": "Cold Beverages",
+        "name": "Cold Beverages",
+        "image": "assets/icons/beverages.png",
+        "items": [
+          {
+            "name": "Iced Americano",
+            "price": "185₺"
+          },
+          {
+            "name": "Iced Caffe Latte",
+            "price": "195₺"
+          },
+          {
+            "name": "Iced Chai Tea Latte",
+            "price": "219₺"
+          },
+          {
+            "name": "Lemonade",
+            "price": "179₺"
+          },
+          {
+            "name": "Strawberry Lemonade",
+            "price": "199₺"
+          },
+          {
+            "name": "Mint Lemonade",
+            "price": "199₺"
+          },
+          {
+            "name": "Basil Lemonade",
+            "price": "199₺"
+          },
+          {
+            "name": "Freshly Squeezed Orange Juice",
+            "price": "199₺"
+          },
+          {
+            "name": "Soda",
+            "price": "89₺"
+          },
+          {
+            "name": "Churchill (Salted Lemon Soda)",
+            "price": "110₺"
+          },
+          {
+            "name": "Tropical Spice",
+            "price": "209₺"
+          },
+          {
+            "name": "Berry Hibiscus",
+            "price": "199₺"
+          },
+          {
+            "name": "Cool Lime",
+            "price": "199₺"
+          }
+        ]
+      },
+      {
+        "key": "Desserts",
+        "name": "Desserts",
+        "items": [
+          {
+            "name": "Chocolate Cream",
+            "price": "335₺"
+          },
+          {
+            "name": "Marble Brownie",
+            "price": "335₺"
+          },
+          {
+            "name": "Croissant",
+            "price": "330₺"
+          }
+        ]
+      },
+      {
+        "key": "Factory Specials",
+        "name": "Factory Specials",
+        "items": [
+          {
+            "name": "Gold Chocolate Frappe",
+            "price": "209₺"
+          },
+          {
+            "name": "White Chocolate Frappe",
+            "price": "209₺"
+          },
+          {
+            "name": "Gold Belgium Chocolate Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "White Belgium Chocolate Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "Ice Gold Chocolate Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "Ice White Chocolate Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "Lotus Frappe",
+            "price": "209₺"
+          },
+          {
+            "name": "Iced Chocolate",
+            "price": "219₺"
+          },
+          {
+            "name": "Iced Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "Hot Belgium Chocolate Mocha",
+            "price": "199₺"
+          },
+          {
+            "name": "Hot Belgium Chocolate",
+            "price": "199₺"
+          },
+          {
+            "name": "Lotus Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Pumpkin Spice Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Honey Cinnamon Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Pistachio Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Dirty Chai Tea Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Chai Tea Latte",
+            "price": "209₺"
+        }
+    ]
+  }
+]
+}

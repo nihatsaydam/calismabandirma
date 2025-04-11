@@ -1,0 +1,351 @@
+
+/* Genel Sayfa Stilleri */
+
+html,
+body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh; /* Mobil ekranÄ± sabitlemek iÃ§in Ã§ok Ã¶nemli diyolar knkm */
+  touch-action: none; /* Dokunmatik kaydÄ±rmayÄ± engeller yalan bu */
+}
+
+/* BaÅŸlÄ±k ve Logo */
+header {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+header .logo {
+  width: 60px;
+  height: auto;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #4a4a4a;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Konteyner */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Kartlar */
+.card {
+  width: 120px;
+  height: 220px;
+  background-color: #ffffff;
+  border: 2px solid #d6e9f5;
+  border-radius: 120px 120px 0 0; /* Ãœst kÃ¶ÅŸeler tamamen oval yapÄ±lÄ±r */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* KapÄ± Åekli */
+.card .door {
+  width: 100px;
+  height: 160px;
+  margin: 20px auto;
+  background-color: #99d3d5;
+  border-radius: 120px 120px 0 0; /* Ãœst kÃ¶ÅŸeler tamamen oval yapÄ±lÄ±r */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .door img {
+  width: 130%;
+  height: auto;
+  margin: 10px 10px;
+  margin-left: 10px;
+}
+
+/* BaÅŸlÄ±k */
+.card h3 {
+  margin: -8px 0 0;
+  font-size: 16px;
+  color: #9b795c;
+  font-weight: bold;
+}
+
+/* Responsive TasarÄ±m */
+@media (max-width: 768px) {
+  .card {
+    width: 120px;
+    height: 200px;
+  }
+
+  .card .door {
+    width: 80px;
+    height: 120px;
+  }
+
+  .card h3 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    gap: 15px;
+  }
+
+  .card {
+    width: 90px;
+    height: 162px;
+  }
+
+  .card .door {
+    width: 63px;
+    height: 90px;
+  }
+
+  .card h3 {
+    font-size: 12px;
+  }
+}
+/* KapÄ± TÄ±klama Efekti */
+.card.clicked .door {
+  animation: doorZoomIn 0.5s forwards ease-in-out;
+}
+
+/* KapÄ± Zoom Efekti */
+@keyframes doorZoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+  }
+} /* Genel Ayarlar */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+  background-color: #f5eede;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* KaydÄ±rmayÄ± tamamen engeller */
+  touch-action: none; /* Mobilde dokunmatik kaydÄ±rmayÄ± kapatÄ±r */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  background-color: transparent; /* Beyaz arka plan kaldÄ±rÄ±ldÄ± */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.header-text h1 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #9b795c;
+  margin: 0;
+}
+
+.header-text .underline {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  margin: 5px 0;
+}
+
+.header-text p {
+  font-size: 12px;
+  color: #000000;
+  margin: 0;
+}
+
+/* Ekran AyarlarÄ± */
+.screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.screen.active {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* YENÄ° Form Konteyneri */
+.form-container {
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  background-color: transparent; /* Beyaz arka plan kaldÄ±rÄ±ldÄ± */
+  padding: 5px; /* Fazla boÅŸluk kaldÄ±rÄ±ldÄ± */
+  margin-top: -60px; /* YukarÄ± taÅŸÄ±ma */
+  transition: transform 0.3s ease;
+}
+
+@media (max-height: 500px) {
+  /* Klavye aÃ§Ä±kken uygula */
+  .form-container {
+    transform: translateY(-20%);
+  }
+}
+
+/* KartlarÄ± biraz daha yukarÄ± almak iÃ§in */
+.container {
+  margin-top: -50px; /* KartlarÄ± yukarÄ± taÅŸÄ±ma */
+}
+/* buraya kadar yeni */
+
+
+
+/* GÃ¼venli alan desteÄŸi iÃ§in */
+@supports (padding: max(0px)) {
+  body {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px !important; /* Kritik: 16px zorunlu olmalÄ± */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none; /* Safari varsayÄ±lan stilini kaldÄ±r */
+  appearance: none;
+}
+
+input:focus {
+  outline: none;
+  border-color: #99d3d5;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: #99d3d5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  flex: 1;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #607d8b;
+}
+
+#exit {
+  background-color: #99d3d5;
+}
+/* Dil SeÃ§im EkranÄ± Konteyneri */
+.language-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* ButonlarÄ± Dikey Hizalama */
+.language-container button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  color: #333;
+  padding: 12px 20px; /* Buton iÃ§ boÅŸluÄŸu */
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #d8cdbf; /* Hafif kahverengi kenarlÄ±k */
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 12px; /* Bayrak ile metin arasÄ±ndaki boÅŸluk */
+  width: 240px; /* Sabit geniÅŸlik */
+  text-align: left;
+  margin: 8px auto; /* ButonlarÄ± ortala */
+}
+
+/* Buton Hover Efekti */
+.language-container button:hover {
+  background-color: #f0e8d8; /* Krem hover efekti */
+  color: #7a6c5e;
+}
+
+/* Bayrak GÃ¶rselleri */
+.language-container button::before {
+  content: "";
+  display: inline-block;
+  width: 30px; /* Bayrak boyutu */
+  height: 20px;
+  margin-right: 10px; /* Bayrak ile yazÄ± arasÄ± boÅŸluk */
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Her Dil Ä°Ã§in Bayrak GÃ¶rselleri */
+.language-container button[data-lang="en"]::before {
+  background-image: url("assets/flags/en.png");
+}
+
+.language-container button[data-lang="tr"]::before {
+  background-image: url("assets/flags/tr.png");
+}
+
+.language-container button[data-lang="fr"]::before {
+  background-image: url("assets/flags/fr.png");
+}
+
+.language-container button[data-lang="ar"]::before {
+  background-image: url("assets/flags/ar.png");
+}

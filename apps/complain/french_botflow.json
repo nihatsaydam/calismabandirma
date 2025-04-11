@@ -1,0 +1,23 @@
+{
+    "start": {
+      "question": "<b>Bienvenue sur Keepsty Réclamations !</b> Je suis ici pour rendre votre séjour aussi confortable et agréable que possible. Si vous rencontrez un problème ou une insatisfaction, je suis à un message de distance et prêt à vous apporter une solution rapide.\n\n<b>Veuillez décrire brièvement le problème que vous avez rencontré.</b>",
+      "options": [
+        { "text": "Veuillez écrire votre problème", "input": "text", "next": "start1" }
+      ]
+    },
+  
+    "start1": {
+      "question": "Nous sommes désolés pour le problème que vous avez rencontré. Votre réclamation a bien été reçue et est en cours de traitement. <b>Nous vous tiendrons informé de la résolution dans les plus brefs délais.</b>",
+      "options": [
+        { "text": "Avez-vous un autre problème ?", "input": "text", "next": "start2" }
+      ]
+    },
+  
+    "start2": {
+      "question": "Cher client,\nMerci de nous avoir contactés à nouveau. Nous nous excusons sincèrement pour le désagrément que vous avez rencontré. Soyez assuré que votre réclamation a bien été reçue et transmise à l’équipe concernée. Nous travaillons actuellement à la résolution du problème et notre équipe vous tiendra informé dès que possible. <b>Nous apprécions votre patience et votre compréhension.<b/>",
+      "options": [
+        { "text": "Avez-vous un autre problème ?", "input": "text", "next": "start2" }
+      ]
+    }
+  }
+  

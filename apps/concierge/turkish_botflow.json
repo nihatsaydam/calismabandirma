@@ -1,0 +1,653 @@
+{
+  "start": {
+    "question": " Hotel 54 Concierge Masasına Hoş Geldiniz.\nBen Keepsty, sizin özel concierge danışmanınızım. Konaklamanızın olabildiğince sorunsuz ve keyifli geçmesini sağlamak için buradayım. Restoran rezervasyonları, şehirle ilgili öneriler veya ulaşım konusunda yardıma ihtiyacınız olursa her zaman yanınızdayım.\nŞehri derinlemesine bilen biri olarak ve kişiye özel hizmet anlayışıyla, Sakarya'nın sunduğu en iyi deneyimlere ulaşmanızı sağlıyorum. Günün her saati, her yerde size şehrin en özel imkanlarını sunmak için buradayım.",
+    "options": [
+      { "text": "Merhaba Keepsty", "next": "english_service_list" }
+    ]
+
+  },
+  "start1": {
+    "question": "Hotel 54’ün, kimlik, iletişim, müşteri işlem, pazarlama ve araç sigortası verilerim de dahil olmak üzere kişisel bilgilerimi işlemesine izin veriyorum. Bu işlemler, tercihleri, kullanım alışkanlıklarımı ve ihtiyaçlarımı dikkate alarak bana sunulan mal ve hizmetlerin kişiselleştirilmesi amacıyla gerçekleştirilmektedir. Ayrıca, reklam, promosyon ve kampanya gibi ticari elektronik iletiler almayı kabul ediyor ve bu bilgilerin, ilgili hizmetlerin sunulmasında destek sağlayan üçüncü taraf hizmet sağlayıcılarla paylaşılmasına onay veriyorum.",
+    "options": [
+      { "text": "Kabul ediyorum", "next": "english_service_list" },
+      { "text": "Kabul etmiyorum", "next": "english_end_chat" }
+    ]
+
+  },
+  "english_service_list": {
+      "question": "Şartlar ve koşulları kabul ettiğiniz için teşekkür ederim. Hizmetinizdeyim! Bugün size nasıl yardımcı olabilirim?",
+      "options": [
+        { "text": "Havalimanı Transferi veya Şoförlü Araç Hizmeti", "next": "english_service_1" },
+        { "text": "Grup Turu mu, Özel Tur mu?", "next": "english_service_2" },
+        { "text": "Restoran Rezervasyonu", "next": "english_service_3" },
+        { "text": "En İyi Alışveriş Merkezleri", "next": "english_service_4" },
+        { "text": "Diğer Talepler", "next": "english_service_5" },
+        { "text": "Sohbeti Sonlandır", "next": "english_end_chat" }
+      ]
+  
+ 
+    },
+    
+  "english_service_1": {
+    "question": "Lütfen aşağıdaki hizmetlerden birini seçin.",
+    "options": [
+      { "text": "Havalimanı Transferi", "next": "english_airport_transfer_start" },
+      { "text": "Saatlik Şoförlü Hizmet", "next": "english_hourly_private_car_start" },
+      { "text": "Diğer Talepler (Özel Araç)", "next": "english_private_car_other" },
+      { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+    ]
+  },
+  "english_airport_transfer_start": {
+    "question": "<b>Havalimanı Transfer Hizmetimiz</b> sizin için hazır.\n <b>Şoförünüz </b> belirlenen alma noktasında sizi bekleyecek ve, <b>uçuşunuzdaki olası değişiklikleri takip edecektir.</b> \n\n<b>Konforlu ve sorunsuz bir yolculuk için </b> havalimanı transfer hizmetimizi onaylamak ister misiniz?",
+    "options": [
+      { "text": "EVET", "next": "english_airport_transfer_direction" },
+      { "text": "Hizmet Listesine Geri Dön", "next": "english_service_1" }
+    ]
+  },
+  "english_airport_transfer_direction": {
+    "question": "Transfer yönünü belirtmek ister misiniz: varış (havalimanından otele) veya kalkış (otelden havalimanına)?",
+    "options": [
+      { "text": "Varış (Havalimanından)", "next": "english_arrival_airport_select" },
+      { "text": "Kalkış (Havalimanına doğru)", "next": "english_departure_airport_select" }
+    ]
+  },
+  "english_departure_airport_select": {
+      "question": "Lütfen uçuşunuzun varacağı havalimanını seçiniz.",
+      "options": [
+        { "text": "İstanbul Havalimanı (IST)", "next": "english_arrival_date_input" },
+        { "text": "Sabiha Gökçen Uluslararası Havalimanı (SAW)", "next": "english_arrival_date_input" }
+      ]
+    },
+  "english_arrival_airport_select": {
+    "question": "Lütfen uçuşunuzun varacağı havalimanını seçiniz.",
+    "options": [
+      { "text": "İstanbul Havalimanı (IST)", "next": "english_arrival_date_input" },
+      { "text": "Sabiha Gökçen Uluslararası Havalimanı (SAW)", "next": "english_arrival_date_input" }
+    ]
+  },
+  "english_arrival_date_input": {
+    "question": "Lütfen varış tarihinizi belirtiniz. (dd.mm.yyyy)",
+    "options": [
+      { "text": "Lütfen varış tarihinizi belirtiniz:", "input": "date", "name": "arrival_date", "next": "english_flight_code_input" },
+      { "text": "Havalimanı Seçimine Geri Dön", "next": "english_arrival_airport_select" }
+    ]
+  },
+  "english_flight_code_input": {
+    "question": "Lütfen uçak kodunuzu paylaşınız.",
+    "options": [
+      { "text": "Lütfen uçak kodunuzu paylaşınız:", "input": "text", "name": "flight_code", "next": "english_vehicle_category_select" },
+      { "text": "Havalimanı Seçimine Geri Dön", "next": "english_arrival_airport_select" }
+    ]
+  },
+  "english_vehicle_category_select": {
+    "question": "Hangi araç sınıfını talep etmek istersiniz?",
+    "options": [
+      { "text": "First Class, 2 yolcu ve 2 adet bagaja kadar.", "next": "english_contact_info_input" },
+      { "text": "Business Class, 2 yolcu ve 2 adet bagaja kadar.", "next": "english_contact_info_input" },
+      { "text": "Vito, 6 yolcu ve 6 adet bagaja kadar.", "next": "english_contact_info_input" },
+      { "text": "Otobüs , 10 yolcu ve 10 adet bagaja kadar.", "next": "english_contact_info_input" },
+      { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+    ]
+
+  },
+  "english_contact_info_input": {
+    "question": "Lütfen yolcu sayısını giriniz. ",
+    "options": [
+      { "text": "Lütfen yolcu sayısını giriniz:", "input": "tel", "name": "phone_number", "next": "english_contact_info_input2" },
+      { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+    ]
+  },
+  "english_contact_info_input2": {
+    "question": "Lütfen tam adınızı giriniz. ",
+    "options": [
+      { "text": "Lütfen tam adınızı giriniz:", "input": "text", "name": "full_name", "next": "english_contact_info_input1" },
+      { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+    ]
+  },
+  "english_contact_info_input1": {
+    "question": "Lütfen telefon numaranızı (ülke kodu ile birlikte) giriniz.",
+    "options": [
+ 
+      { "text": "Lütfen telefon numaranızı (ülke kodu ile birlikte) giriniz:", "input": "tel", "name": "phone_number" , "next": "english_confirmation"},
+      { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+    ]
+  },
+  "english_confirmation": {
+    "question": "Rezervasyon Talebiniz Alınmıştır!\nBize talebinizi ilettiğiniz için teşekkür ederiz! Rezervasyon talebiniz başarıyla alınmış olup, ekibimiz tarafından işleme alınacaktır.\nLütfen rezervasyonunuzun <b>henüz onaylanmadığını unutmayın</b>. Onay süreci tamamlandığında sizi bilgilendireceğiz.\nTekrardan sizlere yardımcı olmayı dört gözle bekliyoruz!",
+    "options": [
+      { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" },
+      { "text": "Sohbeti Sonlandır", "next": "endChat" }
+    ]
+  },
+
+  "english_hourly_private_car_start": {
+    "question": "<b>Saatlik Şoförlü Hizmetimiz</b> size <b>esneklik ve kolaylık </b>sağlamak için tasarlanmıştır. İster <b>toplantılar, geziler veya özel etkinlikler</b>için taşıma ihtiyacınız olsun, <b>şoförünüz</b> ihtiyaç duyduğunuzda hizmetinizde olacaktır.\n Lüks araç filomuzdan, <b<lüks sedanlar, SUV’ler veya minibüsler</b>—arasından seçim yaparak  <b>düzgün</b> ve <b>konforlu</b> bir yolculuk yapabilirsiniz.\n Planlarınız değişirse veya <b>özel talepleriniz varsa</b>, bize bildirin ve gerekli ayarlamaları yapalım. Her yolculuğunuzu <b>kolay ve zahmetsiz</b>hale getirmek için buradayız.\n<b>Güvenli Seyahatler</b>\n\n<b>Limuzin Hizmetlerimizden faydalanmak ister misiniz?</b>",
+    "options": [
+      { "text": "Evet", "next": "english_hourly_vehicle_category_select" },
+      { "text": "Hizmetlere Geri Dön", "next": "english_service_1" }
+    ]
+  },
+  "english_hourly_vehicle_category_select": {
+    "question": "Hangi araç sınıfı rezervasyonunuz için talep etmek istersiniz?",
+    "options": [
+      { "text": "First Class, 2 yolcu ve 2 adet bagaja kadar.", "next": "english_hourly_duration_choice" },
+      { "text": "Business Class, 2 yolcu ve 2 adet bagaja kadar.", "next": "english_hourly_duration_choice" },
+      { "text": "Minibüs, 6 yolcu ve 6 adet bagaja kadar.", "next": "english_hourly_duration_choice" },
+      { "text": "Van, 10 yolcu ve 10 adet bagaja kadar.", "next": "english_hourly_duration_choice" },
+      { "text": "Ekonomi, 2 yolcu ve 2 adet bagaja kadar.", "next": "english_hourly_duration_choice" },
+      { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+    ]
+  },
+  "english_hourly_duration_choice": {
+    "question": "Kaç saatlik özel şoförlü araç hizmeti rezervasyonu yaptırmak istersiniz?",
+    "options": [
+      { "text": "4 saat", "next": "english_hourly_starting_location" },
+      { "text": "8 saat", "next": "english_hourly_starting_location" },
+      { "text": "12 saat", "next": "english_hourly_starting_location" },
+      { "text": "24 saat", "next": "english_hourly_starting_location" },
+      { "text": "Araç Kategorisi Seçimine Geri Dön", "next": "english_hourly_vehicle_category_select" }
+    ]
+  },
+  
+  "english_hourly_starting_location": {
+    "question": "Özel Şoförlü araç hizmetinizin nereden başlamasını istersiniz?",
+    "options": [
+      { "text": "Otel", "next": "english_hourly_confirmation" },
+      { "text": "Lütfen alınmak istediğiniz adresinizi paylaşınız.", "input": "text",  "next": "english_hourly_confirmation" },
+      { "text": "Süre Seçimine Geri Dön", "next": "english_hourly_duration_choice" }
+  ]
+  },
+  "english_hourly_confirmation": {
+    "question": "Onaylamak için, seçiminiz \"Seçilen Araç Seçimi\" ve \"Seçilen Süre\". Bu seçimi onaylamak ister misiniz?",
+    "options": [
+      { "text": "EVET", "next": "english_contact_details" },
+      { "text": "HAYIR", "next": "english_hourly_vehicle_category_select" }
+    ]
+  },
+
+      "english_contact_details": {
+        "question": "Lütfen tam adınızı paylaşınız.",
+        "options": [
+          { "text": "Lütfen tam adınızı paylaşınız.", "input": "text", "name": "full_name", "next": "english_contact_details1" }
+        ]
+      },
+    
+
+    "english_contact_details1": {
+      "question": "Lütfen iletişim numaranızı paylaşınız.",
+      "options": [
+        { "text": "Lütfen iletişim numaranızı (ülke kodu ile birlikte) paylaşınız.", "input": "tel", "name": "phone_number" , "next": "english_reservation_details"}
+      ]
+    },
+      "english_reservation_details": {
+        "question": "Rezervasyonu kaç kişi için yapmak istersiniz?",
+        "options": [
+          { "text": "Kaç kişi olacağınızı giriniz:", "input": "number", "name": "number_of_people", "next": "english_reservation_date_time"}
+        ]
+      },
+      "english_reservation_date_time": {
+        "question": "Rezervasyonu hangi tarih ve saat için yapmak istersiniz?",
+        "options": [
+          { "text": "Rezervasyon tarihinizi giriniz (dd.mm.yyyy):", "input": "date", "name": "reservation_date", "next": "english_reservation_date_time1" }
+   
+        ]
+      },
+      "english_reservation_date_time1": {
+        "question": "Rezervasyonu hangi tarih ve saat için yapmak istersiniz?",
+        "options": [
+          { "text": "Rezervasyon saatinizi giriniz (hh:mm):", "input": "time", "name": "reservation_time" ,"next": "english_confirmation"}
+        ]
+      },
+      "english_thank_you": {
+        "question": "Concierge hizmetimize başvurduğunuz için teşekkür ederiz. Ekibimiz 08:00 - 23:00 saatleri arasında hizmetinizdedir ve taleplerinizi onaylamak için bu saatler içinde sizinle iletişime geçeceğiz. Harika bir gün geçirmenizi dileriz!",
+        "options": [
+          { "text": "Sohbeti Sonlandır", "next": "endChat" },
+          { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+        ]
+      },
+    
+      "english_private_car_other": {
+          "question": "Bazen <b>tamamen kişiselleştirilmiş</b> bir yolculuğa ihtiyaç duyduğunuzu anlıyoruz. <b>Özel Şoförlü Araç Hizmetimiz ile</b>, tam da ihtiyacınıza göre tasarlanmış ulaşımı sunuyoruz. \nİster  <b>belirli bir güzergah, ister zamanlama</b>, veya <b>özel bir talep olsun</b>, her şeyi size göre düzenlemek için buradayız. <b>Tercihlerinizi</b> bize iletin, her şeyin <b>mükemmel</b> bir şekilde düzenlendiğinden emin olacağız, ve size <b>benzersiz bir özel şoförlü araç deneyimi sunacağız.</b>\n<b>Güvenli seyahatler!</b>\n\n<b>Lütfen talebinizi kısaca açıklayın.</b>",
+          "options": [
+            { "text": "Lütfen talebinizi kısaca açıklayınız.", "input": "text", "name": "describe_your_request", "next": "english_thank_you"},
+            { "text": "Back", "next": "english_service_1" }
+          ]
+        
+        
+
+
+},
+
+"english_service_2": {
+  "question": "Lütfen aşağıdaki hizmetlerden birini seçin.",
+  "options": [
+    { "text": "Düzenli Gezi Turları", "next": "english_regular_sightseeing_tours" },
+    { "text": "Özel Rehberli Turlar", "next": "english_private_guide_tours" },
+    { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+  ]
+},
+
+"english_regular_sightseeing_tours": {
+"question": "<b>Düzenli Gezi Turlarımız</b> Düzenli Gezi Turlarımız, şehrin en önemli cazibe merkezlerini keşfetmeniz için keyifli bir deneyim sunmak amacıyla tasarlanmıştır. Tarihi simge yapıları, kültürel alanları ve manzaralı güzergahları kapsayan kapsamlı bir tur için bize katılın. Her tur, konforlu ve keyifli bir yolculuk sağlamak için özenle planlanmıştır. Yol boyunca şehrin en dikkat çekici noktalarını keşfederken, muazzam manzaraların keyfini çıkarma fırsatınız olacak. Gezinizin sorunsuz, unutulmaz ve rahat geçmesini sağlamak için buradayız.\n <b>Keşfinizin tadını çıkarmanızı ve güvenli seyahatler dileriz!<b/>",
+"options": [
+  { "text": "EVET", "next": "english_tour_list" },
+  { "text": "Hizmetlere Geri Dön", "next": "english_service_2" }
+]
+
+}, 
+"english_tour_list": {
+  "question": "İlginizi çeken ve daha fazla bilgi almak istediğiniz turu seçiniz.",
+  "options": [
+    { "text": "Eski Şehir Turu (Sabah Hareketi / 4 Saat)" ,"next": "english_tour_list1" },
+    { "text": "Osmanlı İmparatorluğu Anıtları (Sabah Hareketi / 8 Saat)","next": "english_tour_list2" },
+    { "text": "Asya Deneyimi (Sabah Hareketi / 4 Saat)", "next": "english_tour_list3" },
+    { "text": "Boğaz Turu (Öğleden Sonra Hareket / 4 Saat)", "next": "english_tour_list4" },
+    { "text": "Prens Adaları'na Kaçış (Sabah Hareketi / 8 Saat)", "next": "english_tour_list5" },
+    { "text": "HAYIR", "next": "english_service_list" }
+  ]
+},
+"english_tour_list1": {
+"question": "Eski Şehir Turu (Sabah Hareketi / 4 Saat)\n \nİstanbul'un tarihi kalbini keşfedin, en ikonik simge yapılarına ziyaretler yaparak şehri daha yakından tanıyın:\nHipodrom: Antik Konstantinopolis'in merkezi, spor, eğlence ve politikanın bir araya geldiği bu tarihi alanı keşfedin. \nSultanahmet Camii: Osmanlı mimarisinin muazzam bir şaheseri olan, zarif çinilerle süslenmiş ve derin bir tarihe sahip bu camiyi ziyaret edin.\nAyasofya: 6. yüzyıldan kalma, Bizans dönemine ait bu nefes kesici bazilikayı keşfedin, İmparator I. Justinianus'un altın çağını simgeliyor.\nKapalı Çarşı: Dünyanın en büyük ve en eski kapalı çarşısı olan bu pazarda, takılardan halılara, yiyeceklerden parfümlere kadar birçok hazineyi keşfedin. \nFiyat: 50€ + KDV (%18) kişi başı. \nBu heyecan verici Eski Şehir Turu için yerinizi şimdi ayırtmak ister misiniz?",
+"options": [
+  { "text": "EVET", "next": "english_contact_info_input" },
+  { "text": "HAYIR", "next": "english_tour_list" }
+]
+},
+"english_tour_list2": {
+"question": "Osmanlı İmparatorluğu Anıtları (Sabah Hareketi / 8 Saat)\nHipodrom: Bir zamanlar antik Konstantinopolis'te spor, eğlence ve politikanın merkezi olan bu tarihi alan, İstanbul'un geçmişine dair önemli izler taşıyor.\nSultanahmet Camii (Mavi Camii): Osmanlı mimarisinin büyüleyici bir örneği olan, zarif çinilerle süslenmiş ve derin bir tarihe sahip bu cami, göz kamaştırıcı bir yapıdır. \nAyasofya: 6. yüzyıldan kalma, Bizans döneminin muazzam bazilikası olan Ayasofya, İmparator I. Justinianus'un altın çağını simgeliyor.   \nKapalı Çarşı: Dünyanın en büyük ve en eski kapalı çarşısı olan bu pazar, yüzyıllardır takılardan halılara, yiyeceklerden parfümlere kadar geniş bir hazine sunuyor.\nTopkapı Sarayı: 15. yüzyıldan 19. yüzyıla kadar Osmanlı sultanlarının imparatorluk sarayı ve hükümet merkezi olarak kullanılan bu muazzam yapıyı keşfedin.\nSultanların Türbeleri: Osmanlı sultanlarının ve imparatorluğun tarihini şekillendiren önemli figürlerin son istirahatgahları, Osmanlı İmparatorluğu'nun derin geçmişine dair önemli bir durak sunuyor.",
+"options": [
+  { "text": "EVET", "next": "english_contact_info_input" },
+  { "text": "HAYIR", "next": "english_tour_list" }
+]
+},
+"english_tour_list3": {
+"question":  "Asya Deneyimi (Sabah Hareketi / 4 Saat)Boğaziçi Köprüsü:\nİki kıtayı birleştiren tek köprü olan Boğaziçi Köprüsü, Avrupa ve Asya'yı birbirine bağlarken şehri muazzam bir manzaradan görme fırsatı sunuyor. \nÇamlıca Tepesi:\nİstanbul'un en yüksek noktalarından biri olan Çamlıca Tepesi, şehri büyüleyici bir panoramik açıdan görmenizi sağlar—harika fotoğraflar çekmek için mükemmel bir yer.\nBeylerbeyi Sarayı: \nBoğaziçi Köprüsü'nün hemen altında yer alan, Osmanlı sultanlarının bir zamanlar ikamet ettiği muazzam 19. yüzyıl sarayı.\nBağdat Caddesi:\nKafeler, dükkanlar ve butiklerle dolu, pazar kahvaltıları ve keyifli yürüyüşler için popüler bir yer olan canlı ve trendi caddelerden biri.",
+"options": [
+  { "text": "EVET", "next": "english_contact_info_input" },
+  { "text": "HAYIR", "next": "english_tour_list" }
+]
+},
+"english_tour_list4": {
+"question": "Boğaz Turu (Öğleden Sonra Hareket / 4 Saat)\nTekne Turu:Boğaz’da bir yolculuğa çıkın, her iki tarafında sadece bir adım mesafede bulunan iki kıta ile. Sulara doğru süzülürken, İstanbul'un simgesel sahil köşklerinin zamansız güzelliğinin tadını çıkarın, serin deniz rüzgarının cildinizdeki etkisini hissedin.\nMısır Çarşısı:İstanbul'un canlı görüntülerine, seslerine ve kokularına dalın. Mısır Çarşısı'nda dolaşarak, nadir baharatlar, otlar, meyveler, sebzeler, çiçekler ve hatta canlı hayvanlardan oluşan inanılmaz bir koleksiyonu keşfedin, şehrin gerçek özünü yakalayın.",
+"options": [
+  { "text": "EVET", "next": "english_contact_info_input" },
+  { "text": "HAYIR", "next": "english_tour_list" }
+]
+},
+"english_tour_list5": {
+"question": "Prens Adaları'na Kaçış (Sabah Hareketi / 8 Saat)\nBir zamanlar Bizans prenslerinin sürgün yeri ve rahiplerin inziva yeri olan Prens Adaları, şimdi şehir merkezine yakın konumlarıyla popüler yaz tatili destinasyonlarıdır. Her bir adanın kendine özgü bir cazibesi ve atmosferi vardır. <b>Feribotunuz her adada kısa duraklamalar yaparken</b>, adaların belirgin özelliklerini gözlemleme fırsatınız olacak. <b>En büyük ve en ünlü ada olan Büyükada'da</b> ise gerçekten unutulmaz bir deneyim yaşamak için karaya çıkacaksınız.",
+"options": [
+  { "text": "EVET", "next": "english_contact_info_input" },
+  { "text": "HAYIR", "next": "english_tour_list" }
+]
+},
+"english_private_guide_tours": {
+  "question": "<b>Kendi hızınızda keşfe çıkabileceğiniz</b> ve en çok ilginizi çeken konulara odaklanabileceğiniz <b>kişiselleştirilmiş bir deneyim yaşayın</b>, <b>uzman özel rehberlerimizin</b> eşliğinde.\n İster <b>derinlemesine bir tarihi tur</b>, <b>kültürel bilgiler</b>, veya sadece <b>şehirde özelleştirilmiş</b> bir yolculuk arıyor olun, rehberlerimiz  <b>deneyimi tamamen sizin tercihleriniz doğrultusunda şekillendirecek</b>.\n Her tur, <b>esneklik sunacak şekilde tasarlandı</b>, </b>böylece gününüz gerçekten unutulmaz olur</b>. \n<b>Keşfinizin tadını çıkarmanızı ve güvenli seyahatler dileriz!</b> \n\n<b>Özel Rehber hizmetimizi deneyimlemek ister misiniz?</b>",
+  "options": [
+    { "text": "Evet", "next": "english_language_details" },
+    { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+  ]
+},
+"english_language_details": {
+"question": "Hangi dili tercih edersiniz?",
+"options": [
+  { "text": "İngilizce", "next": "english_reservation_duration_choice" },
+  { "text": "Türkçe", "next": "english_reservation_duration_choice" },
+  { "text": "Almanca", "next": "english_reservation_duration_choice" },
+  { "text": "Japonca", "next": "english_reservation_duration_choice" },
+  { "text": "Hintçe", "next": "english_reservation_duration_choice" },
+  { "text": "Portekizce", "next": "english_reservation_duration_choice" },
+  { "text": "İtalyanca", "next": "english_reservation_duration_choice" },
+  { "text": "İspanyolca", "next": "english_reservation_duration_choice" },
+  { "text": "Rusça", "next": "english_reservation_duration_choice" },
+  { "text": "Arapça", "next": "english_reservation_duration_choice" },
+  { "text": "Fransızca", "next": "english_reservation_duration_choice" }
+]
+
+},
+"english_private_reservation_details": {
+"question": "Rezervasyonu kaç kişi için yapmak istersiniz?",
+"options": [
+  { "text": "Kaç kişi olduğunuzu giriniz:", "input": "number", "name": "number_of_people", "next": "english_reservation_duration_choice" }
+]
+},
+
+"english_reservation_duration_choice": {
+"question": "Özel rehber için kaç saatlik rezervasyon yapmak istersiniz?",
+"options": [
+  { "text": "4 saat.xx$", "next": "english_reservation_booking_now" },
+  { "text": "8 saat.xx$", "next": "english_reservation_booking_now" },
+  { "text": "12 saat.xx$", "next": "english_reservation_booking_now" },
+  { "text": "24 saat.xx$", "next": "english_reservation_booking_now" },
+  { "text": "Tur Hizmetine Geri Dön", "next": "english_service_2" }
+]
+
+},
+"english_reservation_booking_now": {
+  "question": "Seçilen seçenek için rezervasyon yapmak ister misiniz? (Dil ve Süre tercihinize göre)", 
+  "options": [
+    { "text": "EVET", "next": "english_contact_details" },
+    { "text": "HAYIR", "next": "english_service_list" }
+  ]
+
+},
+"english_service_3": {
+"question": "<b>İstanbul'daki en seçkin restoranlardan</b> <b>özenle seçilmiş bir koleksiyonu keşfedin</b>, en ince gastronomik tercihlere dahi hitap eden seçeneklerle. \n<b>En iyi yemek mekanlarını </b>  <b>dokuz farklı temada</b> kategorize ettik, böylece her damak zevkine hitap eden bir seçenek bulabilirsiniz.\n <b>Ortalama fiyat aralığı</b> ve <b>kıyafet kuralı</b> gibi<b>detayları içeren kapsamlı listemizi</b> inceleyerek ihtiyacınız olan her şeyi bulabilir, kararınızı daha kolay verebilirsiniz.\n <b>Tercih ettiğiniz kategoriyi seçerek</b> seçeneklerinizi keşfedin ve bir sonraki olağanüstü yemek deneyiminizi <b>planlamaya başlayın   </b>.\nAfiyet olsun! :\n\n<b>Bir restoran rezervasyonu yapmak ister misiniz?</b>",
+"options": [
+  { "text": "EVET", "next": "english_restaurant_type_selection" },
+  { "text": "Hizmetler Listesine Geri Dön", "next": "english_service_list"}
+]
+},
+"english_no_message": {
+"question": "Nazik ilginiz için teşekkür ederiz. Hizmetlerimizi keşfetmek için hizmet listemize geri dönebilir veya sohbeti sonlandırmayı seçebilirsiniz.",
+"options": [
+  { "text": "Sohbeti Sonlandır", "next": "endChat" },
+  { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+]
+},
+"english_restaurant_type_selection": {
+"question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+"options": [
+  { "text": "Uluslararası Mutfak", "next": "english_international_cuisine" },
+  { "text": "Türk Mutfağı", "next": "english_turkish_cuisine" },
+  { "text": "Uzak Doğu Mutfağı", "next": "english_far_east_cuisine" },
+  { "text": "Michelin", "next": "english_michelin" },
+  { "text": "İtalyan Mutfağı", "next": "english_italian_cuisine" },
+  { "text": "Deniz Ürünleri", "next": "english_seafood" },
+  { "text": "Biftek", "next": "english_steak" },
+  { "text": "Gece Kulüpleri", "next": "english_clubs" },
+  { "text": "Modern Türk Anadolu", "next": "english_modern_turkish_anatolian" },
+  { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+]
+},
+"english_international_cuisine": {
+"question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+"options": [
+  { "text": "Sunset Grill&Bar $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Topaz Restaurant $$$, \nŞık Günlük (Smart Casual), \nYürüyerek 10 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Ulus 29 $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Vogue $$$,\n Şık Günlük (Smart Casual),\n Arabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "360 $$, \nŞık Günlük (Smart Casual), \n Yürüyerek 15 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Restoran Türü Seçimine Geri Dön", "next": "english_restaurant_type_selection" }
+]
+},
+"english_turkish_cuisine": {
+"question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+"options": [
+  { "text": "Nişantaşı Başköşe $$, \nGünlük (Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Ali Ocakbaşı Gümüşsuyu $,\n Günlük (Casual), \nYürüyerek 5 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Günaydın Maçka $$, Günlük (Casual), \n Arabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Sütiş Kebap Dünyası $$,\n Günlük (Casual),\n Arabayla 5 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Zübeyir Ocakbaşı $,\n Günlük (Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Restoran Türü Seçimine Geri Dön", "next": "english_restaurant_type_selection" }
+]
+},
+"english_far_east_cuisine": {
+"question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+"options": [
+  { "text": "Zuma $$\n,Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Roka $$,\n Günlük (Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Maromi $$,\n Günlük (Casual), \nYürüyerek 5 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Banyan $$,\n Günlük (Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Çok Çok Pera $$,\n Günlük (Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Restoran Türü Seçimine Geri Dön", "next": "english_restaurant_type_selection" }
+]
+},
+"english_michelin": {
+"question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+"options": [
+  { "text": "Turk Fatih Tutak $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Araka $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Mikla $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Neolokal $$\n, Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Nicole $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Restoran Türü Seçimine Geri Dön", "next": "english_restaurant_type_selection" }
+]
+},
+"english_italian_cuisine": {
+"question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+"options": [
+  { "text": "CECCONİ'S $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "PAPERMOON $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "DA MARIO $$$,\nŞık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Neolokal $$$,\nŞık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Cipriani $$$,\nŞık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Restoran Türü Seçimine Geri Dön", "next": "english_restaurant_type_selection" }
+]
+},
+"english_seafood": {
+"question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+"options": [
+  { "text": "Sait Balık $$$, \nŞık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Park Fora $$,\n Günlük (Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Akıntı Burnu $$,\n Günlük (Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Sur Balık Arnavutköy $$,\n Günlük (Casual),\n Arabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Restoran Türü Seçimine Geri Dön", "next": "english_restaurant_type_selection" }
+]
+},
+"english_steak": {
+"question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+"options": [
+  { "text": "Nusret $$, \nŞık Günlük (Smart Casual), \nArabayla 10 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Gürkan Şef $$, \nŞık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Günaydın Steak&Kebap Galataport- Maçka $$,\n Günlük (Casual),\n Arabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Restoran Türü Seçimine Geri Dön", "next": "english_restaurant_type_selection" }
+]
+},
+"english_clubs": {
+  "question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+  "options": [
+    { "text": "Ruby $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Oligark $$$, \nŞık Günlük (Smart Casual), \nArabayla 25 dakika.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Sortie $$$,\n Şık Günlük (Smart Casual), \nArabayla 20 dakika.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Restoran Türü Seçimine Geri Dön", "next": "english_restaurant_type_selection" }
+  ]
+},
+"english_modern_turkish_anatolian": {
+"question": "İlgilendiğiniz restoran kategorisini seçerek ilgili seçenekleri görüntüleyebilirsiniz.",
+"options": [
+  { "text": "Mikla $$$,\n Şık Günlük (Smart Casual),\n Arabayla 10 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Mürver $$,\n Şık Günlük (Smart Casual), \nArabayla 10 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Madera $$,\n Şık Günlük (Smart Casual), \nArabayla 5 dakika..", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Karaköy Lokantası $$,\n Şık Günlük (Smart Casual), \nArabayla 10 dakika.", "next": "english_restaurant_type_selection_booking" },
+  { "text": "Restoran Türü Seçimine Geri Dön", "next": "english_restaurant_type_selection" }
+]
+},
+"english_restaurant_type_selection_booking": {
+  "question": "Seçilen seçenek için şimdi rezervasyon yapmak ister misiniz?", 
+  "options": [
+    { "text": "EVET", "next": "english_contact_details_restaurant" },
+    { "text": "HAYIR", "next": "english_no_message" }
+  ]
+},
+"english_contact_details_restaurant": {
+"question": "Lütfen tam adınızı paylaşın.",
+"options": [
+  { "text": "Lütfen tam adınızı paylaşın.", "input": "text", "next" :"english_contact_details_restaurant1"}
+
+]
+},
+"english_contact_details_restaurant1": {
+"question": "Lütfen iletişim numaranızı (ülke kodu ile birlikte) paylaşın.",
+"options": [
+  { "text": "Lütfen iletişim numaranızı (ülke kodu ile birlikte) paylaşın.", "input": "tel", "name": "phone_number","next" :"english_contact_details_restaurant2" }
+]
+},
+"english_contact_details_restaurant2": {
+"question": "Rezervasyonu hangi tarih için yapmak istersiniz?",
+"options": [
+  { "text": "Rezervasyonu hangi tarih için yapmak istersiniz?", "input": "date", "name": "reservation_date","next" :"english_contact_details_restaurant3" }
+]
+},
+"english_contact_details_restaurant3": {
+"question": "Rezervasyonu hangi saat için yapmak istersiniz?",
+"options": [
+  { "text": "Lütfen tercih ettiğiniz saati belirtin.", "input": "time", "name": "reservation_date", "next": "english_confirmation" }
+]
+},
+"english_service_5": {
+"question": "Benzersiz ihtiyaçlarınızda size yardımcı olmak için hazırız. Diğer Talepler hizmetimiz, özel düzenlemeler, kişiselleştirilmiş öneriler veya belirli istekleriniz için özel destek almanızı sağlar. Ne tür bir yardıma ihtiyacınız olursa olsun, bize bildirin ve sizin için gerçekleştirelim. Memnuniyetiniz bizim önceliğimizdir!",
+"options": [
+  { "text": "EVET", "next": "english_other_request_booking" },
+  { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+]
+},
+"english_other_request_booking": {
+  "question": "Lütfen talebinizi kısaca açıklayın.",
+  "options": [
+    { "text": "Lütfen talebinizi kısaca açıklayın.", "input": "text", "name": "request", "next": "english_other_1" }
+
+  ]
+},
+"english_other_1": {
+"question": "Lütfen iletişim numaranızı (ülke kodu ile birlikte) paylaşın.",
+"options": [
+  { "text": "Lütfen iletişim numaranızı (ülke kodu ile birlikte) paylaşın.", "input": "tel", "name": "phone_number" , "next": "english_other_2"}
+]
+},
+"english_other_2": {
+"question": "Lütfen tam adınızı paylaşın.",
+"options": [
+  { "text": "Lütfen tam adınızı paylaşın.", "input": "text", "name": "phone_number" , "next": "english_other_2" }
+]
+},
+"english_other_request_thank_you": {
+  "question": "Lütfen bilginize sunarız ki taleplerinizle ilgili tüm gerekli notları aldık ve onay için en kısa sürede size geri döneceğiz.\nDiğer hizmetlerimizi keşfetmek için hizmet listemize geri dönebilir veya sohbeti sonlandırmayı seçebilirsiniz.",
+  "options": [
+    { "text": "Sohbeti Sonlandır", "next": "endChat"},
+    { "text": "Hizmet Listesine Git",  "next": "english_service_list" }
+  ]
+},
+"english_end_chat": {
+  "question": "Nazik ilginiz için teşekkür ederiz. Daha fazla yardıma ihtiyacınız olursa bizimle iletişime geçmekten çekinmeyin.",
+  "options": [
+    { "text": "Start",  "next": "start" }
+  
+  ]
+},
+"english_service_4": {
+  "question": "<b>İstanbul’da Eşsiz Bir Alışveriş Deneyimini Keşfedin</b> \nÖzenle seçilmiş mağazaların her ihtiyacınıza hitap ettiği bir alışveriş cennetine adım atın. <b>Lüks butiklerden</b>  <b>yerel hazinelere kadar uzanan</b>, <b>geniş seçenekleriyle İstanbul,</b> şehrin zengin mirasını ve ustalığını gözler önüne seriyor. \n Bu canlı alışveriş dünyasının en özel noktalarını keşfetmeniz için size rehberlik edelim.</b>\n Plan your <b>unforgettable shopping adventure</b>in Istanbul today!\n\n<b>Alışveriş rezervasyonu yapmak ister misiniz?<b/>",
+  "options": [
+    { "text": "EVET", "next": "english_shopping_info" },
+    { "text": "Hizmet Listesine Geri Dön", "next": "english_service_list" }
+  ]
+},
+"english_shopping_info": {
+  "question": "Senin için en iyi seçenek hangisi?",
+  "options": [
+    { "text": "Deri Ürünleri: Eşsiz İşçiliğin Büyüsü", "next": "english_shopping_info1"},
+    { "text": "Halı ve Kilim Mağazaları: ", "next": "english_shopping_info2"},
+    { "text": "Mücevherat: ", "next": "english_shopping_info3"},
+    { "text": "Hediyelik Eşyalar ve Hatıralıklar:", "next": "english_shopping_info4"},
+    { "text": "El Sanatları: ", "next": "english_shopping_info5"},
+    { "text": "Baharatlar ve Çay: ", "next": "english_shopping_info6"},
+    { "text": "Osmanlı El Sanatları: ", "next": "english_shopping_info7"},
+    { "text": "Geleneksel Kıyafetler: ", "next": "english_shopping_info8"},
+    { "text": "Antika Mağazaları:.", "next": "english_shopping_info9"},
+    { "text": "Cam ve Porselen:", "next": "english_shopping_info10"},
+    { "text": "Hizmet Listesine Git",  "next": "english_service_list" }
+  ]
+},
+"english_shopping_info1": {
+  "question": "Deri Ürünleri: Çantalar, cüzdanlar ve giyim eşyaları da dahil olmak üzere özenle hazırlanmış el yapımı deri ürünlerin zarafetini ve yerel ustaların sanatını keşfedin.",
+  "options": [
+    { "text": "TAMAM", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_shopping_info2": {
+  "question": "Halı ve Kilim Mağazaları: Geleneksel el dokuması halılar, kilimler ve aksesuarlarla bezeli mağazalarda zamansız bir güzelliğe adım atın. Renklerin ve desenlerin büyüleyici dünyasını keşfedin.",
+  "options": [
+    { "text": "TAMAM", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_shopping_info3": {
+  "question": "Mücevherat: Değerli taşlar, zarif el yapımı takılar ve geleneksel Türk zanaatkârlığının göz alıcı örnekleriyle dolu mağazalarda lüks ve zarafetin dünyasını keşfedin.",
+  "options": [
+    { "text": "TAMAM", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_shopping_info4": {
+  "question": "Hediyelik Eşyalar ve Hatıralıklar: Türk yaşamının büyüleyici tarihi ve kültürel atmosferine dalın! Çeşitli hediyelik eşyalar, özel tasarım ürünler ve geleneksel el sanatlarını sunan mağazalarımızda unutulmaz hatıralar keşfedin.",
+  "options": [
+    { "text": "TAMAM", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_shopping_info5": {
+  "question": "El Sanatları: Türkiye'nin zengin sanatsal mirasını keşfedin! Seramik, çömlek ve zarif ahşap işçiliği gibi geleneksel el sanatlarının eşsiz koleksiyonlarını sunan mağazalar sizi bekliyor.",
+  "options": [
+    { "text": "TAMAM", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_shopping_info6": {
+  "question": "Baharatlar ve Çay: Türkiye’nin otantik lezzetlerini keşfederken duyularınızı canlandırın. Türk çayının enfes aromalarını deneyimleyin ve özel mağazalarımızda yerel baharatların renkli dünyasına adım atın.",
+  "options": [
+    { "text": "TAMAM", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_shopping_info7": {
+  "question": "Osmanlı El Sanatları: Osmanlı döneminin ihtişamına kapılın! Minyatür tablolar, büyüleyici hat sanatı ve göz alıcı ebru sanatı gibi eşsiz ve tarihi eserler sunan mağazaları keşfedin.",
+  "options": [
+    { "text": "TAMAM", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_shopping_info8": {
+  "question": "Geleneksel Kıyafetler: Türkiye'nin zengin kültürel mirasını yansıtan geleneksel kıyafetler, aksesuarlar, şallar ve özel tasarımlardan oluşan seçkin koleksiyonları keşfedin.",
+  "options": [
+    { "text": "TAMAM", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_shopping_info9": {
+  "question": "Antikacılar: Geçmişin hazinelerini keşfedin! Antika dükkanlarında, vintage mobilyalardan eski haritalara, zarif dantel işlemelerden zamansız eserlere kadar geniş bir koleksiyon sizi bekliyor.",
+  "options": [
+    { "text": "TAMAM", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_shopping_info10": {
+  "question": "Cam ve Porselen: El yapımı cam ve porselen ürünlerinin zarafet ve ihtişamını keşfedin. Osmanlı motifleriyle süslenmiş büyüleyici vazolar, tabaklar ve dekoratif objelerden oluşan eşsiz koleksiyonumuzu inceleyin.",
+  "options": [
+    { "text": "", "next": "english_contact_details_shopping"},
+    { "text": "GERİ DÖN",  "next": "english_shopping_info" }
+  ]
+},
+"english_contact_details_shopping": {
+  "question": "Lütfen iletişim bilgilerinizi paylaşın.",
+  "options": [
+    { "text": "Lütfen tam adınızı paylaşın.", "input": "text", "name": "full_name", "next": "english_contact_details_shopping1" }
+  ]
+},
+"english_contact_details_shopping1": {
+  "question": "Lütfen iletişim bilgilerinizi paylaşın.",
+  "options": [
+    { "text": "Lütfen iletişim numaranızı (ülke kodu ile birlikte) paylaşın.", "input": "tel", "name": "phone_number" , "next": "english_contact_details_shopping2"}
+
+  ]
+},
+"english_contact_details_shopping2": {
+  "question": "Lütfen iletişim bilgilerinizi paylaşın.",
+  "options": [
+    { "text": "Rezervasyonu kaç kişi için yapmak istersiniz?", "input": "number", "name": "number_of_people", "next": "english_contact_details_shopping3"}
+  ]
+},
+"english_contact_details_shopping4": {
+  "question": "Lütfen iletişim bilgilerinizi paylaşın.",
+  "options": [
+    { "text": "Rezervasyonu hangi tarih için yapmak istersiniz?", "input": "date", "name": "reservation_time" , "next": "english_contact_details_shopping4"}
+
+  ]
+},
+"english_contact_details_shopping5": {
+  "question": "Lütfen iletişim bilgilerinizi paylaşın.",
+  "options": [
+    { "text": "Rezervasyonu hangi saat için yapmak istersiniz?", "input": "tel", "name": "reservation_time", "next": "english_confirmation" }
+
+  ]
+}  }  

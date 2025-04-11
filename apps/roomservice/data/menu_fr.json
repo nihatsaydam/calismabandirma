@@ -1,0 +1,248 @@
+{
+    "menu": [
+      {
+        "key": "Hot Coffee",
+        "name": "Boissons chaudes",
+        "items": [
+          {
+            "name": "Espresso",
+            "price": "139₺"
+          },
+          {
+            "name": "Espresso Macchiato",
+            "price": "159₺"
+          },
+          {
+            "name": "Café Américain",
+            "price": "149₺"
+          },
+          {
+            "name": "Café Latte",
+            "price": "169₺"
+          },
+          {
+            "name": "Café Latte Macchiato",
+            "price": "169₺"
+          },
+          {
+            "name": "Cappuccino",
+            "price": "179₺"
+          },
+          {
+            "name": "Cortado",
+            "price": "169₺"
+          },
+          {
+            "name": "Flat White",
+            "price": "169₺"
+          },
+          {
+            "name": "Café Turc(Petit)",
+            "price": "129₺"
+          },
+          {
+            "name": "Café Turc(Grand)",
+            "price": "149₺"
+          },
+          {
+            "name": "Café Turc au Lait ",
+            "price": "159₺"
+          },
+          {
+            "name": "Café Filtré",
+            "price": "149₺"
+          }
+  
+          
+        ]
+      },
+      {
+        "key": "Tea",
+        "name": "Thé",
+        "items": [
+          {
+            "name": "Thé",
+            "price": "50₺"
+          },
+          {
+            "name": "Thé Vert",
+            "price": "169₺"
+          },
+          {
+            "name": "Thé d'hiver",
+            "price": "169₺"
+          },
+          {
+            "name": "Thé au Jasmin",
+            "price": "169₺"
+          },
+          {
+            "name": "Thé à la Camomille",
+            "price": "169₺"
+          },
+          {
+            "name": "Thé de Sauge",
+            "price": "169₺"
+          },
+          {
+            "name": "Thé à la Menthe et au Citron",
+            "price": "169₺"
+          },
+          {
+            "name": "Thé à la Pomme et à la Cannelle",
+            "price": "169₺"
+          }
+        ]
+      },
+      {
+        "key": "Cold Beverages",
+        "name": "Boissons froides",
+        "items": [
+          {
+            "name": "Americano Glacé",
+            "price": "185₺"
+          },
+          {
+            "name": "Caffè Latte Glacé",
+            "price": "195₺"
+          },
+          {
+            "name": "Chai Tea Latte Glacé",
+            "price": "219₺"
+          },
+          {
+            "name": "Limonade",
+            "price": "179₺"
+          },
+          {
+            "name": "Limonade à la Fraise",
+            "price": "199₺"
+          },
+          {
+            "name": "Limonade à la Menthe",
+            "price": "199₺"
+          },
+          {
+            "name": "Limonade au Basilic ",
+            "price": "199₺"
+          },
+          {
+            "name": "Jus d'orange Fraîchement Pressé",
+            "price": "199₺"
+          },
+          {
+            "name": "Soda",
+            "price": "89₺"
+          },
+          {
+            "name": "Churchill (Soda au Citron et au sel)",
+            "price": "110₺"
+          },
+          {
+            "name": "Tropical Spice",
+            "price": "209₺"
+          },
+          {
+            "name": "Berry Hibiscus",
+            "price": "199₺"
+          },
+          {
+            "name": "Cool Lime",
+            "price": "199₺"
+          }
+        ]
+      },
+      {
+        "key": "Desserts",
+        "name": "Le dessert",
+        "items": [
+          {
+            "name": "Crème au chocolat",
+            "price": "335₺"
+          },
+          {
+            "name": "Brownie marbré",
+            "price": "335₺"
+          },
+          {
+            "name": "Croissant",
+            "price": "330₺"
+          }
+        ]
+      },
+      {
+        "key": "Factory Specials",
+        "name": "Factory Spéciales",
+        "items": [
+          {
+            "name": "Frappe au Chocolat Doré",
+            "price": "209₺"
+          },
+          {
+            "name": "Crème Frappe au Chocolat Blanc",
+            "price": "209₺"
+          },
+          {
+            "name": "Moka au Chocolat Belge Doré",
+            "price": "209₺"
+          },
+          {
+            "name": "Moka au Chocolat Belge Blanc",
+            "price": "209₺"
+          },
+          {
+            "name": "Moka au Chocolat Doré Glacé",
+            "price": "209₺"
+          },
+          {
+            "name": "Moka au Chocolat Blanc Glacé",
+            "price": "209₺"
+          },
+          {
+            "name": "Lotus Frappe",
+            "price": "209₺"
+          },
+          {
+            "name": "Chocolat Glacé",
+            "price": "219₺"
+          },
+          {
+            "name": "Moka Glacé",
+            "price": "209₺"
+          },
+          {
+            "name": "Moka au Chocolat Belge Chaud",
+            "price": "199₺"
+          },
+          {
+            "name": "Chocolat Belge Chaud",
+            "price": "199₺"
+          },
+          {
+            "name": "Lotus Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Café Latte à la Citrouille et aux Épices",
+            "price": "209₺"
+          },
+          {
+            "name": "Café Latte au Miel et à la Cannelle",
+            "price": "209₺"
+          },
+          {
+            "name": "Café Latte à la Pistache",
+            "price": "209₺"
+          },
+          {
+            "name": "Dirty Chai Tea Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Chai Tea Latte",
+            "price": "209₺"
+          }
+        ]
+      }
+    ]
+  }

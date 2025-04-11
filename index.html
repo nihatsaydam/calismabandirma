@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Mevcut meta tag'ini güncelle -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>Keepsty Solutions</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Giriş Formu -->
+    <div id="form-screen" class="screen active">
+      <header>
+        <div class="logo-container">
+          <img
+            src="assets/icons/keepsty-logo.png"
+            alt="Keepsty Logo"
+            class="logo"
+          />
+          <div class="header-text">
+            <h1>Keepsty Solutions</h1>
+            <div class="underline"></div>
+            <p>Keep Your Stay, Keep Your Care</p>
+          </div>
+        </div>
+      </header>
+      <div class="form-container">
+        <h2>Your name & room number, please.</h2> 
+        <form id="user-form">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="text"
+            id="room"
+            name="room"
+            placeholder="Your Room Number"
+            required
+          />
+          <div class="button-group">
+            <button type="submit" id="continue">Continue</button>
+            <button type="button" id="exit">See You Soon</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dil Seçimi Ekranı -->
+    <div id="language-screen" class="screen hidden">
+      <header>
+        <div class="logo-container">
+          <img
+            src="assets/icons/keepsty-logo.png"
+            alt="Keepsty Logo"
+            class="logo"
+          />
+          <div class="header-text">
+            <h1>Keepsty Solutions</h1>
+            <div class="underline"></div>
+            <p>Keep Your Stay, Keep Your Care</p>
+          </div>
+        </div>
+      </header>
+      <div class="language-container">
+        <h2>Select Your Language</h2>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="tr">Türkçe</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+        <button class="lang-btn" data-lang="ar">العربية</button>
+      </div>
+    </div>
+
+    <!-- Kart Konteyneri Ekranı -->
+    <div id="card-screen" class="screen hidden">
+      <header>
+        <div class="logo-container">
+          <img
+            src="assets/icons/keepsty-logo.png"
+            alt="Keepsty Logo"
+            class="logo"
+          />
+          <div class="header-text">
+            <h1>Keepsty Solutions</h1>
+            <div class="underline"></div>
+            <p>Keep Your Stay, Keep Your Care</p>
+          </div>
+        </div>
+      </header>
+     
+     
+        <div class="container">
+        
+           <!--   <div class="card" data-app="concierge">
+          <div class="door">
+            <img src="assets/icons/concierge.png" alt="Concierge" />
+          </div>
+          <h3>Concierge</h3>
+        </div>-->
+        <div class="card" data-app="roomservice">
+          <div class="door">
+            <img src="assets/icons/roomservice.png" alt="Room Service" />
+          </div>
+          <h3>Room Service</h3>
+        </div>
+        <div class="card" data-app="keepsty">
+          <div class="door">
+            <img src="assets/icons/complain.png" alt="Ask Keepsty" />
+          </div>
+          <h3>Ask Keepsty</h3>
+        </div>
+        <div class="card" data-app="housekeeping">
+          <div class="door">
+            <img src="assets/icons/housekeeping.png" alt="Housekeeping" />
+          </div>
+          <h3>Housekeeping</h3>
+        </div>
+        <div class="card" data-app="bellboy">
+          <div class="door">
+            <img src="assets/icons/bellboy.png" alt="Bellboy" />
+          </div>
+          <h3>Bellboy</h3>
+        </div>
+        <div class="card" data-app="technic">
+          <div class="door">
+            <img src="assets/icons/technic.png" alt="Technic" />
+          </div>
+          <h3>Technic</h3>
+        </div>
+        <div class="card" data-app="laundry">
+          <div class="door">
+            <img src="assets/icons/laundry.png" alt="Laundry" />
+          </div>
+          <h3>Laundry</h3>
+        </div>
+        <div class="card" data-app="complain">
+          <div class="door">
+            <img src="assets/icons/complain.png" alt="Complain" />
+          </div>
+          <h3>Complain</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Eğer URL'de hash "#card-screen" varsa, card-screen'i göster.
+        if (window.location.hash === "#card-screen") {
+          var screens = document.querySelectorAll(".screen");
+          screens.forEach(function (screen) {
+            screen.classList.add("hidden");
+            screen.classList.remove("active");
+          });
+          var cardScreen = document.querySelector("#card-screen");
+          if (cardScreen) {
+            cardScreen.classList.remove("hidden");
+            cardScreen.classList.add("active");
+          }
+        }
+
+        // Dil seçimi için butonlara tıklama dinleyicileri ekle.
+        var langButtons = document.querySelectorAll(".lang-btn");
+        langButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var selectedLang = btn.getAttribute("data-lang");
+            // data-lang değerlerini script.js'de kullanılan tam dil isimlerine eşleyin.
+            var langMapping = {
+              en: "english",
+              tr: "turkish",
+              fr: "french",
+              ar: "arabic",
+            };
+            var langValue = langMapping[selectedLang] || "english";
+            // Seçilen dili localStorage'a kaydet.
+            localStorage.setItem("currentLanguage", langValue);
+
+            // Dil ekranından kart ekranına geçiş yap.
+            document.getElementById("language-screen").classList.add("hidden");
+            document.getElementById("card-screen").classList.remove("hidden");
+            document.getElementById("card-screen").classList.add("active");
+          });
+        });
+        document.querySelectorAll("input").forEach(function (input) {
+          input.addEventListener("focus", function (event) {
+            event.preventDefault();
+            window.scrollTo(0, 0);
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+          });
+        });
+
+        window.addEventListener("scroll", function () {
+          window.scrollTo(0, 0);
+        });
+      });
+    </script>
+
+    <!-- script.js dosyasını dahil ediyoruz -->
+    <script src="script.js"></script>
+  </body>
+</html>

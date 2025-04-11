@@ -1,0 +1,288 @@
+{
+    "popup": {
+      "popupMessage": "في أي وقت تريد الحصول على الخدمة؟",
+      "time30": "في غضون 30 دقيقة",
+      "time60": "في غضون ساعة",
+      "time120": "في غضون ساعتين",
+      "time240": "في غضون 4 ساعات"
+    },
+
+  "menu": [
+    {
+      "key": "Laundry Service",
+      "name": "خدمة غسيل الملابس",
+      "description": "خدمة غسيل الملابس المهنية للتنظيف والكي.",
+      "image": "assets/icons/laundry-service.png",
+      "items": [
+        {
+          "name": "قميص (Qamis)",
+          "price": "160₺ per"
+        },
+        {
+          "name": "بنطال (Bantal)",
+          "price": "200₺ per"
+        },
+        {
+          "name": "تي شيرت (T-shirt)",
+          "price": "150₺ per"
+        },
+        {
+          "name": "سترة (Sutra)",
+          "price": "200₺ per"
+        }    ,    
+        {
+          "name": "سترة صدر (Sutra Sadr)",
+          "price": "200₺ per"
+        },
+        {
+          "name": "بيجاما (Biyjama)",
+          "price": "150₺ per"
+        },
+        {
+          "name": "بدلة رياضية ",
+          "price": "250₺ per"
+        },
+        {
+          "name": "بدلة عمل",
+          "price": "350₺ per"
+        },
+        {
+          "name": "قميص داخلي",
+          "price": "100₺ per"
+        },
+        {
+          "name": "شورت ",
+          "price": "150₺ per"
+        },
+        {
+          "name": "شورت داخلي",
+          "price": "85₺ per"
+        },
+        {
+          "name": "جوارب",
+          "price": "60₺ per"
+        },
+        {
+          "name": "مناديل",
+          "price": "60₺ per"
+        },
+        {
+          "name": "كرافات",
+          "price": "125 per"
+        },
+        {
+          "name": "كاب",
+          "price": "125₺ per"
+        },
+        {
+          "name": "حمالة صدر",
+          "price": "125₺ per"
+        },
+        {
+          "name": "فستان",
+          "price": "400₺ per"
+        },
+        {
+          "name": "تنورة",
+          "price": "230₺ per"
+        },
+        {
+          "name": "وشاح",
+          "price": "175₺ per"
+        },
+        {
+          "name": "قميص نسائي ",
+          "price": "250₺ per"
+        }
+    ]
+    },
+    {
+      "key": "Dry Cleaning",
+      "name": "التنظيف الجاف",
+      "description": "التنظيف الجاف والكي المهني",
+      "image": "assets/icons/drycleaningicon.png",
+      "items": [
+        {
+          "name": "قميص (Qamis)",
+          "price": "160₺ per"
+        },
+        {
+          "name": "بنطال",
+          "price": "200₺ per"
+        },
+        {
+          "name": "تي شيرت",
+          "price": "150₺ per"
+        },
+        {
+          "name": "سترة",
+          "price": "200₺ per"
+        },
+        {
+          "name": "سترة صدر",
+          "price": "200₺ per"
+        },
+        {
+          "name": "بدلة عمل",
+          "price": "350₺ per"
+        },
+        {
+          "name": "كرافات",
+          "price": "125₺ per"
+        },
+        { 
+          "name": "فستان",
+          "price": "400₺ per"
+        },
+        {
+          "name": "تنورة",
+          "price": "230₺ per"
+        },
+        {
+          "name": "وشاح",
+          "price": "175₺ per"
+        }  , 
+        {
+          "name": "قميص نسائي ",
+          "price": "250₺ per"
+        },
+        {
+          "name": "سترة مبطنة",
+          "price": "300₺ per"
+        }       ,
+        {
+          "name": "بدلة رسمية",
+          "price": "480₺ per"
+        },
+        {
+          "name": "جاكيت",
+          "price": "280₺ per"
+        }   ,
+        {
+          "name": "معطف",
+          "price": "450₺ per"
+        },
+        {
+          "name": "جاكيت",
+          "price": "400₺ per"
+        },
+        {
+          "name": "معطف المطر ",
+          "price": "450₺ per"
+        }    
+       ]
+    },
+    {
+      "key": "Pressing Service",
+      "name": "خدمة التنظيف الجاف",
+      "description": "خدمة كي الملابس المهنية لملابسك.",
+      "image": "assets/icons/ironing-service.png",
+      "items": [
+           {
+          "name": "قميص",
+          "price": "80₺ per"
+        },
+        {
+          "name": "بنطال",
+          "price": "100₺ per"
+        },
+        {
+          "name": "تي شيرت",
+          "price": "75₺ per"
+        },
+        {
+          "name": "سترة",
+          "price": "100₺ per"
+        },
+        {
+          "name": "سترة صدر",
+          "price": "100₺ per"
+        },
+        {
+          "name": "بيجاما",
+          "price": "75₺ per"
+        },
+        {
+          "name": "بدلة رياضية",
+          "price": "125₺ per"
+        },        
+        {
+          "name": "بدلة عمل",
+          "price": "175₺ per"
+        },
+        {
+          "name": "قميص داخلي ",
+          "price": "50₺ per"
+        },
+        {
+          "name": "شورت",
+          "price": "75₺ per"
+        },
+        {
+          "name": "شورت داخلي",
+          "price": "45₺ per"
+        },
+        {
+          "name": "جوارب",
+          "price": "30₺ per"
+        },
+        {
+          "name": "مناديل",
+          "price": "30₺ per"
+        },
+        {
+          "name": "كرافات",
+          "price": "60₺ per"
+        },
+        {
+          "name": "كاب",
+          "price": "60₺ per"
+        },
+        {
+          "name": "حمالة صدر",
+          "price": "60₺ per"
+        }  ,      
+        { 
+          "name": "فستان ",
+          "price": "200₺ per"
+        },
+        {
+          "name": "تنورة",
+          "price": "115₺ per"
+        },
+        {
+          "name": "وشاح",
+          "price": "80₺ per"
+        } ,  
+        {
+          "name": "قميص نسائي",
+          "price": "175₺ per"
+        },
+        {
+          "name": "سترة مبطنة",
+          "price": "150₺ per"
+        } ,      
+        {
+          "name": "بدلة رسمية",
+          "price": "240₺ per"
+        },
+        {
+          "name": "جاكيت",
+          "price": "140₺ per"
+        },   
+        {
+          "name": "معطف",
+          "price": "225₺ per"
+        },
+        {
+          "name": "جاكيت",
+          "price": "200₺ per"
+        },
+        {
+          "name": "معطف المطر ",
+          "price": "225₺ per"
+        }  
+      ]
+    }
+  ]
+}

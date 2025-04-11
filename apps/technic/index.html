@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Keepsty Technic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Dil Seçimi -->
+  <div id="language-selection">
+    <button onclick="startChat('english')">
+      <img src="flags/english.png" alt="English Flag" class="flag"> English
+    </button>
+    <button onclick="startChat('arabic')">
+      <img src="flags/arabic.png" alt="Arabic Flag" class="flag"> العربية
+    </button>
+    <button onclick="startChat('turkish')">
+      <img src="flags/turkish.png" alt="Turkish Flag" class="flag"> Türkçe
+    </button>
+    <button onclick="startChat('french')">
+      <img src="flags/french.png" alt="French Flag" class="flag"> Français
+    </button>
+  </div>
+  
+  <!-- Chatbot Alanı -->
+  <div id="chatbot" style="display:none;">
+      <!--üst baslıkkkk-->
+      <div class="header-container">
+        <div class="circle">
+          <img src="assets/icons/keepsty-character.png" alt="Keepsty Character">
+        </div>
+        <div class="text-and-line">
+          <h1 class="title">Keepsty</h1>
+          <div class="horizontal-line"></div>
+          <h2 class="subtitle">Technic</h2>
+          <p class="tagline">Keep Your Stay, Keep Your Care</p>
+        </div>
+      </div>
+    
+    
+    
+      <!-- yazıyor-->
+      <div id="typing-indicator" style="display: none;">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    
+
+      
+
+      <!-- Sohbet Kutusu -->
+      <div id="chat-box">
+      </div>
+
+    <!-- Kullanıcı Seçenekleri -->
+    <div id="chat-options"></div>
+    
+    <div id="footer-container">
+      <div class="action-item" id="home-action" onclick="navigateToHome()">
+        <img src="assets/icons/action1.png" alt="Home">
+        <p>Home</p>
+    </div>
+  
+  
+  <script>
+    function navigateToHome() {
+        // Kullanıcıyı public/index.html dosyasındaki #card-screen bölümüne yönlendir
+        window.location.href = '../../index.html#card-screen';
+    }
+  </script>
+  
+      <div id="message-input-container">
+        <input type="text" id="message-input" placeholder="Type your message here..." />
+        <button id="send-button" onclick="sendMessage()">Send</button>
+
+      </div>
+      <div id="keepsty-container">
+
+        <span id="keepsty-text"></span>
+      </div>
+      
+    </div>
+    
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+

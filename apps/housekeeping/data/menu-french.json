@@ -1,0 +1,75 @@
+{
+    "menuTitles": {
+        "itemListTitle": "Demande de liste d'articles",
+        "itemListDescription": "Veuillez sélectionner l'article dont vous avez besoin dans la liste.",
+        "cleaningTitle": "Demande de nettoyage",
+        "cleaningDescription": "Spécifiez votre heure et type de nettoyage préférés."
+    },
+    "popup": {
+        "popupMessage": "Quel service souhaitez-vous demander?",
+        "cleaningTitle": "Sélectionnez une option de nettoyage",
+        "cleaningOptions": "Options de nettoyage:",
+        "room": "Chambre",
+        "bathroom": "Salle de bain",
+        "wholeRoom": "Toute la chambre",
+        "refresh": "Rafraîchir",
+        "confirm": "Confirmer",
+        "cancel": "Annuler"
+    },
+    "menu": [
+        {
+            "key": "Room Needs",
+            "name": "Besoins de la chambre",
+            "description": "Demandez des articles supplémentaires pour votre chambre, nous les fournirons dès que possible.",
+            "image": "assets/icons/room-needs.png",
+            "items": [
+                { "name": "Lit supplémentaire" },
+                { "name": "Oreiller supplémentaire" },
+                { "name": "Couette supplémentaire" },
+                { "name": "Couverture" },
+                { "name": "Draps de lit" },
+                { "name": "Télécommande TV" },
+                { "name": "Pile de la télécommande" }
+            ]
+        },
+        {
+            "key": "Bathroom Needs",
+            "name": "Besoins de la salle de bain",
+            "description": "Demandez des articles supplémentaires pour votre salle de bain, nous les fournirons dès que possible.",
+            "image": "assets/icons/bathroom-needs.png",
+            "items": [
+                { "name": "Serviette supplémentaire" },
+                { "name": "Peignoir" },
+                { "name": "Set de rasage" },
+                { "name": "Peigne" },
+                { "name": "Coupe-ongles" },
+                { "name": "Coton démaquillant" },
+                { "name": "Coton-tige" },
+                { "name": "Gel douche" },
+                { "name": "Shampoing" }
+            ]
+        },
+        {
+            "key": "Personnel Needs",
+            "name": "Besoins du personnel",
+            "description": "Demandez de l'aide à notre personnel pour rendre votre séjour plus confortable.",
+            "image": "assets/icons/personel-needs.png",
+            "items": [
+                { "name": "Eau" },
+                { "name": "Thé" },
+                { "name": "Café" },
+                { "name": "Sucre" },
+                { "name": "Lait en poudre" },
+                { "name": "Chaussons" },
+                { "name": "Fer et table à repasser" },
+                { "name": "Adaptateur de prise" },
+                { "name": "Chargeur de téléphone" },
+                { "name": "Cendrier" },
+                { "name": "Mouchoirs" },
+                { "name": "Lingettes humides" },
+                { "name": "Eau de Cologne" },
+                { "name": "Désinfectant" }
+            ]
+        }
+    ]
+}

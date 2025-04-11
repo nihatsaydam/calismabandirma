@@ -1,0 +1,653 @@
+{
+    "start": {
+      "question": " Welcome to the Concierge Desk at [Hotel Name]. My name is Keepsty, and I am your dedicated concierge. I am here to ensure that your stay with us is as smooth and enjoyable as possible. Whether you need restaurant reservations, local recommendations, or assistance with transportation, I am always ready to help.With deep knowledge of the city and a passion for personalized service, I hold the keys to unlocking the best experiences [City Name] has to offer. I am at your service, anytime and anywhere, to provide you with the finest the city has to offer.",
+      "options": [
+        { "text": "Hello Keepsty", "next": "english_service_list" }
+      ]
+  
+    },
+    "start1": {
+      "question": "I authorize [Hotel Name] to process my personal information, including identity, communication, customer transaction, marketing, and vehicle-insurance data. This processing is done to tailor the goods and services provided to me, based on my preferences, usage habits, and needs.\nI also consent to receiving commercial electronic messages, such as advertisements, promotions, and campaigns, and agree that this information may be shared with third-party service providers who assist in delivering these services.",
+      "options": [
+        { "text": "Agree", "next": "english_service_list" },
+        { "text": "Disagree", "next": "english_end_chat" }
+      ]
+  
+    },
+    "english_service_list": {
+        "question": "Thank you for agreeing to the terms and conditions. I am at your service! How may I assist you today?",
+        "options": [
+          { "text": "Airport Transfer or Chauffeured Service", "next": "english_service_1" },
+          { "text": "Regular or Private Tour", "next": "english_service_2" },
+          { "text": "Restaurant Booking", "next": "english_service_3" },
+          { "text": "Best Shopping Centers", "next": "english_service_4" },
+          { "text": "Other Requests", "next": "english_service_5" },
+          { "text": "End Chat", "next": "english_end_chat" }
+        ]
+    
+   
+      },
+      
+    "english_service_1": {
+      "question": "Please choose one of the following Services",
+      "options": [
+        { "text": "Airport Transfer", "next": "english_airport_transfer_start" },
+        { "text": "Hourly Chauffeured", "next": "english_hourly_private_car_start" },
+        { "text": "Other Requests (Private Car)", "next": "english_private_car_other" },
+        { "text": "Back To Service List", "next": "english_service_list" }
+      ]
+    },
+    "english_airport_transfer_start": {
+      "question": "<b>Our Airport Transfer Service</b> is ready for you.\nYour <b>chauffeur</b> will be at the designated pickup point, <b>monitoring your flight</b> for any changes.\n\n<b>Would you like to proceed</b> with our airport transfer service and ensure a smooth, comfortable journey?",
+      "options": [
+        { "text": "Yes", "next": "english_airport_transfer_direction" },
+        { "text": "Back To Service List", "next": "english_service_1" }
+      ]
+    },
+    "english_airport_transfer_direction": {
+      "question": "Would you like to specify the direction of your transfer: arrival (from the airport to the hotel) or departure (from the hotel to the airport)?",
+      "options": [
+        { "text": "Arrival (from the airport)", "next": "english_arrival_airport_select" },
+        { "text": "Departure (to the airport)", "next": "english_departure_airport_select" }
+      ]
+    },
+    "english_departure_airport_select": {
+        "question": "Please select the airport where your flight will arrive.",
+        "options": [
+          { "text": "Istanbul Airport (IST)", "next": "english_arrival_date_input" },
+          { "text": "Sabiha Gökçen International Airport (SAW)", "next": "english_arrival_date_input" }
+        ]
+      },
+    "english_arrival_airport_select": {
+      "question": "Please select the airport where your flight will arrive.",
+      "options": [
+        { "text": "Istanbul Airport (IST)", "next": "english_arrival_date_input" },
+        { "text": "Sabiha Gökçen International Airport (SAW)", "next": "english_arrival_date_input" }
+      ]
+    },
+    "english_arrival_date_input": {
+      "question": "Please specify the date of your arrival. (dd.mm.yyyy)",
+      "options": [
+        { "text": "Please specify the arrival date:", "input": "date", "name": "arrival_date", "next": "english_flight_code_input" },
+        { "text": "Back to airport selection", "next": "english_arrival_airport_select" }
+      ]
+    },
+    "english_flight_code_input": {
+      "question": "Please provide your flight code.",
+      "options": [
+        { "text": "Please provide your flight code:", "input": "text", "name": "flight_code", "next": "english_vehicle_category_select" },
+        { "text": "BACK to airport selection", "next": "english_arrival_airport_select" }
+      ]
+    },
+    "english_vehicle_category_select": {
+      "question": "What class of vehicle would you like to request?",
+      "options": [
+        { "text": "First Class, up to 2 passengers and 2 bags.", "next": "english_contact_info_input" },
+        { "text": "Business Class, up to 2 passengers and 2 bags.", "next": "english_contact_info_input" },
+        { "text": "Minivan, up to 6 passengers and 6 bags.", "next": "english_contact_info_input" },
+        { "text": "Van , up to 10 passengers and 10 bags.", "next": "english_contact_info_input" },
+        { "text": "Back to service list", "next": "english_service_list" }
+      ]
+
+    },
+    "english_contact_info_input": {
+      "question": "Please provide pax number. ",
+      "options": [
+        { "text": "Please enter pax number:", "input": "tel", "name": "phone_number", "next": "english_contact_info_input2" },
+        { "text": "Back to service list", "next": "english_service_list" }
+      ]
+    },
+    "english_contact_info_input2": {
+      "question": "Please provide your full name. ",
+      "options": [
+        { "text": "Please enter your full name:", "input": "text", "name": "full_name", "next": "english_contact_info_input1" },
+        { "text": "Back to service list", "next": "english_service_list" }
+      ]
+    },
+    "english_contact_info_input1": {
+      "question": "Please provide your contact number (including country code).",
+      "options": [
+   
+        { "text": "Please enter your phone number (including country code):", "input": "tel", "name": "phone_number" , "next": "english_confirmation"},
+        { "text": "Back to service list", "next": "english_service_list" }
+      ]
+    },
+    "english_confirmation": {
+      "question": "Your Reservation Request Has Been Received!\nThank you for submitting your request with us!Your reservation request has been successfully received and will be processed by our team.\nPlease note that your reservation is not yet confirmed. We will notify you once the confirmation process is complete.\nWe look forward to welcoming you soon!",
+      "options": [
+        { "text": "Back to service list", "next": "english_service_list" },
+        { "text": "End Chat", "next": "endChat" }
+      ]
+    },
+ 
+    "english_hourly_private_car_start": {
+      "question": "<b>Our hourly chauffeured service</b> is designed to give you <b>flexibility and convenience</b>. Whether you need transportation for <b>meetings, sightseeing, or special events</b>, your <b>chauffeur</b> will be available as needed.\n Choose from our fleet of <b<luxury vehicles—executive sedans, SUVs, or vans</b>—for a <b>smooth</b> and <b>comfortable</b> ride.\n If your plans change or you have <b>special requests</b>, let us know, and we’ll adjust accordingly. We're committed to making every journey <b>effortless</b>.\n<b>Safe travels!</b>\n\n<b>Would you like to enjoy our Limousine Services?</b>",
+      "options": [
+        { "text": "Yes", "next": "english_hourly_vehicle_category_select" },
+        { "text": "Back To Service", "next": "english_service_1" }
+      ]
+    },
+    "english_hourly_vehicle_category_select": {
+      "question": "What class of vehicle would you like to request?",
+      "options": [
+        { "text": "First Class, up to 2 passengers and 2 bags.", "next": "english_hourly_duration_choice" },
+        { "text": "Business Class, up to 2 passengers and 2 bags.", "next": "english_hourly_duration_choice" },
+        { "text": "Minivan, up to 6 passengers and 6 bags.", "next": "english_hourly_duration_choice" },
+        { "text": "Van, up to 10 passengers and 10 bags.", "next": "english_hourly_duration_choice" },
+        { "text": "Eco-Light, up to 2 passengers and 2 bags.", "next": "english_hourly_duration_choice" },
+        { "text": "Back To Service List", "next": "english_service_list" }
+      ]
+    },
+    "english_hourly_duration_choice": {
+      "question": "How many hours of chauffeured service would you like to book?",
+      "options": [
+        { "text": "4 hours", "next": "english_hourly_starting_location" },
+        { "text": "8 hours", "next": "english_hourly_starting_location" },
+        { "text": "12 hours", "next": "english_hourly_starting_location" },
+        { "text": "24 hours", "next": "english_hourly_starting_location" },
+        { "text": "Back To Vehicle Category Selection", "next": "english_hourly_vehicle_category_select" }
+      ]
+    },
+    
+    "english_hourly_starting_location": {
+      "question": "Where would you like your chauffeured service to start?",
+      "options": [
+        { "text": "Hotel", "next": "english_hourly_confirmation" },
+        { "text": "Please provide the pickup address.", "input": "text",  "next": "english_hourly_confirmation" },
+        { "text": "Back to Duration Selection", "next": "english_hourly_duration_choice" }
+    ]
+    },
+    "english_hourly_confirmation": {
+      "question": "To confirm, your selection is \"Selected Vehicle Option\" for \"Selected Duration\". Would you like to proceed with this choice?",
+      "options": [
+        { "text": "Yes", "next": "english_contact_details" },
+        { "text": "No", "next": "english_hourly_vehicle_category_select" }
+      ]
+    },
+
+        "english_contact_details": {
+          "question": "Please provide your full name.",
+          "options": [
+            { "text": "Please provide your full name.", "input": "text", "name": "full_name", "next": "english_contact_details1" }
+          ]
+        },
+      
+
+      "english_contact_details1": {
+        "question": "Please provide your your contact number.",
+        "options": [
+          { "text": "Please provide your contact number (including country code).", "input": "tel", "name": "phone_number" , "next": "english_reservation_details"}
+        ]
+      },
+        "english_reservation_details": {
+          "question": "For how many people would you like to make the reservation?",
+          "options": [
+            { "text": "Enter the number of people:", "input": "number", "name": "number_of_people", "next": "english_reservation_date_time"}
+          ]
+        },
+        "english_reservation_date_time": {
+          "question": "Which date and time would you like to make the reservation for?",
+          "options": [
+            { "text": "Enter the reservation date (dd.mm.yyyy):", "input": "date", "name": "reservation_date", "next": "english_reservation_date_time1" }
+     
+          ]
+        },
+        "english_reservation_date_time1": {
+          "question": "Which date and time would you like to make the reservation for?",
+          "options": [
+            { "text": "Enter the reservation time (hh:mm):", "input": "time", "name": "reservation_time" ,"next": "english_confirmation"}
+          ]
+        },
+        "english_thank_you": {
+          "question": "Thank you for contacting our concierge service. Our team is available from 8:00 AM to 11:00 PM, and we will contact you during these hours to confirm your requests. Have a great day!",
+          "options": [
+            { "text": "END CHAT", "next": "endChat" },
+            { "text": "BACK TO SERVICE LIST", "next": "english_service_list" }
+          ]
+        },
+      
+        "english_private_car_other": {
+            "question": "<b>We understand</b> that sometimes you need a <b>fully personalized journey</b>. With our <b>Private Chauffeured Car Service</b>, you get exactly that <b>tailored transportation</b> designed to fit your unique needs. \nWhether it’s a <b>specific route, timing</b>, or any <b>special requirement</b>, we’re here to accommodate. Simply let us know your <b>preferences</b>, and we’ll ensure everything is arranged to <b>perfection</b>, offering you a <b>private chauffeurd car service experience</b> like no other.\n<b>Safe travels!</b>\n\n<b>Please briefly describe your request.</b>",
+            "options": [
+              { "text": "Please briefly describe your request", "input": "text", "name": "describe_your_request", "next": "english_thank_you"},
+              { "text": "Back", "next": "english_service_1" }
+            ]
+          
+          
+
+
+},
+
+"english_service_2": {
+    "question": "Please choose one of the following Services",
+    "options": [
+      { "text": "Regular Sightseeing Tours", "next": "english_regular_sightseeing_tours" },
+      { "text": "Private Guide Tours", "next": "english_private_guide_tours" },
+      { "text": "Back to service list", "next": "english_service_list" }
+    ]
+  },
+
+"english_regular_sightseeing_tours": {
+  "question": "<b>Our Regular Sightseeing Tours</b> Our Regular Sightseeing Tours are designed to offer you a pleasant experience of the city’s top attractions. Join us for a comprehensive tour of historical landmarks, cultural sites, and scenic highlights. Each tour is carefully planned to ensure a comfortable and enjoyable journey. You’ll have the opportunity to take in stunning views while learning about the city’s highlights along the way. Let us make your sightseeing experience smooth, memorable, and relaxing.\n <b>Safe travels and enjoy the sights!<b/>",
+  "options": [
+    { "text": "Yes", "next": "english_tour_list" },
+    { "text": "Back To Service", "next": "english_service_2" }
+  ]
+
+  }, 
+  "english_tour_list": {
+    "question": "Please select the tour that interests you and that you would like to learn more about.",
+    "options": [
+      { "text": "Discover the Old City Tour (Morning Departure / 4 Hours)" ,"next": "english_tour_list1" },
+      { "text": "Monuments of Ottoman Empire (Morning Departure / 8 Hours) ","next": "english_tour_list2" },
+      { "text": "The Asiatic Experience (Morning Departure / 4 Hours)", "next": "english_tour_list3" },
+      { "text": "A Bosphorus Cruise (Afternoon Departure / 4 Hours)", "next": "english_tour_list4" },
+      { "text": "Escape to Princes’ Islands (Morning Departure / 8 Hours)", "next": "english_tour_list5" },
+      { "text": "No", "next": "english_service_list" }
+    ]
+},
+"english_tour_list1": {
+  "question": "Discover the Old City Tour (Morning Departure / 4 Hours)\n \nExplore the historical heart of Istanbul with visits to some of its most iconic landmarks:\nHippodrome: The center of ancient Constantinople, where sports, entertainment, and politics converged. \nThe Blue Mosque (Sultan Ahmet Mosque): A stunning masterpiece of Ottoman architecture, adorned with delicate tiles and accompanied by a poignant history.\nHagia Sophia: A breathtaking 6th-century Byzantine basilica, representing the golden age of Emperor Justinian.\nGrand Bazaar: The world’s largest and oldest covered market, offering a variety of treasures including jewelry, carpets, food, perfumes, and more. \nPrice: 50€ + VAT (18%) per person. \nWould you like to book your spot for this exciting Discover the Old City tour now?",
+  "options": [
+    { "text": "Yes", "next": "english_contact_info_input" },
+    { "text": "No", "next": "english_tour_list" }
+  ]
+},
+"english_tour_list2": {
+  "question": "Monuments of Ottoman Empire (Morning Departure / 8 Hours)\nHippodrome: Once the bustling center of sports, entertainment, and politics in ancient Constantinople.\nThe Blue Mosque (Sultan Ahmet Mosque): A breathtaking example of Ottoman architecture, adorned with delicate tiles and carrying a poignant history. \nHagia Sophia: A magnificent Byzantine basilica from the 6th century, symbolizing the golden age of Emperor Justinian.   \nGrand Bazaar: The world’s largest and oldest covered market, offering an array of treasures, from jewelry and carpets to food and perfumes, for centuries.\nTopkapı Palace: The imperial residence and seat of government for the Ottoman Sultans from the 15th to the 19th century.\nTombs of the Sultans: The final resting places of the Ottoman Sultans and other significant figures who shaped the empire’s history.",
+  "options": [
+    { "text": "Yes", "next": "english_contact_info_input" },
+    { "text": "No", "next": "english_tour_list" }
+  ]
+},
+"english_tour_list3": {
+  "question":  "The Asiatic Experience (Morning Departure / 4 Hours)Bosphorus Bridge:\nThe only bridge connecting two continents, offering spectacular views of the city as it spans both Europe and Asia. \nÇamlıca Hill:\nOne of Istanbul’s highest points, providing a breathtaking panoramic view of the city—perfect for capturing stunning photos.\nBeylerbeyi Palace \nA magnificent 19th-century palace located beneath the Bosphorus Bridge, once the residence of Ottoman Sultans.\nBağdat Street:\nA vibrant and trendy street lined with cafés, shops, and boutiques, making it a popular destination for Sunday brunches and leisurely strolls.",
+  "options": [
+    { "text": "Yes", "next": "english_contact_info_input" },
+    { "text": "No", "next": "english_tour_list" }
+  ]
+},
+"english_tour_list4": {
+  "question": "A Bosphorus Cruise (Afternoon Departure / 4 Hours)\nBoat Cruise:Sail along the Bosphorus, with continents just a stone's throw away on either side. As you glide through the waters, enjoy the timeless beauty of Istanbul's iconic seaside mansions, while the refreshing sea breeze plays on your skin.\nSpice Market:Immerse yourself in the vibrant sights, sounds, and scents of Istanbul at the Spice Market. Wander through its bustling aisles, discovering an incredible array of rare spices, herbs, fruits, vegetables, flowers, and even live animals, capturing the true essence of the city.",
+  "options": [
+    { "text": "Yes", "next": "english_contact_info_input" },
+    { "text": "No", "next": "english_tour_list" }
+  ]
+},
+"english_tour_list5": {
+  "question": "Escape to Princes’ Islands (Morning Departure / 8 Hours)\nOnce a place of exile for fallen Byzantine princes and a retreat for monks, the Princes' Islands are now popular summer destinations, conveniently located near the city. Each island has its own unique charm and atmosphere, and as your ferry makes brief stops at each, you will have the opportunity to observe their distinct characteristics. You will disembark at Büyükada, the largest and most famous of the islands, for a truly memorable experience.",
+  "options": [
+    { "text": "Yes", "next": "english_contact_info_input" },
+    { "text": "No", "next": "english_tour_list" }
+  ]
+},
+"english_private_guide_tours": {
+    "question": "<b>Enjoy a personalized experience</b> where you can explore the sights at your own pace and focus on the topics that interest you most, with the guidance of our expert <b>private guides</b>.\n Whether you're seeking an <b>in-depth historical tour</b>, <b>cultural insights</b>, or simply a <b>customized journey</b> through the city, our guides are here to <b>tailor</b> the experience to your preferences.\n Each tour is designed to offer <b>flexibility</b>, ensuring your day is truly <b>unforgettable</b>.\n If you have <b>specific requests</b> or <b>special interests</b>, let us know, and we’ll create a tour just for you. \n<b>Safe travels</b> and enjoy your exploration!\n\n<b>Would you like to experience our Private Guide service?</b>",
+    "options": [
+      { "text": "Yes", "next": "english_language_details" },
+      { "text": "Back to service list", "next": "english_service_list" }
+    ]
+},
+"english_language_details": {
+  "question": "Which language would you like to prefer?",
+  "options": [
+    { "text": "English", "next": "english_reservation_duration_choice" },
+    { "text": "Turkish", "next": "english_reservation_duration_choice" },
+    { "text": "German", "next": "english_reservation_duration_choice" },
+    { "text": "Japanese", "next": "english_reservation_duration_choice" },
+    { "text": "Hindi", "next": "english_reservation_duration_choice" },
+    { "text": "Portuguese", "next": "english_reservation_duration_choice" },
+    { "text": "Italian", "next": "english_reservation_duration_choice" },
+    { "text": "Spanish", "next": "english_reservation_duration_choice" },
+    { "text": "Russian", "next": "english_reservation_duration_choice" },
+    { "text": "Arabic", "next": "english_reservation_duration_choice" },
+    { "text": "French", "next": "english_reservation_duration_choice" }
+  ]
+  
+},
+"english_private_reservation_details": {
+  "question": "For how many people would you like to make the reservation?",
+  "options": [
+    { "text": "Enter the number of people:", "input": "number", "name": "number_of_people", "next": "english_reservation_duration_choice" }
+  ]
+},
+
+"english_reservation_duration_choice": {
+  "question": "How many hours of the private guide would you like to book?",
+  "options": [
+    { "text": "4 hours.xx$", "next": "english_reservation_booking_now" },
+    { "text": "8 hours.xx$", "next": "english_reservation_booking_now" },
+    { "text": "12 hours.xx$", "next": "english_reservation_booking_now" },
+    { "text": "24 hours.xx$", "next": "english_reservation_booking_now" },
+    { "text": "Back To The Tour Service", "next": "english_service_2" }
+  ]
+
+},
+"english_reservation_booking_now": {
+    "question": "Would you like to make a book for the Selected Option Language for Selected Option Duration Choice", 
+    "options": [
+      { "text": "Yes", "next": "english_contact_details" },
+      { "text": "No", "next": "english_service_list" }
+    ]
+
+},
+"english_service_3": {
+  "question": "<b>Discover a curated selection</b> of the <b>finest restaurants</b> in Istanbul, tailored to suit even the most refined culinary preferences. \nWe’ve categorized the <b>best dining spots</b> across <b>nine distinct themes</b>, ensuring there’s something for every taste.\n Browse through our <b>detailed list</b> to find everything you need, including <b>average price</b> range and <b>dress code</b>, making your decision easier.\n Simply <b>select your preferred category</b> to explore your options and start planning your next <b>exceptional dining experience</b>.\nAfiyet olsun! (Enjoy your meal!):\n\n<b>Would you like to make a restaurant reservation?</b>",
+  "options": [
+    { "text": "Yes", "next": "english_restaurant_type_selection" },
+    { "text": "Back To Service", "next": "english_service_list"}
+  ]
+},
+"english_no_message": {
+  "question": "We appreciate your kind interest. You may return to our service list to explore our offerings or choose to end the conversation.",
+  "options": [
+    { "text": "End Chat", "next": "endChat" },
+    { "text": "Back To Service List", "next": "english_service_list" }
+  ]
+},
+"english_restaurant_type_selection": {
+  "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+  "options": [
+    { "text": "International Cuisine", "next": "english_international_cuisine" },
+    { "text": "Turkish Cuisine", "next": "english_turkish_cuisine" },
+    { "text": "Far East Cuisine", "next": "english_far_east_cuisine" },
+    { "text": "Michelin", "next": "english_michelin" },
+    { "text": "Italian Cuisine", "next": "english_italian_cuisine" },
+    { "text": "Seafood", "next": "english_seafood" },
+    { "text": "Steak", "next": "english_steak" },
+    { "text": "Clubs", "next": "english_clubs" },
+    { "text": "Modern Turkish Anatolian", "next": "english_modern_turkish_anatolian" },
+    { "text": "BACK TO SERVICE LIST", "next": "english_service_list" }
+  ]
+},
+"english_international_cuisine": {
+  "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+  "options": [
+    { "text": "Sunset Grill&Bar $$$,\n Smart Casual, \n25 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Topaz Restaurant $$$, \nSmart Casual, 10 min. \nby walking.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Ulus 29 $$$,\n Smart Casual, \n25 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Vogue $$$,\n Smart Casual,\n 10 min. by car", "next": "english_restaurant_type_selection_booking" },
+    { "text": "360 $$, \nSmart Casual, 15 min.\n by walking.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Back to Restaurant Type Selection", "next": "english_restaurant_type_selection" }
+  ]
+},
+"english_turkish_cuisine": {
+  "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+  "options": [
+    { "text": "Nişantaşı Başköşe $$, \nCasual, \n10 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Ali Ocakbaşı Gümüşsuyu $,\n Casual, \n10 min. by walking.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Günaydın Maçka $$, Casual, 10 min.\n by car..", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Sütiş Kebap Dünyası $$,\n Casual,\n 5 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Zübeyir Ocakbaşı $,\n Casual, \n10 min. by walking.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Back to Restaurant Type Selection", "next": "english_restaurant_type_selection" }
+  ]
+},
+"english_far_east_cuisine": {
+  "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+  "options": [
+    { "text": "Zuma $$\n,Smart Casual, \n20 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Roka $$,\n Casual, \n15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Maromi $$,\n Casual, \n5 min. by walking.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Banyan $$,\n Casual, \n20 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Çok Çok Pera $$,\n Casual, \n15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Back to Restaurant Type Selection", "next": "english_restaurant_type_selection" }
+  ]
+},
+"english_michelin": {
+  "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+  "options": [
+    { "text": "Turk Fatih Tutak $$$,\n Smart Casual, \n15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Araka $$$,\n Smart Casual, \n15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Mikla $$$,\n Smart Casual, \n10 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Neolokal $$\n, Smart Casual, \n15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Nicole $$$,\n Smart Casual, \n15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Back to Restaurant Type Selection", "next": "english_restaurant_type_selection" }
+  ]
+},
+"english_italian_cuisine": {
+  "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+  "options": [
+    { "text": "CECCONİ'S $$$,\n Smart Casual, \n15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "PAPERMOON $$$,\n Smart Casual, \n30 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "DA MARIO $$$,\nSmart Casual, \n30 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Neolokal $$$,\nSmart Casual, \n15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Cipriani $$$,\nSmart Casual, \n10 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Back to Restaurant Type Selection", "next": "english_restaurant_type_selection" }
+  ]
+},
+"english_seafood": {
+  "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+  "options": [
+    { "text": "Sait Balık $$$, \nSmart Casual, \n10 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Park Fora $$,\n Casual, \n20 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Akıntı Burnu $$,\n Casual, \n25 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Sur Balık Arnavutköy $$,\n Casual,\n 20 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Back to Restaurant Type Selection", "next": "english_restaurant_type_selection" }
+  ]
+},
+"english_steak": {
+  "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+  "options": [
+    { "text": "Nusret $$, \nSmart Casual, \n10 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Gürkan Şef $$, \nSmart Casual, \n15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Günaydın Steak&Kebap Galataport- Maçka $$,\n Casual,\n 15 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Back to Restaurant Type Selection", "next": "english_restaurant_type_selection" }
+  ]
+},
+  "english_clubs": {
+    "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+    "options": [
+      { "text": "Ruby $$$,\n Smart Casual, \n20 min. by car.", "next": "english_restaurant_type_selection_booking" },
+      { "text": "Oligark $$$, \nSmart Casual, \n25 min. by car.", "next": "english_restaurant_type_selection_booking" },
+      { "text": "Sortie $$$,\n Smart Casual, \n20 min. by car.", "next": "english_restaurant_type_selection_booking" },
+      { "text": "Back to Restaurant Type Selection", "next": "english_restaurant_type_selection" }
+    ]
+},
+"english_modern_turkish_anatolian": {
+  "question": "You can view the relevant options by selecting the restaurant category you are interested in.",
+  "options": [
+    { "text": "Mikla $$$,\n Smart Casual,\n 10 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Mürver $$,\n Smart Casual, \n10 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Madera $$,\n Smart Casual, 5 \nmin. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Karaköy Lokantası $$,\n Smart Casual, \n10 min. by car.", "next": "english_restaurant_type_selection_booking" },
+    { "text": "Back to Restaurant Type Selection", "next": "english_restaurant_type_selection" }
+  ]
+},
+"english_restaurant_type_selection_booking": {
+    "question": "Would you like to make a reservation for the Selected Option now?", 
+    "options": [
+      { "text": "Yes", "next": "english_contact_details_restaurant" },
+      { "text": "No", "next": "english_no_message" }
+    ]
+},
+"english_contact_details_restaurant": {
+  "question": "Please provide your name.",
+  "options": [
+    { "text": "Please provide your full name.", "input": "text", "next" :"english_contact_details_restaurant1"}
+ 
+  ]
+},
+"english_contact_details_restaurant1": {
+  "question": "Please provide your contact number.",
+  "options": [
+    { "text": "Please provide your contact number (including country code).", "input": "tel", "name": "phone_number","next" :"english_contact_details_restaurant2" }
+  ]
+},
+"english_contact_details_restaurant2": {
+  "question": "Which date would you like to make the reservation for?",
+  "options": [
+    { "text": "Which date would you like to make the reservation for?", "input": "date", "name": "reservation_date","next" :"english_contact_details_restaurant3" }
+  ]
+},
+"english_contact_details_restaurant3": {
+  "question": "What time would you like to make a reservation",
+  "options": [
+    { "text": "Please provide your preffered time?", "input": "time", "name": "reservation_date", "next": "english_confirmation" }
+  ]
+},
+"english_service_5": {
+  "question": "We are here to assist you with any unique needs you may have. Our Other Requests service allows you to reach out to our dedicated team members for tailored support. Whether you need special arrangements, personalized recommendations, or assistance with specific requests, just let us know, and we’ll make it happen. Your satisfaction is our priority!",
+  "options": [
+    { "text": "Yes", "next": "english_other_request_booking" },
+    { "text": "Back To Service List", "next": "english_service_list" }
+  ]
+},
+"english_other_request_booking": {
+    "question": "Please provide describe your request.",
+    "options": [
+      { "text": "Please briefly describe your request.", "input": "text", "name": "request", "next": "english_other_1" }
+
+    ]
+},
+"english_other_1": {
+  "question": "Please provide your contact number (including country code).",
+  "options": [
+    { "text": "Please provide your contact number (including country code).", "input": "tel", "name": "phone_number" , "next": "english_other_2"}
+  ]
+},
+"english_other_2": {
+  "question": "Please provide your name.",
+  "options": [
+    { "text": "Please provide your full name.", "input": "text", "name": "phone_number" , "next": "english_other_2" }
+  ]
+},
+"english_other_request_thank_you": {
+    "question": "Kindly be informed that we took all necessary notes concernig your requests and we will back to you as soon as possible for confirmation.\nYou may return to our list of services to discover our other offerings, or you may choose to end the conversation.",
+    "options": [
+      { "text": "End Chat", "next": "endChat"},
+      { "text": "Go To Service List",  "next": "english_service_list" }
+    ]
+  },
+  "english_end_chat": {
+    "question": "Thank you for your kind interest. Please do not hesitate to contact us if you require further assistance.",
+    "options": [
+      { "text": "Start",  "next": "start" }
+    
+    ]
+  },
+  "english_service_4": {
+    "question": "<b>Discover the Ultimate Shopping Experience</b> in Istanbul\nExperience a shopping paradise where curated stores cater to your every desire. From <b>luxury boutiques</b> to <b>local treasures</b>, Istanbul offers a <b>diverse range of options</b> that showcase the city’s rich heritage and craftsmanship.\n Let us guide you through the highlights of this <b>vibrant retail landscape.</b>\n Plan your <b>unforgettable shopping adventure</b>in Istanbul today!\n\n<b>Would you like to make a shopping reservation?<b/>",
+    "options": [
+      { "text": "Yes", "next": "english_shopping_info" },
+      { "text": "Back to service list", "next": "english_service_list" }
+    ]
+  },
+  "english_shopping_info": {
+    "question": "Whcih one is best option for u?",
+    "options": [
+      { "text": "Leather Goods: Delight", "next": "english_shopping_info1"},
+      { "text": "Rugs and Kilims Shops: ", "next": "english_shopping_info2"},
+      { "text": "Jewelry: ", "next": "english_shopping_info3"},
+      { "text": "Souvenirs and Keepsakes:", "next": "english_shopping_info4"},
+      { "text": "Handicrafts: ", "next": "english_shopping_info5"},
+      { "text": "Spices and Tea: ", "next": "english_shopping_info6"},
+      { "text": "Ottoman Handicrafts: ", "next": "english_shopping_info7"},
+      { "text": "Traditional Clothing: ", "next": "english_shopping_info8"},
+      { "text": "Antique Shops:.", "next": "english_shopping_info9"},
+      { "text": "Glass and Porcelain:", "next": "english_shopping_info10"},
+      { "text": "Go To Service List",  "next": "english_service_list" }
+    ]
+  },
+  "english_shopping_info1": {
+    "question": "Leather Goods: Delight in the artistry of local artisans as they craft exquisite handmade leather products, including bags, wallets, and clothing items.",
+    "options": [
+      { "text": "Okay", "next": "english_contact_details_shopping"},
+      { "text": "Go Back",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_shopping_info2": {
+    "question": "Rugs and Kilims Shops: Step into a realm of timeless beauty with stores dedicated to traditional handmade rugs, kilims, and accessories, offering a tapestry of colors and patterns.",
+    "options": [
+      { "text": "Okay", "next": "english_contact_details_shopping"},
+      { "text": "Go Back",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_shopping_info3": {
+    "question": "Jewelry: Explore a realm of luxury and elegance as you peruse shops adorned with precious stones, exquisite handmade jewelry, and magnificent examples of traditional Turkish craftsmanship.",
+    "options": [
+      { "text": "Okay", "next": "english_contact_details_shopping"},
+      { "text": "Go Back",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_shopping_info4": {
+    "question": "Souvenirs and Keepsakes: Immerse yourself in the enchanting historical and cultural ambiance of Turkish life through stores that showcase a captivating array of souvenirs, gifts, and traditional handicrafts.",
+    "options": [
+      { "text": "OKAY", "next": "english_contact_details_shopping"},
+      { "text": "Go Back",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_shopping_info5": {
+    "question": "Handicrafts: Embark on a journey through Turkey's rich artistic heritage with shops that showcase an impressive collection of traditional handicrafts, including ceramics, pottery, and intricate woodwork.",
+    "options": [
+      { "text": "OKAY", "next": "english_contact_details_shopping"},
+      { "text": "Go Back",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_shopping_info6": {
+    "question": "Spices and Tea: Awaken your senses as you discover the authentic flavors of Turkey. Delight in the aromatic treasures of Turkish tea and immerse yourself in the vibrant world of local spices at our specialized stores.",
+    "options": [
+      { "text": "OKAY", "next": "english_contact_details_shopping"},
+      { "text": "GO BACK",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_shopping_info7": {
+    "question": "Ottoman Handicrafts: Immerse yourself in the grandeur of the Ottoman era with shops offering unique and historical items, such as miniature paintings, mesmerizing calligraphy art, and the mesmerizing Ebru art form.",
+    "options": [
+      { "text": "OKAY", "next": "english_contact_details_shopping"},
+      { "text": "Go Back",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_shopping_info8": {
+    "question": "Traditional Clothing: Imbibe the essence of Turkish culture through stores that offer an exquisite selection of traditional clothing, accessories, scarves, and garments that reflect the country's rich heritage.",
+    "options": [
+      { "text": "OKAY", "next": "english_contact_details_shopping"},
+      { "text": "Go Back",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_shopping_info9": {
+    "question": "Antique Shops: Uncover treasures of the past at antique shops that house a diverse array of items, including vintage furniture, old maps, delicate lacework, and timeless artifacts.",
+    "options": [
+      { "text": "OKAY", "next": "english_contact_details_shopping"},
+      { "text": "Go Back",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_shopping_info10": {
+    "question": "Glass and Porcelain: Behold the brilliance of handmade glass and porcelain products that exude elegance and sophistication. Discover a remarkable collection of vases, plates, and decorative items adorned with enchanting Ottoman motifs.",
+    "options": [
+      { "text": "", "next": "english_contact_details_shopping"},
+      { "text": "Go Back",  "next": "english_shopping_info" }
+    ]
+  },
+  "english_contact_details_shopping": {
+    "question": "Please provide your contact details.",
+    "options": [
+      { "text": "Please provide your full name.", "input": "text", "name": "full_name", "next": "english_contact_details_shopping1" }
+    ]
+  },
+  "english_contact_details_shopping1": {
+    "question": "Please provide your contact details.",
+    "options": [
+      { "text": "Please provide your contact number (including country code).", "input": "tel", "name": "phone_number" , "next": "english_contact_details_shopping2"}
+ 
+    ]
+  },
+  "english_contact_details_shopping2": {
+    "question": "Please provide your contact details.",
+    "options": [
+      { "text": "For how many people would you like to make the reservation?", "input": "number", "name": "number_of_people", "next": "english_contact_details_shopping3"}
+    ]
+  },
+  "english_contact_details_shopping4": {
+    "question": "Please provide your contact details.",
+    "options": [
+      { "text": "Which date would you like to make the reservation for?", "input": "date", "name": "reservation_time" , "next": "english_contact_details_shopping4"}
+
+    ]
+  },
+  "english_contact_details_shopping5": {
+    "question": "Please provide your contact details.",
+    "options": [
+      { "text": "What time would you like to make the reservation for?", "input": "tel", "name": "reservation_time", "next": "english_confirmation" }
+
+    ]
+  }  }  

@@ -1,0 +1,251 @@
+{
+    "menu": [
+      {
+        "key": "Hot Coffee",
+        "name": "Sıcak İçecekler",
+        "items": [
+          {
+            "name": "Espresso",
+            "price": "139₺"
+          },
+          {
+            "name": "Espresso Macchiato",
+            "price": "159₺"
+          },
+          {
+            "name": "Americano",
+            "price": "149₺"
+          },
+          {
+            "name": "Latte",
+            "price": "169₺"
+          },
+          {
+            "name": "Latte Macchiato",
+            "price": "169₺"
+          },
+          {
+            "name": "Cappuccino",
+            "price": "179₺"
+          },
+          {
+            "name": "Cortado",
+            "price": "169₺"
+          },
+          {
+            "name": "Flat White",
+            "price": "169₺"
+          },
+          {
+            "name": "Türk Kahvesi",
+            "price": "129₺"
+          },
+          {
+            "name": "Türk Kahvesi(Double)",
+            "price": "149₺"
+          },
+          {
+            "name": "Sütlü Türk Kahvesi",
+            "price": "159₺"
+          },
+          {
+            "name": "Filtre Kahve",
+            "price": "149₺"
+          }
+  
+          
+        ]
+      },
+      {
+        "key": "Tea",
+        "name": "Çay",
+        "items": [
+          {
+            "name": "Siyah Çay",
+            "price": "50₺"
+          },
+          {
+            "name": "Yeşil Çay",
+            "price": "169₺"
+          },
+          {
+            "name": "Kış Çayı",
+            "price": "169₺"
+          },
+          {
+            "name": "Yasemin Çayı",
+            "price": "169₺"
+          },
+          {
+            "name": "Papatya Çayı",
+            "price": "169₺"
+          },
+          {
+            "name": "Adaçayı",
+            "price": "169₺"
+          },
+          {
+            "name": "Nane-Limon Çayı",
+            "price": "169₺"
+          },
+          {
+            "name": "Elma Tarçın Çayı",
+            "price": "169₺"
+          }
+        ]
+      },
+      {
+        "key": "Cold Beverages",
+        "name": "Soğuk İçecekler",
+        "image": "assets/icons/beverages.png",
+        "items": [
+          {
+            "name": "Soğuk Americano",
+            "price": "185₺"
+          },
+          {
+            "name": "Soğuk Latte",
+            "price": "195₺"
+          },
+          {
+            "name": "Soğuk Chaı Tea Latte",
+            "price": "219₺"
+          },
+          {
+            "name": "Limonata",
+            "price": "179₺"
+          },
+          {
+            "name": "Çilekli Limonata",
+            "price": "199₺"
+          },
+          {
+            "name": "Naneli Limonata",
+            "price": "199₺"
+          },
+          {
+            "name": "Fesleğenli Limonata",
+            "price": "199₺"
+          },
+          {
+            "name": "Sıkma Portakal Suyu",
+            "price": "199₺"
+          },
+          {
+            "name": "Soda",
+            "price": "89₺"
+          },
+          {
+            "name": "Churchill",
+            "price": "110₺"
+          },
+          {
+            "name": "Tropical Spice",
+            "price": "209₺"
+          },
+          {
+            "name": "Berry Hibiscus",
+            "price": "199₺"
+          },
+          {
+            "name": "Cool Lime",
+            "price": "199₺"
+          }
+        ]
+      },
+      {
+        "key": "Desserts",
+        "name": "Tatlılar",
+        "image": "assets/icons/desserts.png",
+        "items": [
+          {
+            "name": "Chocolate Cream",
+            "price": "335₺"
+          },
+          {
+            "name": "Marble Brownie",
+            "price": "335₺"
+          },
+          {
+            "name": "Kruvasan",
+            "price": "330₺"
+          }
+        ]
+      },
+      {
+        "key": "Factory Specials",
+        "name": "Factory Specials",
+        "image": "assets/icons/alcohol.png",
+        "items": [
+          {
+            "name": "Gold Çikolatalı Frappe",
+            "price": "209₺"
+          },
+          {
+            "name": "Beyaz Çikolatalı Frappe",
+            "price": "209₺"
+          },
+          {
+            "name": "Gold Belçika Çikolatalı Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "Beyaz Belçika Çikolatalı Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "Soğuk Gold Çikolatalı Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "Soğuk Beyaz Çikolatalı Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "Lotus Frappe",
+            "price": "209₺"
+          },
+          {
+            "name": "Soğuk Çikolata",
+            "price": "219₺"
+          },
+          {
+            "name": "Soğuk Mocha",
+            "price": "209₺"
+          },
+          {
+            "name": "Sıcak Belçika Çikolatalı Mocha",
+            "price": "199₺"
+          },
+          {
+            "name": "Sıcak Belçika Çikolata",
+            "price": "199₺"
+          },
+          {
+            "name": "Lotus Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Balkabaklı Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Ballı Tarçınlı Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Antep Fıstıklı Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Dirty Chai Tea Latte",
+            "price": "209₺"
+          },
+          {
+            "name": "Chai Tea Latte",
+            "price": "209₺"
+          }
+        ]
+      }
+    ]
+  }

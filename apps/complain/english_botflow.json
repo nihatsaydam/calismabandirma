@@ -1,0 +1,25 @@
+{
+
+        "start": {
+          "question": "<b>Welcome to Keepsty Complain!</b> I am here to make your stay as comfortable and enjoyable as possible. If you experience any dissatisfaction or issues, I am just a message away and ready to provide a quick solution.\n\n<b>Please briefly explain the problem that you have faced</b>",
+          "options": [
+            { "text": "Please write your problem", "input": "text", "next": "start1" }
+          ]
+        },
+      
+
+        "start1": {
+            "question": "We are sorry for the issue you have experienced. Your complaint has been successfully received and is being addressed. <b>We will update you with a resolution shortly.</b>",
+            "options": [
+              { "text": "Do you have a different problem?", "input": "text", "next": "start2" }
+            ]
+          },
+            "start2": {
+              "question": "Dear Valued Guest,\nThank you for reaching out to us again. We sincerely apologize for the inconvenience you have experienced. Please rest assured that your complaint has already been received and forwarded to the appropriate team. They are currently working on resolving the issue, and our team update you as soon as possible.<b> We appreciate your patience and understanding.<b/>",
+              "options": [
+                { "text": "Do you have a different problem?", "input": "text", "next": "start2" }
+              ]
+          }
+      
+        
+          }

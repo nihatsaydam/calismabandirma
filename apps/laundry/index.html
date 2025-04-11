@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keepsty Laundry Services</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dil Seçimi -->
+  <div id="language-selection">
+    <h2>Select Your Language</h2>
+    <div id="languages"></div>
+  </div>
+
+  <!-- Üst Başlık -->
+  <div class="header-container">
+    <div class="circle">
+      <img src="assets/icons/laundry.png" alt="Keepsty Character">
+    </div>
+    <div class="text-and-line">
+      <h1 class="title">Keepsty</h1>
+      <div class="horizontal-line"></div>
+      <h2 class="subtitle">Laundry</h2>
+      <p class="tagline">Keep Your Stay, Keep Your Care</p>
+    </div>
+  </div>
+
+  <!-- Aksiyon Butonları -->
+  <div id="action-container">
+    <div class="action-item" id="home-action" onclick="navigateToHome()">
+        <img src="assets/icons/action1.png" alt="Home">
+        <p>Home</p>
+    </div>
+  
+  
+  <script>
+    function navigateToHome() {
+        // Kullanıcıyı public/index.html dosyasındaki #card-screen bölümüne yönlendir
+        window.location.href = '../../index.html#card-screen';
+    }
+  </script>
+    <!-- Cart Butonu -->
+    <div class="action-item" id="cart-action" onclick="showCartScreen()"> 
+      <img src="assets/icons/action2.png" alt="Cart">
+      <p id="cart-count">Cart (0)</p>
+    </div>
+
+
+    <div class="action-item">
+      <img src="assets/icons/action3.png" alt="Chat">
+      <p>Chat</p>
+    </div>
+    <div class="action-item" onclick="goBack()">
+      <img src="assets/icons/action4.png" alt="Back">
+      <p>Back</p>
+    </div>
+    
+  </div>
+
+
+<!-- Sepet Ekranı: İlk başta gizli -->
+<div id="cart-screen" style="display: none;">
+<button class="close-btn">&times;</button> 
+</div>
+
+  <!-- Ana Uygulama Alanı -->
+  <div id="app">
+ <!-- Ana Menü -->
+<div id="menu" class="screen-active"> 
+  <div class="menu-container">
+    <div class="menu-options">
+      <div class="menu-option">
+  
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+<!-- Ürün Listesi -->
+<div id="item-list-section" style="display: none;">
+  <div class="list-header">
+    
+  </div>
+  <div class="category-cards-container" id="item-list"></div>
+</div>
+
+<!-- Sepet Ekranı -->
+<div id="cart-screen" style="display: none;">
+  <button class="close-btn" onclick="hideCartScreen()">&times;</button> <!-- Kapatma butonu -->
+</div>
+
+<!-- Chatbot Ekranı -->
+<div id="chatbot" style="display: none;">
+  <div class="chat-header">
+    <div class="header-avatar">
+      <img src="assets/avatars/bot-avatar.png" alt="Keepsty Avatar">
+    </div>
+    <div class="header-info">
+      <h1>Keepsty</h1>
+      <p>HouseKeeping</p>
+    </div>
+  </div>
+  <div id="chat-box">
+    <div id="chat-messages"></div>
+    <div id="chat-options"></div>
+  </div>
+  <div id="footer-container">
+    <div id="message-input-container">
+      <input type="text" id="message-input" placeholder="Type your message here...">
+      <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+
+
+ 
+  <script src="script.js" defer></script>
+</body>
+</html>

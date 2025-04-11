@@ -1,0 +1,14 @@
+{
+  "en": {
+    "time_period_prompt": "Select the time period of the service that you want."
+  },
+  "tr": {
+    "time_period_prompt": "İstediğiniz hizmet süresini seçin."
+  },
+  "fr": {
+    "time_period_prompt": "Sélectionnez la période de temps pour le service que vous souhaitez."
+  },
+  "ar": {
+    "time_period_prompt": "اختر الفترة الزمنية للخدمة التي تريدها."
+  }
+}

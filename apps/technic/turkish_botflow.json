@@ -1,0 +1,25 @@
+{
+
+    "start": {
+      "question": "<b>Keepsty Technic'e hoş geldiniz!</b> Konaklamanız süresince karşılaştığınız tüm teknik, mekanik ve IT ile ilgili sorunların hızlı ve verimli bir şekilde çözülmesini sağlamak için buradayım. Herhangi bir zorlukla karşılaşırsanız, lütfen bana bildirin, ve gerekli ekip hemen bilgilendirilecektir.\n\n<b>Karşılaştığınız sorunu kısaca açıklayabilir misiniz?<b/>",
+      "options": [
+        { "text": "Lütfen karşılaştığınız sorununuzu yazınız.", "input": "text", "next": "start1" }
+      ]
+    },
+  
+
+    "start1": {
+        "question": "Yaşadığınız rahatsızlıktan dolayı üzgünüz. Bildirdiğiniz sorun talebi başarıyla alınmış ve ilgili teknik ekibe iletilmiştir. Şu anda sorun çözülmesi için çalışmalar devam etmektedir. Ekibimiz, gelişmeler hakkında sizi kısa süre içinde bilgilendirecektir.",
+        "options": [
+          { "text": "Do you have a different problem?", "input": "text", "next": "start2" }
+        ]
+      },
+        "start2": {
+          "question": "<b>Değerli Misafirimiz,</b>,\nBize tekrar ulaştığınız için teşekkür ederiz. Yaşadığınız rahatsızlıktan dolayı içtenlikle özür dileriz. Bildirdiğiniz sorun başarıyla alınmış olup, teknik ekibimiz tarafından çözülmesi için çalışılmaktadır. Çözüm bulmak için aktif olarak çalışmalarına devam ediyorlar ve ekibimiz sizi en kısa sürede bilgilendirecektir. <b>Sabır ve anlayışınız için teşekkür ederiz.</b>",
+          "options": [
+            { "text": "Do you have a different problem?", "input": "text", "next": "start2" }
+          ]
+      }
+  
+    
+      }

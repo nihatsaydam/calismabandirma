@@ -1,0 +1,287 @@
+{
+  "popup": {
+    "popupMessage": "Hangi saatte hizmet almak istersiniz?",
+    "time30": "30 dakika içinde",
+    "time60": "1 saat içinde",
+    "time120": "2 saat içinde",
+    "time240": "4 saat içinde"
+  },
+    "menu": [
+      {
+        "key": "Laundry Service",
+        "name": "Çamaşırhane Servisi",
+        "description": "Temizlik ve ütüleme için profesyonel çamaşırhane hizmeti.",
+        "image": "assets/icons/laundry-service.png",
+        "items": [
+          {
+            "name": "Gömlek",
+            "price": "160₺ per"
+          },
+          {
+            "name": "Pantolon",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Tişört",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Kazak-Hırka",
+            "price": "200₺ per"
+          } ,      
+          {
+            "name": "Kumaş Yelek",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Pijama",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Eşofman",
+            "price": "250₺ per"
+          },
+          {
+            "name": "Tulum",
+            "price": "350₺ per"
+          },
+          {
+            "name": "Fanila",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Şort",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Külot",
+            "price": "85₺ per"
+          },
+          {
+            "name": "Çorap",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Mendil",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Kravat",
+            "price": "125 per"
+          },
+          {
+            "name": "Şapka",
+            "price": "125₺ per"
+          },
+          {
+            "name": "Sütyen",
+            "price": "125₺ per"
+          },
+          {
+            "name": "Elbise",
+            "price": "400₺ per"
+          },
+          {
+            "name": "Etek",
+            "price": "230₺ per"
+          },
+          {
+            "name": "Eşarp",
+            "price": "175₺ per"
+          },
+          {
+            "name": "Bluz",
+            "price": "250₺ per"
+          }
+      ]
+      },
+      {
+        "key": "Dry Cleaning",
+        "name": "Kuru Temizleme",
+        "description": "Profesyonel kuru temizleme ve ütüleme hizmeti.",
+        "image": "assets/icons/drycleaningicon.png",
+        "items": [
+          {
+            "name": "Gömlek",
+            "price": "160₺ per"
+          },
+          {
+            "name": "Pantolon",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Tişört",
+            "price": "150₺ per"
+          },
+          {
+            "name": "Kazak-Hırka",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Kumaş Yelek",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Tulum",
+            "price": "350₺ per"
+          },
+          {
+            "name": "Kravat",
+            "price": "125₺ per"
+          },
+          { 
+            "name": "Elbise",
+            "price": "400₺ per"
+          },
+          {
+            "name": "Etek",
+            "price": "230₺ per"
+          },
+          {
+            "name": "Eşarp",
+            "price": "175₺ per"
+          }   ,
+          {
+            "name": "Bluz",
+            "price": "250₺ per"
+          },
+          {
+            "name": "Şişme Yelek",
+            "price": "300₺ per"
+          }     ,  
+          {
+            "name": "Takım Elbise",
+            "price": "480₺ per"
+          },
+          {
+            "name": "Ceket",
+            "price": "280₺ per"
+          }   ,
+          {
+            "name": "Palto",
+            "price": "450₺ per"
+          },
+          {
+            "name": "Mont",
+            "price": "400₺ per"
+          },
+          {
+            "name": "Pardesü",
+            "price": "450₺ per"
+          }    
+         ]
+      },
+      {
+        "key": "Pressing Service",
+        "name": "Ütüleme Servisi",
+        "description": "Kıyafetleriniz için profesyonel ütüleme hizmeti.",
+        "image": "assets/icons/ironing-service.png",
+        "items": [
+             {
+            "name": "Gömlek",
+            "price": "80₺ per"
+          },
+          {
+            "name": "Pantolon",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Tişört",
+            "price": "75₺ per"
+          },
+          {
+            "name": "Kazak-Hırka",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Kumaş Yelek",
+            "price": "100₺ per"
+          },
+          {
+            "name": "Pijama",
+            "price": "75₺ per"
+          },
+          {
+            "name": "Eşofman",
+            "price": "125₺ per"
+          },        
+          {
+            "name": "Tulum",
+            "price": "175₺ per"
+          },
+          {
+            "name": "Fanila",
+            "price": "50₺ per"
+          },
+          {
+            "name": "Şort",
+            "price": "75₺ per"
+          },
+          {
+            "name": "Külot",
+            "price": "45₺ per"
+          },
+          {
+            "name": "Çorap",
+            "price": "30₺ per"
+          },
+          {
+            "name": "Mendil",
+            "price": "30₺ per"
+          },
+          {
+            "name": "Kravat",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Şapka",
+            "price": "60₺ per"
+          },
+          {
+            "name": "Sütyen",
+            "price": "60₺ per"
+          }  ,      
+          { 
+            "name": "Elbise",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Etek",
+            "price": "115₺ per"
+          },
+          {
+            "name": "Eşarp",
+            "price": "80₺ per"
+          }   ,
+          {
+            "name": "Bluz",
+            "price": "175₺ per"
+          },
+          {
+            "name": "Şişme Yelek",
+            "price": "150₺ per"
+          }    ,   
+          {
+            "name": "Takım Elbise",
+            "price": "240₺ per"
+          },
+          {
+            "name": "Ceket",
+            "price": "140₺ per"
+          }   ,
+          {
+            "name": "Palto",
+            "price": "225₺ per"
+          },
+          {
+            "name": "Mont",
+            "price": "200₺ per"
+          },
+          {
+            "name": "Pardesü",
+            "price": "225₺ per"
+          }  
+        ]
+      }
+    ]
+  }

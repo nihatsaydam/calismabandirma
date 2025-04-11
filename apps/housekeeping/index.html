@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keepsty House Keeping Services</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dil Seçimi -->
+  <div id="language-selection">
+    <h2>Select Your Language</h2>
+    <div id="languages"></div>
+  </div>
+
+  <!-- Üst Başlık -->
+  <div class="header-container">
+    <div class="circle">
+      <img src="assets/icons/keepsty-character.png" alt="Keepsty Character">
+    </div>
+    <div class="text-and-line">
+      <h1 class="title">Keepsty</h1>
+      <div class="horizontal-line"></div>
+      <h2 class="subtitle">HouseKeeping</h2>
+      <p class="tagline">Keep Your Stay, Keep Your Care</p>
+    </div>
+  </div>
+
+  <!-- Aksiyon Butonları -->
+  <div id="action-container">
+    <div class="action-item" id="home-action" onclick="navigateToHome()">
+        <img src="assets/icons/action1.png" alt="Home">
+        <p>Home</p>
+    </div>
+  
+  
+  <script>
+    function navigateToHome() {
+        // Kullanıcıyı public/index.html dosyasındaki #card-screen bölümüne yönlendir
+        window.location.href = '../../index.html#card-screen';
+    }
+  </script>
+
+    <!-- Cart Butonu -->
+    <div class="action-item" id="cart-action" onclick="showCartScreen()"> <!-- onclick eklendi -->
+      <img src="assets/icons/action2.png" alt="Cart">
+      <p id="cart-count">Cart (0)</p>
+    </div>
+
+
+    <div class="action-item">
+      <img src="assets/icons/action3.png" alt="Chat">
+      <p>Chat</p>
+    </div>
+    <div class="action-item">
+      <img src="assets/icons/action4.png" alt="Back">
+      <p>Back</p>
+    </div>
+  </div>
+
+  <!-- Sepet Ekranı (Body'nin direkt child'ı olarak) -->
+<!-- Sepet Ekranı: İlk başta gizli -->
+<div id="cart-screen" style="display: none;"></div>
+  <button class="close-btn">&times;</button> <!-- Bu satırı ekleyin -->
+
+
+  <!-- Ana Uygulama Alanı -->
+  <div id="app">
+    <!-- Menü -->
+    <div id="menu">
+      <div class="menu-container">
+        <div class="menu-options">
+          <div class="menu-option">
+            <img src="assets/icons/item-list.png" alt="Item List">
+            <h3>Item List Request</h3>
+            <p>Please select the item you require from the list.</p>
+            <button onclick="showItemList()">Choose</button>
+          </div>
+          <div class="menu-option">
+            <img src="assets/icons/cleaning.png" alt="Cleaning">
+            <h3>Cleaning Request</h3>
+            <p>Specify your preferred time and type of cleaning.</p>
+            <button onclick="showTimePopup()">Choose</button>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+
+    <!-- Item List Section -->
+    <div id="item-list-section" style="display: none;">
+      <div class="category-cards-container" id="item-list"></div>
+    </div>
+
+    <!-- Chatbot Alanı -->
+    <div id="chatbot" style="display: none;">
+      <div class="chat-header">
+        <div class="header-avatar">
+          <img src="assets/avatars/bot-avatar.png" alt="Keepsty Avatar">
+        </div>
+        <div class="header-info">
+          <h1>Keepsty</h1>
+          <p>HouseKeeping</p>
+        </div>
+      </div>
+      <div id="chat-box">
+        <div id="chat-messages"></div>
+        <div id="chat-options"></div>
+      </div>
+      <div id="footer-container">
+        <div id="message-input-container">
+          <input type="text" id="message-input" placeholder="Type your message here...">
+          <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="time-popup" style="display: none;">
+      <div class="popup-content">
+        <h3>Select Cleaning Option</h3>
+        <div id="clean-options">
+          <h4>Cleaning Options:</h4>
+          <button onclick="selectCleanOption('Room')">Room</button>
+          <button onclick="selectCleanOption('Bathroom')">Bathroom</button>
+          <button onclick="selectCleanOption('Whole Room')">Whole Room</button>
+          <button onclick="selectCleanOption('Refresh')">Refresh</button>
+        </div>
+      
+        <div class="popup-buttons">
+          <button id="confirm-time" class="keepsty-button">Confirm</button>
+          <button id="cancel-time" class="keepsty-button cancel" onclick="hideTimePopup()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

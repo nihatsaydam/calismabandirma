@@ -540,17 +540,5 @@ langButtons.forEach(function (btn) {
   
   // Sayfa yüklendiğinde dil verilerini yükleyin
   document.addEventListener("DOMContentLoaded", loadLanguageData);
-  
-  fetch('https://keepstyback.onrender.com/saveLaundry', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Laundry saved:', data);
-  })
-  .catch(error => {
-    console.error('Error saving laundry:', error);
-  });
+
 }

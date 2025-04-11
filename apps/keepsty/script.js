@@ -173,31 +173,7 @@ function hideTypingIndicator() {
 }
 
 // Keepsty modeline uygun mesaj kaydetme fonksiyonu (ask1)
-function ask1(payload) {
-  console.log('Gönderilen payload:', payload); // Payload’u kontrol et
-  fetch('https://keepstyback.onrender.com/ask1', { // Göreceli yol kullanılıyor
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-    .then(response => {
-      console.log('Sunucu yanıtı:', response.status); // Durum kodunu kontrol et
-      return response.json();
-    })
-    .then(data => console.log('Mesaj veritabanına kaydedildi:', data))
-    .catch(error => console.error('Mesaj kaydedilirken hata oluştu:', error));
-}
 
-// Belirli bir odanın mesajlarını çeken fonksiyon (ask2)
-function ask2(roomNumber) {
-  fetch(`https://keepstyback.onrender.com/ask2/${roomNumber}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(`Oda ${roomNumber} için mesajlar:`, data);
-      loadMessages(data); // Sağ panele mesajları yükleyen fonksiyon (uygulamanızda tanımlı olmalı)
-    })
-    .catch(error => console.error(`Oda mesajları çekilirken hata oluştu (Oda ${roomNumber}):`, error));
-}
 
 // Örnek: Mesajları yükleme fonksiyonu (uygulamanıza göre düzenleyin)
 function loadMessages(messages) {

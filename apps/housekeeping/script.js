@@ -112,30 +112,8 @@ document.getElementById("confirm-time") &&
     if (!selectedCleanOption) {
       alert("Please select a cleaning option!");
       return;
-    }
-    // Kullanıcı bilgileri ve seçilen temizlik seçeneği sunucuya gönderilecek
-    try {
-      const username = localStorage.getItem("username") || "defaultUsername";
-      const roomNumber = localStorage.getItem("roomNumber") || "defaultRoomNumber";
-      const response = await fetch('https://keepstyback.onrender.com/save-cleaning-option', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          username: username,
-          roomNumber: roomNumber,
-          cleaningOption: selectedCleanOption,
-          timestamp: new Date().toISOString()
-        })
-      });
-      const result = await response.json();
-      console.log("Data saved:", result);
-      showConfirmationPopup();
-      hideTimePopup();
-    } catch (error) {
-      console.error("Error saving cleaning option:", error);
-      alert("Failed to save cleaning option, please try again later.");
-    }
-  });
+    }})
+
 document.getElementById("cancel-time") && (document.getElementById("cancel-time").onclick = hideTimePopup);
 document.addEventListener("DOMContentLoaded", () => {
   const timeOptionsOutside = document.querySelectorAll(".quick-options-outside");

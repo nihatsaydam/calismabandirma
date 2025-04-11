@@ -445,45 +445,7 @@ function showOptions() {
         
         processStep("start");
         
-        function saveMessageToDatabase(message, sender) {
-          // LocalStorage'den oda numarası ve kullanıcı adını al
-          const roomNumber = localStorage.getItem('roomNumber') || 'Unknown';
-          const username = localStorage.getItem('username') || 'Unknown';
-          
-          // Payload'u oluşturun
-          const payload = {
-            roomNumber: roomNumber,   // Oda numarası
-            username: username,       // Girilen kullanıcı adı
-            language: currentLanguage || 'unknown', // Dil bilgisi
-            message: message,         // Gönderilecek mesaj
-            sender: sender,           // 'user' veya 'bot'
-          };
-        
-          console.log('Payload to be sent:', payload);
-        
-          // Veriyi sunucuya gönderin
-          fetch('https://keepstyback.onrender.com/saveComplain', {
-
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-          })
-            .then((response) => response.json())
-            .then((data) => console.log('Message saved to database:', data))
-            .catch((error) => console.error('Error saving message to database:', error));
-        }
-        
-        
-        function fetchRoomMessages(roomNumber) {
-          fetch(`https://keepstyback.onrender.com/getChatLogsByco${roomNumber}`)
-          .then((response) => response.json())
-            .then((data) => {
-              console.log(`Messages for room ${roomNumber}:`, data);
-              loadMessages(data); // Sağ panele mesajları yükle
-            })
-            .catch((error) => console.error("Error fetching room messages:", error));
-        }
-        
+   
         
         function loadMessages(messages) {
           const chatContent = document.getElementById('chat-content');

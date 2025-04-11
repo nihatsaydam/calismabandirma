@@ -114,30 +114,7 @@ function handleLuggageRequest(requestType) {
   showTimePopup();
 }
 
-//
-// Tek seferde istek gönderimi yapan global fonksiyon.
-//
-function sendBellboyRequest(clickType, details = '', selectedTimeValue = null) {
-  const roomNumber = localStorage.getItem('roomNumber') || 'Unknown';
-  const username = localStorage.getItem('username') || 'Unknown';
 
-  const payload = { roomNumber, username, clickType, details, selectedTime: selectedTimeValue };
-
-  fetch('https://keepstyback.onrender.com/saveBellboyRequest', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Bellboy request saved:', data);
-    })
-    .catch(error => console.error('Error sending bellboy request:', error));
-}
-
-//
-// Confirm-time butonunda artık zaman kontrolü kaldırılarak doğrudan istek gönderiliyor.
-//
 document.getElementById("confirm-time").addEventListener("click", function () {
   const confirmButton = document.getElementById("confirm-time");
   confirmButton.disabled = true;

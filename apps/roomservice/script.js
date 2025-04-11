@@ -408,39 +408,3 @@ function openCart() {
   cartScreen.style.display = 'flex'; // CSS'de flex olarak ayarlandığı için
 }
 
-function saveCartToDB(cart) {
-  // Toplam fiyatı hesaplayın
-  let totalPrice = cart.reduce((sum, item) => {
-    const price = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
-    return sum + (price * item.quantity);
-  }, 0);
-
-  // LocalStorage'den oda numarası, kullanıcı adı ve servis zamanı bilgilerini alın
-  const roomNumber = localStorage.getItem('roomNumber') || "default";
-  const username = localStorage.getItem('username') || "Unknown";
-  const serviceTime = parseInt(localStorage.getItem('selectedServiceTime')) || 0;
-  const serviceTimeLabel = localStorage.getItem('selectedServiceLabel') || "No service time selected";
-
-  // Tek bir payload oluşturun
-  const payload = {
-    roomNumber: roomNumber,
-    username: username,
-    items: cart,
-    totalPrice: totalPrice,
-    serviceTime: serviceTime,
-    serviceTimeLabel: serviceTimeLabel
-  };
-
-  fetch('https://keepstyback.onrender.com/saveRoomservice', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Laundry saved:', data);
-  })
-  .catch(error => {
-    console.error('Error saving laundry:', error);
-  });
-}

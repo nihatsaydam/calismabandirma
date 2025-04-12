@@ -41,8 +41,8 @@ function selectLanguage(langCode) {
 function showWelcomePopup() {
   const messages = {
     en: `
-      Welcome to Keepsty Housekeeping! I’m here to make your stay as comfortable and seamless as possible.
-      Whether you need fresh towels, room cleaning, or any other housekeeping services, I’m just a message away.
+      Welcome to Keepsty Housekeeping! I'm here to make your stay as comfortable and seamless as possible.
+      Whether you need fresh towels, room cleaning, or any other housekeeping services, I'm just a message away.
     `,
     tr: `
       Keepsty Housekeeping'e hoş geldiniz! Konaklamanızı mümkün olduğunca konforlu ve sorunsuz hale getirmek için buradayım.
@@ -103,7 +103,16 @@ function cancelTimePopup() {
   document.getElementById("time-popup").style.display = "none";
   selectedTime = null;
 }
-
+function confirmt() {
+  document.getElementById("time-popup").style.display = "none";
+  selectedTime = null;
+  document.getElementById("success-popup").style.display = "flex";
+  
+  // 4 saniye sonra popup'ı kapat
+  setTimeout(() => {
+    document.getElementById("success-popup").style.display = "none";
+  }, 4000);
+}
 //
 // Global function to handle different request types.
 //

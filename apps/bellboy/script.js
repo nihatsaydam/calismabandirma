@@ -154,7 +154,7 @@ let currentLanguage = localStorage.getItem("currentLanguage") || "en";
 
 const translations = {
   english: {
-    checkIn: "Check-In Luggage Delivery",
+    checkIn: "Check- In Luggage Delivery",
     checkInDesc: "Select the time",
     checkOut: "Check-Out Luggage Delivery",
     checkOutDesc: "Select the time.",

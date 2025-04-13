@@ -986,36 +986,59 @@ body {
   z-index: 1000;
 }
 
-/* Success Popup - Optimize edilmiş */
-#success-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(4px);
-}
-
 /* Popup İçerik - Optimize edilmiş */
 .popup-content {
   background-color: var(--background-white);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-lg);
   text-align: center;
-  width: 300px;
+  width: 90%;
+  max-width: 350px;
   box-shadow: var(--shadow-md);
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .popup-content h3 {
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--secondary-color);
+  font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-md);
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+/* Success Popup - Optimize edilmiş */
+.popup-content.success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--background-light);
+  max-width: 400px;
+  width: 90%;
+}
+
+.success-message {
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-color);
+}
+
+.keepsty-logo {
+  width: 180px;
+  height: auto;
+  margin: var(--spacing-lg) auto;
+  display: block;
 }
 
 /* Popup Butonları - Optimize edilmiş */
@@ -1023,31 +1046,36 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: var(--spacing-lg);
+  gap: var(--spacing-sm);
 }
 
 .popup-buttons button {
   padding: 10px 20px;
   font-size: var(--font-size-sm);
   border: none;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--border-radius-md);
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 48%;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
 }
 
-#confirm-time {
+#confirm-time, .popup-buttons .keepsty-button {
   background-color: var(--secondary-color);
   color: var(--background-white);
+  flex: 1;
 }
 
 #cancel-time {
   background-color: var(--background-light);
   color: var(--text-color);
   border: 1px solid var(--border-color);
+  flex: 1;
 }
 
 .popup-buttons button:hover {
   transform: scale(1.05);
+  opacity: 0.95;
 }
 
 /* Responsive - Optimize edilmiş */

@@ -31,9 +31,9 @@ const keywordResponses = {
     "Cleaning": "Sure! If you would like your room to be cleaned, please go to the *Housekeeping* section on the Keepsty app and submit a cleaning request. Our team will arrive shortly. Is there anything else I can assist you with?",
     "Laundry": "Yes, we provide laundry and pressing services at our hotel. These services are *chargeable*, and you can view the pricing in the *Laundry* section on the Keepsty app. Once you submit a request, our team will come to your room to collect the laundry. Let me know if you need any further assistance.",
     "Pressing": "Yes, we provide laundry and ironing services at our hotel. These services are *chargeable*, and you can view the pricing in the *Laundry* section on the Keepsty app. Once you submit a request, our team will come to your room to collect the laundry. Let me know if you need any further assistance.",
-    "AC": "We’re sorry for the inconvenience! Please report the air conditioning issue by submitting a request in the *Technic* section on the Keepsty app. Our technical team will attend to your room as soon as possible. Is there anything else I can assist you with?",
+    "AC": "We're sorry for the inconvenience! Please report the air conditioning issue by submitting a request in the *Technic* section on the Keepsty app. Our technical team will attend to your room as soon as possible. Is there anything else I can assist you with?",
     "Spa": "We're sorry, but our hotel does not offer spa, massage, or sauna services. Please let me know if there is anything else I can assist you with.",
-    "Children": "We’re sorry, but our hotel currently does not have a dedicated play area or activity program for children. Please let me know if I can help you with anything else."
+    "Children": "We're sorry, but our hotel currently does not have a dedicated play area or activity program for children. Please let me know if I can help you with anything else."
   },
   "french": {
     "petit-déjeuner": "Bonjour ! Le petit-déjeuner est servi tous les jours de *07h00 à 10h00*. Vous pouvez le déguster dans notre café situé au rez-de-chaussée de l'hôtel. Puis-je vous aider pour autre chose ?",
@@ -41,13 +41,13 @@ const keywordResponses = {
     "Wifi": "Oui, nous proposons une connexion Wi-Fi gratuite dans tout l'hôtel. Connectez-vous au réseau 'Hotel54' et utilisez le mot de passe *54hotel54*.",
     "Stationnement": "Oui, un parking privé est à la disposition de nos clients et il est entièrement *gratuit*.",
     "Service en chambre": "Bonjour ! Le service en chambre est disponible de *10h00 à 22h00*. Vous pouvez commander vos boissons et desserts préférés depuis le menu. Puis-je vous aider pour autre chose ?",
-    "Menu": "Bien sûr ! Vous pouvez consulter notre menu et commander facilement vos boissons et desserts préférés via l’option *Room Service* dans l'application Keepsty. Je suis toujours là si vous avez besoin d'aide !",
+    "Menu": "Bien sûr ! Vous pouvez consulter notre menu et commander facilement vos boissons et desserts préférés via l'option *Room Service* dans l'application Keepsty. Je suis toujours là si vous avez besoin d'aide !",
     "serviettes": "Avec plaisir ! Vous pouvez demander des serviettes ou oreillers supplémentaires dans la section *Housekeeping* de l'application Keepsty. Une fois la demande envoyée, nous les livrerons dans votre chambre dans les plus brefs délais. Puis-je vous aider pour autre chose ?",
     "Nettoyage": "Bien entendu ! Si vous souhaitez que votre chambre soit nettoyée, veuillez faire une demande via la section *Housekeeping* de l'application Keepsty. Notre équipe interviendra rapidement. Puis-je vous aider pour autre chose ?",
     "Blanchisserie": "Oui, nous proposons un service de blanchisserie et de repassage. Ces services sont *payants*, et vous pouvez consulter les tarifs dans la section *Laundry* de l'application Keepsty. Une fois la demande effectuée, notre équipe viendra récupérer votre linge dans votre chambre. N'hésitez pas à me solliciter si besoin.",
     "Climatisation": "Nous sommes désolés pour ce désagrément ! Veuillez signaler le problème de climatisation via la section *Technic* de l'application Keepsty. Notre équipe technique interviendra dans votre chambre dès que possible. Puis-je vous aider pour autre chose ?",
     "Spa": "Nous sommes désolés, mais notre hôtel ne propose pas de service de spa, massage ou sauna. Puis-je vous aider pour autre chose ?",
-    "Enfants": "Nous sommes désolés, mais notre hôtel ne dispose pas actuellement d’un espace de jeux ou de programme d’activités pour enfants. Puis-je vous aider pour autre chose ?"
+    "Enfants": "Nous sommes désolés, mais notre hôtel ne dispose pas actuellement d'un espace de jeux ou de programme d'activités pour enfants. Puis-je vous aider pour autre chose ?"
   },
   "arabic": {
     "kahvalti": "صباح الخير! يتم تقديم وجبة الإفطار يوميًا من الساعة *07:00* صباحًا حتى *10:00* صباحًا. يمكنكم الاستمتاع بها في المقهى الواقع في الطابق الأرضي من الفندق. هل يمكنني مساعدتك في شيء آخر؟",
@@ -74,6 +74,25 @@ document.addEventListener("DOMContentLoaded", function() {
     chatbot.style.display = "block";
   }
 
+  // Mesaj inputu ve gönderme butonları için dinleyiciler
+  const messageInput = document.getElementById("message-input");
+  const sendButton = document.getElementById("send-button");
+  
+  if (messageInput) {
+    messageInput.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        sendMessage();
+      }
+    });
+  }
+  
+  if (sendButton) {
+    sendButton.addEventListener("click", function() {
+      sendMessage();
+    });
+  }
+
   // Dört dilde hoş geldiniz mesajları
   const welcomeMessages = {
     "turkish": "Ask Keepsty'ye hoş geldiniz! 👋 Konaklamanızı kolay ve keyifli hale getirmek için buradayım. Check-in & check-out saatleri, oda detayları, Wi-Fi erişimi, yemek seçenekleri, Housekeeping, spa hizmetleri veya yerel aktiviteler hakkında bilgi almak isterseniz sorunuzu iletebilirsiniz.",
@@ -85,7 +104,28 @@ document.addEventListener("DOMContentLoaded", function() {
   // Seçilen dilin hoş geldiniz mesajını alıyoruz
   const selectedWelcomeMessage = welcomeMessages[currentLanguage] || welcomeMessages["english"];
   addMessageToChat(selectedWelcomeMessage, "bot");
+  
+  // Bot hoşgeldin mesajını veritabanına kaydet
+  const botPayload = {
+    roomNumber: roomNumber,
+    message: selectedWelcomeMessage,
+    sender: "bot",
+    status: "sent"
+  };
+  ask1(botPayload);
+  
+  // Typing göstergesini oluştur (eğer yoksa)
+  const chatBox = document.getElementById("chat-box");
+  if (chatBox && !document.getElementById("typing-indicator")) {
+    const typingIndicator = document.createElement("div");
+    typingIndicator.id = "typing-indicator";
+    typingIndicator.className = "message bot typing";
+    typingIndicator.innerHTML = "<div class='typing-dots'><span></span><span></span><span></span></div>";
+    typingIndicator.style.display = "none";
+    chatBox.appendChild(typingIndicator);
+  }
 });
+
 // Fonksiyon: Kullanıcı mesajına göre uygun yanıtı bulur
 function findResponseForMessage(userMessage) {
   const message = userMessage.toLowerCase();
@@ -118,28 +158,36 @@ function addMessageToChat(message, sender) {
 // Fonksiyon: Kullanıcı mesajı gönderme işlemini gerçekleştirir
 function sendMessage() {
   const inputField = document.getElementById("message-input");
+  if (!inputField) return; // Input alanı yoksa hiçbir şey yapma
+  
   const userMessage = inputField.value.trim();
+  
+  // Boş mesaj kontrolü - sadece gerçekten boşsa uyar
   if (userMessage === "") {
-    alert("Lütfen bir şey yazın / Please type a message / Veuillez taper un message / الرجاء كتابة رسالة");
-    return;
+    return; // Sessizce çık, uyarı gösterme
   }
+  
   // Kullanıcı mesajını ekle
   addMessageToChat(userMessage, "user");
-  inputField.value = "";
+  inputField.value = ""; // Input alanını temizle
+  
+  // Input alanını tekrar odaklı hale getir
+  inputField.focus();
 
   // Kullanıcı mesajı için payload oluştur
   const userPayload = {
     roomNumber: roomNumber, // Oda numarasını dinamik olarak alıyoruz
     message: userMessage,
     sender: "user",
-    status: "waiting"
+    timestamp: new Date().toISOString(),
+    status: "sent"
   };
   ask1(userPayload); // Kullanıcı mesajını kaydet
 
   // Yazıyor animasyonu göster
   showTypingIndicator();
 
-  // 1 saniye sonra bot yanıtını ekle
+  // Bot yanıtı için gecikme
   setTimeout(() => {
     hideTypingIndicator();
     const botResponse = findResponseForMessage(userMessage);
@@ -150,17 +198,32 @@ function sendMessage() {
       roomNumber: roomNumber, // Oda numarasını dinamik olarak alıyoruz
       message: botResponse,
       sender: "bot",
-      status: "waiting"
+      timestamp: new Date().toISOString(),
+      status: "sent"
     };
     ask1(botPayload); // Bot yanıtını kaydet
-  }, 1000);
+  }, 1500); // Daha gerçekçi bir deneyim için 1.5 saniye gecikme
 }
 
 // Fonksiyon: Yazıyor (typing) göstergesini açar
 function showTypingIndicator() {
   const indicator = document.getElementById("typing-indicator");
   if (indicator) {
-    indicator.style.display = "block";
+    indicator.style.display = "flex"; // Flexbox kullanarak daha iyi hizalama
+  } else {
+    // Eğer gösterge yoksa oluştur
+    const chatBox = document.getElementById("chat-box");
+    if (chatBox) {
+      const typingIndicator = document.createElement("div");
+      typingIndicator.id = "typing-indicator";
+      typingIndicator.className = "message bot typing";
+      typingIndicator.innerHTML = "<div class='typing-dots'><span></span><span></span><span></span></div>";
+      typingIndicator.style.display = "flex";
+      chatBox.appendChild(typingIndicator);
+      
+      // Sohbeti aşağı kaydır
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
   }
 }
 
@@ -173,7 +236,32 @@ function hideTypingIndicator() {
 }
 
 // Keepsty modeline uygun mesaj kaydetme fonksiyonu (ask1)
-
+function ask1(payload) {
+  // Burada mesajları veritabanına kaydetme işlemi yapılabilir
+  console.log("Mesaj kaydedildi:", payload);
+  
+  // Örnek olarak localStorage'a kaydediyoruz
+  let messages = JSON.parse(localStorage.getItem('keepstyMessages') || '[]');
+  messages.push({
+    ...payload,
+    timestamp: new Date().toISOString()
+  });
+  localStorage.setItem('keepstyMessages', JSON.stringify(messages));
+  
+  // Gerçek bir uygulamada, burada bir API çağrısı yapılabilir:
+  /*
+  fetch('/api/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+  .then(response => response.json())
+  .then(data => console.log('Success:', data))
+  .catch((error) => console.error('Error:', error));
+  */
+}
 
 // Örnek: Mesajları yükleme fonksiyonu (uygulamanıza göre düzenleyin)
 function loadMessages(messages) {

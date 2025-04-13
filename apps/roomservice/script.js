@@ -10,16 +10,63 @@ let chatHistory = [];
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  showItemList();
+  // İlk yükleme olayında dil seçimi ve ardından menü yüklenir
+  try {
+    // İlk olarak DOM hazır mı kontrol et
+    if (document.readyState === 'loading') {
+      console.log("DOM henüz hazır değil, yükleme beklenecek");
+    } else {
+      console.log("DOM hazır, dil seçimi ve menü yükleniyor");
+    }
+  
+    // Dil seçimi ekranını yükle
+    loadLanguageSelection();
+  } catch (error) {
+    console.error("Başlangıç yüklemesinde hata:", error);
+    // Hata durumunda varsayılan olarak item list'i göster
+    try {
+      showItemList();
+    } catch (err) {
+      console.error("Hata kurtarma işlemi de başarısız:", err);
+      alert("Uygulama başlatılırken bir hata oluştu. Lütfen sayfayı yenileyin.");
+    }
+  }
+
+  // Cart butonuna olay dinleyicisi ekleyin
+  const cartActionItem = document.getElementById('cart-action');
+  if (cartActionItem) {
+    cartActionItem.addEventListener('click', showCartScreen);
+    console.log('Cart action listener eklendi.');
+  } else {
+    console.error('Cart action öğesi bulunamadı!');
+  }
 });
 
 function showItemList() {
-  document.getElementById('menu').style.display = 'none';
-  document.getElementById('item-list-section').style.display = 'block';
-  showScreen('item-list-section');
+  console.log("showItemList çağrıldı");
+  
+  try {
+    // Ekranları kontrol et ve güvenli bir şekilde değiştir
+    const menuElement = document.getElementById('menu');
+    const itemListSection = document.getElementById('item-list-section');
+    
+    if (!menuElement) {
+      console.error("'menu' elementi bulunamadı!");
+    } else {
+      menuElement.style.display = 'none';
+    }
+    
+    if (!itemListSection) {
+      console.error("'item-list-section' elementi bulunamadı!");
+    } else {
+      itemListSection.style.display = 'block';
+    }
+    
+    showScreen('item-list-section');
 
-  // localStorage'dan dil kodunu al (örneğin, "english", "turkish")
-  let currentLanguage = localStorage.getItem('currentLanguage') || 'english'; // Varsayılan İngilizce
+    // localStorage'dan dil kodunu al (örneğin, "english", "turkish")
+    let currentLanguage = localStorage.getItem('currentLanguage') || 'english'; // Varsayılan İngilizce
+    console.log("Aktif dil:", currentLanguage);
 
     // Dil kodunu dosya adı için uygun hale getir (en, tr, fr, ar)
     const langCodeMap = {
@@ -28,58 +75,67 @@ function showItemList() {
         french: 'fr',
         arabic: 'ar'
     };
-  let langCode = langCodeMap[currentLanguage] || 'en'; // Varsayılan 'en'
+    let langCode = langCodeMap[currentLanguage] || 'en'; // Varsayılan 'en'
 
-  // Doğru JSON dosyasının yolunu oluştur
-  const jsonFilePath = `data/menu_${langCode}.json`;
+    // Doğru JSON dosyasının yolunu oluştur
+    const jsonFilePath = `data/menu_${langCode}.json`;
+    console.log("Menü dosyası yükleniyor:", jsonFilePath);
 
+    fetch(jsonFilePath)  // Doğru dosyayı yükle
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`JSON dosyası yüklenemedi: ${jsonFilePath}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        const itemListDiv = document.getElementById('item-list');
+        if (!itemListDiv) {
+          console.error("'item-list' elementi bulunamadı!");
+          return;
+        }
+        itemListDiv.innerHTML = '';
 
-  fetch(jsonFilePath)  // Doğru dosyayı yükle
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`JSON dosyası yüklenemedi: ${jsonFilePath}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      const itemListDiv = document.getElementById('item-list');
-      itemListDiv.innerHTML = '';
+        if (!data || !data.menu || !Array.isArray(data.menu)) {
+          console.error("Menü verisi geçerli bir format değil:", data);
+          return;
+        }
 
-      data.menu.forEach(category => {
-        // ... (Geri kalan kod aynı kalabilir, çünkü JSON yapısı aynı)
-        const categoryCard = document.createElement('div');
-        categoryCard.classList.add('dynamic-menu-option');
+        data.menu.forEach(category => {
+          const categoryCard = document.createElement('div');
+          categoryCard.classList.add('dynamic-menu-option');
 
-      
+          const optionDetails = document.createElement('div');
+          optionDetails.classList.add('option-details');
 
-        const optionDetails = document.createElement('div');
-        optionDetails.classList.add('option-details');
+          const title = document.createElement('h3');
+          title.textContent = category.name;
+          optionDetails.appendChild(title);
 
-        const title = document.createElement('h3');
-        title.textContent = category.name;
-        optionDetails.appendChild(title);
+          const desc = document.createElement('p');
+          desc.textContent = category.description;
+          optionDetails.appendChild(desc);
 
-        const desc = document.createElement('p');
-        desc.textContent = category.description;
-        optionDetails.appendChild(desc);
+          const button = document.createElement('button');
+          button.textContent = 'Choose';
+          button.addEventListener('click', () => {
+            showCategoryItems(category);
+          });
+          optionDetails.appendChild(button);
 
-        const button = document.createElement('button');
-        button.textContent = 'Choose';
-        button.addEventListener('click', () => {
-          showCategoryItems(category);
+          categoryCard.appendChild(optionDetails);
+          itemListDiv.appendChild(categoryCard);
         });
-        optionDetails.appendChild(button);
-
-        categoryCard.appendChild(optionDetails);
-        itemListDiv.appendChild(categoryCard);
-
+      })
+      .catch(error => {
+        console.error('Menü yüklenirken hata oluştu:', error);
+        // Burada kullanıcıya hata mesajı gösterebilirsin
+        alert(`Menü yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin. Hata: ${error.message}`);
       });
-    })
-    .catch(error => {
-      console.error('Menu yüklenirken hata oluştu:', error);
-      // Burada kullanıcıya hata mesajı gösterebilirsin (opsiyonel)
-      alert(`Error loading menu. Please try again later.  Failed to load: ${jsonFilePath}`);
-    });
+  } catch (error) {
+    console.error("showItemList fonksiyonunda hata:", error);
+    alert("Menü gösterilirken bir hata oluştu. Lütfen sayfayı yenileyin.");
+  }
 }
 
 function showCategoryItems(category) {
@@ -126,21 +182,39 @@ function showCategoryItems(category) {
 }
 
 function goBack() {
+  // Önce geçerli ekranı kontrol edelim
+  const currentScreen = document.querySelector('.screen-active');
+  console.log("Back tuşuna basıldı, aktif ekran:", currentScreen ? currentScreen.id : "bulunamadı");
+  console.log("Önceki ekranlar:", JSON.stringify(previousScreens));
+  
   if (previousScreens.length > 0) {
     const lastScreenId = previousScreens.pop(); // Son açılan ekranı al
-
+    console.log("Önceki ekrana dönülüyor:", lastScreenId);
+    
+    // Şu an aktif olan tüm ekranları gizle
     document.querySelectorAll('.screen-active').forEach(screen => {
       screen.style.display = 'none';
       screen.classList.remove('screen-active');
     });
-
-    const previousScreen = document.getElementById(lastScreenId);
-    if (previousScreen) {
-      previousScreen.style.display = 'block';
-      previousScreen.classList.add('screen-active');
+    
+    // 'menu' yerine doğrudan item-list-section'a dön - bu daha güvenli
+    if (lastScreenId === 'menu') {
+      showItemList(); // Menu boş olduğu için direk item liste dön
+    } else {
+      // Önceki ekranı bul ve göster
+      const previousScreen = document.getElementById(lastScreenId);
+      if (previousScreen) {
+        previousScreen.style.display = 'block';
+        previousScreen.classList.add('screen-active');
+        console.log(`Returning to screen: ${lastScreenId}`);
+      } else {
+        console.error(`Previous screen not found: ${lastScreenId}`);
+        showItemList(); // Eğer önceki ekran bulunamazsa ana liste ekranına dön
+      }
     }
   } else {
-    showScreen('menu'); // Eğer önceki ekran yoksa, ana ekrana dön
+    console.log('No previous screens in history, showing item list');
+    showItemList(); // Eğer önceki ekran yoksa, ana ekrana dön
   }
 }
 
@@ -177,69 +251,90 @@ function updateCartDisplay() {
 
 function showCartScreen() {
   const cartScreen = document.getElementById('cart-screen');
-  cartScreen.style.display = 'flex';
-  cartScreen.innerHTML = '';  // Önceki içerikleri temizle
-  showScreen('cart-screen');
-  // **Kapatma Butonu**
-  const closeButton = document.createElement('button');
-  closeButton.className = 'close-btn';
-  closeButton.innerHTML = '&times;';
-  closeButton.addEventListener('click', hideCartScreen);
-  cartScreen.appendChild(closeButton);
+  
+  // İki adet cart-screen elementinden sadece birini seçmemiz gerekiyor
+  if (cartScreen) {
+    // Eğer varsa önceki içeriği temizle
+    cartScreen.innerHTML = '';
+    
+    // Sepet ekranını göster
+    cartScreen.style.display = 'flex';
+    showScreen('cart-screen');
+    
+    // **Kapatma Butonu**
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-btn';
+    closeButton.innerHTML = '&times;';
+    closeButton.addEventListener('click', hideCartScreen);
+    cartScreen.appendChild(closeButton);
 
-  // **Başlık**
-  const header = document.createElement('h2');
-  header.textContent = 'Your Cart';
-  cartScreen.appendChild(header);
+    // **Başlık**
+    const header = document.createElement('h2');
+    header.textContent = 'Your Cart';
+    cartScreen.appendChild(header);
 
-  // **Sepet Ürünleri**
-  const itemsContainer = document.createElement('div');
-  itemsContainer.className = 'cart-items-container';
+    // **Sepet Ürünleri**
+    const itemsContainer = document.createElement('div');
+    itemsContainer.className = 'cart-items-container';
 
-  if (cart.length === 0) {
-    const emptyMessage = document.createElement('p');
-    emptyMessage.textContent = 'Cart is currently empty.';
-    itemsContainer.appendChild(emptyMessage);
+    if (cart.length === 0) {
+      const emptyMessage = document.createElement('p');
+      emptyMessage.textContent = 'Cart is currently empty.';
+      itemsContainer.appendChild(emptyMessage);
+    } else {
+      let totalPrice = 0;
+
+      cart.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+
+        const itemPrice = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
+        const itemTotalPrice = itemPrice * item.quantity;
+        totalPrice += itemTotalPrice;
+
+        itemDiv.innerHTML = `
+          <p>${item.name} (x${item.quantity})</p>
+          <p class="cart-price">Unit Price: ${item.price}</p>
+          <p class="cart-total">Total: ₺${itemTotalPrice.toFixed(2)}</p>
+        `;
+
+        itemsContainer.appendChild(itemDiv);
+      });
+
+      const totalDiv = document.createElement('div');
+      totalDiv.className = 'cart-total-container';
+      totalDiv.innerHTML = `<h3>Total Price: ₺${totalPrice.toFixed(2)}</h3>`;
+      itemsContainer.appendChild(totalDiv);
+    }
+
+    cartScreen.appendChild(itemsContainer);
+
+    // **Talep Butonu (Request)**
+    const requestButton = document.createElement('button');
+    requestButton.id = 'request-btn';
+    requestButton.textContent = 'Request';
+    requestButton.addEventListener('click', showTimeSelectionPopup);
+    cartScreen.appendChild(requestButton);
+    
+    console.log("Cart screen displayed");
   } else {
-    let totalPrice = 0;
-
-    cart.forEach(item => {
-      const itemDiv = document.createElement('div');
-      itemDiv.className = 'cart-item';
-
-      const itemPrice = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
-      const itemTotalPrice = itemPrice * item.quantity;
-      totalPrice += itemTotalPrice;
-
-      itemDiv.innerHTML = `
-        <p>${item.name} (x${item.quantity})</p>
-        <p class="cart-price">Unit Price: ${item.price}</p>
-        <p class="cart-total">Total: ₺${itemTotalPrice.toFixed(2)}</p>
-      `;
-
-      itemsContainer.appendChild(itemDiv);
-    });
-
-    const totalDiv = document.createElement('div');
-    totalDiv.className = 'cart-total-container';
-    totalDiv.innerHTML = `<h3>Total Price: ₺${totalPrice.toFixed(2)}</h3>`;
-    itemsContainer.appendChild(totalDiv);
+    console.error("Cart screen element not found!");
   }
-
-  cartScreen.appendChild(itemsContainer);
-
-  // **Talep Butonu (Request)**
-  const requestButton = document.createElement('button');
-  requestButton.id = 'request-btn';
-  requestButton.textContent = 'Request';
-  requestButton.addEventListener('click', showTimeSelectionPopup);
-  cartScreen.appendChild(requestButton);
 }
 
 function hideCartScreen() {
   const cartScreen = document.getElementById('cart-screen');
   if (cartScreen) {
     cartScreen.style.display = 'none';
+    console.log("Cart screen hidden");
+    
+    // Geri düğmesinde doğru çalışabilmesi için son ekrana dönelim
+    if (previousScreens.length > 0) {
+      const lastScreenId = previousScreens[previousScreens.length - 1];
+      showScreen(lastScreenId);
+    } else {
+      showItemList();
+    }
   }
 }
 
@@ -261,15 +356,23 @@ function showScreen(newScreenId) {
   const currentScreen = document.querySelector('.screen-active'); // Şu an açık olan ekranı bul
 
   if (currentScreen) {
-    previousScreens.push(currentScreen.id); // Önceki ekranı kaydet
+    const currentScreenId = currentScreen.id;
+    // Mevcut ekran ile yeni ekran aynı değilse, önceki ekranı kaydet
+    if (currentScreenId !== newScreenId) {
+      console.log(`Pushing screen to history: ${currentScreenId}`);
+      previousScreens.push(currentScreenId); // Önceki ekranı kaydet
+    }
     currentScreen.style.display = 'none';
     currentScreen.classList.remove('screen-active');
   }
 
   const newScreen = document.getElementById(newScreenId);
   if (newScreen) {
+    console.log(`Showing screen: ${newScreenId}`);
     newScreen.style.display = 'block';
     newScreen.classList.add('screen-active');
+  } else {
+    console.error(`Screen not found: ${newScreenId}`);
   }
 
   // **Dil seçim ekranını tekrar açmasını engelle**
@@ -377,6 +480,19 @@ function closeSuccessPopup() {
   showItemList();      // Ana menüyü göster
 }
 
+// Sepet verilerini veritabanına kaydeden fonksiyon
+function saveCartToDB(cart) {
+  console.log("Sepet verileri kaydediliyor:", cart);
+  // Burada gerçek bir veritabanı işlemi yapılabilir
+  // Örneğin, localStorage veya bir API kullanılabilir
+  try {
+    localStorage.setItem('roomservice_cart', JSON.stringify(cart));
+    console.log("Sepet verileri başarıyla kaydedildi.");
+  } catch (error) {
+    console.error("Sepet verileri kaydedilirken hata oluştu:", error);
+  }
+}
+
 // *****************
 // DOMContentLoaded: Başlangıç İşlemleri
 // *****************
@@ -393,6 +509,48 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Cart action öğesi bulunamadı!');
   }
 });
+
+// Dil seçim ekranını gösteren fonksiyon
+function loadLanguageSelection() {
+  console.log("Dil seçimi yükleniyor");
+  const languageContainer = document.getElementById("languages");
+  if (!languageContainer) {
+    console.error("Dil seçim konteyneri bulunamadı!");
+    return;
+  }
+  
+  // Dilleri tanımla
+  const languages = [
+    { name: "English", code: "english" },
+    { name: "Türkçe", code: "turkish" }, 
+    { name: "Français", code: "french" },
+    { name: "العربية", code: "arabic" }
+  ];
+  
+  // Dil butonlarını oluştur
+  languages.forEach(lang => {
+    const button = document.createElement("button");
+    button.textContent = lang.name;
+    button.addEventListener("click", () => {
+      // Seçilen dili kaydet
+      localStorage.setItem("currentLanguage", lang.code);
+      // Dil seçim ekranını gizle
+      document.getElementById("language-selection").style.display = "none";
+      // Menüyü göster
+      showItemList();
+    });
+    languageContainer.appendChild(button);
+  });
+  
+  // Daha önce seçilmiş dil varsa dil seçim ekranını gösterme
+  const savedLanguage = localStorage.getItem("currentLanguage");
+  if (savedLanguage) {
+    document.getElementById("language-selection").style.display = "none";
+    showItemList();
+  } else {
+    document.getElementById("language-selection").style.display = "flex";
+  }
+}
 
 // Kapatma butonunu seç (eğer varsa)
 const closeBtn = document.querySelector('.close-btn');

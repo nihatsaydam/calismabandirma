@@ -59,60 +59,51 @@
     
   </div>
 
-
-<!-- Sepet Ekranı: İlk başta gizli -->
-<div id="cart-screen" style="display: none;">
-<button class="close-btn">&times;</button> 
-</div>
-
   <!-- Ana Uygulama Alanı -->
   <div id="app">
- <!-- Ana Menü -->
-<div id="menu" class="screen-active"> 
-  <div class="menu-container">
-    <div class="menu-options">
-      <div class="menu-option">
+    <!-- Ana Menü -->
+    <div id="menu" class="screen-active"> 
+      <div class="menu-container">
+        <div class="menu-options">
+          <div class="menu-option">
+          </div>
+        </div>
       </div>
- 
+    </div>
+
+    <!-- Ürün Listesi -->
+    <div id="item-list-section" style="display: none;">
+      <div class="list-header">
+      </div>
+      <div class="category-cards-container" id="item-list"></div>
+    </div>
+
+    <!-- Sepet Ekranı: Tek bir cart-screen elementi -->
+    <div id="cart-screen" style="display: none;"></div>
+
+    <!-- Chatbot Ekranı -->
+    <div id="chatbot" style="display: none;">
+      <div class="chat-header">
+        <div class="header-avatar">
+          <img src="assets/avatars/bot-avatar.png" alt="Keepsty Avatar">
+        </div>
+        <div class="header-info">
+          <h1>Keepsty</h1>
+          <p>HouseKeeping</p>
+        </div>
+      </div>
+      <div id="chat-box">
+        <div id="chat-messages"></div>
+        <div id="chat-options"></div>
+      </div>
+      <div id="footer-container">
+        <div id="message-input-container">
+          <input type="text" id="message-input" placeholder="Type your message here...">
+          <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- Ürün Listesi -->
-<div id="item-list-section" style="display: none;">
-  <div class="list-header">
-  </div>
-  <div class="category-cards-container" id="item-list"></div>
-</div>
-
-<!-- Sepet Ekranı -->
-<div id="cart-screen" style="display: none;">
-  <button class="close-btn" onclick="hideCartScreen()">&times;</button> <!-- Kapatma butonu -->
-</div>
-
-<!-- Chatbot Ekranı -->
-<div id="chatbot" style="display: none;">
-  <div class="chat-header">
-    <div class="header-avatar">
-      <img src="assets/avatars/bot-avatar.png" alt="Keepsty Avatar">
-    </div>
-    <div class="header-info">
-      <h1>Keepsty</h1>
-      <p>HouseKeeping</p>
-    </div>
-  </div>
-  <div id="chat-box">
-    <div id="chat-messages"></div>
-    <div id="chat-options"></div>
-  </div>
-  <div id="footer-container">
-    <div id="message-input-container">
-      <input type="text" id="message-input" placeholder="Type your message here...">
-      <button id="send-button" onclick="sendMessage()">Send</button>
-    </div>
-  </div>
-</div>
 
   <script src="script.js" defer></script>
 </body>

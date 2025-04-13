@@ -40,8 +40,8 @@ function selectLanguage(langCode) {
 function showWelcomePopup() {
   const messages = {
     en: `
-      Welcome to Keepsty Housekeeping! I’m here to make your stay as comfortable and seamless as possible.
-      Whether you need fresh towels, room cleaning, or any other housekeeping services, I’m just a message away.
+      Welcome to Keepsty Housekeeping! I'm here to make your stay as comfortable and seamless as possible.
+      Whether you need fresh towels, room cleaning, or any other housekeeping services, I'm just a message away.
     `,
     tr: `
       Keepsty Housekeeping'e hoş geldiniz! Konaklamanızı mümkün olduğunca konforlu ve sorunsuz hale getirmek için buradayım.
@@ -86,9 +86,11 @@ function showWelcomePopup() {
 function showTimePopup() {
   document.getElementById("time-popup").style.display = "flex";
 }
+
 function hideTimePopup() {
   document.getElementById("time-popup").style.display = "none";
 }
+
 function setQuickOption(minutes) {
   const currentDate = new Date();
   currentDate.setMinutes(currentDate.getMinutes() + minutes);
@@ -101,20 +103,44 @@ function setQuickOption(minutes) {
 let selectedCleanOption = "";
 function selectCleanOption(optionName) {
   selectedCleanOption = optionName;
-  console.log("✅ Güncellenen Temizlik Seçeneği:", selectedCleanOption);
-  // Seçilen butonu vurgula
-  document.querySelectorAll(".clean-option").forEach(btn => btn.classList.remove("selected"));
-  document.getElementById(optionName).classList.add("selected");
+  console.log("✅ Seçilen Temizlik Seçeneği:", selectedCleanOption);
+  
+  // Tüm butonlardan selected sınıfını kaldır
+  const buttons = document.querySelectorAll("#clean-options button");
+  buttons.forEach(button => {
+    button.classList.remove("selected");
+  });
+  
+  // Tıklanan butona selected sınıfını ekle
+  buttons.forEach(button => {
+    if (button.textContent === optionName) {
+      button.classList.add("selected");
+    }
+  });
 }
 
-document.getElementById("confirm-time") &&
-  (document.getElementById("confirm-time").onclick = async () => {
-    if (!selectedCleanOption) {
-      alert("Please select a cleaning option!");
-      return;
-    }})
+document.addEventListener("DOMContentLoaded", function() {
+  const confirmButton = document.getElementById("confirm-time");
+  if (confirmButton) {
+    confirmButton.addEventListener("click", function() {
+      if (!selectedCleanOption) {
+        alert("Please select a cleaning option!");
+        return;
+      }
+      
+      // Sepete eklemek yerine direkt başarı mesajı göster
+      hideTimePopup();
+      showCleaningConfirmation(selectedCleanOption);
+    });
+  }
+  
+  // Ensure cancel button works correctly
+  const cancelButton = document.getElementById("cancel-time");
+  if (cancelButton) {
+    cancelButton.addEventListener("click", hideTimePopup);
+  }
+});
 
-document.getElementById("cancel-time") && (document.getElementById("cancel-time").onclick = hideTimePopup);
 document.addEventListener("DOMContentLoaded", () => {
   const timeOptionsOutside = document.querySelectorAll(".quick-options-outside");
   timeOptionsOutside.forEach(option => (option.style.display = "none"));
@@ -172,17 +198,35 @@ function showItemList() {
 function showCategoryItems(category) {
   const itemListDiv = document.getElementById('item-list');
   itemListDiv.innerHTML = ''; // Önceki içeriği temizle
+  
   const itemsContainer = document.createElement('div');
   itemsContainer.classList.add('items-container');
+  
+  // Mobil cihaz kontrolü
+  const isMobile = window.innerWidth <= 600;
+  
   category.items.forEach(item => {
     item.quantity = item.quantity || 0;
     const itemCard = document.createElement('div');
     itemCard.classList.add('item-card');
+    
+    // İtem adı ve miktar kontrolleri için container
+    const itemContent = document.createElement('div');
+    itemContent.className = 'item-content';
+    
     const itemName = document.createElement('h4');
     itemName.textContent = item.name;
-    itemCard.appendChild(itemName);
+    
+    if (isMobile) {
+      itemContent.appendChild(itemName);
+      itemCard.appendChild(itemContent);
+    } else {
+      itemCard.appendChild(itemName);
+    }
+    
     const quantityContainer = document.createElement('div');
     quantityContainer.classList.add('quantity-container');
+    
     const decreaseButton = document.createElement('button');
     decreaseButton.textContent = '–';
     decreaseButton.addEventListener('click', () => {
@@ -192,9 +236,11 @@ function showCategoryItems(category) {
         removeFromCart(item);
       }
     });
+    
     const quantityDisplay = document.createElement('span');
     quantityDisplay.textContent = item.quantity;
     quantityDisplay.classList.add('quantity-display');
+    
     const increaseButton = document.createElement('button');
     increaseButton.textContent = '+';
     increaseButton.addEventListener('click', () => {
@@ -202,12 +248,20 @@ function showCategoryItems(category) {
       quantityDisplay.textContent = item.quantity;
       addToCart(item);
     });
+    
     quantityContainer.appendChild(decreaseButton);
     quantityContainer.appendChild(quantityDisplay);
     quantityContainer.appendChild(increaseButton);
-    itemCard.appendChild(quantityContainer);
+    
+    if (isMobile) {
+      itemCard.appendChild(quantityContainer);
+    } else {
+      itemCard.appendChild(quantityContainer);
+    }
+    
     itemsContainer.appendChild(itemCard);
   });
+  
   itemListDiv.appendChild(itemsContainer);
 }
 
@@ -223,12 +277,24 @@ function goBack() {
 // Sepete ekleme
 function addToCart(item) {
   console.log("addToCart called with:", item);
-  let existingItem = cart.find(cartItem => cartItem.id === item.id || cartItem.name === item.name);
+  
+  // Öğe kimliği veya isim kontrolü - her ürün için benzersiz tanımlayıcı oluştur
+  const itemIdentifier = item.id || item.name;
+  
+  let existingItem = cart.find(cartItem => 
+    (cartItem.id && cartItem.id === item.id) || 
+    (cartItem.name && cartItem.name === item.name)
+  );
+  
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
-    cart.push({ ...item, quantity: 1 });
+    // Yeni bir kopya oluştur ve sepete ekle
+    const newItem = { ...item, quantity: 1 };
+    cart.push(newItem);
+    console.log("New item added to cart:", newItem);
   }
+  
   updateCartDisplay();
 }
 
@@ -302,15 +368,27 @@ function showCartScreen() {
   // Orta kısım: Sepet ürünlerini listeleyecek alan
   const itemsContainer = document.createElement('div');
   itemsContainer.className = 'cart-items-container';
+  
   if (cart.length === 0) {
     const emptyMessage = document.createElement('p');
     emptyMessage.textContent = 'Cart is currently empty.';
     itemsContainer.appendChild(emptyMessage);
   } else {
-    cart.forEach(item => {
+    // Sepetin içeriğini konsola yazdır (debug için)
+    console.log("Cart contents:", JSON.stringify(cart));
+    
+    cart.forEach((item, index) => {
       const itemDiv = document.createElement('div');
       itemDiv.className = 'cart-item';
-      itemDiv.innerHTML = `<p>${item.name} (x${item.quantity})</p>`;
+      
+      // Ürünleri benzersiz numaralarla göster
+      const itemName = item.name || `Item ${index+1}`;
+      itemDiv.innerHTML = `
+        <p>${itemName} (x${item.quantity})</p>
+        <div class="cart-item-controls">
+          <button class="remove-item" onclick="removeItemFromCart(${index})">Remove</button>
+        </div>
+      `;
       itemsContainer.appendChild(itemDiv);
     });
   }
@@ -335,6 +413,15 @@ function showCartScreen() {
     }
   });
   cartScreen.appendChild(requestButton);
+}
+
+// Sepetten öğe silme - yeni fonksiyon
+function removeItemFromCart(index) {
+  if (index >= 0 && index < cart.length) {
+    cart.splice(index, 1);
+    updateCartDisplay();
+    showCartScreen(); // Sepet görünümünü yenile
+  }
 }
 
 function hideCartScreen() {
@@ -398,6 +485,42 @@ function showMainMenu() {
   document.getElementById('time-popup').style.display = 'none';
   document.getElementById('menu').style.display = 'block';
   hideCartScreen();
+}
+
+// ============================
+// Temizlik talebi için özel onay popup'ı
+// ============================
+function showCleaningConfirmation(cleaningType) {
+  document.body.style.backdropFilter = "blur(5px)";
+  document.body.style.overflow = "hidden";
+  const successPopup = document.createElement('div');
+  successPopup.id = 'success-popup';
+  successPopup.classList.add('popup-overlay');
+  successPopup.style.display = 'flex';
+  successPopup.style.alignItems = 'center';
+  successPopup.style.justifyContent = 'center';
+  successPopup.style.position = 'fixed';
+  successPopup.style.top = '0';
+  successPopup.style.left = '0';
+  successPopup.style.width = '100%';
+  successPopup.style.height = '100%';
+  successPopup.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+  successPopup.innerHTML = `
+    <div class="popup-content success" style="
+      background: white; 
+      padding: 20px; 
+      border-radius: 15px;
+      text-align: center;
+      max-width: 350px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    ">
+      <img src="assets/images/keepsty-logo.png" alt="Keepsty Logo" class="keepsty-logo" style="width: 120px; height: auto;">
+      <h3 class="success-title" style="margin-top: 10px; font-size: 18px;">You are all set!</h3>
+      <p>Your ${cleaningType} cleaning request has been received.</p>
+    </div>
+  `;
+  document.body.appendChild(successPopup);
+  setTimeout(closeSuccessPopup, 3000);
 }
 
 // ============================

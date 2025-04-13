@@ -231,16 +231,28 @@ function showCartScreen() {
   cartScreen.style.display = 'flex';
   cartScreen.innerHTML = '';  // Önceki içerikleri temizle
   showScreen('cart-screen');
+  
   // **Kapatma Butonu**
   const closeButton = document.createElement('button');
   closeButton.className = 'close-btn';
   closeButton.innerHTML = '&times;';
   closeButton.addEventListener('click', hideCartScreen);
+  // Kapatma butonunun stilini ayarla - Sağ üste konumlandır
+  closeButton.style.position = 'absolute';
+  closeButton.style.top = '10px';
+  closeButton.style.right = '10px';
+  closeButton.style.backgroundColor = 'transparent';
+  closeButton.style.border = 'none';
+  closeButton.style.fontSize = '24px';
+  closeButton.style.fontWeight = 'bold';
+  closeButton.style.cursor = 'pointer';
+  closeButton.style.color = '#9b795c';
   cartScreen.appendChild(closeButton);
 
   // **Başlık**
   const header = document.createElement('h2');
   header.textContent = 'Your Cart';
+  header.style.marginTop = '30px'; // Başlığı biraz aşağıya kaydır (X butonu için yer aç)
   cartScreen.appendChild(header);
 
   // **Sepet Ürünleri**
@@ -291,6 +303,18 @@ function hideCartScreen() {
   const cartScreen = document.getElementById('cart-screen');
   if (cartScreen) {
     cartScreen.style.display = 'none';
+    
+    // Sepet kapatıldığında ürün listesine geri dön
+    document.querySelectorAll('.screen-active').forEach(screen => {
+      screen.style.display = 'none';
+      screen.classList.remove('screen-active');
+    });
+    
+    // Ürün listesi ekranını göster
+    document.getElementById('item-list-section').style.display = 'block';
+    document.getElementById('item-list-section').classList.add('screen-active');
+    
+    console.log("Sepet kapatıldı: Ürün listesine dönülüyor");
   }
 }
 

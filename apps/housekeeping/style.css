@@ -10,13 +10,18 @@ body {
   justify-content: center;
   min-height: 100vh;
   overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%;
+  position: relative;
 }
 
 #app {
   width: 100%;
-  max-width: 500px;
-  padding: 20px;
+  max-width: 100%;
+  padding: 10px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Responsive değerler için root değişkenler */
@@ -34,17 +39,22 @@ body {
   --spacing-sm: 10px;
   --spacing-md: 15px;
   --spacing-lg: 20px;
+  --font-size-xs: 0.75rem; /* Eklendi */
   --font-size-sm: 0.85rem;
   --font-size-md: 1rem;
   --font-size-lg: 1.2rem;
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --header-height: 120px; /* Başlık yüksekliği */
+  --footer-height: 60px; /* Footer yüksekliği */
 }
 
 /* Menu Container - Görsel ve Boşluk Optimizasyonu */
 .menu-container {
-  width: 100%; 
-  height: calc(100vh - 160px);
+  width: 95%; 
+  height: auto;
+  min-height: 300px;
+  max-height: calc(100vh - 180px);
   padding: var(--spacing-md);
   padding-top: var(--spacing-lg);
   background-color: var(--background-white);
@@ -53,14 +63,27 @@ body {
   flex-direction: column;
   gap: var(--spacing-sm);
   justify-content: flex-start;
-  position: fixed;
-  top: 59%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  margin: 140px auto 80px auto; /* Başlık ve footer için boşluk */
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-lg);
   overflow-y: auto; /* İçerik taşarsa kaydırma çubuğu ekle */
-  max-height: 70vh; /* Maksimum yükseklik */
+  z-index: 10;
+}
+
+/* Kaydırma çubuğu stili - eklendi */
+.menu-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu-container::-webkit-scrollbar-track {
+  background: rgba(244, 244, 249, 0.5);
+  border-radius: 10px;
+}
+
+.menu-container::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 10px;
 }
 
 /* Başlık */
@@ -68,6 +91,8 @@ body {
   text-align: center;
   margin-bottom: var(--spacing-lg);
   width: 100%;
+  padding: 0 var(--spacing-sm);
+  box-sizing: border-box;
 }
 
 #menu-header h2 {
@@ -75,6 +100,9 @@ body {
   color: var(--secondary-color);
   margin-bottom: var(--spacing-sm);
   font-weight: 600;
+  width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 #menu-header p {
@@ -90,6 +118,52 @@ body {
   word-break: break-word;
   white-space: pre-wrap;
   box-shadow: var(--shadow-sm);
+}
+
+/* Responsive media queries - güncellendi */
+@media (max-width: 768px) {
+  .menu-container {
+    width: 95%;
+    margin: 120px auto 70px auto;
+  }
+  
+  #app {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-xs: 3px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --font-size-sm: 0.8rem;
+    --font-size-md: 0.9rem;
+    --font-size-lg: 1.1rem;
+  }
+  
+  .menu-container {
+    width: 98%;
+    padding: var(--spacing-sm);
+    margin: 100px auto 70px auto;
+    border-radius: var(--border-radius-md);
+  }
+  
+  #menu-header {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+@media (max-width: 350px) {
+  .menu-container {
+    padding: var(--spacing-xs);
+    margin: 90px auto 70px auto;
+  }
+  
+  #menu-header p {
+    padding: 8px 12px;
+  }
 }
 
 /* Seçeneklerin düzeni */
@@ -414,8 +488,8 @@ body {
 }
 
 .circle img {
-  width: 80%;
-  height: 80%;
+  width: 10000%;
+  height: 110%;
   object-fit: contain;
 }
 
@@ -441,17 +515,15 @@ body {
 .title, .subtitle {
   font-size: 18px;
   font-weight: bold;
-  color: var(--background-white);
+  color: var(--secondary-color);
   margin: 0;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .tagline {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: lighter;
   color: var(--background-white);
-  margin-top: 5px;
-  opacity: 0.9;
 }
 
 /* Responsive başlık */

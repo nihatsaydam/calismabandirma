@@ -1,248 +1,970 @@
 {
-    "menu": [
-      {
-        "key": "Hot Coffee",
-        "name": "Boissons chaudes",
-        "items": [
-          {
-            "name": "Espresso",
-            "price": "139₺"
-          },
-          {
-            "name": "Espresso Macchiato",
-            "price": "159₺"
-          },
-          {
-            "name": "Café Américain",
-            "price": "149₺"
-          },
-          {
-            "name": "Café Latte",
-            "price": "169₺"
-          },
-          {
-            "name": "Café Latte Macchiato",
-            "price": "169₺"
-          },
-          {
-            "name": "Cappuccino",
-            "price": "179₺"
-          },
-          {
-            "name": "Cortado",
-            "price": "169₺"
-          },
-          {
-            "name": "Flat White",
-            "price": "169₺"
-          },
-          {
-            "name": "Café Turc(Petit)",
-            "price": "129₺"
-          },
-          {
-            "name": "Café Turc(Grand)",
-            "price": "149₺"
-          },
-          {
-            "name": "Café Turc au Lait ",
-            "price": "159₺"
-          },
-          {
-            "name": "Café Filtré",
-            "price": "149₺"
-          }
-  
-          
-        ]
-      },
-      {
-        "key": "Tea",
-        "name": "Thé",
-        "items": [
-          {
-            "name": "Thé",
-            "price": "50₺"
-          },
-          {
-            "name": "Thé Vert",
-            "price": "169₺"
-          },
-          {
-            "name": "Thé d'hiver",
-            "price": "169₺"
-          },
-          {
-            "name": "Thé au Jasmin",
-            "price": "169₺"
-          },
-          {
-            "name": "Thé à la Camomille",
-            "price": "169₺"
-          },
-          {
-            "name": "Thé de Sauge",
-            "price": "169₺"
-          },
-          {
-            "name": "Thé à la Menthe et au Citron",
-            "price": "169₺"
-          },
-          {
-            "name": "Thé à la Pomme et à la Cannelle",
-            "price": "169₺"
-          }
-        ]
-      },
-      {
-        "key": "Cold Beverages",
-        "name": "Boissons froides",
-        "items": [
-          {
-            "name": "Americano Glacé",
-            "price": "185₺"
-          },
-          {
-            "name": "Caffè Latte Glacé",
-            "price": "195₺"
-          },
-          {
-            "name": "Chai Tea Latte Glacé",
-            "price": "219₺"
-          },
-          {
-            "name": "Limonade",
-            "price": "179₺"
-          },
-          {
-            "name": "Limonade à la Fraise",
-            "price": "199₺"
-          },
-          {
-            "name": "Limonade à la Menthe",
-            "price": "199₺"
-          },
-          {
-            "name": "Limonade au Basilic ",
-            "price": "199₺"
-          },
-          {
-            "name": "Jus d'orange Fraîchement Pressé",
-            "price": "199₺"
-          },
-          {
-            "name": "Soda",
-            "price": "89₺"
-          },
-          {
-            "name": "Churchill (Soda au Citron et au sel)",
-            "price": "110₺"
-          },
-          {
-            "name": "Tropical Spice",
-            "price": "209₺"
-          },
-          {
-            "name": "Berry Hibiscus",
-            "price": "199₺"
-          },
-          {
-            "name": "Cool Lime",
-            "price": "199₺"
-          }
-        ]
-      },
-      {
-        "key": "Desserts",
-        "name": "Le dessert",
-        "items": [
-          {
-            "name": "Crème au chocolat",
-            "price": "335₺"
-          },
-          {
-            "name": "Brownie marbré",
-            "price": "335₺"
-          },
-          {
-            "name": "Croissant",
-            "price": "330₺"
-          }
-        ]
-      },
-      {
-        "key": "Factory Specials",
-        "name": "Factory Spéciales",
-        "items": [
-          {
-            "name": "Frappe au Chocolat Doré",
-            "price": "209₺"
-          },
-          {
-            "name": "Crème Frappe au Chocolat Blanc",
-            "price": "209₺"
-          },
-          {
-            "name": "Moka au Chocolat Belge Doré",
-            "price": "209₺"
-          },
-          {
-            "name": "Moka au Chocolat Belge Blanc",
-            "price": "209₺"
-          },
-          {
-            "name": "Moka au Chocolat Doré Glacé",
-            "price": "209₺"
-          },
-          {
-            "name": "Moka au Chocolat Blanc Glacé",
-            "price": "209₺"
-          },
-          {
-            "name": "Lotus Frappe",
-            "price": "209₺"
-          },
-          {
-            "name": "Chocolat Glacé",
-            "price": "219₺"
-          },
-          {
-            "name": "Moka Glacé",
-            "price": "209₺"
-          },
-          {
-            "name": "Moka au Chocolat Belge Chaud",
-            "price": "199₺"
-          },
-          {
-            "name": "Chocolat Belge Chaud",
-            "price": "199₺"
-          },
-          {
-            "name": "Lotus Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Café Latte à la Citrouille et aux Épices",
-            "price": "209₺"
-          },
-          {
-            "name": "Café Latte au Miel et à la Cannelle",
-            "price": "209₺"
-          },
-          {
-            "name": "Café Latte à la Pistache",
-            "price": "209₺"
-          },
-          {
-            "name": "Dirty Chai Tea Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Chai Tea Latte",
-            "price": "209₺"
-          }
-        ]
-      }
-    ]
-  }
+  "menu": [],
+  "menu_fr": [
+    {
+      "key": "Boissons Alcoolisées",
+      "name": "Boissons Alcoolisées",
+      "items": [
+        {
+          "name": "Efes 50 Cl.",
+          "price": "160 TL",
+          "subcategory": "Boissons Alcoolisées"
+        },
+        {
+          "name": "Carslberg 50 Cl.",
+          "price": "160 TL",
+          "subcategory": "Boissons Alcoolisées"
+        },
+        {
+          "name": "Tuborg Gold 50 Cl.",
+          "price": "160 TL",
+          "subcategory": "Boissons Alcoolisées"
+        },
+        {
+          "name": "Bomonti Filtresiz 50 Cl.",
+          "price": "180 TL",
+          "subcategory": "Boissons Alcoolisées"
+        },
+        {
+          "name": "Corona 33 Cl.",
+          "price": "230 TL",
+          "subcategory": "Boissons Alcoolisées"
+        }
+      ]
+    },
+    {
+      "key": "Boissons Chaudes",
+      "name": "Boissons Chaudes",
+      "items": [
+        {
+          "name": "Thé",
+          "price": "25 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Tisane",
+          "price": "30 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Café Turc",
+          "price": "60 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Nescafé",
+          "price": "50 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Espresso Simple",
+          "price": "50 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Double Espresso",
+          "price": "90 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Café Américain",
+          "price": "60 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Latte",
+          "price": "80 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Café Filtre",
+          "price": "80 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Cappuccino",
+          "price": "80 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Café Anglais",
+          "price": "350 TL",
+          "subcategory": "Boissons Chaudes"
+        },
+        {
+          "name": "Black Eyes",
+          "price": "100 TL",
+          "subcategory": "Boissons Chaudes"
+        }
+      ]
+    },
+    {
+      "key": "Boissons Importées",
+      "name": "Boissons Importées",
+      "items": [
+        {
+          "name": "Gordon Gin 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "Boissons Importées"
+        },
+        {
+          "name": "Gordon Gin 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "Boissons Importées"
+        },
+        {
+          "name": "Gordon Gin 70 Cl.",
+          "price": "1700 TL",
+          "subcategory": "Boissons Importées"
+        },
+        {
+          "name": "Gilbeys Gin 4 Cl.",
+          "price": "230 TL",
+          "subcategory": "Boissons Importées"
+        },
+        {
+          "name": "Gilbeys Gin 8 Cl.",
+          "price": "300 TL",
+          "subcategory": "Boissons Importées"
+        },
+        {
+          "name": "Gilbeys Gin 70 Cl.",
+          "price": "1400 TL",
+          "subcategory": "Boissons Importées"
+        },
+        {
+          "name": "Olmeca Tequila Shot 4 Cl.",
+          "price": "300 TL",
+          "subcategory": "Boissons Importées"
+        },
+        {
+          "name": "Olmeca Tequila Shot 70 Cl.",
+          "price": "2000 TL",
+          "subcategory": "Boissons Importées"
+        },
+        {
+          "name": "Cocktail Alcoolisé",
+          "price": "300 TL",
+          "subcategory": "Cocktails"
+        },
+        {
+          "name": "Cocktail Sans Alcool",
+          "price": "200 TL",
+          "subcategory": "Cocktails"
+        },
+        {
+          "name": "Baileys 8 Cl.",
+          "price": "300 TL",
+          "subcategory": "Liqueurs"
+        },
+        {
+          "name": "Baileys",
+          "price": "1450 TL",
+          "subcategory": "Liqueurs"
+        },
+        {
+          "name": "Istanblue Vodka 4 Cl.",
+          "price": "200 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Istanblue Vodka 8 Cl.",
+          "price": "250 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Istanblue Vodka 35 Cl.",
+          "price": "750 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Istanblue Vodka 70 Cl.",
+          "price": "1350 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Absolut Vodka 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Absolut Vodka 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Absolut Vodka 70 Cl.",
+          "price": "1800 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Smirnoff Vodka 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Smirnoff Vodka 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Smirnoff Vodka 70 Cl.",
+          "price": "1600 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "J&B 4 Cl.",
+          "price": "275 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "J&B 8 Cl.",
+          "price": "375 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "J&B 70 Cl.",
+          "price": "1700 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Johnnie Walker Red Label 4 Cl.",
+          "price": "300 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Johnnie Walker Red Label 8 Cl.",
+          "price": "400 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Johnnie Walker Red Label 70 Cl.",
+          "price": "1850 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Johnnie Walker Black Label 4 Cl.",
+          "price": "350 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Johnnie Walker Black Label 8 Cl.",
+          "price": "500 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Johnnie Walker Black Label 70 Cl.",
+          "price": "2600 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Jack Daniels 4 Cl.",
+          "price": "350 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Jack Daniels 8 Cl.",
+          "price": "450 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Jack Daniels 80 Cl.",
+          "price": "2200 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Chivas Regal 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Chivas Regal 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Chivas Regal 35 Cl.",
+          "price": "1450 TL",
+          "subcategory": "Whiskys"
+        },
+        {
+          "name": "Chivas Regal 70 Cl.",
+          "price": "2700 TL",
+          "subcategory": "Whiskys"
+        }
+      ]
+    },
+    {
+      "key": "Boissons Non Alcoolisées",
+      "name": "Boissons Non Alcoolisées",
+      "items": [
+        {
+          "name": "Coca",
+          "price": "60 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Coca Zero",
+          "price": "60 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Coca Light",
+          "price": "60 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Fanta",
+          "price": "60 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Sprite",
+          "price": "60 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Fuse Tea",
+          "price": "60 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Jus de Fruits",
+          "price": "60 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Ayran (Boisson au Yaourt)",
+          "price": "25 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Jus de Navet",
+          "price": "50 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Soda",
+          "price": "20 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Redbull",
+          "price": "80 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Eau 0,5 l",
+          "price": "15 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        },
+        {
+          "name": "Eau 1,5 l",
+          "price": "30 TL",
+          "subcategory": "Boissons Non Alcoolisées"
+        }
+      ]
+    },
+    {
+      "key": "Desserts",
+      "name": "Desserts",
+      "items": [
+        {
+          "name": "Glace à la Vanille",
+          "price": "140 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Dessert Höşmerim",
+          "price": "120 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Tiramisu",
+          "price": "230 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Cheesecake",
+          "price": "220 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Riz au Lait au Four",
+          "price": "160 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Magnolia",
+          "price": "180 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Mousse au Chocolat",
+          "price": "200 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Assiette de Fruits de Saison",
+          "price": "100 TL",
+          "subcategory": "Desserts"
+        }
+      ]
+    },
+    {
+      "key": "Entrées",
+      "name": "Entrées",
+      "items": [
+        {
+          "name": "Apéritif Asie",
+          "price": "270 TL",
+          "subcategory": "Entrées Chaudes"
+        },
+        {
+          "name": "Halloumi Grillé",
+          "price": "160 TL",
+          "subcategory": "Entrées Chaudes"
+        },
+        {
+          "name": "Calamars Frits",
+          "price": "530 TL",
+          "subcategory": "Entrées Chaudes"
+        },
+        {
+          "name": "Cassoulet de Crevettes",
+          "price": "430 TL",
+          "subcategory": "Entrées Chaudes"
+        },
+        {
+          "name": "Feuilletés au Pastrami et Légumes",
+          "price": "170 TL",
+          "subcategory": "Entrées Chaudes"
+        },
+        {
+          "name": "Cigares au Fromage",
+          "price": "160 TL",
+          "subcategory": "Entrées Chaudes"
+        },
+        {
+          "name": "Frites",
+          "price": "150 TL",
+          "subcategory": "Entrées Chaudes"
+        },
+        {
+          "name": "Champignons au Fromage Kashar",
+          "price": "190 TL",
+          "subcategory": "Entrées Chaudes"
+        },
+        {
+          "name": "Assiette de Charcuterie",
+          "price": "120 TL",
+          "subcategory": "Entrées Froides"
+        },
+        {
+          "name": "Fromage Blanc d’Ezine",
+          "price": "140 TL",
+          "subcategory": "Entrées Froides"
+        },
+        {
+          "name": "Plateau de Fromages Régionaux",
+          "price": "430 TL",
+          "subcategory": "Entrées Froides"
+        },
+        {
+          "name": "Entrées à base de yaourt",
+          "price": "120 TL",
+          "subcategory": "Entrées Froides"
+        },
+        {
+          "name": "Entrées à l'huile d'olive",
+          "price": "160 TL",
+          "subcategory": "Entrées Froides"
+        },
+        {
+          "name": "Saumon Fumé",
+          "price": "480 TL",
+          "subcategory": "Entrées Froides"
+        },
+        {
+          "name": "Cacık (Yaourt au Concombre)",
+          "price": "110 TL",
+          "subcategory": "Entrées Froides"
+        },
+        {
+          "name": "Soupe du Jour",
+          "price": "100 TL",
+          "subcategory": "Soupes"
+        },
+        {
+          "name": "Petite Soupe",
+          "price": "75 TL",
+          "subcategory": "Soupes"
+        }
+      ]
+    },
+    {
+      "key": "Menu Végétarien",
+      "name": "Menu Végétarien",
+      "items": [
+        {
+          "name": "Légumes Bouillis",
+          "price": "180 TL",
+          "subcategory": "Menu Végétarien"
+        },
+        {
+          "name": "Mantar Sote",
+          "price": "220 TL",
+          "subcategory": "Menu Végétarien"
+        },
+        {
+          "name": "Sote Sebzeler",
+          "price": "160 TL",
+          "subcategory": "Menu Végétarien"
+        }
+      ]
+    },
+    {
+      "key": "Salades et Pâtes",
+      "name": "Salades et Pâtes",
+      "items": [
+        {
+          "name": "Fettuccine au Pesto",
+          "price": "340 TL",
+          "subcategory": "Pâtes"
+        },
+        {
+          "name": "Spaghetti Napolitaine",
+          "price": "260 TL",
+          "subcategory": "Pâtes"
+        },
+        {
+          "name": "Spaghetti Bolognaise",
+          "price": "320 TL",
+          "subcategory": "Pâtes"
+        },
+        {
+          "name": "Penne Alfredo",
+          "price": "360 TL",
+          "subcategory": "Pâtes"
+        },
+        {
+          "name": "Raviolis Turcs (Mantı)",
+          "price": "260 TL",
+          "subcategory": "Pâtes"
+        },
+        {
+          "name": "Penne Arrabbiata",
+          "price": "290 TL",
+          "subcategory": "Pâtes"
+        },
+        {
+          "name": "Spaghetti",
+          "price": "170 TL",
+          "subcategory": "Pâtes"
+        },
+        {
+          "name": "Pâtes aux Légumes",
+          "price": "180 TL",
+          "subcategory": "Pâtes"
+        },
+        {
+          "name": "Salade Méditerranéenne",
+          "price": "240 TL",
+          "subcategory": "Salades"
+        },
+        {
+          "name": "Salade du Berger",
+          "price": "140TL",
+          "subcategory": "Salades"
+        },
+        {
+          "name": "Salade César",
+          "price": "260 TL",
+          "subcategory": "Salades"
+        },
+        {
+          "name": "Salade au Steak",
+          "price": "410 TL",
+          "subcategory": "Salades"
+        },
+        {
+          "name": "Salade au Thon",
+          "price": "250 TL",
+          "subcategory": "Salades"
+        },
+        {
+          "name": "Salade au Halloumi",
+          "price": "210 TL",
+          "subcategory": "Salades"
+        },
+        {
+          "name": "Salade Grecque",
+          "price": "160 TL",
+          "subcategory": "Salades"
+        },
+        {
+          "name": "Salade de Roquette",
+          "price": "180 TL",
+          "subcategory": "Salades"
+        }
+      ]
+    },
+    {
+      "key": "Viandes et Volailles",
+      "name": "Viandes et Volailles",
+      "items": [
+        {
+          "name": "Dorade Grillé",
+          "price": "480 TL",
+          "subcategory": "Fruits de Mer"
+        },
+        {
+          "name": "Bar Grillé",
+          "price": "480 TL",
+          "subcategory": "Fruits de Mer"
+        },
+        {
+          "name": "Saumon Grillé",
+          "price": "670 TL",
+          "subcategory": "Fruits de Mer"
+        },
+        {
+          "name": "Poulet Grillé",
+          "price": "330 TL",
+          "subcategory": "Plats de Poulet"
+        },
+        {
+          "name": "Poulet au Curry",
+          "price": "390 TL",
+          "subcategory": "Plats de Poulet"
+        },
+        {
+          "name": "Schnitzel de Poulet",
+          "price": "370 TL",
+          "subcategory": "Plats de Poulet"
+        },
+        {
+          "name": "Poulet Sauté",
+          "price": "350 TL",
+          "subcategory": "Plats de Poulet"
+        },
+        {
+          "name": "Poulet Braisé",
+          "price": "290 TL",
+          "subcategory": "Plats de Poulet"
+        },
+        {
+          "name": "Brochettes de Poulet",
+          "price": "320 TL",
+          "subcategory": "Plats de Poulet"
+        },
+        {
+          "name": "Côtelettes d’Agneau",
+          "price": "570 TL",
+          "subcategory": "Plats de Viande"
+        },
+        {
+          "name": "Filet de Bœuf Nature",
+          "price": "590 TL",
+          "subcategory": "Plats de Viande"
+        },
+        {
+          "name": "Boulettes Grillées",
+          "price": "400 TL",
+          "subcategory": "Plats de Viande"
+        },
+        {
+          "name": "Grillade Mixte",
+          "price": "720 TL",
+          "subcategory": "Plats de Viande"
+        },
+        {
+          "name": "Entrecôte Grillée",
+          "price": "570 TL",
+          "subcategory": "Plats de Viande"
+        },
+        {
+          "name": "Viande Sautée du Berger",
+          "price": "560 TL",
+          "subcategory": "Plats de Viande"
+        },
+        {
+          "name": "Bœuf Sauté",
+          "price": "540 TL",
+          "subcategory": "Plats de Viande"
+        },
+        {
+          "name": "Brochettes de Bœuf",
+          "price": "540 TL",
+          "subcategory": "Plats de Viande"
+        },
+        {
+          "name": "Brochettes d’Agneau",
+          "price": "490 TL",
+          "subcategory": "Plats de Viande"
+        },
+        {
+          "name": "Wrap au Bœuf",
+          "price": "430 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Wrap au Poulet",
+          "price": "360 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Wrap aux Boulettes",
+          "price": "330 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Hamburger",
+          "price": "370 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Burger Asya",
+          "price": "460 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Cheeseburger au Poulet",
+          "price": "330 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Toast au Fromage",
+          "price": "160 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Toast Mixte",
+          "price": "190 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Sandwich Froid",
+          "price": "110 TL",
+          "subcategory": "Wraps & Burgers"
+        }
+      ]
+    },
+    {
+      "key": "Vins",
+      "name": "Vins",
+      "items": [
+        {
+          "name": "Yeni Raki 4 Cl.",
+          "price": "220 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki 8 Cl.",
+          "price": "290 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki 20 Cl.",
+          "price": "680 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki 35 Cl.",
+          "price": "950 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki 70 Cl.",
+          "price": "1650 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 4 Cl.",
+          "price": "240 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 8 Cl.",
+          "price": "320 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 20 Cl.",
+          "price": "750 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 35 Cl.",
+          "price": "1100 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 70 Cl.",
+          "price": "1850 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki Ala 20 Cl.",
+          "price": "900 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki Ala 35 Cl.",
+          "price": "1350 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki Ala 70 Cl.",
+          "price": "2500 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag AltinSeri 20 Cl.",
+          "price": "850 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag AltinSeri 35 Cl.",
+          "price": "1200 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag AltinSeri 70 Cl.",
+          "price": "2100 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Beylerbeyi Gobek Raki 35 Cl.",
+          "price": "1190 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Beylerbeyi Gobek Raki 70 Cl.",
+          "price": "1600 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Beylerbeyi Kalecik Karasi 70 Cl.",
+          "price": "2100 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Beylerbeyi TerraGold 70 Cl.",
+          "price": "2400 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "EfeGold 70 Cl.",
+          "price": "1750 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag No:10 70 Cl.",
+          "price": "2750 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Angora 18,75 Cl.",
+          "price": "250TL",
+          "subcategory": "Vins Blancs"
+        },
+        {
+          "name": "Angora 37,50 Cl.",
+          "price": "450 TL",
+          "subcategory": "Vins Blancs"
+        },
+        {
+          "name": "Angora 75 Cl.",
+          "price": "700 TL",
+          "subcategory": "Vins Blancs"
+        },
+        {
+          "name": "Egeo Chardonnay 75 Cl.",
+          "price": "2000 TL",
+          "subcategory": "Vins Blancs"
+        },
+        {
+          "name": "Egeo Sauvignon 75 Cl.",
+          "price": "1900 TL",
+          "subcategory": "Vins Blancs"
+        },
+        {
+          "name": "Urla Chardonnay 75 Cl.",
+          "price": "1750 TL",
+          "subcategory": "Vins Blancs"
+        },
+        {
+          "name": "Selection 75 Cl.",
+          "price": "1800 TL",
+          "subcategory": "Vins Blancs"
+        },
+        {
+          "name": "Inci Damlası Champagne 75 Cl.",
+          "price": "1000 TL",
+          "subcategory": "Vins Blancs"
+        },
+        {
+          "name": "Angora 18,75 Cl.",
+          "price": "250 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Angora 37,50 Cl.",
+          "price": "450 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Angora 75 Cl.",
+          "price": "700 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Yakut 18,75 Cl.",
+          "price": "290 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Yakut 37,50 Cl.",
+          "price": "530 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Yakut 75 Cl.",
+          "price": "900 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Pendore Öküzgözü 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Pendore Syrah 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Selection 75 Cl.",
+          "price": "2000 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Kalecik Karası 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Prestige Öküzgözü 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Vins Rouges"
+        },
+        {
+          "name": "Prestige Boğazkere 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Vins Rouges"
+        }
+      ]
+    }
+  ]
+}

@@ -1,253 +1,968 @@
 {
-    "menu": [
-      {
-        "key": "Hot Coffee",
-        "name": "المشروبات الساخنة",
-        "image": "assets/icons/breakfast.png",
-        "items": [
-          {
-            "name": "إسبرسو",
-            "price": "139₺"
-          },
-          {
-            "name": "إسبرسو ماكياتو",
-            "price": "159₺"
-          },
-          {
-            "name": "قهوة أمريكانو",
-            "price": "149₺"
-          },
-          {
-            "name": "كافيه لاتيه",
-            "price": "169₺"
-          },
-          {
-            "name": "كافيه لاتيه ماكياتو",
-            "price": "169₺"
-          },
-          {
-            "name": "كابتشينو",
-            "price": "179₺"
-          },
-          {
-            "name": "كورتادو",
-            "price": "169₺"
-          },
-          {
-            "name": "فلات وايت",
-            "price": "169₺"
-          },
-          {
-            "name": "قهوة تركية صغير",
-            "price": "129₺"
-          },
-          {
-            "name": "قهوة تركية كبير",
-            "price": "149₺"
-          },
-          {
-            "name": "قهوة تركية بالحليب",
-            "price": "159₺"
-          },
-          {
-            "name": "قهوة مُصفّاة",
-            "price": "149₺"
-          }
-  
-          
-        ]
-      },
-      {
-        "key": "Tea",
-        "name": "شاي",
-        "image": "assets/icons/dinner.png",
-        "items": [
-          {
-            "name": "شاي",
-            "price": "50₺"
-          },
-          {
-            "name": "شاي أخضر",
-            "price": "169₺"
-          },
-          {
-            "name": "شاي الشتاء",
-            "price": "169₺"
-          },
-          {
-            "name": "شاي الياسمين",
-            "price": "169₺"
-          },
-          {
-            "name": "شاي البابونج",
-            "price": "169₺"
-          },
-          {
-            "name": "مريمية",
-            "price": "169₺"
-          },
-          {
-            "name": "شاي النعناع والليمون",
-            "price": "169₺"
-          },
-          {
-            "name": "شاي التفاح والقرفة",
-            "price": "169₺"
-          }
-        ]
-      },
-      {
-        "key": "Cold Beverages",
-        "name": "المشروبات الباردة",
-        "image": "assets/icons/beverages.png",
-        "items": [
-          {
-            "name": "أمريكانو مثلج",
-            "price": "185₺"
-          },
-          {
-            "name": "كافيه لاتيه مثلج",
-            "price": "195₺"
-          },
-          {
-            "name": "شاي تشاي لاتيه مثلج",
-            "price": "219₺"
-          },
-          {
-            "name": "ليمونادة",
-            "price": "179₺"
-          },
-          {
-            "name": "ليمونادة بالفراولة",
-            "price": "199₺"
-          },
-          {
-            "name": "ليمونادة بالنعناع",
-            "price": "199₺"
-          },
-          {
-            "name": "ليمونادة بالريحان",
-            "price": "199₺"
-          },
-          {
-            "name": "عصير برتقال طازج",
-            "price": "199₺"
-          },
-          {
-            "name": "صودا",
-            "price": "89₺"
-          },
-          {
-            "name": "Churchill (صودا بالليمون والملح)",
-            "price": "110₺"
-          },
-          {
-            "name": "Tropical Spice",
-            "price": "209₺"
-          },
-          {
-            "name": "كركديه بالتوت",
-            "price": "199₺"
-          },
-          {
-            "name": "كول لايم",
-            "price": "199₺"
-          }
-        ]
-      },
-      {
-        "key": "Desserts",
-        "name": "الحلويات",
-        "image": "assets/icons/desserts.png",
-        "items": [
-          {
-            "name": "كريمة الشوكولاتة",
-            "price": "335₺"
-          },
-          {
-            "name": "براوني رخامي",
-            "price": "335₺"
-          },
-          {
-            "name": "كرواسون",
-            "price": "330₺"
-          }
-        ]
-      },
-      {
-        "key": "Factory Specials",
-        "name": "عروض المصنع الخاصة",
-        "image": "assets/icons/alcohol.png",
-        "items": [
-          {
-            "name": "فرابيه الشوكولاتة الذهبية",
-            "price": "209₺"
-          },
-          {
-            "name": "فرابيه الشوكولاتة البيضاء",
-            "price": "209₺"
-          },
-          {
-            "name": "موكا الشوكولاتة البلجيكية الذهبية",
-            "price": "209₺"
-          },
-          {
-            "name": "موكا الشوكولاتة البلجيكية البيضاء",
-            "price": "209₺"
-          },
-          {
-            "name": "موكا الشوكولاتة الذهبية المثلجة",
-            "price": "209₺"
-          },
-          {
-            "name": "موكا الشوكولاتة البيضاء المثلجة",
-            "price": "209₺"
-          },
-          {
-            "name": "فرابيه اللوتس",
-            "price": "209₺"
-          },
-          {
-            "name": "شوكولاتة مثلجة",
-            "price": "219₺"
-          },
-          {
-            "name": "موكا مثلجة",
-            "price": "209₺"
-          },
-          {
-            "name": "موكا الشوكولاتة البلجيكية الساخنة",
-            "price": "199₺"
-          },
-          {
-            "name": "شوكولاتة بلجيكية ساخنة",
-            "price": "199₺"
-          },
-          {
-            "name": " لاتيه اللوتس",
-            "price": "209₺"
-          },
-          {
-            "name": "لاتيه بنكهة اليقطين والتوابل",
-            "price": "209₺"
-          },
-          {
-            "name": "لاتيه بالعسل والقرفة",
-            "price": "209₺"
-          },
-          {
-            "name": "لاتيه بالفستق",
-            "price": "209₺"
-          },
-          {
-            "name": "Dirty شاي لاتيه ماسالا",
-            "price": "209₺"
-          },
-          {
-            "name": "شاي لاتيه ماسالا",
-            "price": "209₺"
+  "menu_ar": [
+    {
+      "key": "اللحوم والدواجن",
+      "name": "اللحوم والدواجن",
+      "items": [
+        {
+          "name": "دجاج مشوي",
+          "price": "330 TL",
+          "subcategory": "أطباق الدجاج"
+        },
+        {
+          "name": "دجاج بصلصة الكاري",
+          "price": "390 TL",
+          "subcategory": "أطباق الدجاج"
+        },
+        {
+          "name": "شنسل دجاج",
+          "price": "370 TL",
+          "subcategory": "أطباق الدجاج"
+        },
+        {
+          "name": "دجاج مقلي",
+          "price": "350 TL",
+          "subcategory": "أطباق الدجاج"
+        },
+        {
+          "name": "دجاج مطهو ببطء",
+          "price": "290 TL",
+          "subcategory": "أطباق الدجاج"
+        },
+        {
+          "name": "أسياخ دجاج",
+          "price": "320 TL",
+          "subcategory": "أطباق الدجاج"
+        },
+        {
+          "name": "ريش لحم غنم",
+          "price": "570 TL",
+          "subcategory": "أطباق اللحم"
+        },
+        {
+          "name": "فيليه لحم طبيعي",
+          "price": "590 TL",
+          "subcategory": "أطباق اللحم"
+        },
+        {
+          "name": "كفتة مشوية",
+          "price": "400 TL",
+          "subcategory": "أطباق اللحم"
+        },
+        {
+          "name": "مشاوي مشكلة",
+          "price": "720 TL",
+          "subcategory": "أطباق اللحم"
+        },
+        {
+          "name": "ريباي مشوي",
+          "price": "570 TL",
+          "subcategory": "أطباق اللحم"
+        },
+        {
+          "name": "لحم الراعي المقلي",
+          "price": "560 TL",
+          "subcategory": "أطباق اللحم"
+        },
+        {
+          "name": "لحم بقري مقلي",
+          "price": "540 TL",
+          "subcategory": "أطباق اللحم"
+        },
+        {
+          "name": "أسياخ لحم",
+          "price": "540 TL",
+          "subcategory": "أطباق اللحم"
+        },
+        {
+          "name": "أسياخ غنم",
+          "price": "490 TL",
+          "subcategory": "أطباق اللحم"
+        },
+        {
+          "name": "راب لحم",
+          "price": "430 TL",
+          "subcategory": "راب وبرغر"
+        },
+        {
+          "name": "راب دجاج",
+          "price": "360 TL",
+          "subcategory": "راب وبرغر"
+        },
+        {
+          "name": "راب كفتة",
+          "price": "330 TL",
+          "subcategory": "راب وبرغر"
+        },
+        {
+          "name": "همبرغر",
+          "price": "370 TL",
+          "subcategory": "راب وبرغر"
+        },
+        {
+          "name": "برغر آسيا",
+          "price": "460 TL",
+          "subcategory": "راب وبرغر"
+        },
+        {
+          "name": "تشيز برغر دجاج",
+          "price": "330 TL",
+          "subcategory": "راب وبرغر"
+        },
+        {
+          "name": "توست بالجبنة المشوية",
+          "price": "160 TL",
+          "subcategory": "راب وبرغر"
+        },
+        {
+          "name": "توست مشكل",
+          "price": "190 TL",
+          "subcategory": "راب وبرغر"
+        },
+        {
+          "name": "ساندويتش بارد",
+          "price": "110 TL",
+          "subcategory": "راب وبرغر"
+        },
+        {
+          "name": "دينيس مشوي",
+          "price": "480 TL",
+          "subcategory": "مأكولات بحرية"
+        },
+        {
+          "name": "قاروص مشوي",
+          "price": "480 TL",
+          "subcategory": "مأكولات بحرية"
+        },
+        {
+          "name": "سلمون مشوي",
+          "price": "670 TL",
+          "subcategory": "مأكولات بحرية"
         }
-    ]
-  }
-]
-}
+      ]
+    },
+    {
+      "key": "حلويات",
+      "name": "حلويات",
+      "items": [
+        {
+          "name": "آيس كريم فانيليا",
+          "price": "140 TL",
+          "subcategory": "حلويات"
+        },
+        {
+          "name": "حلوى هوشمرم",
+          "price": "120 TL",
+          "subcategory": "حلويات"
+        },
+        {
+          "name": "تيراميسو",
+          "price": "230 TL",
+          "subcategory": "حلويات"
+        },
+        {
+          "name": "تشيز كيك",
+          "price": "220 TL",
+          "subcategory": "حلويات"
+        },
+        {
+          "name": "أرز بالحليب في الفرن",
+          "price": "160 TL",
+          "subcategory": "حلويات"
+        },
+        {
+          "name": "Magnolia",
+          "price": "180 TL",
+          "subcategory": "حلويات"
+        },
+        {
+          "name": "موس الشوكولاتة",
+          "price": "200 TL",
+          "subcategory": "حلويات"
+        },
+        {
+          "name": "طبق فواكه موسمية",
+          "price": "100 TL",
+          "subcategory": "حلويات"
+        }
+      ]
+    },
+    {
+      "key": "سلطات ومعكرونة",
+      "name": "سلطات ومعكرونة",
+      "items": [
+        {
+          "name": "سلطة البحر الأبيض المتوسط",
+          "price": "240 TL",
+          "subcategory": "سلطات"
+        },
+        {
+          "name": "سلطة الراعي",
+          "price": "140TL",
+          "subcategory": "سلطات"
+        },
+        {
+          "name": "سلطة سيزر",
+          "price": "260 TL",
+          "subcategory": "سلطات"
+        },
+        {
+          "name": "سلطة بشرائح اللحم",
+          "price": "410 TL",
+          "subcategory": "سلطات"
+        },
+        {
+          "name": "سلطة التونة",
+          "price": "250 TL",
+          "subcategory": "سلطات"
+        },
+        {
+          "name": "سلطة الحلومي",
+          "price": "210 TL",
+          "subcategory": "سلطات"
+        },
+        {
+          "name": "سلطة يونانية",
+          "price": "160 TL",
+          "subcategory": "سلطات"
+        },
+        {
+          "name": "سلطة الجرجير",
+          "price": "180 TL",
+          "subcategory": "سلطات"
+        },
+        {
+          "name": "فيتوتشيني بصلصة البيستو",
+          "price": "340 TL",
+          "subcategory": "معكرونة"
+        },
+        {
+          "name": "سباغيتي نابوليتان",
+          "price": "260 TL",
+          "subcategory": "معكرونة"
+        },
+        {
+          "name": "سباغيتي بولونيز",
+          "price": "320 TL",
+          "subcategory": "معكرونة"
+        },
+        {
+          "name": "بيني ألفريدو",
+          "price": "360 TL",
+          "subcategory": "معكرونة"
+        },
+        {
+          "name": "مانتي تركي",
+          "price": "260 TL",
+          "subcategory": "معكرونة"
+        },
+        {
+          "name": "بيني أرابياتا",
+          "price": "290 TL",
+          "subcategory": "معكرونة"
+        },
+        {
+          "name": "سباغيتي",
+          "price": "170 TL",
+          "subcategory": "معكرونة"
+        },
+        {
+          "name": "معكرونة بالخضار",
+          "price": "180 TL",
+          "subcategory": "معكرونة"
+        }
+      ]
+    },
+    {
+      "key": "قائمة نباتية",
+      "name": "قائمة نباتية",
+      "items": [
+        {
+          "name": "خضار مسلوقة",
+          "price": "180 TL",
+          "subcategory": "قائمة نباتية"
+        },
+        {
+          "name": "Mantar Sote",
+          "price": "220 TL",
+          "subcategory": "قائمة نباتية"
+        },
+        {
+          "name": "Sote Sebzeler",
+          "price": "160 TL",
+          "subcategory": "قائمة نباتية"
+        }
+      ]
+    },
+    {
+      "key": "مشروبات ساخنة",
+      "name": "مشروبات ساخنة",
+      "items": [
+        {
+          "name": "شاي",
+          "price": "25 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "شاي الأعشاب",
+          "price": "30 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "قهوة تركية",
+          "price": "60 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "نسكافيه",
+          "price": "50 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "إسبريسو مفرد",
+          "price": "50 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "إسبريسو مزدوج",
+          "price": "90 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "قهوة أمريكانو",
+          "price": "60 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "لاتيه",
+          "price": "80 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "قهوة مفلترة",
+          "price": "80 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "كابتشينو",
+          "price": "80 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "قهوة إنجليزية",
+          "price": "350 TL",
+          "subcategory": "مشروبات ساخنة"
+        },
+        {
+          "name": "بلاك آيز",
+          "price": "100 TL",
+          "subcategory": "مشروبات ساخنة"
+        }
+      ]
+    },
+    {
+      "key": "مشروبات غير كحولية",
+      "name": "مشروبات غير كحولية",
+      "items": [
+        {
+          "name": "كولا",
+          "price": "60 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "كولا زيرو",
+          "price": "60 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "كولا لايت",
+          "price": "60 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "فانتا",
+          "price": "60 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "سبرايت",
+          "price": "60 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "شاي فيوز",
+          "price": "60 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "عصير فواكه",
+          "price": "60 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "عيران (مشروب الزبادي)",
+          "price": "25 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "عصير لفت",
+          "price": "50 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "صودا",
+          "price": "20 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "ريدبول",
+          "price": "80 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "ماء 0.5 لتر",
+          "price": "15 TL",
+          "subcategory": "مشروبات غير كحولية"
+        },
+        {
+          "name": "ماء 1.5 لتر",
+          "price": "30 TL",
+          "subcategory": "مشروبات غير كحولية"
+        }
+      ]
+    },
+    {
+      "key": "مشروبات كحولية",
+      "name": "مشروبات كحولية",
+      "items": [
+        {
+          "name": "Efes 50 Cl.",
+          "price": "160 TL",
+          "subcategory": "مشروبات كحولية"
+        },
+        {
+          "name": "Carslberg 50 Cl.",
+          "price": "160 TL",
+          "subcategory": "مشروبات كحولية"
+        },
+        {
+          "name": "Tuborg Gold 50 Cl.",
+          "price": "160 TL",
+          "subcategory": "مشروبات كحولية"
+        },
+        {
+          "name": "Bomonti Filtresiz 50 Cl.",
+          "price": "180 TL",
+          "subcategory": "مشروبات كحولية"
+        },
+        {
+          "name": "Corona 33 Cl.",
+          "price": "230 TL",
+          "subcategory": "مشروبات كحولية"
+        }
+      ]
+    },
+    {
+      "key": "مشروبات مستوردة",
+      "name": "مشروبات مستوردة",
+      "items": [
+        {
+          "name": "Istanblue Vodka 4 Cl.",
+          "price": "200 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "Istanblue Vodka 8 Cl.",
+          "price": "250 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "Istanblue Vodka 35 Cl.",
+          "price": "750 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "Istanblue Vodka 70 Cl.",
+          "price": "1350 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "Absolut Vodka 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "Absolut Vodka 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "Absolut Vodka 70 Cl.",
+          "price": "1800 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "Smirnoff Vodka 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "Smirnoff Vodka 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "Smirnoff Vodka 70 Cl.",
+          "price": "1600 TL",
+          "subcategory": "فودكا"
+        },
+        {
+          "name": "كوكتيل كحولي",
+          "price": "300 TL",
+          "subcategory": "كوكتيلات"
+        },
+        {
+          "name": "كوكتيل غير كحولي",
+          "price": "200 TL",
+          "subcategory": "كوكتيلات"
+        },
+        {
+          "name": "Baileys 8 Cl.",
+          "price": "300 TL",
+          "subcategory": "مشروبات كحولية خفيفة"
+        },
+        {
+          "name": "Baileys",
+          "price": "1450 TL",
+          "subcategory": "مشروبات كحولية خفيفة"
+        },
+        {
+          "name": "Gordon Gin 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "مشروبات مستوردة"
+        },
+        {
+          "name": "Gordon Gin 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "مشروبات مستوردة"
+        },
+        {
+          "name": "Gordon Gin 70 Cl.",
+          "price": "1700 TL",
+          "subcategory": "مشروبات مستوردة"
+        },
+        {
+          "name": "Gilbeys Gin 4 Cl.",
+          "price": "230 TL",
+          "subcategory": "مشروبات مستوردة"
+        },
+        {
+          "name": "Gilbeys Gin 8 Cl.",
+          "price": "300 TL",
+          "subcategory": "مشروبات مستوردة"
+        },
+        {
+          "name": "Gilbeys Gin 70 Cl.",
+          "price": "1400 TL",
+          "subcategory": "مشروبات مستوردة"
+        },
+        {
+          "name": "Olmeca Tequila Shot 4 Cl.",
+          "price": "300 TL",
+          "subcategory": "مشروبات مستوردة"
+        },
+        {
+          "name": "Olmeca Tequila Shot 70 Cl.",
+          "price": "2000 TL",
+          "subcategory": "مشروبات مستوردة"
+        },
+        {
+          "name": "J&B 4 Cl.",
+          "price": "275 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "J&B 8 Cl.",
+          "price": "375 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "J&B 70 Cl.",
+          "price": "1700 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Johnnie Walker Red Label 4 Cl.",
+          "price": "300 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Johnnie Walker Red Label 8 Cl.",
+          "price": "400 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Johnnie Walker Red Label 70 Cl.",
+          "price": "1850 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Johnnie Walker Black Label 4 Cl.",
+          "price": "350 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Johnnie Walker Black Label 8 Cl.",
+          "price": "500 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Johnnie Walker Black Label 70 Cl.",
+          "price": "2600 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Jack Daniels 4 Cl.",
+          "price": "350 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Jack Daniels 8 Cl.",
+          "price": "450 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Jack Daniels 80 Cl.",
+          "price": "2200 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Chivas Regal 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Chivas Regal 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Chivas Regal 35 Cl.",
+          "price": "1450 TL",
+          "subcategory": "ويسكي"
+        },
+        {
+          "name": "Chivas Regal 70 Cl.",
+          "price": "2700 TL",
+          "subcategory": "ويسكي"
+        }
+      ]
+    },
+    {
+      "key": "مقبلات",
+      "name": "مقبلات",
+      "items": [
+        {
+          "name": "شوربة اليوم",
+          "price": "100 TL",
+          "subcategory": "شوربات"
+        },
+        {
+          "name": "شوربة صغيرة",
+          "price": "75 TL",
+          "subcategory": "شوربات"
+        },
+        {
+          "name": "طبق مشكّل بارد",
+          "price": "120 TL",
+          "subcategory": "مقبلات باردة"
+        },
+        {
+          "name": "جبن أبيض إزيني",
+          "price": "140 TL",
+          "subcategory": "مقبلات باردة"
+        },
+        {
+          "name": "طبق جبن محلي",
+          "price": "430 TL",
+          "subcategory": "مقبلات باردة"
+        },
+        {
+          "name": "مقبلات بالزبادي",
+          "price": "120 TL",
+          "subcategory": "مقبلات باردة"
+        },
+        {
+          "name": "مقبلات بزيت الزيتون",
+          "price": "160 TL",
+          "subcategory": "مقبلات باردة"
+        },
+        {
+          "name": "سلمون مدخن",
+          "price": "480 TL",
+          "subcategory": "مقبلات باردة"
+        },
+        {
+          "name": "جاجيك (زبادي بالخيار)",
+          "price": "110 TL",
+          "subcategory": "مقبلات باردة"
+        },
+        {
+          "name": "مقبلات آسيوية",
+          "price": "270 TL",
+          "subcategory": "مقبلات ساخنة"
+        },
+        {
+          "name": "جبنة حلوم مشوية",
+          "price": "160 TL",
+          "subcategory": "مقبلات ساخنة"
+        },
+        {
+          "name": "كاليماري مقلي",
+          "price": "530 TL",
+          "subcategory": "مقبلات ساخنة"
+        },
+        {
+          "name": "جمبري في الطاجن",
+          "price": "430 TL",
+          "subcategory": "مقبلات ساخنة"
+        },
+        {
+          "name": "لفائف بف باستري بالبسطرمة والخضار",
+          "price": "170 TL",
+          "subcategory": "مقبلات ساخنة"
+        },
+        {
+          "name": "لفائف الجبن",
+          "price": "160 TL",
+          "subcategory": "مقبلات ساخنة"
+        },
+        {
+          "name": "بطاطا مقلية",
+          "price": "150 TL",
+          "subcategory": "مقبلات ساخنة"
+        },
+        {
+          "name": "فطر بجبنة القشقوان",
+          "price": "190 TL",
+          "subcategory": "مقبلات ساخنة"
+        }
+      ]
+    },
+    {
+      "key": "نبيذ",
+      "name": "نبيذ",
+      "items": [
+        {
+          "name": "Yeni Raki 4 Cl.",
+          "price": "220 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Yeni Raki 8 Cl.",
+          "price": "290 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Yeni Raki 20 Cl.",
+          "price": "680 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Yeni Raki 35 Cl.",
+          "price": "950 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Yeni Raki 70 Cl.",
+          "price": "1650 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Tekirdag Raki 4 Cl.",
+          "price": "240 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Tekirdag Raki 8 Cl.",
+          "price": "320 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Tekirdag Raki 20 Cl.",
+          "price": "750 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Tekirdag Raki 35 Cl.",
+          "price": "1100 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Tekirdag Raki 70 Cl.",
+          "price": "1850 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Yeni Raki Ala 20 Cl.",
+          "price": "900 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Yeni Raki Ala 35 Cl.",
+          "price": "1350 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Yeni Raki Ala 70 Cl.",
+          "price": "2500 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Tekirdag AltinSeri 20 Cl.",
+          "price": "850 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Tekirdag AltinSeri 35 Cl.",
+          "price": "1200 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Tekirdag AltinSeri 70 Cl.",
+          "price": "2100 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Beylerbeyi Gobek Raki 35 Cl.",
+          "price": "1190 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Beylerbeyi Gobek Raki 70 Cl.",
+          "price": "1600 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Beylerbeyi Kalecik Karasi 70 Cl.",
+          "price": "2100 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Beylerbeyi TerraGold 70 Cl.",
+          "price": "2400 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "EfeGold 70 Cl.",
+          "price": "1750 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Tekirdag No:10 70 Cl.",
+          "price": "2750 TL",
+          "subcategory": "راكي"
+        },
+        {
+          "name": "Angora 18,75 Cl.",
+          "price": "250TL",
+          "subcategory": "نبيذ أبيض"
+        },
+        {
+          "name": "Angora 37,50 Cl.",
+          "price": "450 TL",
+          "subcategory": "نبيذ أبيض"
+        },
+        {
+          "name": "Angora 75 Cl.",
+          "price": "700 TL",
+          "subcategory": "نبيذ أبيض"
+        },
+        {
+          "name": "Egeo Chardonnay 75 Cl.",
+          "price": "2000 TL",
+          "subcategory": "نبيذ أبيض"
+        },
+        {
+          "name": "Egeo Sauvignon 75 Cl.",
+          "price": "1900 TL",
+          "subcategory": "نبيذ أبيض"
+        },
+        {
+          "name": "Urla Chardonnay 75 Cl.",
+          "price": "1750 TL",
+          "subcategory": "نبيذ أبيض"
+        },
+        {
+          "name": "Selection 75 Cl.",
+          "price": "1800 TL",
+          "subcategory": "نبيذ أبيض"
+        },
+        {
+          "name": "Inci Damlası Champagne 75 Cl.",
+          "price": "1000 TL",
+          "subcategory": "نبيذ أبيض"
+        },
+        {
+          "name": "Angora 18,75 Cl.",
+          "price": "250 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Angora 37,50 Cl.",
+          "price": "450 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Angora 75 Cl.",
+          "price": "700 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Yakut 18,75 Cl.",
+          "price": "290 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Yakut 37,50 Cl.",
+          "price": "530 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Yakut 75 Cl.",
+          "price": "900 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Pendore Öküzgözü 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Pendore Syrah 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Selection 75 Cl.",
+          "price": "2000 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Kalecik Karası 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Prestige Öküzgözü 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "نبيذ أحمر"
+        },
+        {
+          "name": "Prestige Boğazkere 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "نبيذ أحمر"
+        }
+      ]
+    }
+  ] }

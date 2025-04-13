@@ -90,8 +90,6 @@ function showCategoryItems(category) {
   const itemListDiv = document.getElementById('item-list');
   itemListDiv.innerHTML = '';
 
-
-
   const itemsContainer = document.createElement('div');
   itemsContainer.classList.add('items-container');
 
@@ -119,7 +117,8 @@ function showCategoryItems(category) {
     chooseButton.textContent = 'Choose';
     chooseButton.addEventListener('click', () => {
       addToCart(item);
-      showCartScreen();
+      // showCartScreen(); // Artık sepet ekranına yönlendirmiyoruz
+      // Sadece ürünü sepete ekliyoruz ve kullanıcı kategori sayfasında kalıyor
     });
     itemCard.appendChild(chooseButton);
 
@@ -163,11 +162,45 @@ function addToCart(product) {
 }
 
 function showAddToCartNotification() {
-  const notification = document.getElementById('add-to-cart-notification');
-  notification.style.display = 'block';
+  // Mevcut bildirimi temizle (eğer varsa)
+  const existingNotification = document.getElementById('add-to-cart-notification');
+  if (existingNotification) {
+    existingNotification.remove();
+  }
+  
+  // Yeni bildirimi oluştur
+  const notification = document.createElement('div');
+  notification.id = 'add-to-cart-notification';
+  notification.classList.add('notification');
+  notification.textContent = 'Ürün sepetinize eklendi!';
+  
+  // Bildirimin stilini ayarla
+  notification.style.position = 'fixed';
+  notification.style.top = '20px';
+  notification.style.right = '20px';
+  notification.style.backgroundColor = '#9b795c'; // İstenen kahverengi ton
+  notification.style.color = 'white';
+  notification.style.padding = '15px';
+  notification.style.borderRadius = '5px';
+  notification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+  notification.style.zIndex = '9999';
+  notification.style.fontWeight = 'bold';
+  
+  // Bildirimi DOM'a ekle
+  document.body.appendChild(notification);
+  
+  // Bildirimi 3 saniye sonra gizle
   setTimeout(() => {
-    notification.style.display = 'none';
-  }, 3000); // Bildirim 3 saniye sonra kaybolur
+    notification.style.opacity = '0';
+    notification.style.transition = 'opacity 0.5s ease';
+    
+    // 0.5 saniye sonra tamamen kaldır
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 500);
+  }, 3000);
 }
 
 function updateCartDisplay() {

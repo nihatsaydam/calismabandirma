@@ -3,20 +3,66 @@ let currentNode = "start";
 const conversations = {}; // Kullanıcıların konuşmalarını saklamak için
 let currentLanguage = "";
 
-document.addEventListener("DOMContentLoaded", function () {
+// Tüm DOM içeriği yüklendikten sonra çalışacak genel başlangıç fonksiyonu
+document.addEventListener("DOMContentLoaded", function() {
+  const inputField = document.getElementById("message-input");
+  const sendButton = document.getElementById("send-button");
+  
+  // Enter tuşu ve gönder butonu için olay dinleyicileri
+  if (inputField) {
+    inputField.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        sendMessage();
+      }
+    });
+  }
+  
+  if (sendButton) {
+    sendButton.addEventListener("click", function() {
+      sendMessage();
+    });
+  }
+  
   // LocalStorage'dan seçilen dili al
   const savedLanguage = localStorage.getItem("currentLanguage");
 
   if (savedLanguage) {
-      // Eğer kullanıcı zaten dil seçtiyse, dil seçimi ekranını atlayıp sohbeti başlat
-      document.getElementById("language-selection").style.display = "none";
-      document.getElementById("chatbot").style.display = "block";
+    // Eğer kullanıcı zaten dil seçtiyse, dil seçimi ekranını atlayıp sohbeti başlat
+    const languageSelection = document.getElementById("language-selection");
+    const chatbot = document.getElementById("chatbot");
+    
+    if (languageSelection && chatbot) {
+      languageSelection.style.display = "none";
+      chatbot.style.display = "block";
       startChat(savedLanguage);
+    }
+  }
+  
+  // Consent modal butonları
+  const modal = document.getElementById("consent-modal");
+  const consentYes = document.getElementById("consent-yes");
+  const consentNo = document.getElementById("consent-no");
+  
+  if (consentYes) {
+    // Kullanıcı Yes derse sohbeti başlat
+    consentYes.addEventListener("click", function () {
+      if (modal) modal.style.display = "none";
+      startChat(currentLanguage); // Mevcut dilde sohbet başlat
+    });
+  }
+
+  if (consentNo) {
+    // Kullanıcı No derse teşekkür mesajı göster ve modalı kapat
+    consentNo.addEventListener("click", function () {
+      if (modal) modal.style.display = "none";
+      alert("Thank you. If you change your mind, you can start the chat later.");
+    });
   }
 });
 
 function startChat(language) {
-  // Seçilen dili localStorage’a kaydet
+  // Seçilen dili localStorage'a kaydet
   localStorage.setItem("currentLanguage", language);
 
   currentLanguage = language;
@@ -58,8 +104,6 @@ function startChat(language) {
       .catch((error) => console.error("Error loading JSON:", error));
 }
 
-
-
 function addMessageToChat(message, sender) {
   const chatBox = document.getElementById("chat-box");
   const messageElement = document.createElement("div");
@@ -85,7 +129,6 @@ function addMessageToChat(message, sender) {
     conversations[currentLanguage] = []; // Yeni konuşma başlat
   }
   conversations[currentLanguage].push({ message, sender }); // Mesajı gruplara ekle
-
 
   // Konuşmayı veritabanına kaydet
   saveMessageToDatabase(message, sender); // "human" yerine dinamik olarak sender geçiliyor
@@ -123,8 +166,6 @@ function loadConversation(username) {
   });
 }
 
-
-
 // Botun yazıyor... mesajını ekler
 function addTypingMessage() {
   const chatBox = document.getElementById("chat-box");
@@ -147,7 +188,6 @@ function addTypingMessage() {
   scrollToBottom(); // Yazıyor mesajı eklendiğinde kaydır
 }
 
-
 // Botun yazıyor... mesajını kaldırır
 function removeTypingMessage() {
   const typingMessage = document.getElementById("typing-message");
@@ -155,6 +195,7 @@ function removeTypingMessage() {
     typingMessage.remove();
   }
 }
+
 function addBotMessage(message) {
   const chatBox = document.getElementById("chat-box");
   const botMessage = document.createElement("div");
@@ -171,8 +212,6 @@ function addBotMessage(message) {
     saveMessageToDatabase(message, "bot");
   });
 }
-
-
 
 function typeWriterEffect(element, html, speed = 60, callback = null) {
   let tempDiv = document.createElement("div"); // Geçici bir div oluştur
@@ -219,14 +258,13 @@ function typeText(text, element, speed, callback) {
 
   addCharacter();
 }
+
 function scrollToBottom() {
   const chatBox = document.getElementById("chat-box");
   if (chatBox) {
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 }
-
-
 
 function handleUserChoice(userMessage, nextNode) {
   addMessageToChat(userMessage, "user"); // Kullanıcı mesajını hemen ekle
@@ -247,7 +285,6 @@ function handleUserChoice(userMessage, nextNode) {
       showOptions(); // Yeni seçenekleri tekrar göster
     }
   }, 1500); // 1.5 saniye gecikme
-
 }
 
 function displayEndMessage() {
@@ -288,7 +325,6 @@ function displayEndMessage() {
   chatBox.appendChild(endMessageContainer);
 }
 
-
 function renderChat() {
   if (!botFlow || !botFlow[currentNode]) {
     console.error("Invalid bot flow or current node.");
@@ -308,12 +344,12 @@ function renderChat() {
 
     if (inputOption) {
       // Input alanını güncelle
-      inputField.placeholder = inputOption.text;
-      inputField.type = inputOption.input; 
+      inputField.placeholder = inputOption.text || "Enter your input";
+      inputField.type = inputOption.input || "text"; 
       inputField.name = inputOption.name || "";
-
-      // Gönderme butonunu handleInput'a bağla
-      sendButton.onclick = () => handleInput(inputOption.next);
+      
+      // sendButton zaten DOMContentLoaded'de global olarak tanımlandı
+      // buraya özel bir şey yapmaya gerek yok
     } else {
       // Eğer input seçeneği yoksa diğer seçenekleri oluştur
       setTimeout(() => {
@@ -330,21 +366,6 @@ function renderChat() {
   }
 }
 
-   
-  // Mevcut seçenekleri temizle ve yenilerini oluştur
-  chatOptions.innerHTML = "";
-
-  if (node.options && node.options.length > 0) {
-    node.options.forEach((option) => {
-      const button = document.createElement("button");
-      button.className = "option";
-      button.innerText = option.text;
-      button.onclick = () => handleUserChoice(option.text, option.next);
-      chatOptions.appendChild(button);
-    });
-  }
-
-
 function hideOptions() {
   const chatOptions = document.getElementById("chat-options");
   if (chatOptions) {
@@ -359,11 +380,13 @@ function showOptions() {
   }
 }
 
+function setInputPlaceholder(name) {
+  const inputField = document.getElementById("message-input");
   // Placeholder belirleme
   inputField.placeholder =
     name === "reservation_date"
       ? "Enter the date (dd.mm.yyyy)"
-      :name === "request"
+      : name === "request"
       ? "Enter your request"
       : name === "reservation_time"
       ? "Enter the reservation time (hh:mm)"
@@ -384,150 +407,175 @@ function showOptions() {
       : name === "starting_address"
       ? "Enter the terminal address"
       : "Enter your input";
+}
 
-      function sendMessage() {
-        const inputField = document.getElementById("message-input");
-        const userMessage = inputField.value.trim();
-      
-        if (userMessage) {
-          addMessageToChat(userMessage, "user");
-          inputField.value = ""; // Alanı temizle
-          // Bot cevabını tetikleme (isteğe bağlı)
-        }
-      }
-      
-        // Eğer mesaj boş değilse sohbet kutusuna ekle
-        if (userMessage) {
-          addMessageToChat(userMessage, "user"); // Kullanıcı mesajını ekle
-          inputField.value = ""; // Input alanını temizle
-      
-          // Bot yanıtı için bir işlem yapın (örnek bir yanıt eklenmiştir)
-          addTypingMessage(); // Bot yazıyor mesajını göster
-          setTimeout(() => {
-            removeTypingMessage(); // Bot yazıyor mesajını kaldır
-            addMessageToChat("This is a bot response.", "bot"); // Bot mesajını ekle
-          }, 1000); // Bot cevabı için 1 saniye bekleme
-        }
-      
-        function handleInput(nextNode) {
-          const inputField = document.getElementById("message-input");
-          const userInput = inputField.value.trim();
-        
-          if (userInput) {
-            addMessageToChat(userInput, "user"); // Kullanıcı girdisini ekle
-            inputField.value = ""; // Input alanını temizle
-        
-            // Bot cevabını tetikleme
-            if (botFlow[nextNode]) {
-              currentNode = nextNode;
-              const botResponse = botFlow[currentNode]?.question || "Default bot message.";
-              addBotMessage(botResponse);
-              renderChat(); // Seçenekleri güncelle
-            } else {
-              console.error("Geçersiz nextNode: ", nextNode);
-            }
-          } else {
-            alert("Lütfen bir şey yazın!"); // Kullanıcı boş bırakırsa uyarı göster
-          }
-        }
-        function processStep(stepKey) {
-          const step = steps[stepKey];
-        
-          if (!step) {
-            console.error("Invalid step key:", stepKey);
-            return;
-          }
-        
-          displayMessage(step.question);
-        
-          if (step.next) {
-            console.log("Next step is:", step.next);
-            processStep(step.next); // Manuel olarak bir sonraki adıma geç
-          }
-        }
-        
-        processStep("start");
+function sendMessage() {
+  const inputField = document.getElementById("message-input");
+  const userMessage = inputField.value.trim();
 
-        
-        function loadMessages(messages) {
-          const chatContent = document.getElementById('chat-content');
-          const chatUsername = document.getElementById('chat-username');
-          
-          chatContent.innerHTML = ''; // Sağ paneli temizle
-        
-          if (messages.length > 0) {
-            chatUsername.textContent = `Room: ${messages[0].roomNumber}`; // Oda numarasını göster
-          } else {
-            chatUsername.textContent = "No messages found for this room.";
-          }
-        
-          // Her mesaj için bir baloncuk oluştur
-          messages.forEach(message => {
-            const messageDiv = document.createElement("div");
-            messageDiv.className = `message ${message.sender}`;
-            messageDiv.textContent = `${message.sender}: ${message.message}`;
-            chatContent.appendChild(messageDiv);
-          });
-        }
-        
-       
-        function openChatOptions() {
-          const chatOptions = document.getElementById('chat-options');
-          const hookButtonImg = document.querySelector('#hook-button img');
-        
-          // Modal ve görseli aç
-          hookButtonImg.classList.remove('animate', 'reset'); // Görsel animasyonunu sıfırla
-          chatOptions.style.display = 'flex'; // Modalı görünür yap
-          setTimeout(() => {
-            chatOptions.classList.add('open'); // Modalı aç
-          }, 10);
-        }
-        
-        function closeChatOptions() {
-          const chatOptions = document.getElementById('chat-options');
-          const hookButtonImg = document.querySelector('#hook-button img');
-        
-          // Modal kapanma animasyonu
-          chatOptions.classList.add('closing');
-          chatOptions.classList.remove('open');
-        
-          // Görsel düşme animasyonu
-          hookButtonImg.classList.add('animate');
-        
-          // Animasyonların bitiş süresi (500ms) sonra sıfırla
-          setTimeout(() => {
-            chatOptions.style.display = 'none'; // Modalı gizle
-            chatOptions.classList.remove('closing');
-            hookButtonImg.classList.remove('animate'); // Animasyonu kaldır
-            hookButtonImg.classList.add('reset'); // Görseli yukarı al
-          }, 500);
-        }
-        document.addEventListener("DOMContentLoaded", function () {
-          const modal = document.getElementById("consent-modal");
-          const consentYes = document.getElementById("consent-yes");
-          const consentNo = document.getElementById("consent-no");
-          
-          // Kullanıcı Yes derse sohbeti başlat
-          consentYes.addEventListener("click", function () {
-            modal.style.display = "none";
-            startChat(currentLanguage); // Mevcut dilde sohbet başlat
-          });
-        
-          // Kullanıcı No derse teşekkür mesajı göster ve modalı kapat
-          consentNo.addEventListener("click", function () {
-            modal.style.display = "none";
-            alert("Thank you. If you change your mind, you can start the chat later.");
-          });
-        });        
-        
-        
-        function loadLanguage(lang) {
-          fetch(`../../languages/${lang}.json`)
-              .then(response => response.json())
-              .then(data => {
-                  document.querySelector(".title").textContent = "Keepsty";
-                  document.querySelector(".subtitle").textContent = data.concierge || "Concierge";
-                  document.querySelector(".tagline").textContent = data.tagline || "Keep Your Stay, Keep Your Care";
-              })
-              .catch(error => console.error("Dil dosyası yüklenirken hata oluştu:", error));
+  if (userMessage) {
+    addMessageToChat(userMessage, "user");
+    inputField.value = ""; // Alanı temizle
+    
+    // Eğer bu bir serbest metin girişiyse, handleInput'u çağır
+    if (botFlow[currentNode] && botFlow[currentNode].options) {
+      const inputOption = botFlow[currentNode].options.find(option => option.input);
+      if (inputOption && inputOption.next) {
+        // Message is already added, so we pass the next node directly
+        handleSubmit(inputOption.next);
       }
+    }
+  }
+}
+
+function handleInput(nextNode) {
+  const inputField = document.getElementById("message-input");
+  const userInput = inputField.value.trim();
+
+  if (userInput) {
+    addMessageToChat(userInput, "user"); // Kullanıcı girdisini ekle
+    inputField.value = ""; // Input alanını temizle
+    handleSubmit(nextNode);
+  } else {
+    alert("Lütfen bir şey yazın!"); // Kullanıcı boş bırakırsa uyarı göster
+  }
+}
+
+function handleSubmit(nextNode) {
+  addTypingMessage(); // Bot yazıyor mesajını göster
+  
+  setTimeout(() => {
+    removeTypingMessage(); // Bot yazıyor mesajını kaldır
+    
+    // Bot cevabını tetikleme
+    if (botFlow[nextNode]) {
+      currentNode = nextNode;
+      const botResponse = botFlow[currentNode]?.question || "Default bot message.";
+      addBotMessage(botResponse);
+      renderChat(); // Seçenekleri güncelle
+    } else {
+      console.error("Geçersiz nextNode: ", nextNode);
+    }
+  }, 1000);
+}
+
+// Mesajları veritabanına kaydetme fonksiyonu
+function saveMessageToDatabase(message, sender) {
+  // Bu fonksiyon şu anda sadece konsola loglama yapıyor
+  // Gerçek bir veritabanına kaydetme işlemi burada eklenebilir
+  console.log(`Message saved: ${sender}: ${message}`);
+  
+  // Örnek olarak localStorage'a kaydedebiliriz
+  let savedMessages = JSON.parse(localStorage.getItem('chatMessages') || '[]');
+  savedMessages.push({
+    sender: sender,
+    message: message,
+    timestamp: new Date().toISOString()
+  });
+  localStorage.setItem('chatMessages', JSON.stringify(savedMessages));
+}
+
+function loadLanguage(lang) {
+  fetch(`../../languages/${lang}.json`)
+      .then(response => response.json())
+      .then(data => {
+          document.querySelector(".title").textContent = "Keepsty";
+          document.querySelector(".subtitle").textContent = data.concierge || "Concierge";
+          document.querySelector(".tagline").textContent = data.tagline || "Keep Your Stay, Keep Your Care";
+      })
+      .catch(error => console.error("Dil dosyası yüklenirken hata oluştu:", error));
+}
+
+function processStep(stepKey) {
+  // Sadece adım taslağı, gerçek steps nesnesi yoksa bu fonksiyon çalışmaz
+  if (typeof steps === 'undefined') {
+    console.error("steps değişkeni tanımlanmamış!");
+    return;
+  }
+
+  const step = steps[stepKey];
+  if (!step) {
+    console.error("Invalid step key:", stepKey);
+    return;
+  }
+  
+  // Varsayalım ki displayMessage fonksiyonu da tanımlanmış olacak
+  if (typeof displayMessage === 'function') {
+    displayMessage(step.question);
+  } else {
+    console.log(step.question);
+  }
+  
+  if (step.next) {
+    console.log("Next step is:", step.next);
+    processStep(step.next); // Manuel olarak bir sonraki adıma geç
+  }
+}
+
+function loadMessages(messages) {
+  const chatContent = document.getElementById('chat-content');
+  const chatUsername = document.getElementById('chat-username');
+  
+  if (!chatContent || !chatUsername) {
+    console.error("Chat content veya username elemanları bulunamadı!");
+    return;
+  }
+  
+  chatContent.innerHTML = ''; // Sağ paneli temizle
+
+  if (messages.length > 0) {
+    chatUsername.textContent = `Room: ${messages[0].roomNumber}`; // Oda numarasını göster
+  } else {
+    chatUsername.textContent = "No messages found for this room.";
+  }
+
+  // Her mesaj için bir baloncuk oluştur
+  messages.forEach(message => {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = `message ${message.sender}`;
+    messageDiv.textContent = `${message.sender}: ${message.message}`;
+    chatContent.appendChild(messageDiv);
+  });
+}
+
+function openChatOptions() {
+  const chatOptions = document.getElementById('chat-options');
+  const hookButtonImg = document.querySelector('#hook-button img');
+  
+  if (!chatOptions || !hookButtonImg) {
+    console.error("Chat options veya hook button img elemanları bulunamadı!");
+    return;
+  }
+
+  // Modal ve görseli aç
+  hookButtonImg.classList.remove('animate', 'reset'); // Görsel animasyonunu sıfırla
+  chatOptions.style.display = 'flex'; // Modalı görünür yap
+  setTimeout(() => {
+    chatOptions.classList.add('open'); // Modalı aç
+  }, 10);
+}
+
+function closeChatOptions() {
+  const chatOptions = document.getElementById('chat-options');
+  const hookButtonImg = document.querySelector('#hook-button img');
+  
+  if (!chatOptions || !hookButtonImg) {
+    console.error("Chat options veya hook button img elemanları bulunamadı!");
+    return;
+  }
+
+  // Modal kapanma animasyonu
+  chatOptions.classList.add('closing');
+  chatOptions.classList.remove('open');
+
+  // Görsel düşme animasyonu
+  hookButtonImg.classList.add('animate');
+
+  // Animasyonların bitiş süresi (500ms) sonra sıfırla
+  setTimeout(() => {
+    chatOptions.style.display = 'none'; // Modalı gizle
+    chatOptions.classList.remove('closing');
+    hookButtonImg.classList.remove('animate'); // Animasyonu kaldır
+    hookButtonImg.classList.add('reset'); // Görseli yukarı al
+  }, 500);
+}

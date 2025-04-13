@@ -1,251 +1,906 @@
 {
-    "menu": [
-      {
-        "key": "Hot Coffee",
-        "name": "Sıcak İçecekler",
-        "items": [
-          {
-            "name": "Espresso",
-            "price": "139₺"
-          },
-          {
-            "name": "Espresso Macchiato",
-            "price": "159₺"
-          },
-          {
-            "name": "Americano",
-            "price": "149₺"
-          },
-          {
-            "name": "Latte",
-            "price": "169₺"
-          },
-          {
-            "name": "Latte Macchiato",
-            "price": "169₺"
-          },
-          {
-            "name": "Cappuccino",
-            "price": "179₺"
-          },
-          {
-            "name": "Cortado",
-            "price": "169₺"
-          },
-          {
-            "name": "Flat White",
-            "price": "169₺"
-          },
-          {
-            "name": "Türk Kahvesi",
-            "price": "129₺"
-          },
-          {
-            "name": "Türk Kahvesi(Double)",
-            "price": "149₺"
-          },
-          {
-            "name": "Sütlü Türk Kahvesi",
-            "price": "159₺"
-          },
-          {
-            "name": "Filtre Kahve",
-            "price": "149₺"
-          }
-  
-          
-        ]
-      },
-      {
-        "key": "Tea",
-        "name": "Çay",
-        "items": [
-          {
-            "name": "Siyah Çay",
-            "price": "50₺"
-          },
-          {
-            "name": "Yeşil Çay",
-            "price": "169₺"
-          },
-          {
-            "name": "Kış Çayı",
-            "price": "169₺"
-          },
-          {
-            "name": "Yasemin Çayı",
-            "price": "169₺"
-          },
-          {
-            "name": "Papatya Çayı",
-            "price": "169₺"
-          },
-          {
-            "name": "Adaçayı",
-            "price": "169₺"
-          },
-          {
-            "name": "Nane-Limon Çayı",
-            "price": "169₺"
-          },
-          {
-            "name": "Elma Tarçın Çayı",
-            "price": "169₺"
-          }
-        ]
-      },
-      {
-        "key": "Cold Beverages",
-        "name": "Soğuk İçecekler",
-        "image": "assets/icons/beverages.png",
-        "items": [
-          {
-            "name": "Soğuk Americano",
-            "price": "185₺"
-          },
-          {
-            "name": "Soğuk Latte",
-            "price": "195₺"
-          },
-          {
-            "name": "Soğuk Chaı Tea Latte",
-            "price": "219₺"
-          },
-          {
-            "name": "Limonata",
-            "price": "179₺"
-          },
-          {
-            "name": "Çilekli Limonata",
-            "price": "199₺"
-          },
-          {
-            "name": "Naneli Limonata",
-            "price": "199₺"
-          },
-          {
-            "name": "Fesleğenli Limonata",
-            "price": "199₺"
-          },
-          {
-            "name": "Sıkma Portakal Suyu",
-            "price": "199₺"
-          },
-          {
-            "name": "Soda",
-            "price": "89₺"
-          },
-          {
-            "name": "Churchill",
-            "price": "110₺"
-          },
-          {
-            "name": "Tropical Spice",
-            "price": "209₺"
-          },
-          {
-            "name": "Berry Hibiscus",
-            "price": "199₺"
-          },
-          {
-            "name": "Cool Lime",
-            "price": "199₺"
-          }
-        ]
-      },
-      {
-        "key": "Desserts",
-        "name": "Tatlılar",
-        "image": "assets/icons/desserts.png",
-        "items": [
-          {
-            "name": "Chocolate Cream",
-            "price": "335₺"
-          },
-          {
-            "name": "Marble Brownie",
-            "price": "335₺"
-          },
-          {
-            "name": "Kruvasan",
-            "price": "330₺"
-          }
-        ]
-      },
-      {
-        "key": "Factory Specials",
-        "name": "Factory Specials",
-        "image": "assets/icons/alcohol.png",
-        "items": [
-          {
-            "name": "Gold Çikolatalı Frappe",
-            "price": "209₺"
-          },
-          {
-            "name": "Beyaz Çikolatalı Frappe",
-            "price": "209₺"
-          },
-          {
-            "name": "Gold Belçika Çikolatalı Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "Beyaz Belçika Çikolatalı Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "Soğuk Gold Çikolatalı Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "Soğuk Beyaz Çikolatalı Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "Lotus Frappe",
-            "price": "209₺"
-          },
-          {
-            "name": "Soğuk Çikolata",
-            "price": "219₺"
-          },
-          {
-            "name": "Soğuk Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "Sıcak Belçika Çikolatalı Mocha",
-            "price": "199₺"
-          },
-          {
-            "name": "Sıcak Belçika Çikolata",
-            "price": "199₺"
-          },
-          {
-            "name": "Lotus Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Balkabaklı Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Ballı Tarçınlı Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Antep Fıstıklı Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Dirty Chai Tea Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Chai Tea Latte",
-            "price": "209₺"
-          }
-        ]
-      }
-    ]
-  }
+  "menu": [
+    {
+      "key": "Başlangıçlar",
+      "name": "Başlangıçlar",
+      "image": "",
+      "items": []
+    },
+    {
+      "key": "Çorbalar",
+      "name": "Çorbalar",
+      "image": "",
+      "items": [
+        {
+          "name": "Günün Çorbası",
+          "price": "100 TL"
+        },
+        {
+          "name": "Az çorba",
+          "price": "75 TL"
+        }
+      ]
+    },
+    {
+      "key": "Soğuk Başlangıçlar",
+      "name": "Soğuk Başlangıçlar",
+      "image": "",
+      "items": [
+        {
+          "name": "Söğüş Tabağı",
+          "price": "120 TL"
+        },
+        {
+          "name": "Ezine Beyaz Peynir",
+          "price": "140 TL"
+        },
+        {
+          "name": "Yöresel Peynir Tabağı",
+          "price": "430 TL"
+        },
+        {
+          "name": "Yoğurtlu Mezeler",
+          "price": "120 TL"
+        },
+        {
+          "name": "Zeytinyağlı Mezeler",
+          "price": "160 TL"
+        },
+        {
+          "name": "Somon Füme",
+          "price": "480 TL"
+        },
+        {
+          "name": "Cacık",
+          "price": "110 TL"
+        }
+      ]
+    },
+    {
+      "key": "Sıcak Başlangıçlar",
+      "name": "Sıcak Başlangıçlar",
+      "image": "",
+      "items": [
+        {
+          "name": "Asya Aperatif",
+          "price": "270 TL"
+        },
+        {
+          "name": "Izgara Hellim Peyniri",
+          "price": "160 TL"
+        },
+        {
+          "name": "Kalamar Tava",
+          "price": "530 TL"
+        },
+        {
+          "name": "Karides Güveç",
+          "price": "430 TL"
+        },
+        {
+          "name": "Sebzeli Pastırmalı Paçanga Böreği",
+          "price": "170 TL"
+        },
+        {
+          "name": "Sigara Böreği",
+          "price": "160 TL"
+        },
+        {
+          "name": "Patates Tava",
+          "price": "150 TL"
+        },
+        {
+          "name": "Kaşarlı Mantar",
+          "price": "190 TL"
+        }
+      ]
+    },
+    {
+      "key": "Salatalar",
+      "name": "Salatalar",
+      "image": "",
+      "items": [
+        {
+          "name": "Akdeniz Salata",
+          "price": "240 TL"
+        },
+        {
+          "name": "Çoban Salata",
+          "price": "140TL"
+        },
+        {
+          "name": "Sezar Salata",
+          "price": "260 TL"
+        },
+        {
+          "name": "Steak Salata",
+          "price": "410 TL"
+        },
+        {
+          "name": "Ton Balıklı Salata",
+          "price": "250 TL"
+        },
+        {
+          "name": "Hellim Peynirli Salata",
+          "price": "210 TL"
+        },
+        {
+          "name": "Grek Salata",
+          "price": "160 TL"
+        },
+        {
+          "name": "Roka Salatası",
+          "price": "180 TL"
+        }
+      ]
+    },
+    {
+      "key": "Makarnalar",
+      "name": "Makarnalar",
+      "image": "",
+      "items": [
+        {
+          "name": "Pesto Soslu Fettucini",
+          "price": "340 TL"
+        },
+        {
+          "name": "Spagetti Napolitan",
+          "price": "260 TL"
+        },
+        {
+          "name": "Spagetti Bolonez",
+          "price": "320 TL"
+        },
+        {
+          "name": "Penne Alfredo",
+          "price": "360 TL"
+        },
+        {
+          "name": "Mantı",
+          "price": "260 TL"
+        },
+        {
+          "name": "Penne Arabiata",
+          "price": "290 TL"
+        },
+        {
+          "name": "Spagetti",
+          "price": "170 TL"
+        },
+        {
+          "name": "Sebzeli Makarna",
+          "price": "180 TL"
+        }
+      ]
+    },
+    {
+      "key": "Deniz Ürünleri",
+      "name": "Deniz Ürünleri",
+      "image": "",
+      "items": [
+        {
+          "name": "Çupra Izgara",
+          "price": "480 TL"
+        },
+        {
+          "name": "Levrek Izgara",
+          "price": "480 TL"
+        },
+        {
+          "name": "Somon Izgar",
+          "price": "670 TL"
+        }
+      ]
+    },
+    {
+      "key": "Tavuk Ürünleri",
+      "name": "Tavuk Ürünleri",
+      "image": "",
+      "items": [
+        {
+          "name": "Piliç Izgara",
+          "price": "330 TL"
+        },
+        {
+          "name": "Köri Soslu Piliç",
+          "price": "390 TL"
+        },
+        {
+          "name": "Piliç Şnitzel",
+          "price": "370 TL"
+        },
+        {
+          "name": "Piliç Sote",
+          "price": "350 TL"
+        },
+        {
+          "name": "Piliç Kavurma",
+          "price": "290 TL"
+        },
+        {
+          "name": "Piliç Şiş",
+          "price": "320 TL"
+        }
+      ]
+    },
+    {
+      "key": "Et Ürünleri",
+      "name": "Et Ürünleri",
+      "image": "",
+      "items": [
+        {
+          "name": "Kuzu Pirzola",
+          "price": "570 TL"
+        },
+        {
+          "name": "Naturel Bonfile",
+          "price": "590 TL"
+        },
+        {
+          "name": "Izgara Köfte",
+          "price": "400 TL"
+        },
+        {
+          "name": "Karışık Izgara",
+          "price": "720 TL"
+        },
+        {
+          "name": "Antrikot Izgar",
+          "price": "570 TL"
+        },
+        {
+          "name": "Çoban Kavurma",
+          "price": "560 TL"
+        },
+        {
+          "name": "Dana Et Sote",
+          "price": "540 TL"
+        },
+        {
+          "name": "Dana Şiş",
+          "price": "540 TL"
+        },
+        {
+          "name": "Kuzu Şiş",
+          "price": "490 TL"
+        }
+      ]
+    },
+    {
+      "key": "Wrap & Burgers",
+      "name": "Wrap & Burgers",
+      "image": "",
+      "items": [
+        {
+          "name": "Etli Wrap",
+          "price": "430 TL"
+        },
+        {
+          "name": "Tavuklu Wrap",
+          "price": "360 TL"
+        },
+        {
+          "name": "Köfteli Wrap",
+          "price": "330 TL"
+        },
+        {
+          "name": "Hamburger",
+          "price": "370 TL"
+        },
+        {
+          "name": "Asyaburger",
+          "price": "460 TL"
+        },
+        {
+          "name": "Tavuklu Cheeseburger",
+          "price": "330 TL"
+        },
+        {
+          "name": "Kaşarlı Tost",
+          "price": "160 TL"
+        },
+        {
+          "name": "Karışık Tost",
+          "price": "190 TL"
+        },
+        {
+          "name": "Soğuk Sandviç",
+          "price": "110 TL"
+        }
+      ]
+    },
+    {
+      "key": "Vejeteryan Menü",
+      "name": "Vejeteryan Menü",
+      "image": "",
+      "items": [
+        {
+          "name": "Haşlama Sebzeler",
+          "price": "180 TL"
+        },
+        {
+          "name": "Mantar Sote",
+          "price": "220 TL"
+        },
+        {
+          "name": "Sote Sebzeler",
+          "price": "160 TL"
+        }
+      ]
+    },
+    {
+      "key": "Tatlılar",
+      "name": "Tatlılar",
+      "image": "",
+      "items": [
+        {
+          "name": "Vanilyalı Dondurma",
+          "price": "140 TL"
+        },
+        {
+          "name": "Hoşmerim",
+          "price": "120 TL"
+        },
+        {
+          "name": "Tiramisu",
+          "price": "230 TL"
+        },
+        {
+          "name": "Cheesecake",
+          "price": "220 TL"
+        },
+        {
+          "name": "Fırın Sütlaç",
+          "price": "160 TL"
+        },
+        {
+          "name": "Magnolya",
+          "price": "180 TL"
+        },
+        {
+          "name": "Çikolatalı Mus",
+          "price": "200 TL"
+        },
+        {
+          "name": "Mevsim Meyve Tabağı",
+          "price": "100 TL"
+        }
+      ]
+    },
+    {
+      "key": "Soft İçecek",
+      "name": "Soft İçecek",
+      "image": "",
+      "items": [
+        {
+          "name": "Kola",
+          "price": "60 TL"
+        },
+        {
+          "name": "Kola Zero",
+          "price": "60 TL"
+        },
+        {
+          "name": "Kola Light",
+          "price": "60 TL"
+        },
+        {
+          "name": "Fanta",
+          "price": "60 TL"
+        },
+        {
+          "name": "Sprite",
+          "price": "60 TL"
+        },
+        {
+          "name": "Fuse Tea",
+          "price": "60 TL"
+        },
+        {
+          "name": "Meyve Suyu",
+          "price": "60 TL"
+        },
+        {
+          "name": "Ayran",
+          "price": "25 TL"
+        },
+        {
+          "name": "Şalgam",
+          "price": "50 TL"
+        },
+        {
+          "name": "Soda",
+          "price": "20 TL"
+        },
+        {
+          "name": "Redbull",
+          "price": "80 TL"
+        },
+        {
+          "name": "Su 0,5 lt",
+          "price": "15 TL"
+        },
+        {
+          "name": "Su 1,5 lt",
+          "price": "30 TL"
+        }
+      ]
+    },
+    {
+      "key": "Alkollü İçecek",
+      "name": "Alkollü İçecek",
+      "image": "",
+      "items": [
+        {
+          "name": "Efes 50 Cl.",
+          "price": "160 TL"
+        },
+        {
+          "name": "Carslberg 50 Cl.",
+          "price": "160 TL"
+        },
+        {
+          "name": "Tuborg Gold 50 Cl.",
+          "price": "160 TL"
+        },
+        {
+          "name": "Bomonti Filtresiz 50 Cl.",
+          "price": "180 TL"
+        },
+        {
+          "name": "Corona 33 Cl.",
+          "price": "230 TL"
+        }
+      ]
+    },
+    {
+      "key": "Sıcak İçecekler",
+      "name": "Sıcak İçecekler",
+      "image": "",
+      "items": [
+        {
+          "name": "Çay",
+          "price": "25 TL"
+        },
+        {
+          "name": "Bitki Çayı",
+          "price": "30 TL"
+        },
+        {
+          "name": "Türk Kahvesi",
+          "price": "60 TL"
+        },
+        {
+          "name": "Nescafe",
+          "price": "50 TL"
+        },
+        {
+          "name": "Espresso Single",
+          "price": "50 TL"
+        },
+        {
+          "name": "Espresso Double",
+          "price": "90 TL"
+        },
+        {
+          "name": "Coffee Americano",
+          "price": "60 TL"
+        },
+        {
+          "name": "Coffee Latte",
+          "price": "80 TL"
+        },
+        {
+          "name": "Filtre Kahve",
+          "price": "80 TL"
+        },
+        {
+          "name": "Cappucino",
+          "price": "80 TL"
+        },
+        {
+          "name": "English Coffee",
+          "price": "350 TL"
+        },
+        {
+          "name": "Black Eyes",
+          "price": "100 TL"
+        }
+      ]
+    },
+    {
+      "key": "İmport İçecekler",
+      "name": "İmport İçecekler",
+      "image": "",
+      "items": []
+    },
+    {
+      "key": "Vodkalar",
+      "name": "Vodkalar",
+      "image": "",
+      "items": [
+        {
+          "name": "Istanblue Vodka 4 Cl.",
+          "price": "200 TL"
+        },
+        {
+          "name": "Istanblue Vodka 8 Cl.",
+          "price": "250 TL"
+        },
+        {
+          "name": "Istanblue Vodka 35 Cl.",
+          "price": "750 TL"
+        },
+        {
+          "name": "Istanblue Vodka 70 Cl.",
+          "price": "1350 TL"
+        },
+        {
+          "name": "Absolut Vodka 4 Cl.",
+          "price": "250 TL"
+        },
+        {
+          "name": "Absolut Vodka 8 Cl.",
+          "price": "350 TL"
+        },
+        {
+          "name": "Absolut Vodka 70 Cl.",
+          "price": "1800 TL"
+        },
+        {
+          "name": "Smirnoff Vodka 4 Cl.",
+          "price": "250 TL"
+        },
+        {
+          "name": "Smirnoff Vodka 8 Cl.",
+          "price": "350 TL"
+        },
+        {
+          "name": "Smirnoff Vodka 70 Cl.",
+          "price": "1600 TL"
+        }
+      ]
+    },
+    {
+      "key": "Viskiler",
+      "name": "Viskiler",
+      "image": "",
+      "items": [
+        {
+          "name": "J&B 4 Cl.",
+          "price": "275 TL"
+        },
+        {
+          "name": "J&B 8 Cl.",
+          "price": "375 TL"
+        },
+        {
+          "name": "J&B 70 Cl.",
+          "price": "1700 TL"
+        },
+        {
+          "name": "Johnnie Walker Red Label 4 Cl.",
+          "price": "300 TL"
+        },
+        {
+          "name": "Johnnie Walker Red Label 8 Cl.",
+          "price": "400 TL"
+        },
+        {
+          "name": "Johnnie Walker Red Label 70 Cl.",
+          "price": "1850 TL"
+        },
+        {
+          "name": "Johnnie Walker Black Label 4 Cl.",
+          "price": "350 TL"
+        },
+        {
+          "name": "Johnnie Walker Black Label 8 Cl.",
+          "price": "500 TL"
+        },
+        {
+          "name": "Johnnie Walker Black Label 70 Cl.",
+          "price": "2600 TL"
+        },
+        {
+          "name": "Jack Daniels 4 Cl.",
+          "price": "350 TL"
+        },
+        {
+          "name": "Jack Daniels 8 Cl.",
+          "price": "450 TL"
+        },
+        {
+          "name": "Jack Daniels 80 Cl.",
+          "price": "2200 TL"
+        },
+        {
+          "name": "Chivas Regal 4 Cl.",
+          "price": "250 TL"
+        },
+        {
+          "name": "Chivas Regal 8 Cl.",
+          "price": "350 TL"
+        },
+        {
+          "name": "Chivas Regal 35 Cl.",
+          "price": "1450 TL"
+        },
+        {
+          "name": "Chivas Regal 70 Cl.",
+          "price": "2700 TL"
+        }
+      ]
+    },
+    {
+      "key": "Import Drinks",
+      "name": "Import Drinks",
+      "image": "",
+      "items": [
+        {
+          "name": "Gordon Gin 4 Cl.",
+          "price": "250 TL"
+        },
+        {
+          "name": "Gordon Gin 8 Cl.",
+          "price": "350 TL"
+        },
+        {
+          "name": "Gordon Gin 70 Cl.",
+          "price": "1700 TL"
+        },
+        {
+          "name": "Gilbeys Gin 4 Cl.",
+          "price": "230 TL"
+        },
+        {
+          "name": "Gilbeys Gin 8 Cl.",
+          "price": "300 TL"
+        },
+        {
+          "name": "Gilbeys Gin 70 Cl.",
+          "price": "1400 TL"
+        },
+        {
+          "name": "Olmeca Tequila Shot 4 Cl.",
+          "price": "300 TL"
+        },
+        {
+          "name": "Olmeca Tequila Shot 70 Cl.",
+          "price": "2000 TL"
+        }
+      ]
+    },
+    {
+      "key": "Kokteyl",
+      "name": "Kokteyl",
+      "image": "",
+      "items": [
+        {
+          "name": "Alkollü Kokteyl",
+          "price": "300 TL"
+        },
+        {
+          "name": "Alkolsüz Kokteyl",
+          "price": "200 TL"
+        }
+      ]
+    },
+    {
+      "key": "Likör",
+      "name": "Likör",
+      "image": "",
+      "items": [
+        {
+          "name": "Baileys 8 Cl.",
+          "price": "300 TL"
+        },
+        {
+          "name": "Baileys",
+          "price": "1450 TL"
+        }
+      ]
+    },
+    {
+      "key": "Şaraplar",
+      "name": "Şaraplar",
+      "image": "",
+      "items": []
+    },
+    {
+      "key": "Kırmızı Şaraplar",
+      "name": "Kırmızı Şaraplar",
+      "image": "",
+      "items": [
+        {
+          "name": "Angora 18,75 Cl.",
+          "price": "250 TL"
+        },
+        {
+          "name": "Angora 37,50 Cl.",
+          "price": "450 TL"
+        },
+        {
+          "name": "Angora 75 Cl.",
+          "price": "700 TL"
+        },
+        {
+          "name": "Yakut 18,75 Cl.",
+          "price": "290 TL"
+        },
+        {
+          "name": "Yakut 37,50 Cl.",
+          "price": "530 TL"
+        },
+        {
+          "name": "Yakut 75 Cl.",
+          "price": "900 TL"
+        },
+        {
+          "name": "Pendore Öküzgözü 75 Cl.",
+          "price": "2350 TL"
+        },
+        {
+          "name": "Pendore Syrah 75 Cl.",
+          "price": "2350 TL"
+        },
+        {
+          "name": "Selection 75 Cl.",
+          "price": "2000 TL"
+        },
+        {
+          "name": "Kalecik Karası 75 Cl.",
+          "price": "2350 TL"
+        },
+        {
+          "name": "Prestige Öküzgözü 75 Cl.",
+          "price": "2350 TL"
+        },
+        {
+          "name": "Prestige Boğazkere 75 Cl.",
+          "price": "2350 TL"
+        }
+      ]
+    },
+    {
+      "key": "Beyaz Şaraplar",
+      "name": "Beyaz Şaraplar",
+      "image": "",
+      "items": [
+        {
+          "name": "Angora 18,75 Cl.",
+          "price": "250TL"
+        },
+        {
+          "name": "Angora 37,50 Cl.",
+          "price": "450 TL"
+        },
+        {
+          "name": "Angora 75 Cl.",
+          "price": "700 TL"
+        },
+        {
+          "name": "Egeo Chardonnay 75 Cl.",
+          "price": "2000 TL"
+        },
+        {
+          "name": "Egeo Sauvignon 75 Cl.",
+          "price": "1900 TL"
+        },
+        {
+          "name": "Urla Chardonnay 75 Cl.",
+          "price": "1750 TL"
+        },
+        {
+          "name": "Selection 75 Cl.",
+          "price": "1800 TL"
+        },
+        {
+          "name": "İnci Damlası Şampanya 75 Cl.",
+          "price": "1000 TL"
+        }
+      ]
+    },
+    {
+      "key": "Rakılar",
+      "name": "Rakılar",
+      "image": "",
+      "items": [
+        {
+          "name": "Yeni Rakı 4 Cl.",
+          "price": "220 TL"
+        },
+        {
+          "name": "Yeni Rakı 8 Cl.",
+          "price": "290 TL"
+        },
+        {
+          "name": "Yeni Rakı 20 Cl.",
+          "price": "680 TL"
+        },
+        {
+          "name": "Yeni Rakı 35 Cl.",
+          "price": "950 TL"
+        },
+        {
+          "name": "Yeni Rakı 70 Cl.",
+          "price": "1650 TL"
+        },
+        {
+          "name": "Tekirdağ 4 Cl.",
+          "price": "240 TL"
+        },
+        {
+          "name": "Tekirdağ 8 Cl.",
+          "price": "320 TL"
+        },
+        {
+          "name": "Tekirdağ 20 Cl.",
+          "price": "750 TL"
+        },
+        {
+          "name": "Tekirdağ 35 Cl.",
+          "price": "1100 TL"
+        },
+        {
+          "name": "Tekirdağ 70 Cl.",
+          "price": "1850 TL"
+        },
+        {
+          "name": "Yeni Rakı Ala 20 Cl.",
+          "price": "900 TL"
+        },
+        {
+          "name": "Yeni Rakı Ala 35 Cl.",
+          "price": "1350 TL"
+        },
+        {
+          "name": "Yeni Rakı Ala 70 Cl.",
+          "price": "2500 TL"
+        },
+        {
+          "name": "Tekirdağ AltınSeri 20 Cl.",
+          "price": "850 TL"
+        },
+        {
+          "name": "Tekirdağ AltınSeri 35 Cl.",
+          "price": "1200 TL"
+        },
+        {
+          "name": "Tekirdağ AltınSeri 70 Cl.",
+          "price": "2100 TL"
+        },
+        {
+          "name": "Beylerbeyi Göbek Rakısı 35 Cl.",
+          "price": "1190 TL"
+        },
+        {
+          "name": "Beylerbeyi Göbek Rakısı 70 Cl.",
+          "price": "1600 TL"
+        },
+        {
+          "name": "Beylerbeyi Kalecik Karası 70 Cl.",
+          "price": "2100 TL"
+        },
+        {
+          "name": "Beylerbeyi TerraGold 70 Cl.",
+          "price": "2400 TL"
+        },
+        {
+          "name": "EfeGold 70 Cl.",
+          "price": "1750 TL"
+        },
+        {
+          "name": "Tekirdağ No:10 70 Cl.",
+          "price": "2750 TL"
+        }
+      ]
+    },
+    {
+      "key": "Allergic",
+      "name": "Allergic",
+      "image": "",
+      "items": []
+    }
+  ]
+}

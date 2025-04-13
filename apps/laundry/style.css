@@ -990,19 +990,21 @@ body {
 .popup-content {
   background-color: var(--background-white);
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg);
+  padding: 30px;
   text-align: center;
   width: 90%;
   max-width: 350px;
   box-shadow: var(--shadow-md);
   animation: fadeIn 0.3s ease-in-out;
+  border: 1px solid var(--border-color);
 }
 
 .popup-content h3 {
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-md);
+  font-size: 24px;
+  margin-bottom: 30px;
   color: var(--secondary-color);
   font-weight: 600;
+  text-align: center;
 }
 
 /* Success Popup - Optimize edilmiş */
@@ -1181,6 +1183,34 @@ body {
 @keyframes typing-animation {
   0%, 60%, 100% { transform: translateY(0); }
   30% { transform: translateY(-5px); }
+}
+
+/* Time Options - Popup Butonları Düzenlemesi */
+.time-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.time-options button {
+  background-color: var(--background-light);
+  border: none;
+  border-radius: 30px;
+  padding: 15px 20px;
+  font-size: var(--font-size-md);
+  color: var(--secondary-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.time-options button:hover {
+  background-color: var(--secondary-color);
+  color: var(--background-white);
+  transform: translateY(-2px);
 }
 
 

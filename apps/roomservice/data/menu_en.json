@@ -1,249 +1,969 @@
 {
-    "menu": [
-      {
-        "key": "Hot Coffee",
-        "name": "Hot Coffee",
-        "items": [
-          {
-            "name": "Espresso",
-            "price": "139₺"
-          },
-          {
-            "name": "Espresso Macchiato",
-            "price": "159₺"
-          },
-          {
-            "name": "Americano",
-            "price": "149₺"
-          },
-          {
-            "name": "Cafe Latte",
-            "price": "169₺"
-          },
-          {
-            "name": "Cafe Latte Macchiato",
-            "price": "169₺"
-          },
-          {
-            "name": "Cappuccino",
-            "price": "179₺"
-          },
-          {
-            "name": "Cortado",
-            "price": "169₺"
-          },
-          {
-            "name": "Flat White",
-            "price": "169₺"
-          },
-          {
-            "name": "Turkish Coffee(Small)",
-            "price": "129₺"
-          },
-          {
-            "name": "Turkish Coffee(Large)",
-            "price": "149₺"
-          },
-          {
-            "name": "Turkish Coffee with Milk",
-            "price": "159₺"
-          },
-          {
-            "name": "Filter Coffee",
-            "price": "149₺"
-          }
-  
-          
-        ]
-      },
-      {
-        "key": "Tea",
-        "name": "Tea",
-        "items": [
-          {
-            "name": "Tea",
-            "price": "50₺"
-          },
-          {
-            "name": "Green Tea",
-            "price": "169₺"
-          },
-          {
-            "name": "Winter Tea",
-            "price": "169₺"
-          },
-          {
-            "name": "Jasmin Tea",
-            "price": "169₺"
-          },
-          {
-            "name": "Chamomile Tea",
-            "price": "169₺"
-          },
-          {
-            "name": "SageTea",
-            "price": "169₺"
-          },
-          {
-            "name": "Mint Lemon Tea",
-            "price": "169₺"
-          },
-          {
-            "name": "Apple Cinnamon Tea",
-            "price": "169₺"
-          }
-        ]
-      },
-      {
-        "key": "Cold Beverages",
-        "name": "Cold Beverages",
-        "image": "assets/icons/beverages.png",
-        "items": [
-          {
-            "name": "Iced Americano",
-            "price": "185₺"
-          },
-          {
-            "name": "Iced Caffe Latte",
-            "price": "195₺"
-          },
-          {
-            "name": "Iced Chai Tea Latte",
-            "price": "219₺"
-          },
-          {
-            "name": "Lemonade",
-            "price": "179₺"
-          },
-          {
-            "name": "Strawberry Lemonade",
-            "price": "199₺"
-          },
-          {
-            "name": "Mint Lemonade",
-            "price": "199₺"
-          },
-          {
-            "name": "Basil Lemonade",
-            "price": "199₺"
-          },
-          {
-            "name": "Freshly Squeezed Orange Juice",
-            "price": "199₺"
-          },
-          {
-            "name": "Soda",
-            "price": "89₺"
-          },
-          {
-            "name": "Churchill (Salted Lemon Soda)",
-            "price": "110₺"
-          },
-          {
-            "name": "Tropical Spice",
-            "price": "209₺"
-          },
-          {
-            "name": "Berry Hibiscus",
-            "price": "199₺"
-          },
-          {
-            "name": "Cool Lime",
-            "price": "199₺"
-          }
-        ]
-      },
-      {
-        "key": "Desserts",
-        "name": "Desserts",
-        "items": [
-          {
-            "name": "Chocolate Cream",
-            "price": "335₺"
-          },
-          {
-            "name": "Marble Brownie",
-            "price": "335₺"
-          },
-          {
-            "name": "Croissant",
-            "price": "330₺"
-          }
-        ]
-      },
-      {
-        "key": "Factory Specials",
-        "name": "Factory Specials",
-        "items": [
-          {
-            "name": "Gold Chocolate Frappe",
-            "price": "209₺"
-          },
-          {
-            "name": "White Chocolate Frappe",
-            "price": "209₺"
-          },
-          {
-            "name": "Gold Belgium Chocolate Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "White Belgium Chocolate Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "Ice Gold Chocolate Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "Ice White Chocolate Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "Lotus Frappe",
-            "price": "209₺"
-          },
-          {
-            "name": "Iced Chocolate",
-            "price": "219₺"
-          },
-          {
-            "name": "Iced Mocha",
-            "price": "209₺"
-          },
-          {
-            "name": "Hot Belgium Chocolate Mocha",
-            "price": "199₺"
-          },
-          {
-            "name": "Hot Belgium Chocolate",
-            "price": "199₺"
-          },
-          {
-            "name": "Lotus Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Pumpkin Spice Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Honey Cinnamon Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Pistachio Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Dirty Chai Tea Latte",
-            "price": "209₺"
-          },
-          {
-            "name": "Chai Tea Latte",
-            "price": "209₺"
+  "menu": [
+    {
+      "key": "Alcoholic Beverages",
+      "name": "Alcoholic Beverages",
+      "items": [
+        {
+          "name": "Efes 50 Cl.",
+          "price": "160 TL",
+          "subcategory": "Alcoholic Beverages"
+        },
+        {
+          "name": "Carslberg 50 Cl.",
+          "price": "160 TL",
+          "subcategory": "Alcoholic Beverages"
+        },
+        {
+          "name": "Tuborg Gold 50 Cl.",
+          "price": "160 TL",
+          "subcategory": "Alcoholic Beverages"
+        },
+        {
+          "name": "Bomonti Filtresiz 50 Cl.",
+          "price": "180 TL",
+          "subcategory": "Alcoholic Beverages"
+        },
+        {
+          "name": "Corona 33 Cl.",
+          "price": "230 TL",
+          "subcategory": "Alcoholic Beverages"
         }
-    ]
-  }
-]
+      ]
+    },
+    {
+      "key": "Appetizers",
+      "name": "Appetizers",
+      "items": [
+        {
+          "name": "Cold Cuts Plate",
+          "price": "120 TL",
+          "subcategory": "Cold Appetizers"
+        },
+        {
+          "name": "Ezine White Cheese",
+          "price": "140 TL",
+          "subcategory": "Cold Appetizers"
+        },
+        {
+          "name": "Regional Cheese Platter",
+          "price": "430 TL",
+          "subcategory": "Cold Appetizers"
+        },
+        {
+          "name": "Yogurt-Based Appetizers",
+          "price": "120 TL",
+          "subcategory": "Cold Appetizers"
+        },
+        {
+          "name": "Olive Oil Appetizers",
+          "price": "160 TL",
+          "subcategory": "Cold Appetizers"
+        },
+        {
+          "name": "Smoked Salmon",
+          "price": "480 TL",
+          "subcategory": "Cold Appetizers"
+        },
+        {
+          "name": "Cacık (Yogurt with Cucumber)",
+          "price": "110 TL",
+          "subcategory": "Cold Appetizers"
+        },
+        {
+          "name": "Asia Appetizer",
+          "price": "270 TL",
+          "subcategory": "Hot Appetizers"
+        },
+        {
+          "name": "Grilled Halloumi Cheese",
+          "price": "160 TL",
+          "subcategory": "Hot Appetizers"
+        },
+        {
+          "name": "Fried Calamari",
+          "price": "530 TL",
+          "subcategory": "Hot Appetizers"
+        },
+        {
+          "name": "Shrimp Casserole",
+          "price": "430 TL",
+          "subcategory": "Hot Appetizers"
+        },
+        {
+          "name": "Phyllo Rolls with Pastrami and Vegetables",
+          "price": "170 TL",
+          "subcategory": "Hot Appetizers"
+        },
+        {
+          "name": "Cheese Rolls",
+          "price": "160 TL",
+          "subcategory": "Hot Appetizers"
+        },
+        {
+          "name": "French Fries",
+          "price": "150 TL",
+          "subcategory": "Hot Appetizers"
+        },
+        {
+          "name": "Mushroom with Kashar Cheese",
+          "price": "190 TL",
+          "subcategory": "Hot Appetizers"
+        },
+        {
+          "name": "Soup of the Day",
+          "price": "100 TL",
+          "subcategory": "Soups"
+        },
+        {
+          "name": "Small Soup",
+          "price": "75 TL",
+          "subcategory": "Soups"
+        }
+      ]
+    },
+    {
+      "key": "Desserts",
+      "name": "Desserts",
+      "items": [
+        {
+          "name": "Vanilla Ice Cream",
+          "price": "140 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Höşmerim Dessert",
+          "price": "120 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Tiramisu",
+          "price": "230 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Cheesecake",
+          "price": "220 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Baked Rice Pudding",
+          "price": "160 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Magnolia",
+          "price": "180 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Chocolate Mousse",
+          "price": "200 TL",
+          "subcategory": "Desserts"
+        },
+        {
+          "name": "Seasonal Fruit Plate",
+          "price": "100 TL",
+          "subcategory": "Desserts"
+        }
+      ]
+    },
+    {
+      "key": "Hot Beverages",
+      "name": "Hot Beverages",
+      "items": [
+        {
+          "name": "Tea",
+          "price": "25 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Herbal Tea",
+          "price": "30 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Turkish Coffee",
+          "price": "60 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Nescafe",
+          "price": "50 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Espresso Single",
+          "price": "50 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Espresso Double",
+          "price": "90 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Americano Coffee",
+          "price": "60 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Latte",
+          "price": "80 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Filter Coffee",
+          "price": "80 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Cappuccino",
+          "price": "80 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "English Coffee",
+          "price": "350 TL",
+          "subcategory": "Hot Beverages"
+        },
+        {
+          "name": "Black Eyes",
+          "price": "100 TL",
+          "subcategory": "Hot Beverages"
+        }
+      ]
+    },
+    {
+      "key": "Imported Beverages",
+      "name": "Imported Beverages",
+      "items": [
+        {
+          "name": "Alcoholic Cocktail",
+          "price": "300 TL",
+          "subcategory": "Cocktails"
+        },
+        {
+          "name": "Non-Alcoholic Cocktail",
+          "price": "200 TL",
+          "subcategory": "Cocktails"
+        },
+        {
+          "name": "Gordon Gin 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "Imported Drinks"
+        },
+        {
+          "name": "Gordon Gin 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "Imported Drinks"
+        },
+        {
+          "name": "Gordon Gin 70 Cl.",
+          "price": "1700 TL",
+          "subcategory": "Imported Drinks"
+        },
+        {
+          "name": "Gilbeys Gin 4 Cl.",
+          "price": "230 TL",
+          "subcategory": "Imported Drinks"
+        },
+        {
+          "name": "Gilbeys Gin 8 Cl.",
+          "price": "300 TL",
+          "subcategory": "Imported Drinks"
+        },
+        {
+          "name": "Gilbeys Gin 70 Cl.",
+          "price": "1400 TL",
+          "subcategory": "Imported Drinks"
+        },
+        {
+          "name": "Olmeca Tequila Shot 4 Cl.",
+          "price": "300 TL",
+          "subcategory": "Imported Drinks"
+        },
+        {
+          "name": "Olmeca Tequila Shot 70 Cl.",
+          "price": "2000 TL",
+          "subcategory": "Imported Drinks"
+        },
+        {
+          "name": "Baileys 8 Cl.",
+          "price": "300 TL",
+          "subcategory": "Liqueurs"
+        },
+        {
+          "name": "Baileys",
+          "price": "1450 TL",
+          "subcategory": "Liqueurs"
+        },
+        {
+          "name": "Istanblue Vodka 4 Cl.",
+          "price": "200 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Istanblue Vodka 8 Cl.",
+          "price": "250 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Istanblue Vodka 35 Cl.",
+          "price": "750 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Istanblue Vodka 70 Cl.",
+          "price": "1350 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Absolut Vodka 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Absolut Vodka 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Absolut Vodka 70 Cl.",
+          "price": "1800 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Smirnoff Vodka 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Smirnoff Vodka 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "Smirnoff Vodka 70 Cl.",
+          "price": "1600 TL",
+          "subcategory": "Vodkas"
+        },
+        {
+          "name": "J&B 4 Cl.",
+          "price": "275 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "J&B 8 Cl.",
+          "price": "375 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "J&B 70 Cl.",
+          "price": "1700 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Johnnie Walker Red Label 4 Cl.",
+          "price": "300 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Johnnie Walker Red Label 8 Cl.",
+          "price": "400 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Johnnie Walker Red Label 70 Cl.",
+          "price": "1850 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Johnnie Walker Black Label 4 Cl.",
+          "price": "350 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Johnnie Walker Black Label 8 Cl.",
+          "price": "500 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Johnnie Walker Black Label 70 Cl.",
+          "price": "2600 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Jack Daniels 4 Cl.",
+          "price": "350 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Jack Daniels 8 Cl.",
+          "price": "450 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Jack Daniels 80 Cl.",
+          "price": "2200 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Chivas Regal 4 Cl.",
+          "price": "250 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Chivas Regal 8 Cl.",
+          "price": "350 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Chivas Regal 35 Cl.",
+          "price": "1450 TL",
+          "subcategory": "Whiskeys"
+        },
+        {
+          "name": "Chivas Regal 70 Cl.",
+          "price": "2700 TL",
+          "subcategory": "Whiskeys"
+        }
+      ]
+    },
+    {
+      "key": "Meat and Chicken",
+      "name": "Meat and Chicken",
+      "items": [
+        {
+          "name": "Grilled Chicken",
+          "price": "330 TL",
+          "subcategory": "Chicken Dishes"
+        },
+        {
+          "name": "Chicken with Curry Sauce",
+          "price": "390 TL",
+          "subcategory": "Chicken Dishes"
+        },
+        {
+          "name": "Chicken Schnitzel",
+          "price": "370 TL",
+          "subcategory": "Chicken Dishes"
+        },
+        {
+          "name": "Sautéed Chicken",
+          "price": "350 TL",
+          "subcategory": "Chicken Dishes"
+        },
+        {
+          "name": "Braised Chicken",
+          "price": "290 TL",
+          "subcategory": "Chicken Dishes"
+        },
+        {
+          "name": "Chicken Skewers",
+          "price": "320 TL",
+          "subcategory": "Chicken Dishes"
+        },
+        {
+          "name": "Lamb Chops",
+          "price": "570 TL",
+          "subcategory": "Meat Dishes"
+        },
+        {
+          "name": "Natural Beef Tenderloin",
+          "price": "590 TL",
+          "subcategory": "Meat Dishes"
+        },
+        {
+          "name": "Grilled Meatballs",
+          "price": "400 TL",
+          "subcategory": "Meat Dishes"
+        },
+        {
+          "name": "Mixed Grill",
+          "price": "720 TL",
+          "subcategory": "Meat Dishes"
+        },
+        {
+          "name": "Grilled Ribeye",
+          "price": "570 TL",
+          "subcategory": "Meat Dishes"
+        },
+        {
+          "name": "Shepherd’s Sautéed Meat",
+          "price": "560 TL",
+          "subcategory": "Meat Dishes"
+        },
+        {
+          "name": "Sautéed Beef",
+          "price": "540 TL",
+          "subcategory": "Meat Dishes"
+        },
+        {
+          "name": "Beef Skewers",
+          "price": "540 TL",
+          "subcategory": "Meat Dishes"
+        },
+        {
+          "name": "Lamb Skewers",
+          "price": "490 TL",
+          "subcategory": "Meat Dishes"
+        },
+        {
+          "name": "Grilled Sea Bream",
+          "price": "480 TL",
+          "subcategory": "Seafood"
+        },
+        {
+          "name": "Grilled Sea Bass",
+          "price": "480 TL",
+          "subcategory": "Seafood"
+        },
+        {
+          "name": "Grilled Salmon",
+          "price": "670 TL",
+          "subcategory": "Seafood"
+        },
+        {
+          "name": "Beef Wrap",
+          "price": "430 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Chicken Wrap",
+          "price": "360 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Meatball Wrap",
+          "price": "330 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Hamburger",
+          "price": "370 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Asya Burger",
+          "price": "460 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Chicken Cheeseburger",
+          "price": "330 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Grilled Cheese Toast",
+          "price": "160 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Mixed Toast",
+          "price": "190 TL",
+          "subcategory": "Wraps & Burgers"
+        },
+        {
+          "name": "Cold Sandwich",
+          "price": "110 TL",
+          "subcategory": "Wraps & Burgers"
+        }
+      ]
+    },
+    {
+      "key": "Salads and Pastas",
+      "name": "Salads and Pastas",
+      "items": [
+        {
+          "name": "Fettuccine with Pesto Sauce",
+          "price": "340 TL",
+          "subcategory": "Pastas"
+        },
+        {
+          "name": "Spaghetti Napolitan",
+          "price": "260 TL",
+          "subcategory": "Pastas"
+        },
+        {
+          "name": "Spaghetti Bolognese",
+          "price": "320 TL",
+          "subcategory": "Pastas"
+        },
+        {
+          "name": "Penne Alfredo",
+          "price": "360 TL",
+          "subcategory": "Pastas"
+        },
+        {
+          "name": "Turkish Dumplings",
+          "price": "260 TL",
+          "subcategory": "Pastas"
+        },
+        {
+          "name": "Penne Arrabbiata",
+          "price": "290 TL",
+          "subcategory": "Pastas"
+        },
+        {
+          "name": "Spaghetti",
+          "price": "170 TL",
+          "subcategory": "Pastas"
+        },
+        {
+          "name": "Vegetable Pasta",
+          "price": "180 TL",
+          "subcategory": "Pastas"
+        },
+        {
+          "name": "Mediterranean Salad",
+          "price": "240 TL",
+          "subcategory": "Salads"
+        },
+        {
+          "name": "Shepherd's Salad",
+          "price": "140TL",
+          "subcategory": "Salads"
+        },
+        {
+          "name": "Caesar Salad",
+          "price": "260 TL",
+          "subcategory": "Salads"
+        },
+        {
+          "name": "Steak Salad",
+          "price": "410 TL",
+          "subcategory": "Salads"
+        },
+        {
+          "name": "Tuna Salad",
+          "price": "250 TL",
+          "subcategory": "Salads"
+        },
+        {
+          "name": "Halloumi Salad",
+          "price": "210 TL",
+          "subcategory": "Salads"
+        },
+        {
+          "name": "Greek Salad",
+          "price": "160 TL",
+          "subcategory": "Salads"
+        },
+        {
+          "name": "Arugula Salad",
+          "price": "180 TL",
+          "subcategory": "Salads"
+        }
+      ]
+    },
+    {
+      "key": "Soft Drinks",
+      "name": "Soft Drinks",
+      "items": [
+        {
+          "name": "Cola",
+          "price": "60 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Cola Zero",
+          "price": "60 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Cola Light",
+          "price": "60 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Fanta",
+          "price": "60 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Sprite",
+          "price": "60 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Fuse Tea",
+          "price": "60 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Fruit Juice",
+          "price": "60 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Ayran (Yogurt Drink)",
+          "price": "25 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Turnip Juice",
+          "price": "50 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Soda",
+          "price": "20 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Redbull",
+          "price": "80 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Water 0.5 lt",
+          "price": "15 TL",
+          "subcategory": "Soft Drinks"
+        },
+        {
+          "name": "Water 1.5 lt",
+          "price": "30 TL",
+          "subcategory": "Soft Drinks"
+        }
+      ]
+    },
+    {
+      "key": "Vegetarian Menu",
+      "name": "Vegetarian Menu",
+      "items": [
+        {
+          "name": "Boiled Vegetables",
+          "price": "180 TL",
+          "subcategory": "Vegetarian Menu"
+        },
+        {
+          "name": "Mantar Sote",
+          "price": "220 TL",
+          "subcategory": "Vegetarian Menu"
+        },
+        {
+          "name": "Sote Sebzeler",
+          "price": "160 TL",
+          "subcategory": "Vegetarian Menu"
+        }
+      ]
+    },
+    {
+      "key": "Wines",
+      "name": "Wines",
+      "items": [
+        {
+          "name": "Yeni Raki 4 Cl.",
+          "price": "220 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki 8 Cl.",
+          "price": "290 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki 20 Cl.",
+          "price": "680 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki 35 Cl.",
+          "price": "950 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki 70 Cl.",
+          "price": "1650 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 4 Cl.",
+          "price": "240 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 8 Cl.",
+          "price": "320 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 20 Cl.",
+          "price": "750 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 35 Cl.",
+          "price": "1100 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag Raki 70 Cl.",
+          "price": "1850 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki Ala 20 Cl.",
+          "price": "900 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki Ala 35 Cl.",
+          "price": "1350 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Yeni Raki Ala 70 Cl.",
+          "price": "2500 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag AltinSeri 20 Cl.",
+          "price": "850 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag AltinSeri 35 Cl.",
+          "price": "1200 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag AltinSeri 70 Cl.",
+          "price": "2100 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Beylerbeyi Gobek Raki 35 Cl.",
+          "price": "1190 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Beylerbeyi Gobek Raki 70 Cl.",
+          "price": "1600 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Beylerbeyi Kalecik Karasi 70 Cl.",
+          "price": "2100 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Beylerbeyi TerraGold 70 Cl.",
+          "price": "2400 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "EfeGold 70 Cl.",
+          "price": "1750 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Tekirdag No:10 70 Cl.",
+          "price": "2750 TL",
+          "subcategory": "Raki"
+        },
+        {
+          "name": "Angora 18,75 Cl.",
+          "price": "250 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Angora 37,50 Cl.",
+          "price": "450 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Angora 75 Cl.",
+          "price": "700 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Yakut 18,75 Cl.",
+          "price": "290 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Yakut 37,50 Cl.",
+          "price": "530 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Yakut 75 Cl.",
+          "price": "900 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Pendore Öküzgözü 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Pendore Syrah 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Selection 75 Cl.",
+          "price": "2000 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Kalecik Karası 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Prestige Öküzgözü 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Prestige Boğazkere 75 Cl.",
+          "price": "2350 TL",
+          "subcategory": "Red Wines"
+        },
+        {
+          "name": "Angora 18,75 Cl.",
+          "price": "250TL",
+          "subcategory": "White Wines"
+        },
+        {
+          "name": "Angora 37,50 Cl.",
+          "price": "450 TL",
+          "subcategory": "White Wines"
+        },
+        {
+          "name": "Angora 75 Cl.",
+          "price": "700 TL",
+          "subcategory": "White Wines"
+        },
+        {
+          "name": "Egeo Chardonnay 75 Cl.",
+          "price": "2000 TL",
+          "subcategory": "White Wines"
+        },
+        {
+          "name": "Egeo Sauvignon 75 Cl.",
+          "price": "1900 TL",
+          "subcategory": "White Wines"
+        },
+        {
+          "name": "Urla Chardonnay 75 Cl.",
+          "price": "1750 TL",
+          "subcategory": "White Wines"
+        },
+        {
+          "name": "Selection 75 Cl.",
+          "price": "1800 TL",
+          "subcategory": "White Wines"
+        },
+        {
+          "name": "Inci Damlası Champagne 75 Cl.",
+          "price": "1000 TL",
+          "subcategory": "White Wines"
+        }
+      ]
+    }
+  ]
 }

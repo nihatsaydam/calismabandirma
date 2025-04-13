@@ -129,22 +129,36 @@ function showCategoryItems(category) {
 }
 
 function goBack() {
-  if (previousScreens.length > 0) {
-    const lastScreenId = previousScreens.pop(); // Son açılan ekranı al
-
-    document.querySelectorAll('.screen-active').forEach(screen => {
-      screen.style.display = 'none';
-      screen.classList.remove('screen-active');
-    });
-
-    const previousScreen = document.getElementById(lastScreenId);
-    if (previousScreen) {
-      previousScreen.style.display = 'block';
-      previousScreen.classList.add('screen-active');
-    }
-  } else {
-    showScreen('menu'); // Eğer önceki ekran yoksa, ana ekrana dön
+  // Kategori detaylarında mıyız kontrol et
+  const itemListDiv = document.getElementById('item-list');
+  const itemsContainer = itemListDiv.querySelector('.items-container');
+  
+  if (itemsContainer) {
+    // Kategori içindeyiz, ana kategori listesine dönelim
+    console.log("Kategori içinden ana listeye dönülüyor");
+    showItemList();
+    return;
   }
+  
+  // Tüm ekranları ve popupları temizle
+  document.querySelectorAll('.screen-active').forEach(screen => {
+    screen.style.display = 'none';
+    screen.classList.remove('screen-active');
+  });
+  
+  document.querySelectorAll('.popup-overlay').forEach(popup => {
+    popup.remove();
+  });
+  
+  // Sepet ekranını kapat
+  document.getElementById('cart-screen').style.display = 'none';
+  document.getElementById('chatbot').style.display = 'none';
+  
+  // Ürün listesi ekranını aç
+  document.getElementById('item-list-section').style.display = 'block';
+  document.getElementById('item-list-section').classList.add('screen-active');
+  
+  console.log("Back tuşuna basıldı: Ürün listesine dönülüyor");
 }
 
 
@@ -338,7 +352,7 @@ function showTimeSelectionPopup() {
       return response.json();
     })
     .then(data => {
-      const translations = data.popup; // JSON içindeki "popup" kısmını alıyo kanksssss
+      const translations = data.popup; // JSON içindeki "popup" kısmını al
       console.log("✅ Çeviri verileri yüklendi:", translations);
 
       // Popup HTML kodunu oluştur
@@ -520,53 +534,7 @@ langButtons.forEach(function (btn) {
     localStorage.setItem("currentLanguage", langValue);
     
     // Sayfa içindeki metinleri güncelle
-    loadLanguageData();function showTimeSelectionPopup() {
-  // Kullanıcının seçtiği dili al (Varsayılan: "english")
-  const selectedLanguage = localStorage.getItem("currentLanguage") || "english";
-
-  // JSON dosyasını belirle
-  const langFile = `data/menu-${selectedLanguage}.json`;
-
-  // JSON'dan çeviri verilerini al
-  fetch(langFile)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("JSON dosyası yüklenemedi");
-      }
-      return response.json();
-    })
-    .then(data => {
-      const translations = data.popup; // JSON içindeki "popup" kısmını alıyo kanksssss
-      console.log("✅ Çeviri verileri yüklendi:", translations);
-
-      // Popup HTML kodunu oluştur
-      const timePopup = document.createElement("div");
-      timePopup.id = "time-selection-popup";
-      timePopup.classList.add("popup-overlay");
-      timePopup.innerHTML = `
-        <div class="popup-content">
-          <h3>${translations.popupMessage}</h3>
-          <div class="time-options">
-            <button id="btn-30">${translations.time30}</button>
-            <button id="btn-60">${translations.time60}</button>
-            <button id="btn-120">${translations.time120}</button>
-            <button id="btn-240">${translations.time240}</button>
-          </div>
-        </div>
-      `;
-
-      document.body.appendChild(timePopup);
-
-      // Butonlara tıklama olaylarını ekleyelim
-      document.getElementById("btn-30").addEventListener("click", () => confirmServiceTime(30, translations.time30));
-      document.getElementById("btn-60").addEventListener("click", () => confirmServiceTime(60, translations.time60));
-      document.getElementById("btn-120").addEventListener("click", () => confirmServiceTime(120, translations.time120));
-      document.getElementById("btn-240").addEventListener("click", () => confirmServiceTime(240, translations.time240));
-    })
-    .catch(error => {
-      console.error("Çeviri verileri yüklenirken hata oluştu:", error);
-    });
-}
+    loadLanguageData();
   });
 });
 

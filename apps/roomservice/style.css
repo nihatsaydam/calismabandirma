@@ -1939,12 +1939,3 @@ input[type="date"] {
     background-color: #f44336; /* Red */
 }
 
-#main-content {
-    /* Styles for the main content area if needed */
-    /* display: none; is handled inline in HTML for initial state */
-}
-
-/* Ensure existing styles don't interfere initially */
-body {
-    /* You might need to adjust existing body styles if they conflict */
-}

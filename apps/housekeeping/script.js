@@ -14,6 +14,197 @@ let chatHistory = [];
 let previousScreens = []; 
 
 // ============================
+// Mobil Yatay Kaydırma İyileştirmesi
+// ============================
+document.addEventListener("DOMContentLoaded", function() {
+  // Ana sayfa yüklendikten sonra menü container'ını merkeze al
+  centerMenuContainers();
+  
+  // Sayfa yüklendiğinde mobil kaydırma fonksiyonlarını başlat
+  enableMobileHorizontalScroll();
+  
+  // Ekran boyutu değiştiğinde tekrar kontrol et
+  window.addEventListener('resize', function() {
+    enableMobileHorizontalScroll();
+    centerMenuContainers();
+  });
+  
+  // Kaydırma okları için olay dinleyicileri ekle
+  setupScrollIndicators();
+  
+  // Orientation değişikliğinde özel olarak kontrol et
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => {
+      centerMenuContainers();
+      setupScrollIndicators();
+    }, 300);
+  });
+  
+  // Initial scroll position for items on load
+  setTimeout(() => {
+    const menuOptions = document.querySelector('.menu-options');
+    if (menuOptions) {
+      menuOptions.scrollLeft = 0;
+      updateScrollIndicators(menuOptions);
+    }
+  }, 200);
+});
+
+function setupScrollIndicators() {
+  // Mobil cihazlarda çalış
+  if (window.innerWidth <= 600) {
+    const scrollContainers = [
+      '.menu-options', 
+      '.category-cards-container'
+    ];
+    
+    scrollContainers.forEach(selector => {
+      const containers = document.querySelectorAll(selector);
+      
+      containers.forEach(container => {
+        if (!container.classList.contains('scroll-container')) {
+          // Container'ı scroll-container olarak işaretle
+          container.classList.add('scroll-container');
+          
+          // Önceki okları temizle
+          const existingArrows = container.querySelectorAll('.scroll-indicator');
+          existingArrows.forEach(arrow => arrow.remove());
+          
+          // Kaydırma okları oluştur
+          const leftArrow = document.createElement('div');
+          leftArrow.className = 'scroll-indicator scroll-left';
+          leftArrow.addEventListener('click', () => scrollMenuHorizontally('left'));
+          
+          const rightArrow = document.createElement('div');
+          rightArrow.className = 'scroll-indicator scroll-right';
+          rightArrow.addEventListener('click', () => scrollMenuHorizontally('right'));
+          
+          // Okları container'a ekle
+          container.appendChild(leftArrow);
+          container.appendChild(rightArrow);
+          
+          // Scroll durumunu göster/gizle
+          updateScrollIndicators(container);
+          
+          // Kaydırma durumunu dinle
+          container.addEventListener('scroll', () => {
+            updateScrollIndicators(container);
+          });
+        }
+      });
+    });
+  }
+}
+
+function updateScrollIndicators(container) {
+  // Başlangıçta mı kontrolü
+  if (container.scrollLeft <= 10) {
+    container.classList.add('at-start');
+  } else {
+    container.classList.remove('at-start');
+  }
+  
+  // Sonda mı kontrolü
+  if (container.scrollWidth - container.scrollLeft - container.clientWidth <= 10) {
+    container.classList.add('at-end');
+  } else {
+    container.classList.remove('at-end');
+  }
+}
+
+function enableMobileHorizontalScroll() {
+  // Sadece mobil cihazlarda çalış
+  if (window.innerWidth <= 600) {
+    // Tüm yatay kaydırma alanlarını belirle
+    const scrollContainers = [
+      '.menu-options',
+      '.category-cards-container'
+    ];
+    
+    scrollContainers.forEach(selector => {
+      const containers = document.querySelectorAll(selector);
+      
+      containers.forEach(container => {
+        // Dokunma olayları için scroll kontrolü ekle
+        if (!container.getAttribute('scroll-enabled')) {
+          // Touch başlama pozisyonu
+          let startX, startY;
+          
+          container.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+          }, { passive: true });
+          
+          container.addEventListener('touchmove', function(e) {
+            if (!startX || !startY) return;
+            
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            
+            // Yatay hareket miktarı dikey hareketten fazlaysa, sayfa kaydırmayı engelle
+            const diffX = Math.abs(startX - currentX);
+            const diffY = Math.abs(startY - currentY);
+            
+            if (diffX > diffY) {
+              e.preventDefault();
+              
+              // Özel dokunmatik kaydırma
+              container.scrollLeft += (startX - currentX);
+              startX = currentX;
+            }
+          }, { passive: false });
+          
+          container.addEventListener('touchend', function() {
+            startX = null;
+            startY = null;
+          }, { passive: true });
+          
+          // Kaydırma özelliği eklendiğini işaretle
+          container.setAttribute('scroll-enabled', 'true');
+        }
+      });
+    });
+  }
+}
+
+// Yatay kaydırma için yardımcı fonksiyon
+function scrollMenuHorizontally(direction) {
+  const isMobile = window.innerWidth <= 600;
+  if (!isMobile) return;
+  
+  // Find the active container that should be scrolled
+  let activeContainer = null;
+  
+  if (document.getElementById('menu').style.display !== 'none') {
+    activeContainer = document.querySelector('.menu-options');
+  } else if (document.getElementById('item-list-section').style.display !== 'none') {
+    activeContainer = document.querySelector('.category-cards-container');
+  }
+  
+  if (activeContainer) {
+    const scrollAmount = activeContainer.clientWidth * 0.8;
+    const currentScroll = activeContainer.scrollLeft;
+    
+    if (direction === 'left') {
+      activeContainer.scrollTo({
+        left: currentScroll - scrollAmount,
+        behavior: 'smooth'
+      });
+    } else {
+      activeContainer.scrollTo({
+        left: currentScroll + scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Update scroll indicators after scrolling
+    setTimeout(() => {
+      updateScrollIndicators(activeContainer);
+    }, 300);
+  }
+}
+
+// ============================
 // Dil Seçimi ve Hoş Geldiniz Popup'ı
 // ============================
 function loadLanguageSelection() {
@@ -211,6 +402,18 @@ function showItemList() {
         categoryCard.appendChild(optionDetails);
         itemListDiv.appendChild(categoryCard);
       });
+      
+      // Kategorileri gösterdikten sonra mobil kaydırma özelliklerini etkinleştir
+      setTimeout(() => {
+        enableMobileHorizontalScroll();
+        setupScrollIndicators();
+        
+        // Item list section'ı görünür olduktan sonra kaydırma işaretlerini güncelle
+        const categoryContainer = document.querySelector('.category-cards-container');
+        if (categoryContainer) {
+          setTimeout(() => updateScrollIndicators(categoryContainer), 200);
+        }
+      }, 100);
     })
     .catch(error => {
       console.error('⚠ Menü yüklenirken hata oluştu:', error);
@@ -311,6 +514,9 @@ function showCategoryItems(category) {
   });
   
   itemListDiv.appendChild(itemsContainer);
+  
+  // Mobil kullanım için kaydırma etkinleştirme
+  setTimeout(() => enableMobileHorizontalScroll(), 100);
 }
 
 function goBack() {
@@ -739,5 +945,52 @@ function showScreen(newScreenId) {
   if (newScreen) {
     newScreen.style.display = 'block';
     newScreen.classList.add('screen-active');
+  }
+}
+
+// Menü container'larını merkeze alma fonksiyonu
+function centerMenuContainers() {
+  if (window.innerWidth <= 600) {
+    const headerHeight = document.querySelector('.header-container').offsetHeight || 80;
+    const actionHeight = document.getElementById('action-container').offsetHeight || 50;
+    const windowHeight = window.innerHeight;
+    const availableHeight = windowHeight - headerHeight - actionHeight;
+    
+    // Menü konteynerlerini düzenle
+    const menuContainer = document.querySelector('.menu-container');
+    const itemListSection = document.getElementById('item-list-section');
+    
+    if (menuContainer) {
+      const containerHeight = Math.min(availableHeight - 20, 500);
+      menuContainer.style.maxHeight = `${containerHeight}px`;
+      menuContainer.style.top = `${headerHeight + 10}px`;
+      
+      // Menüdeki seçeneklerin boyutunu düzenle
+      const menuOptions = menuContainer.querySelectorAll('.menu-option');
+      menuOptions.forEach(option => {
+        option.style.height = 'auto';
+        option.style.maxHeight = `${containerHeight * 0.8}px`;
+      });
+    }
+    
+    if (itemListSection) {
+      const containerHeight = Math.min(availableHeight - 20, 500);
+      itemListSection.style.maxHeight = `${containerHeight}px`;
+      itemListSection.style.top = `${headerHeight + 10}px`;
+    }
+    
+    // Kaydırma işaretlerini düzenle
+    document.querySelectorAll('.scroll-container').forEach(container => {
+      const leftArrow = container.querySelector('.scroll-left');
+      const rightArrow = container.querySelector('.scroll-right');
+      
+      if (leftArrow && rightArrow) {
+        const containerHeight = container.offsetHeight;
+        const arrowTop = containerHeight / 2;
+        
+        leftArrow.style.top = `${arrowTop}px`;
+        rightArrow.style.top = `${arrowTop}px`;
+      }
+    });
   }
 }

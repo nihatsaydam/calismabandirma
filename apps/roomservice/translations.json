@@ -1,14 +1,54 @@
 {
   "en": {
-    "time_period_prompt": "Select the time period of the service that you want."
+    "time_period_prompt": "Select the time period of the service that you want.",
+    "select_language": "Select Your Language",
+    "keepsty_title": "Keepsty",
+    "roomservice_subtitle": "RoomService",
+    "tagline": "Keep Your Stay, Keep Your Care",
+    "home": "Home",
+    "cart": "Cart",
+    "chat": "Chat",
+    "back": "Back",
+    "accept": "Accept",
+    "reject": "Reject"
   },
   "tr": {
-    "time_period_prompt": "İstediğiniz hizmet süresini seçin."
+    "time_period_prompt": "İstediğiniz hizmet süresini seçin.",
+    "select_language": "Dilinizi Seçin",
+    "keepsty_title": "Keepsty",
+    "roomservice_subtitle": "Oda Servisi",
+    "tagline": "Konaklamanı Koru, Bakımını Koru",
+    "home": "Ana Sayfa",
+    "cart": "Sepet",
+    "chat": "Sohbet",
+    "back": "Geri",
+    "accept": "Kabul Et",
+    "reject": "Reddet"
   },
   "fr": {
-    "time_period_prompt": "Sélectionnez la période de temps pour le service que vous souhaitez."
+    "time_period_prompt": "Sélectionnez la période de temps pour le service que vous souhaitez.",
+    "select_language": "Choisissez Votre Langue",
+    "keepsty_title": "Keepsty",
+    "roomservice_subtitle": "Service de Chambre",
+    "tagline": "Gardez Votre Séjour, Gardez Vos Soins",
+    "home": "Accueil",
+    "cart": "Panier",
+    "chat": "Chat",
+    "back": "Retour",
+    "accept": "Accepter",
+    "reject": "Refuser"
   },
   "ar": {
-    "time_period_prompt": "اختر الفترة الزمنية للخدمة التي تريدها."
+    "time_period_prompt": "اختر الفترة الزمنية للخدمة التي تريدها.",
+    "select_language": "اختر لغتك",
+    "keepsty_title": "Keepsty",
+    "roomservice_subtitle": "خدمة الغرف",
+    "tagline": "حافظ على إقامتك، حافظ على رعايتك",
+    "home": "الرئيسية",
+    "cart": "السلة",
+    "chat": "دردشة",
+    "back": "رجوع",
+    "accept": "قبول",
+    "reject": "رفض"
   }
 }

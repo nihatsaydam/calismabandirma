@@ -7,10 +7,14 @@ let currentLanguage = "en"; // Varsayılan dil
 let selectedCategory = "";
 let selectedIssue = "";
 let chatHistory = [];
+let translations = {}; // Global scope for translations
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  // İlk yükleme olayında dil seçimi ve ardından menü yüklenir
+document.addEventListener('DOMContentLoaded', async () => {
+  // Fetch translations first
+  await fetchTranslations();
+
+  // Then load language selection or apply saved language
   try {
     // İlk olarak DOM hazır mı kontrol et
     if (document.readyState === 'loading') {
@@ -18,9 +22,47 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       console.log("DOM hazır, dil seçimi ve menü yükleniyor");
     }
-  
-    // Dil seçimi ekranını yükle
-    loadLanguageSelection();
+    
+    // Determine the language to use
+    currentLanguage = localStorage.getItem("currentLanguage") || "en"; // Get saved or default to 'en'
+    console.log("Current language on load:", currentLanguage);
+
+    // Apply translations to splash screen *before* showing language selection potentially
+    applySplashScreenTranslations(currentLanguage);
+
+    // Check if language needs to be selected or if we proceed with saved language
+    const savedLanguage = localStorage.getItem("currentLanguage");
+    if (!savedLanguage) {
+        loadLanguageSelection(); // Show selection if no language is saved
+    } else {
+        // Hide language selection and show item list if language is already saved
+        document.getElementById("language-selection").style.display = "none";
+        showItemList(); // Proceed with the saved language
+    }
+
+    const splashScreen = document.getElementById('splash-screen');
+    const mainContent = document.getElementById('main-content');
+    const acceptButton = document.getElementById('accept-button');
+    const rejectButton = document.getElementById('reject-button');
+
+    if (splashScreen && mainContent && acceptButton && rejectButton) {
+        acceptButton.addEventListener('click', () => {
+            splashScreen.style.display = 'none';
+            mainContent.style.display = 'block'; // Or 'flex', 'grid', etc., depending on your layout
+            // Initialize the rest of the application if necessary
+            // For example, call a function like initializeApp();
+        });
+
+        rejectButton.addEventListener('click', () => {
+            // Redirect to the main screen (adjust the path if needed)
+            // Assuming the main screen is index.html in the parent directory
+            window.location.href = '../../index.html'; // Go two levels up for main index.html
+        });
+    } else {
+        console.error('Splash screen elements not found!');
+        // Optionally display main content anyway or show an error
+        if (mainContent) mainContent.style.display = 'block';
+    }
   } catch (error) {
     console.error("Başlangıç yüklemesinde hata:", error);
     // Hata durumunda varsayılan olarak item list'i göster
@@ -547,42 +589,39 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadLanguageSelection() {
   console.log("Dil seçimi yükleniyor");
   const languageContainer = document.getElementById("languages");
-  if (!languageContainer) {
-    console.error("Dil seçim konteyneri bulunamadı!");
+  const languageSelectionDiv = document.getElementById("language-selection");
+
+  if (!languageContainer || !languageSelectionDiv) {
+    console.error("Dil seçim konteyneri veya bölümü bulunamadı!");
     return;
   }
-  
-  // Dilleri tanımla
+  languageContainer.innerHTML = ''; // Clear previous buttons
+  languageSelectionDiv.style.display = "flex"; // Make sure it's visible
+
+  // Dilleri tanımla (eşleşmeyi sağlamak için kodları kullan)
   const languages = [
-    { name: "English", code: "english" },
-    { name: "Türkçe", code: "turkish" }, 
-    { name: "Français", code: "french" },
-    { name: "العربية", code: "arabic" }
+    { name: "English", code: "en" },
+    { name: "Türkçe", code: "tr" },
+    { name: "Français", code: "fr" },
+    { name: "العربية", code: "ar" }
   ];
-  
+
   // Dil butonlarını oluştur
   languages.forEach(lang => {
     const button = document.createElement("button");
     button.textContent = lang.name;
     button.addEventListener("click", () => {
-      // Seçilen dili kaydet
-      localStorage.setItem("currentLanguage", lang.code);
-      // Dil seçim ekranını gizle
-      document.getElementById("language-selection").style.display = "none";
-      // Menüyü göster
-      showItemList();
+      currentLanguage = lang.code; // Set the current language
+      localStorage.setItem("currentLanguage", currentLanguage); // Seçilen dili kaydet
+
+      // Apply translations to splash screen *after* selection
+      applySplashScreenTranslations(currentLanguage);
+
+      languageSelectionDiv.style.display = "none"; // Dil seçim ekranını gizle
+      showItemList(); // Menüyü göster (veya sonraki adımı tetikle)
     });
     languageContainer.appendChild(button);
   });
-  
-  // Daha önce seçilmiş dil varsa dil seçim ekranını gösterme
-  const savedLanguage = localStorage.getItem("currentLanguage");
-  if (savedLanguage) {
-    document.getElementById("language-selection").style.display = "none";
-    showItemList();
-  } else {
-    document.getElementById("language-selection").style.display = "flex";
-  }
 }
 
 // Kapatma butonunu seç (eğer varsa)
@@ -597,5 +636,36 @@ if (closeBtn && cartScreen) {
 // Sepeti açan fonksiyon (örnek olarak)
 function openCart() {
   cartScreen.style.display = 'flex'; // CSS'de flex olarak ayarlandığı için
+}
+
+// Function to fetch translations
+async function fetchTranslations() {
+    try {
+        const response = await fetch('translations.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        translations = await response.json();
+        console.log("Translations loaded:", translations);
+    } catch (error) {
+        console.error("Could not load translations:", error);
+    }
+}
+
+// Function to apply translations to splash screen buttons
+function applySplashScreenTranslations(lang) {
+    const acceptButton = document.getElementById('accept-button');
+    const rejectButton = document.getElementById('reject-button');
+
+    if (translations[lang] && acceptButton && rejectButton) {
+        acceptButton.textContent = translations[lang]['accept'] || 'Accept';
+        rejectButton.textContent = translations[lang]['reject'] || 'Reject';
+        console.log(`Splash screen buttons translated to ${lang}`);
+    } else {
+        console.warn(`Translations for language '${lang}' not found or buttons missing.`);
+        // Fallback to default English text if translation missing
+        if (acceptButton) acceptButton.textContent = 'Accept';
+        if (rejectButton) rejectButton.textContent = 'Reject';
+    }
 }
 

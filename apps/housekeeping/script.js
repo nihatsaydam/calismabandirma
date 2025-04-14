@@ -111,9 +111,16 @@ function selectCleanOption(optionName) {
     button.classList.remove("selected");
   });
   
-  // Tıklanan butona selected sınıfını ekle
+  // Tıklanan butona selected sınıfını ekle - içerik yerine data-option kullanarak dil bağımsız çalışır
   buttons.forEach(button => {
-    if (button.textContent === optionName) {
+    // getText kullanımı dil bağımsız çalışması için
+    const buttonText = button.textContent.trim();
+    const dataOption = button.getAttribute('data-option');
+    
+    // İçeriğe veya data-option'a göre eşleştir (böylece eski ve yeni kod birlikte çalışır)
+    if (buttonText === optionName || 
+        (dataOption && dataOption.toLowerCase() === optionName.toLowerCase().replace(/\s+/g, '')) ||
+        button.textContent === optionName) {
       button.classList.add("selected");
     }
   });
@@ -584,12 +591,29 @@ function translatePopupTexts(language) {
     .then(response => response.json())
     .then(data => {
       if (data.popup) {
+        // Popup başlık ve alt başlıkları
         document.querySelector("#time-popup h3").textContent = data.popup.cleaningTitle;
         document.querySelector("#clean-options h4").textContent = data.popup.cleaningOptions;
-        document.querySelector("#clean-options button:nth-child(2)").textContent = data.popup.room;
-        document.querySelector("#clean-options button:nth-child(3)").textContent = data.popup.bathroom;
-        document.querySelector("#clean-options button:nth-child(4)").textContent = data.popup.wholeRoom;
-        document.querySelector("#clean-options button:nth-child(5)").textContent = data.popup.refresh;
+        
+        // Temizlik seçenekleri butonları - data-option değerlerini koru
+        const roomBtn = document.querySelector("#clean-options button[data-option='room']");
+        const bathroomBtn = document.querySelector("#clean-options button[data-option='bathroom']");
+        const wholeRoomBtn = document.querySelector("#clean-options button[data-option='wholeroom']");
+        const refreshBtn = document.querySelector("#clean-options button[data-option='refresh']");
+        
+        // Butonların metinlerini güncelle
+        if (roomBtn) roomBtn.textContent = data.popup.room;
+        if (bathroomBtn) bathroomBtn.textContent = data.popup.bathroom;
+        if (wholeRoomBtn) wholeRoomBtn.textContent = data.popup.wholeRoom;
+        if (refreshBtn) refreshBtn.textContent = data.popup.refresh;
+        
+        // onclick handler'ları güncelle
+        if (roomBtn) roomBtn.setAttribute('onclick', `selectCleanOption('${data.popup.room}')`);
+        if (bathroomBtn) bathroomBtn.setAttribute('onclick', `selectCleanOption('${data.popup.bathroom}')`);
+        if (wholeRoomBtn) wholeRoomBtn.setAttribute('onclick', `selectCleanOption('${data.popup.wholeRoom}')`);
+        if (refreshBtn) refreshBtn.setAttribute('onclick', `selectCleanOption('${data.popup.refresh}')`);
+        
+        // Onay ve İptal butonları
         document.getElementById("confirm-time").textContent = data.popup.confirm;
         document.getElementById("cancel-time").textContent = data.popup.cancel;
       } else {

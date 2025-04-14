@@ -10,6 +10,9 @@ let selectedCategory = "";
 let selectedIssue = "";
 let chatHistory = [];
 
+// Önceki ekranları kaydetmek için dizi
+let previousScreens = []; 
+
 // ============================
 // Dil Seçimi ve Hoş Geldiniz Popup'ı
 // ============================
@@ -157,8 +160,20 @@ document.addEventListener("DOMContentLoaded", () => {
 // Menü ve Kategori İşlemleri
 // ============================
 function showItemList() {
+  // Mevcut aktif ekranı previousScreens'e kaydet
+  const currentActive = document.querySelector('.screen-active');
+  if (currentActive && currentActive.id !== 'item-list-section') {
+    previousScreens.push(currentActive.id);
+    currentActive.style.display = 'none';
+    currentActive.classList.remove('screen-active');
+  }
+
   document.getElementById('menu').style.display = 'none';
   document.getElementById('item-list-section').style.display = 'block';
+  document.getElementById('item-list-section').classList.add('screen-active');
+  
+  console.log("🔍 previousScreens (showItemList):", previousScreens);
+  
   let currentLanguage = localStorage.getItem("currentLanguage") || "en";
   console.log(`🌍 Yüklenen Menü Dili: ${currentLanguage}`);
   fetch(`data/menu-${currentLanguage}.json`)
@@ -203,11 +218,37 @@ function showItemList() {
 }
 
 function showCategoryItems(category) {
+  // Kategori içinde kalıp başka kategorilere mi gidiyor?
+  const isAlreadyInItemList = document.querySelector('.screen-active')?.id === 'item-list-section';
+  
+  // Eğer zaten ürün listesindeyse, bir daha previousScreens'e ekleme yapma
+  if (!isAlreadyInItemList) {
+    const currentActive = document.querySelector('.screen-active');
+    if (currentActive) {
+      previousScreens.push(currentActive.id);
+      console.log("📝 Kaydedilen ekran:", currentActive.id);
+    }
+  } else {
+    console.log("🔍 Zaten item-list içindeyiz, previousScreens'e eklemiyoruz");
+  }
+
   const itemListDiv = document.getElementById('item-list');
   itemListDiv.innerHTML = ''; // Önceki içeriği temizle
   
+  // items-container'ı benzersiz bir ID ile oluştur
+  const containerID = "category-" + (category.id || category.name || "category").replace(/\s+/g, '-').toLowerCase();
   const itemsContainer = document.createElement('div');
   itemsContainer.classList.add('items-container');
+  itemsContainer.id = containerID;
+  
+  // Aktif ekranı güncelle
+  document.querySelectorAll('.screen-active').forEach(screen => {
+    screen.classList.remove('screen-active');
+  });
+  
+  document.getElementById('item-list-section').classList.add('screen-active');
+  
+  console.log("🔍 previousScreens (showCategoryItems):", previousScreens);
   
   // Mobil cihaz kontrolü
   const isMobile = window.innerWidth <= 600;
@@ -273,8 +314,53 @@ function showCategoryItems(category) {
 }
 
 function goBack() {
-  document.getElementById('item-list-section').style.display = 'none';
-  document.getElementById('menu').style.display = 'block';
+  console.log("🔙 Back tuşuna basıldı. Mevcut previousScreens:", previousScreens);
+  
+  if (previousScreens.length > 0) {
+    const lastScreenId = previousScreens.pop(); // Son açılan ekranı al
+    console.log(`⬅️ Önceki ekrana dönülüyor: ${lastScreenId}`);
+
+    // Aktif ekranları gizle
+    document.querySelectorAll('.screen-active').forEach(screen => {
+      screen.style.display = 'none';
+      screen.classList.remove('screen-active');
+    });
+
+    // Önceki ekranı göster
+    const previousScreen = document.getElementById(lastScreenId);
+    if (previousScreen) {
+      previousScreen.style.display = 'block';
+      previousScreen.classList.add('screen-active');
+      console.log(`Ekran gösterildi: ${lastScreenId}`);
+    } else {
+      console.log(`Önceki ekran bulunamadı: ${lastScreenId}`);
+      
+      // Eğer önceki ekran bulunamazsa - kategori içinde miyiz kontrol et
+      const itemListDiv = document.getElementById('item-list');
+      const itemsContainer = itemListDiv.querySelector('.items-container');
+      
+      if (itemsContainer) {
+        // Kategori içindeyiz, ana kategori listesine dönelim
+        console.log("Kategori içinden ana listeye dönülüyor");
+        showItemList();
+      } else {
+        // Değilse ana menüye dön
+        console.log("Ana menüye dönülüyor");
+        document.getElementById('item-list-section').style.display = 'none';
+        document.getElementById('menu').style.display = 'block';
+        document.getElementById('menu').classList.add('screen-active');
+      }
+    }
+  } else {
+    // Önceki ekran yoksa, ana menüye dön
+    console.log("🏠 previousScreens boş, ana menüye dönülüyor");
+    document.getElementById('item-list-section').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
+    document.getElementById('menu').classList.add('screen-active');
+  }
+  
+  // Sepet ekranını kapat
+  hideCartScreen();
 }
 
 // ============================
@@ -637,4 +723,21 @@ function translateMenuTitles(language) {
       }
     })
     .catch(error => console.error("⚠ Menü başlıkları yüklenirken hata oluştu:", error));
+}
+
+// Ekran geçişlerini yönetmek için showScreen fonksiyonu
+function showScreen(newScreenId) {
+  const currentScreen = document.querySelector('.screen-active'); // Şu an açık olan ekranı bul
+
+  if (currentScreen) {
+    previousScreens.push(currentScreen.id); // Önceki ekranı kaydet
+    currentScreen.style.display = 'none';
+    currentScreen.classList.remove('screen-active');
+  }
+
+  const newScreen = document.getElementById(newScreenId);
+  if (newScreen) {
+    newScreen.style.display = 'block';
+    newScreen.classList.add('screen-active');
+  }
 }

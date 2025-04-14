@@ -1,0 +1,138 @@
+{
+    "guide": {
+      "title": "Hotel Guide",
+      "sections": [
+        {
+          "key": "restaurants_and_bars",
+          "title": "Restaurants and Bars",
+          "items": [
+            {
+              "name": "Roof Restoran",
+              "description": "Bandırma'nın en yüksek noktasında yer alan bu restoranımız A'la Carte hizmet vermekte olup 300 kişi kapasitelidir. Grup yemekleri, nişan, kahvaltı gibi organizasyonlarda talebe göre fonksiyonel olarak kullanılabilir."
+            },
+            {
+              "name": "Hürrem Restoran",
+              "description": "200 kişi kapasiteli lobby katında bulunan bu restoranımız açık büfe kahvaltı sunumu için hizmet vermektedir. Ayrıca çeşitli organizasyonlar için fonksiyonel olarak kullanılabilir."
+            },
+            {
+              "name": "Nergis A'la Carte Restoran",
+              "description": "80 kişi kapasiteli, lobby katında bulunan A'la Carte restoranımız, özel organizasyonlar için de kullanılabilir."
+            },
+            {
+              "name": "Roof Bar",
+              "description": "Bandırma'nın en yüksek noktasında yer alan Roof Bar, eşsiz gün batımı manzarası eşliğinde içeceklerinizi yudumlayabileceğiniz şık bir alandır."
+            },
+            {
+              "name": "Lobby Bar",
+              "description": "Gazetenizi okurken içeceğinizi yudumlayabileceğiniz Lobby Bar, 24 saat hizmet vermektedir ve büfe hizmeti sunmaktadır."
+            },
+            {
+              "name": "Vitamin Bar",
+              "description": "Spor sonrasında taze ve sağlıklı içecekler alabileceğiniz Vitamin Bar, günün yorgunluğunu atmak isteyen misafirler için idealdir."
+            }
+          ]
+        },
+        {
+          "key": "meeting_rooms",
+          "title": "Meeting Rooms",
+          "items": [
+            {
+              "name": "Balo Salonu",
+              "description": "Giriş katında yer alan ve bağımsız girişe sahip Balo Salonu, eğlence ve profesyonel toplantı taleplerine yanıt verecek şekilde dizayn edilmiştir. Yemekli/yemeksiz masa düzeni, sahne, ışıklandırma, barkovizyon, ses sistemi ve mikrofon imkanları mevcuttur. Balo, gala, düğün, fuar, sempozyum, seminer gibi birçok etkinlik için uygundur."
+            },
+            {
+              "name": "Ece Toplantı Salonu",
+              "description": "1. katta yer alan bu salon, ses sistemi, yaka mikrofonu, el mikrofonu, perde, barkovizyon ve Wi-Fi gibi olanaklarla donatılmıştır. Talebe göre koltuk düzeni alınabilir."
+            },
+            {
+              "name": "Zambak Toplantı Salonu",
+              "description": "-1. katta yer alan Zambak Salonu, yuvarlak masa düzeninde olup yönetim kurulu gibi toplantılara uygundur. Ses sistemi, ışıklandırma, yaka/el mikrofonu, TV ve telekonferans sistemi ile donatılmıştır."
+            },
+            {
+              "name": "Papatya Toplantı Salonu",
+              "description": "Lobby katında bulunan bu salon, ses sistemi, yaka/el mikrofonu, perde, barkovizyon ve Wi-Fi imkânları sunar. Talebe göre oturma düzeni alınabilir ve fuaye alanı olarak da kullanılabilir."
+            },
+            {
+              "name": "Manolya Toplantı Salonu",
+              "description": "Lobby katında yer alan fonksiyonel bu salon, yemekli/yemeksiz şirket toplantılarına uygundur. Ses sistemi, ışıklandırma, yaka/el mikrofonu, TV ve telekonferans sistemi ile donatılmıştır."
+            },
+            {
+              "name": "Nergis Toplantı Salonu",
+              "description": "Lobby katında yer alan bu salon, farklı etkinliklere ev sahipliği yapabilecek şekilde dizayn edilmiştir. Yemekli/yemeksiz şirket toplantıları için uygun olup, ses sistemi, ışıklandırma, yaka/el mikrofonu, TV ve telekonferans sistemi mevcuttur."
+            }
+          ]
+        },
+        {
+          "key": "tv_channel_list",
+          "title": "TV Channel List",
+          "items": [
+            "1- TRT 1 HD",
+            "2- TRT HABER HD",
+            "3- TRT SPOR HD",
+            "4- TRT BELGESEL HD",
+            "5- TRT WORLD HD",
+            "6- STAR TV HD",
+            "7- KANAL D HD",
+            "8- SHOW HD",
+            "9- NOW HD",
+            "10- TV 8 HD",
+            "11- ATV HD",
+            "12- KANAL 7 HD",
+            "13- TV 8.5",
+            "14- NTV HD",
+            "15- D-MAX HD",
+            "16- CNN TURK HD",
+            "17- TEVE 2 HD",
+            "18- POWER HD",
+            "19- POWERTURK HD",
+            "20- SHOW TURK",
+            "21- NR1 HD",
+            "22- TRT MÜZİK",
+            "23- A SPOR HD",
+            "24- HABERTURK HD",
+            "25- FIL HD",
+            "26- TİVİBU SPOR HD",
+            "27- KRAL POP TV",
+            "28- KRAL TV",
+            "29- A HABER HD",
+            "30- TLC",
+            "31- PLANET PEMBE",
+            "32- CNBC EUROPE",
+            "33- BBC WORLD",
+            "34- BLOOMBERG EUROPE",
+            "35- CNN INT",
+            "36- MUSIC BOX RUSSIA",
+            "37- TBN RUSSIA",
+            "38- TV RUS",
+            "39- UKRAINE 24",
+            "40- ZDF HD",
+            "41- EUROSPORT 1 DEUTSCHLAND",
+            "42- EL ARABIA",
+            "43- PHOENIX HD",
+            "44- VOX CH",
+            "45- RTL CH",
+            "46- ARTE",
+            "47- SAT .1. GOLD OSTERREICH",
+            "48- PRO 7 MAXX AUSTRIA",
+            "49- KABEL 1 DOKU AUSTRIA",
+            "50- DAS ERSTE",
+            "51- SPORT 1",
+            "52- RBB BERLIN HD",
+            "53- KIKA HD",
+            "54- ZDF INFO HD",
+            "55- ZDF NEO HD",
+            "56- SUPER RTL",
+            "57- N_HD",
+            "58- ZDF 102.5 TV HD",
+            "59- ITALIA CHANNEL",
+            "60- VIVA L' ITALIA",
+            "61- CARTOON NETWORK",
+            "62- TRT COCUK",
+            "63- PLANET COCUK",
+            "64- FRANSA 24 HD",
+            "65- NHK WORLD TV"
+          ]
+        }
+      ]
+    }
+  }

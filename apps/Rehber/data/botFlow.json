@@ -1,0 +1,48 @@
+{
+  "start": {
+    "question": "Welcome! How can I assist you today?",
+    "options": [
+      {
+        "text": "Request Room Cleaning",
+        "next": "cleaning"
+      },
+      {
+        "text": "Report a Maintenance Issue",
+        "next": "maintenance"
+      }
+    ]
+  },
+  "cleaning": {
+    "question": "Select the time period of the service that you want.",
+    "options": [
+      {
+        "text": "Morning (8 AM - 12 PM)",
+        "next": "thank_you"
+      },
+      {
+        "text": "Afternoon (12 PM - 4 PM)",
+        "next": "thank_you"
+      },
+      {
+        "text": "Evening (4 PM - 8 PM)",
+        "next": "thank_you"
+      }
+    ]
+  },
+  "maintenance": {
+    "question": "What issue are you facing?",
+    "options": [
+      {
+        "text": "Fix a broken light",
+        "next": "thank_you"
+      },
+      {
+        "text": "Fix the air conditioning",
+        "next": "thank_you"
+      }
+    ]
+  },
+  "thank_you": {
+    "question": "Thank you! Your request has been logged and will be attended to shortly."
+  }
+}

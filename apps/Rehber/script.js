@@ -61,62 +61,62 @@ function enableMobileHorizontalScroll() {
           let startX, startY;
           let isScrolling = false;
           
-          container.addEventListener('touchstart', function(e) {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-            isScrolling = false;
-          }, { passive: true });
+          // container.addEventListener('touchstart', function(e) {
+          //   startX = e.touches[0].clientX;
+          //   startY = e.touches[0].clientY;
+          //   isScrolling = false;
+          // }, { passive: true });
           
-          container.addEventListener('touchmove', function(e) {
-            if (!startX || !startY) return;
-            
-            const currentX = e.touches[0].clientX;
-            const currentY = e.touches[0].clientY;
-            
-            // Yatay hareket miktarı dikey hareketten fazlaysa, sayfa kaydırmayı engelle
-            const diffX = Math.abs(startX - currentX);
-            const diffY = Math.abs(startY - currentY);
-            
-            if (diffX > diffY) {
-              if (!isScrolling) {
-                isScrolling = true;
-              }
-              
-              e.preventDefault();
-              
-              // Özel dokunmatik kaydırma - daha hızlı
-              const moveX = startX - currentX;
-              container.scrollLeft += moveX * 2.0; // Increased scroll sensitivity
-              startX = currentX;
-            }
-          }, { passive: false });
-          
-          container.addEventListener('touchend', function() {
-            if (isScrolling) {
-              // Kaydırma momentumunu düzgün yavaşlat
-              const containerRect = container.getBoundingClientRect();
-              const itemWidth = containerRect.width * 0.5; // Bir öğe genişliği tahmini
-              
-              // En yakın öğeye kaydır
-              const remainder = container.scrollLeft % itemWidth;
-              let targetScroll;
-              
-              if (remainder > itemWidth / 2) {
-                targetScroll = container.scrollLeft + (itemWidth - remainder);
-              } else {
-                targetScroll = container.scrollLeft - remainder;
-              }
-              
-              container.scrollTo({
-                left: targetScroll,
-                behavior: 'auto'
-              });
-            }
-            
-            startX = null;
-            startY = null;
-            isScrolling = false;
-          }, { passive: true });
+          // container.addEventListener('touchmove', function(e) {
+          //   if (!startX || !startY) return;
+          //   
+          //   const currentX = e.touches[0].clientX;
+          //   const currentY = e.touches[0].clientY;
+          //   
+          //   // Yatay hareket miktarı dikey hareketten fazlaysa, sayfa kaydırmayı engelle
+          //   const diffX = Math.abs(startX - currentX);
+          //   const diffY = Math.abs(startY - currentY);
+          //   
+          //   if (diffX > diffY) {
+          //     if (!isScrolling) {
+          //       isScrolling = true;
+          //     }
+          //     
+          //     e.preventDefault();
+          //     
+          //     // Özel dokunmatik kaydırma - daha hızlı
+          //     const moveX = startX - currentX;
+          //     container.scrollLeft += moveX * 2.0; // Increased scroll sensitivity
+          //     startX = currentX;
+          //   }
+          // }, { passive: false });
+          // 
+          // container.addEventListener('touchend', function() {
+          //   if (isScrolling) {
+          //     // Kaydırma momentumunu düzgün yavaşlat
+          //     const containerRect = container.getBoundingClientRect();
+          //     const itemWidth = containerRect.width * 0.5; // Bir öğe genişliği tahmini
+          //     
+          //     // En yakın öğeye kaydır
+          //     const remainder = container.scrollLeft % itemWidth;
+          //     let targetScroll;
+          //     
+          //     if (remainder > itemWidth / 2) {
+          //       targetScroll = container.scrollLeft + (itemWidth - remainder);
+          //     } else {
+          //       targetScroll = container.scrollLeft - remainder;
+          //     }
+          //     
+          //     container.scrollTo({
+          //       left: targetScroll,
+          //       behavior: 'auto'
+          //     });
+          //   }
+          //   
+          //   startX = null;
+          //   startY = null;
+          //   isScrolling = false;
+          // }, { passive: true });
           
           // Kaydırma özelliği eklendiğini işaretle
           container.setAttribute('scroll-enabled', 'true');
@@ -607,6 +607,32 @@ function updateCartDisplay() {
   console.log("Cart updated:", cart);
 }
 
+// Sepet verilerini sunucuya kaydeden fonksiyon (MongoDB'ye POST)
+async function saveCartData() {
+  const username = localStorage.getItem("username") || "defaultUsername";
+  const roomNumber = localStorage.getItem("roomNumber") || "defaultRoomNumber";
+  try {
+    const response = await fetch('https://keepstyback.onrender.com/save-cart', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: username,
+        roomNumber: roomNumber,
+        cartItems: cart
+      })
+    });
+    if (!response.ok) {
+      throw new Error('Failed to save cart data.');
+    }
+    const result = await response.json();
+    console.log("✅ Cart data saved to MongoDB:", result);
+    return result;
+  } catch (error) {
+    console.error("❌ Error saving cart data:", error);
+    throw error;
+  }
+}
+
 // Sepet ekranını gösteren fonksiyon
 function showCartScreen() {
   const cartScreen = document.getElementById('cart-screen');
@@ -659,12 +685,19 @@ function showCartScreen() {
   const requestButton = document.createElement('button');
   requestButton.id = 'request-btn';
   requestButton.textContent = 'Request';
-  requestButton.addEventListener('click', () => {
-    console.log("🟢 Request button clicked! (Database call skipped)");
-    showConfirmationPopup();
-    cart = [];
-    updateCartDisplay();
-    hideCartScreen();
+  requestButton.addEventListener('click', async () => {
+    console.log("🟢 Request button clicked!");
+    try {
+      const saveResult = await saveCartData();
+      console.log("✅ Sepet başarıyla kaydedildi:", saveResult);
+      showConfirmationPopup();
+      cart = [];
+      updateCartDisplay();
+      hideCartScreen();
+    } catch (error) {
+      console.error("❌ Sepet kaydedilemedi:", error);
+      alert("Failed to save cart data, please try again later.");
+    }
   });
   cartScreen.appendChild(requestButton);
 }
@@ -783,10 +816,12 @@ function showCleaningConfirmation(cleaningType) {
 document.addEventListener("DOMContentLoaded", () => {
   let currentLanguage = localStorage.getItem("currentLanguage") || "en";
   console.log(`🌍 Kullanıcının Seçtiği Dil: ${currentLanguage}`);
-  console.log(`📥 Yüklenen JSON Dosyası: data/menu-${currentLanguage}.json`);
-  loadMenuData(currentLanguage);
+  
+  // Load the main menu dynamically
+  loadMainMenu(currentLanguage); 
+  
+  // Load other translations
   translatePopupTexts(currentLanguage);
-  translateMenuTitles(currentLanguage);
 
   // Cart butonuna olay dinleyicisi ekle
   const cartActionItem = document.getElementById('cart-action');
@@ -806,41 +841,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function loadMenuData(language) {
-  fetch(`data/menu-${language}.json`)
-    .then(response => response.json())
-    .then(data => {
-      updateMenuUI(data.menu);
-    })
-    .catch(error => console.error("Menü verileri yüklenirken hata oluştu:", error));
-}
-
-function updateMenuUI(menuItems) {
-  const itemListDiv = document.getElementById("item-list");
-  itemListDiv.innerHTML = '';
-  menuItems.forEach(category => {
-    const categoryCard = document.createElement("div");
-    categoryCard.classList.add("dynamic-menu-option");
-    categoryCard.innerHTML = `
-      <img src="${category.image}" alt="${category.name}">
-      <div class="option-details">
-        <h3>${category.name}</h3>
-        <p>${category.description}</p>
-        <button onclick="showCategoryItems('${category.key}')">Choose</button>
-      </div>
-    `;
-    itemListDiv.appendChild(categoryCard);
-  });
-}
-
 function translatePopupTexts(language) {
   fetch(`data/menu-${language}.json`)
     .then(response => response.json())
     .then(data => {
-      if (data.popup) {
+      // Check if the 'popup' key exists specific to this app's structure
+      // If not, it might be using the guide structure, so don't error out
+      if (data.popup) { 
         // Popup başlık ve alt başlıkları
-        document.querySelector("#time-popup h3").textContent = data.popup.cleaningTitle;
-        document.querySelector("#clean-options h4").textContent = data.popup.cleaningOptions;
+        const timePopupTitle = document.querySelector("#time-popup h3");
+        const cleanOptionsTitle = document.querySelector("#clean-options h4");
+        if (timePopupTitle) timePopupTitle.textContent = data.popup.cleaningTitle;
+        if (cleanOptionsTitle) cleanOptionsTitle.textContent = data.popup.cleaningOptions;
         
         // Temizlik seçenekleri butonları - data-option değerlerini koru
         const roomBtn = document.querySelector("#clean-options button[data-option='room']");
@@ -854,36 +866,102 @@ function translatePopupTexts(language) {
         if (wholeRoomBtn) wholeRoomBtn.textContent = data.popup.wholeRoom;
         if (refreshBtn) refreshBtn.textContent = data.popup.refresh;
         
-        // onclick handler'ları güncelle
-        if (roomBtn) roomBtn.setAttribute('onclick', `selectCleanOption('${data.popup.room}')`);
-        if (bathroomBtn) bathroomBtn.setAttribute('onclick', `selectCleanOption('${data.popup.bathroom}')`);
-        if (wholeRoomBtn) wholeRoomBtn.setAttribute('onclick', `selectCleanOption('${data.popup.wholeRoom}')`);
-        if (refreshBtn) refreshBtn.setAttribute('onclick', `selectCleanOption('${data.popup.refresh}')`);
+        // onclick handler'ları güncelle (Ensure keys exist before setting attributes)
+        if (roomBtn && data.popup.room) roomBtn.setAttribute('onclick', `selectCleanOption('${data.popup.room}')`);
+        if (bathroomBtn && data.popup.bathroom) bathroomBtn.setAttribute('onclick', `selectCleanOption('${data.popup.bathroom}')`);
+        if (wholeRoomBtn && data.popup.wholeRoom) wholeRoomBtn.setAttribute('onclick', `selectCleanOption('${data.popup.wholeRoom}')`);
+        if (refreshBtn && data.popup.refresh) refreshBtn.setAttribute('onclick', `selectCleanOption('${data.popup.refresh}')`);
         
         // Onay ve İptal butonları
-        document.getElementById("confirm-time").textContent = data.popup.confirm;
-        document.getElementById("cancel-time").textContent = data.popup.cancel;
+        const confirmBtn = document.getElementById("confirm-time");
+        const cancelBtn = document.getElementById("cancel-time");
+        if (confirmBtn) confirmBtn.textContent = data.popup.confirm;
+        if (cancelBtn) cancelBtn.textContent = data.popup.cancel;
       } else {
-        console.error("⚠ Çeviri verisi bulunamadı:", data);
+         // If 'popup' doesn't exist, maybe log a warning or handle gracefully
+         console.warn(`"popup" key not found in data/menu-${language}.json. Skipping popup text translation.`);
       }
     })
-    .catch(error => console.error("⚠ Menü JSON yüklenirken hata oluştu:", error));
+    .catch(error => console.error("⚠ Error loading popup texts:", error));
 }
 
-function translateMenuTitles(language) {
+// NEW FUNCTION to load main menu options dynamically
+function loadMainMenu(language) {
   fetch(`data/menu-${language}.json`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.menuTitles) {
-        document.querySelector(".menu-option:nth-child(1) h3").textContent = data.menuTitles.itemListTitle;
-        document.querySelector(".menu-option:nth-child(1) p").textContent = data.menuTitles.itemListDescription;
-        document.querySelector(".menu-option:nth-child(2) h3").textContent = data.menuTitles.cleaningTitle;
-        document.querySelector(".menu-option:nth-child(2) p").textContent = data.menuTitles.cleaningDescription;
-      } else {
-        console.error("⚠ Menü başlıkları bulunamadı:", data);
+    .then(response => {
+      if (!response.ok) {
+        // Try fetching the default english menu as a fallback
+        console.warn(`Could not load menu-${language}.json. Trying menu-english.json as fallback.`);
+        return fetch(`data/menu-english.json`);
       }
+      return response; // Pass the original response if OK
     })
-    .catch(error => console.error("⚠ Menü başlıkları yüklenirken hata oluştu:", error));
+    .then(response => { // Process the response (original or fallback)
+        if (!response.ok) {
+             throw new Error(`JSON file could not be loaded: data/menu-${language}.json (and fallback failed)`);
+        }
+        return response.json();
+    })
+    .then(data => {
+      if (!data.guide || !data.guide.sections) {
+        console.error(`"guide" or "guide.sections" not found in loaded menu JSON (lang: ${language}). Cannot load main menu.`);
+        return;
+      }
+      
+      const menuOptionsDiv = document.querySelector("#menu .menu-options");
+      if (!menuOptionsDiv) {
+         console.error("Menu options container (#menu .menu-options) not found in HTML.");
+         return;
+      }
+      menuOptionsDiv.innerHTML = ''; // Clear existing hardcoded options
+
+      // Add the main title for the guide if it exists and a place for it exists
+      const menuContainer = document.querySelector("#menu .menu-container"); // Find a suitable parent
+      const existingHeader = document.getElementById('menu-header');
+        if (existingHeader) {
+            existingHeader.remove(); // Remove old header if it exists
+        }
+      if (data.guide.title && menuContainer) {
+         const menuHeader = document.createElement('div');
+         menuHeader.id = 'menu-header'; // Assign an ID for styling
+         menuHeader.innerHTML = `<h2>${data.guide.title}</h2>`;
+         // Prepend the title inside the menu container, before the options
+         menuContainer.insertBefore(menuHeader, menuOptionsDiv); 
+         console.log("Guide Title Loaded:", data.guide.title);
+      }
+
+
+      data.guide.sections.forEach(section => {
+        const menuOption = document.createElement('div');
+        menuOption.classList.add('menu-option');
+        
+        // Basic icon assignment based on key - replace with actual icons later
+        let iconSrc = 'assets/icons/default.png'; // Default icon
+        if (section.key === 'restaurants_and_bars') iconSrc = 'assets/icons/restaurants.png';
+        else if (section.key === 'tv_channel_list') iconSrc = 'assets/icons/tv.png';
+        else if (section.key === 'meeting_rooms') iconSrc = 'assets/icons/meeting.png';
+        // Add more else if clauses here if new sections are added with specific icons
+
+        // Create description text, handling cases where it might be missing
+        const descriptionText = section.description ? section.description : 'Select to view details.'; // Default description if none provided
+
+        menuOption.innerHTML = `
+          <img src="${iconSrc}" alt="${section.title || section.key}">
+          <h3>${section.title || section.key}</h3>
+          <p>${descriptionText}</p> 
+          <button onclick="showGuideSection('${section.key}')">Choose</button>
+        `;
+        menuOptionsDiv.appendChild(menuOption);
+      });
+
+       // After loading, setup scrolling if needed
+       setTimeout(() => {
+          enableMobileHorizontalScroll();
+          setupCategoryCardsDragScroll(); // Ensure drag scroll is also set up for the main menu options
+       }, 100);
+
+    })
+    .catch(error => console.error("Error loading main menu:", error));
 }
 
 // Ekran geçişlerini yönetmek için showScreen fonksiyonu
@@ -927,19 +1005,82 @@ function centerMenuContainers() {
   }
 }
 
-// DOMContentLoaded event listener for initial setup
-document.addEventListener('DOMContentLoaded', function() {
-  setupInitialEventListeners();
-});
-
-function setupInitialEventListeners() {
-  // Initialize existing event listeners...
+// Function to display guide sections from menu JSON
+function showGuideSection(sectionKey) {
+  console.log(`🔍 Showing guide section: ${sectionKey}`);
   
-  // Also set up the scroll functionality for any existing category cards
-  setupCategoryCardsDragScroll();
-  
-  // Check if we're already on the item list screen and initialize if needed
-  if (document.getElementById('item-list-section').style.display === 'block') {
-    setupCategoryCardsDragScroll();
+  // Save current screen to previousScreens
+  const currentActive = document.querySelector('.screen-active');
+  if (currentActive) {
+    previousScreens.push(currentActive.id);
+    console.log("📝 Kaydedilen ekran:", currentActive.id);
   }
+  
+  // Hide menu and show item-list-section
+  document.getElementById('menu').style.display = 'none';
+  document.getElementById('item-list-section').style.display = 'block';
+  document.getElementById('item-list-section').classList.add('screen-active');
+  
+  let currentLanguage = localStorage.getItem("currentLanguage") || "en";
+  
+  fetch(`data/menu-${currentLanguage}.json`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`JSON dosyası yüklenemedi: data/menu-${currentLanguage}.json`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("✅ Loaded guide JSON:", data);
+      const section = data.guide.sections.find(s => s.key === sectionKey);
+      
+      if (!section) {
+        console.error(`⚠️ Section not found: ${sectionKey}`);
+        return;
+      }
+      
+      const itemListDiv = document.getElementById('item-list');
+      itemListDiv.innerHTML = '';
+      
+      // Create section header
+      const sectionHeader = document.createElement('div');
+      sectionHeader.classList.add('guide-section-header');
+      const sectionTitle = document.createElement('h2');
+      sectionTitle.textContent = section.title;
+      sectionHeader.appendChild(sectionTitle);
+      itemListDiv.appendChild(sectionHeader);
+      
+      // Display items based on their format (string or object)
+      section.items.forEach(item => {
+        const itemCard = document.createElement('div');
+        itemCard.classList.add('guide-item-card');
+        
+        if (typeof item === 'string') {
+          // For simple string items (like TV channels)
+          itemCard.textContent = item;
+        } else {
+          // For complex items with name/description
+          const itemName = document.createElement('h4');
+          itemName.textContent = item.name;
+          itemCard.appendChild(itemName);
+          
+          if (item.description) {
+            const itemDesc = document.createElement('p');
+            itemDesc.textContent = item.description;
+            itemCard.appendChild(itemDesc);
+          }
+        }
+        
+        itemListDiv.appendChild(itemCard);
+      });
+      
+      // Center menu containers and enable mobile scrolling
+      centerMenuContainers();
+      setTimeout(() => {
+        enableMobileHorizontalScroll();
+      }, 100);
+    })
+    .catch(error => {
+      console.error('⚠ Error loading guide content:', error);
+    });
 }

@@ -1,0 +1,58 @@
+{
+  "menu": [
+    {
+      "key": "Room Needs",
+      "name": "Room Needs",
+      "description": "Explore items required for your room such as carpets and coffee mugs.",
+      "image": "assets/icons/room-needs.png",
+      "items": [
+        {
+          "name": "Carpet",
+          "description": "Soft and elegant carpets for your room.",
+          "image": "assets/icons/carpet.png"
+        },
+        {
+          "name": "Coffee Mug",
+          "description": "High-quality coffee mugs to enjoy your drink.",
+          "image": "assets/icons/coffee-mug.png"
+        }
+      ]
+    },
+    {
+      "key": "Bathroom Needs",
+      "name": "Bathroom Needs",
+      "description": "Find essential items for your bathroom such as towels and shampoo.",
+      "image": "assets/icons/bathroom-needs.png",
+      "items": [
+        {
+          "name": "Towel",
+          "description": "Soft and comfortable towels.",
+          "image": "assets/icons/towel.png"
+        },
+        {
+          "name": "Shampoo",
+          "description": "Refreshing shampoo for your daily needs.",
+          "image": "assets/icons/shampoo.png"
+        }
+      ]
+    },
+    {
+      "key": "Personnel Needs",
+      "name": "Personnel Needs",
+      "description": "Request assistance from our personnel to make your stay more comfortable.",
+      "image": "assets/icons/personel-needs.png",
+      "items": [
+        {
+          "name": "Extra Pillow",
+          "description": "Request an extra pillow for better sleep.",
+          "image": "assets/icons/pillow.png"
+        },
+        {
+          "name": "Room Service",
+          "description": "Request for food and beverages to be delivered to your room.",
+          "image": "assets/icons/room-service.png"
+        }
+      ]
+    }
+  ]
+}

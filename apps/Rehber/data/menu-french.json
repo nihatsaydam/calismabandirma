@@ -1,0 +1,214 @@
+{
+    "menuTitles": {
+        "itemListTitle": "Demande de liste d'articles",
+        "itemListDescription": "Veuillez sélectionner l'article dont vous avez besoin dans la liste.",
+        "cleaningTitle": "Demande de nettoyage",
+        "cleaningDescription": "Spécifiez votre heure et type de nettoyage préférés."
+    },
+    "popup": {
+        "popupMessage": "Quel service souhaitez-vous demander?",
+        "cleaningTitle": "Sélectionnez une option de nettoyage",
+        "cleaningOptions": "Options de nettoyage:",
+        "room": "Chambre",
+        "bathroom": "Salle de bain",
+        "wholeRoom": "Toute la chambre",
+        "refresh": "Rafraîchir",
+        "confirm": "Confirmer",
+        "cancel": "Annuler"
+    },
+    "menu": [
+        {
+            "key": "Room Needs",
+            "name": "Besoins de la chambre",
+            "description": "Demandez des articles supplémentaires pour votre chambre, nous les fournirons dès que possible.",
+            "image": "assets/icons/room-needs.png",
+            "items": [
+                { "name": "Lit supplémentaire" },
+                { "name": "Oreiller supplémentaire" },
+                { "name": "Couette supplémentaire" },
+                { "name": "Couverture" },
+                { "name": "Draps de lit" },
+                { "name": "Télécommande TV" },
+                { "name": "Pile de la télécommande" }
+            ]
+        },
+        {
+            "key": "Bathroom Needs",
+            "name": "Besoins de la salle de bain",
+            "description": "Demandez des articles supplémentaires pour votre salle de bain, nous les fournirons dès que possible.",
+            "image": "assets/icons/bathroom-needs.png",
+            "items": [
+                { "name": "Serviette supplémentaire" },
+                { "name": "Peignoir" },
+                { "name": "Set de rasage" },
+                { "name": "Peigne" },
+                { "name": "Coupe-ongles" },
+                { "name": "Coton démaquillant" },
+                { "name": "Coton-tige" },
+                { "name": "Gel douche" },
+                { "name": "Shampoing" }
+            ]
+        },
+        {
+            "key": "Personnel Needs",
+            "name": "Besoins du personnel",
+            "description": "Demandez de l'aide à notre personnel pour rendre votre séjour plus confortable.",
+            "image": "assets/icons/personel-needs.png",
+            "items": [
+                { "name": "Eau" },
+                { "name": "Thé" },
+                { "name": "Café" },
+                { "name": "Sucre" },
+                { "name": "Lait en poudre" },
+                { "name": "Chaussons" },
+                { "name": "Fer et table à repasser" },
+                { "name": "Adaptateur de prise" },
+                { "name": "Chargeur de téléphone" },
+                { "name": "Cendrier" },
+                { "name": "Mouchoirs" },
+                { "name": "Lingettes humides" },
+                { "name": "Eau de Cologne" },
+                { "name": "Désinfectant" }
+            ]
+        }
+    ],
+    "guide": {
+        "title": "Guide de l'Hôtel",
+        "sections": [
+            {
+                "key": "restaurants_and_bars",
+                "title": "Restaurants et Bars",
+                "description": "Découvrez nos offres de restaurants et de bars.",
+                "items": [
+                    {
+                        "name": "Restaurant Roof",
+                        "description": "Situé au point culminant de Bandırma, ce restaurant A'la Carte a une capacité de 300 personnes. Il peut être utilisé fonctionnellement pour des repas de groupe, fiançailles, petits déjeuners, etc."
+                    },
+                    {
+                        "name": "Restaurant Hürrem",
+                        "description": "Situé au lobby avec une capacité de 200 personnes, ce restaurant sert un petit-déjeuner buffet. Il peut également être utilisé pour diverses organisations."
+                    },
+                    {
+                        "name": "Restaurant Nergis A'la Carte",
+                        "description": "Situé au lobby avec une capacité de 80 personnes, ce restaurant A'la Carte peut également être utilisé pour des événements spéciaux."
+                    },
+                    {
+                        "name": "Bar Roof",
+                        "description": "Situé au point culminant de Bandırma, le Bar Roof est un espace élégant où vous pourrez siroter vos boissons avec une vue imprenable sur le coucher de soleil."
+                    },
+                    {
+                        "name": "Bar Lobby",
+                        "description": "Le Bar Lobby, où vous pourrez siroter votre boisson en lisant votre journal, est ouvert 24h/24 et propose un service de buffet."
+                    },
+                    {
+                        "name": "Bar Vitamin",
+                        "description": "Le Bar Vitamin, où vous pourrez prendre des boissons fraîches et saines après le sport, est idéal pour les clients souhaitant se détendre."
+                    }
+                ]
+            },
+            {
+                "key": "meeting_rooms",
+                "title": "Salles de Réunion",
+                "description": "Découvrez nos espaces de réunion et d'événements.",
+                "items": [
+                    {
+                        "name": "Salle de Bal",
+                        "description": "Située au rez-de-chaussée avec une entrée indépendante, la Salle de Bal est conçue pour répondre aux demandes de divertissement et de réunions professionnelles. Disposition des tables avec ou sans repas, scène, éclairage, projecteur, système audio et microphones sont disponibles. Convient pour bals, galas, mariages, foires, symposiums, séminaires, etc."
+                    },
+                    {
+                        "name": "Salle de Réunion Ece",
+                        "description": "Située au 1er étage, cette salle est équipée d'un système audio, de microphones cravate/main, d'un écran, d'un projecteur et du Wi-Fi. La disposition des sièges peut être adaptée sur demande."
+                    },
+                    {
+                        "name": "Salle de Réunion Zambak",
+                        "description": "Située au -1er étage, la Salle Zambak est disposée en table ronde et convient aux réunions de conseil d'administration. Équipée d'un système audio, éclairage, microphones cravate/main, TV et système de téléconférence."
+                    },
+                    {
+                        "name": "Salle de Réunion Papatya",
+                        "description": "Située au lobby, cette salle offre un système audio, microphones cravate/main, écran, projecteur et Wi-Fi. La disposition des sièges peut être adaptée et elle peut être utilisée comme foyer."
+                    },
+                    {
+                        "name": "Salle de Réunion Manolya",
+                        "description": "Située au lobby, cette salle fonctionnelle convient aux réunions d'entreprise avec ou sans repas. Équipée d'un système audio, éclairage, microphones cravate/main, TV et système de téléconférence."
+                    },
+                    {
+                        "name": "Salle de Réunion Nergis",
+                        "description": "Située au lobby, cette salle est conçue pour accueillir différents événements. Convient aux réunions d'entreprise avec ou sans repas, équipée d'un système audio, éclairage, microphones cravate/main, TV et système de téléconférence."
+                    }
+                ]
+            },
+            {
+                "key": "tv_channel_list",
+                "title": "Liste des Chaînes TV",
+                "description": "Consultez les chaînes TV disponibles dans votre chambre.",
+                "items": [
+                    "1- TRT 1 HD",
+                    "2- TRT HABER HD",
+                    "3- TRT SPOR HD",
+                    "4- TRT BELGESEL HD",
+                    "5- TRT WORLD HD",
+                    "6- STAR TV HD",
+                    "7- KANAL D HD",
+                    "8- SHOW HD",
+                    "9- NOW HD",
+                    "10- TV 8 HD",
+                    "11- ATV HD",
+                    "12- KANAL 7 HD",
+                    "13- TV 8.5",
+                    "14- NTV HD",
+                    "15- D-MAX HD",
+                    "16- CNN TURK HD",
+                    "17- TEVE 2 HD",
+                    "18- POWER HD",
+                    "19- POWERTURK HD",
+                    "20- SHOW TURK",
+                    "21- NR1 HD",
+                    "22- TRT MÜZİK",
+                    "23- A SPOR HD",
+                    "24- HABERTURK HD",
+                    "25- FIL HD",
+                    "26- TİVİBU SPOR HD",
+                    "27- KRAL POP TV",
+                    "28- KRAL TV",
+                    "29- A HABER HD",
+                    "30- TLC",
+                    "31- PLANET PEMBE",
+                    "32- CNBC EUROPE",
+                    "33- BBC WORLD",
+                    "34- BLOOMBERG EUROPE",
+                    "35- CNN INT",
+                    "36- MUSIC BOX RUSSIA",
+                    "37- TBN RUSSIA",
+                    "38- TV RUS",
+                    "39- UKRAINE 24",
+                    "40- ZDF HD",
+                    "41- EUROSPORT 1 DEUTSCHLAND",
+                    "42- EL ARABIA",
+                    "43- PHOENIX HD",
+                    "44- VOX CH",
+                    "45- RTL CH",
+                    "46- ARTE",
+                    "47- SAT .1. GOLD OSTERREICH",
+                    "48- PRO 7 MAXX AUSTRIA",
+                    "49- KABEL 1 DOKU AUSTRIA",
+                    "50- DAS ERSTE",
+                    "51- SPORT 1",
+                    "52- RBB BERLIN HD",
+                    "53- KIKA HD",
+                    "54- ZDF INFO HD",
+                    "55- ZDF NEO HD",
+                    "56- SUPER RTL",
+                    "57- N_HD",
+                    "58- ZDF 102.5 TV HD",
+                    "59- ITALIA CHANNEL",
+                    "60- VIVA L' ITALIA",
+                    "61- CARTOON NETWORK",
+                    "62- TRT COCUK",
+                    "63- PLANET COCUK",
+                    "64- FRANSA 24 HD",
+                    "65- NHK WORLD TV"
+                ]
+            }
+        ]
+    }
+}

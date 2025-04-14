@@ -1187,12 +1187,12 @@ input[type="date"] {
   box-sizing: border-box;
 }
 
-/* Yuvarlak Karakter Alanı (Daha Büyütülmüş) */
+/* Yuvarlak Karakter Alanı - Optimize edilmiş */
 .circle {
   width: 70px;
   height: 70px;
   background-color: var(--background-white);
-  border-radius: var(--border-radius-circle);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1202,8 +1202,8 @@ input[type="date"] {
 }
 
 .circle img {
-  width: 80%;
-  height: 80%;
+  width: 10000%;
+  height: 100%;
   object-fit: contain;
 }
 

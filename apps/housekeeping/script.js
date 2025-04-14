@@ -29,87 +29,17 @@ document.addEventListener("DOMContentLoaded", function() {
     centerMenuContainers();
   });
   
-  // Kaydırma okları için olay dinleyicileri ekle
-  setupScrollIndicators();
-  
   // Orientation değişikliğinde özel olarak kontrol et
   window.addEventListener('orientationchange', function() {
     setTimeout(() => {
       centerMenuContainers();
-      setupScrollIndicators();
     }, 300);
   });
-  
-  // Initial scroll position for items on load
-  setTimeout(() => {
-    const menuOptions = document.querySelector('.menu-options');
-    if (menuOptions) {
-      menuOptions.scrollLeft = 0;
-      updateScrollIndicators(menuOptions);
-    }
-  }, 200);
 });
 
+// Disable scroll indicators setup function - we no longer want these
 function setupScrollIndicators() {
-  // Mobil cihazlarda çalış
-  if (window.innerWidth <= 600) {
-    const scrollContainers = [
-      '.menu-options', 
-      '.category-cards-container'
-    ];
-    
-    scrollContainers.forEach(selector => {
-      const containers = document.querySelectorAll(selector);
-      
-      containers.forEach(container => {
-        if (!container.classList.contains('scroll-container')) {
-          // Container'ı scroll-container olarak işaretle
-          container.classList.add('scroll-container');
-          
-          // Önceki okları temizle
-          const existingArrows = container.querySelectorAll('.scroll-indicator');
-          existingArrows.forEach(arrow => arrow.remove());
-          
-          // Kaydırma okları oluştur
-          const leftArrow = document.createElement('div');
-          leftArrow.className = 'scroll-indicator scroll-left';
-          leftArrow.addEventListener('click', () => scrollMenuHorizontally('left'));
-          
-          const rightArrow = document.createElement('div');
-          rightArrow.className = 'scroll-indicator scroll-right';
-          rightArrow.addEventListener('click', () => scrollMenuHorizontally('right'));
-          
-          // Okları container'a ekle
-          container.appendChild(leftArrow);
-          container.appendChild(rightArrow);
-          
-          // Scroll durumunu göster/gizle
-          updateScrollIndicators(container);
-          
-          // Kaydırma durumunu dinle
-          container.addEventListener('scroll', () => {
-            updateScrollIndicators(container);
-          });
-        }
-      });
-    });
-  }
-}
-
-function updateScrollIndicators(container) {
-  // Başlangıçta mı kontrolü
-  if (container.scrollLeft <= 10) {
-    container.classList.add('at-start');
-  } else {
-    container.classList.remove('at-start');
-  }
-  
-  // Sonda mı kontrolü
-  if (container.scrollWidth - container.scrollLeft - container.clientWidth <= 10) {
-    container.classList.add('at-end');
-  } else {
-    container.classList.remove('at-end');
-  }
+  // Function disabled - no longer showing scroll indicators
 }
 
 function enableMobileHorizontalScroll() {
@@ -129,10 +59,12 @@ function enableMobileHorizontalScroll() {
         if (!container.getAttribute('scroll-enabled')) {
           // Touch başlama pozisyonu
           let startX, startY;
+          let isScrolling = false;
           
           container.addEventListener('touchstart', function(e) {
             startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
+            isScrolling = false;
           }, { passive: true });
           
           container.addEventListener('touchmove', function(e) {
@@ -146,17 +78,44 @@ function enableMobileHorizontalScroll() {
             const diffY = Math.abs(startY - currentY);
             
             if (diffX > diffY) {
+              if (!isScrolling) {
+                isScrolling = true;
+              }
+              
               e.preventDefault();
               
-              // Özel dokunmatik kaydırma
-              container.scrollLeft += (startX - currentX);
+              // Özel dokunmatik kaydırma - daha hızlı
+              const moveX = startX - currentX;
+              container.scrollLeft += moveX * 2.0; // Increased scroll sensitivity
               startX = currentX;
             }
           }, { passive: false });
           
           container.addEventListener('touchend', function() {
+            if (isScrolling) {
+              // Kaydırma momentumunu düzgün yavaşlat
+              const containerRect = container.getBoundingClientRect();
+              const itemWidth = containerRect.width * 0.5; // Bir öğe genişliği tahmini
+              
+              // En yakın öğeye kaydır
+              const remainder = container.scrollLeft % itemWidth;
+              let targetScroll;
+              
+              if (remainder > itemWidth / 2) {
+                targetScroll = container.scrollLeft + (itemWidth - remainder);
+              } else {
+                targetScroll = container.scrollLeft - remainder;
+              }
+              
+              container.scrollTo({
+                left: targetScroll,
+                behavior: 'auto'
+              });
+            }
+            
             startX = null;
             startY = null;
+            isScrolling = false;
           }, { passive: true });
           
           // Kaydırma özelliği eklendiğini işaretle
@@ -167,41 +126,10 @@ function enableMobileHorizontalScroll() {
   }
 }
 
-// Yatay kaydırma için yardımcı fonksiyon
+// Yatay kaydırma için yardımcı fonksiyon (Bu fonksiyon artık kullanılmıyor)
+// Scroll indicators ve oklarını kaldırdık
 function scrollMenuHorizontally(direction) {
-  const isMobile = window.innerWidth <= 600;
-  if (!isMobile) return;
-  
-  // Find the active container that should be scrolled
-  let activeContainer = null;
-  
-  if (document.getElementById('menu').style.display !== 'none') {
-    activeContainer = document.querySelector('.menu-options');
-  } else if (document.getElementById('item-list-section').style.display !== 'none') {
-    activeContainer = document.querySelector('.category-cards-container');
-  }
-  
-  if (activeContainer) {
-    const scrollAmount = activeContainer.clientWidth * 0.8;
-    const currentScroll = activeContainer.scrollLeft;
-    
-    if (direction === 'left') {
-      activeContainer.scrollTo({
-        left: currentScroll - scrollAmount,
-        behavior: 'smooth'
-      });
-    } else {
-      activeContainer.scrollTo({
-        left: currentScroll + scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-    
-    // Update scroll indicators after scrolling
-    setTimeout(() => {
-      updateScrollIndicators(activeContainer);
-    }, 300);
-  }
+  // Bu fonksiyon artık kullanılmıyor
 }
 
 // ============================
@@ -403,21 +331,73 @@ function showItemList() {
         itemListDiv.appendChild(categoryCard);
       });
       
+      // Ekran konumunu ayarla - merkeze
+      centerMenuContainers();
+      
       // Kategorileri gösterdikten sonra mobil kaydırma özelliklerini etkinleştir
       setTimeout(() => {
         enableMobileHorizontalScroll();
-        setupScrollIndicators();
-        
-        // Item list section'ı görünür olduktan sonra kaydırma işaretlerini güncelle
-        const categoryContainer = document.querySelector('.category-cards-container');
-        if (categoryContainer) {
-          setTimeout(() => updateScrollIndicators(categoryContainer), 200);
-        }
+        setupCategoryCardsDragScroll();
       }, 100);
     })
     .catch(error => {
       console.error('⚠ Menü yüklenirken hata oluştu:', error);
     });
+}
+
+// Add touch/mouse drag scrolling for category cards container
+function setupCategoryCardsDragScroll() {
+  const categoryCardsContainers = document.querySelectorAll('.category-cards-container');
+  
+  categoryCardsContainers.forEach(container => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    // Mouse events
+    container.addEventListener('mousedown', (e) => {
+      isDown = true;
+      container.style.cursor = 'grabbing';
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+    
+    container.addEventListener('mouseleave', () => {
+      isDown = false;
+      container.style.cursor = 'grab';
+    });
+    
+    container.addEventListener('mouseup', () => {
+      isDown = false;
+      container.style.cursor = 'grab';
+    });
+    
+    container.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll speed multiplier
+      container.scrollLeft = scrollLeft - walk;
+    });
+    
+    // Touch events
+    container.addEventListener('touchstart', (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    }, { passive: true });
+    
+    container.addEventListener('touchend', () => {
+      isDown = false;
+    });
+    
+    container.addEventListener('touchmove', (e) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    }, { passive: true });
+  });
 }
 
 function showCategoryItems(category) {
@@ -515,12 +495,20 @@ function showCategoryItems(category) {
   
   itemListDiv.appendChild(itemsContainer);
   
+  // Ekran konumunu ayarla - merkeze
+  centerMenuContainers();
+  
   // Mobil kullanım için kaydırma etkinleştirme
   setTimeout(() => enableMobileHorizontalScroll(), 100);
+  
+  // After updating the DOM, setup the scroll functionality again
+  setTimeout(() => {
+    setupCategoryCardsDragScroll();
+  }, 100);
 }
 
 function goBack() {
-  console.log("🔙 Back tuşuna basıldı. Mevcut previousScreens:", previousScreens);
+  console.log(" Back tuşuna basıldı. Mevcut previousScreens:", previousScreens);
   
   if (previousScreens.length > 0) {
     const lastScreenId = previousScreens.pop(); // Son açılan ekranı al
@@ -956,41 +944,35 @@ function centerMenuContainers() {
     const windowHeight = window.innerHeight;
     const availableHeight = windowHeight - headerHeight - actionHeight;
     
-    // Menü konteynerlerini düzenle
+    // Menü konteynerlerini düzenle - tam ekran için
     const menuContainer = document.querySelector('.menu-container');
     const itemListSection = document.getElementById('item-list-section');
     
     if (menuContainer) {
-      const containerHeight = Math.min(availableHeight - 20, 500);
-      menuContainer.style.maxHeight = `${containerHeight}px`;
-      menuContainer.style.top = `${headerHeight + 10}px`;
-      
-      // Menüdeki seçeneklerin boyutunu düzenle
-      const menuOptions = menuContainer.querySelectorAll('.menu-option');
-      menuOptions.forEach(option => {
-        option.style.height = 'auto';
-        option.style.maxHeight = `${containerHeight * 0.8}px`;
-      });
+      menuContainer.style.height = `${availableHeight}px`;
+      menuContainer.style.top = `${headerHeight}px`;
     }
     
     if (itemListSection) {
-      const containerHeight = Math.min(availableHeight - 20, 500);
-      itemListSection.style.maxHeight = `${containerHeight}px`;
-      itemListSection.style.top = `${headerHeight + 10}px`;
+      itemListSection.style.height = `${availableHeight}px`;
+      itemListSection.style.top = `${headerHeight}px`;
     }
-    
-    // Kaydırma işaretlerini düzenle
-    document.querySelectorAll('.scroll-container').forEach(container => {
-      const leftArrow = container.querySelector('.scroll-left');
-      const rightArrow = container.querySelector('.scroll-right');
-      
-      if (leftArrow && rightArrow) {
-        const containerHeight = container.offsetHeight;
-        const arrowTop = containerHeight / 2;
-        
-        leftArrow.style.top = `${arrowTop}px`;
-        rightArrow.style.top = `${arrowTop}px`;
-      }
-    });
+  }
+}
+
+// DOMContentLoaded event listener for initial setup
+document.addEventListener('DOMContentLoaded', function() {
+  setupInitialEventListeners();
+});
+
+function setupInitialEventListeners() {
+  // Initialize existing event listeners...
+  
+  // Also set up the scroll functionality for any existing category cards
+  setupCategoryCardsDragScroll();
+  
+  // Check if we're already on the item list screen and initialize if needed
+  if (document.getElementById('item-list-section').style.display === 'block') {
+    setupCategoryCardsDragScroll();
   }
 }

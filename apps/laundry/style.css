@@ -172,15 +172,31 @@ body {
 @media (max-width: 480px) {
   .menu-options {
     gap: var(--spacing-sm);
+    /* Make it scroll horizontally */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start; /* Align items to the start */
+    padding-left: var(--spacing-md); /* Add some padding to the left */
+    padding-right: var(--spacing-md); /* Add some padding to the right */
+    /* Optional: Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
   }
-  
-  .menu-option {
-    width: calc(50% - 20px);
+
+  .menu-options::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+  }
+
+  /* Adjust menu item width for horizontal layout */
+  .menu-option, .dynamic-menu-option { /* Apply to both static and dynamic options */
+    /* width: calc(50% - 20px); /* Remove wrapping width */
+    width: 130px; /* Set a fixed width for slider items */
+    flex-shrink: 0; /* Prevent items from shrinking */
     min-height: 120px;
     padding: var(--spacing-sm);
   }
-  
-  .menu-option img {
+
+  .menu-option img, .dynamic-menu-option img { /* Adjust image size if needed */
     width: 30px;
     height: 30px;
   }
@@ -1211,6 +1227,39 @@ body {
   background-color: var(--secondary-color);
   color: var(--background-white);
   transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  html, body {
+    font-size: 15px; /* Base font size */
+  }
+
+  .items-container {
+    /* Adjust grid for smaller screens */
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  /* Update menu option width for horizontal slider as well */
+  .dynamic-menu-option, .menu-option {
+    /* width: calc(50% - 15px); */ /* Remove wrapping width */
+    width: 130px; /* Set a fixed width for slider items */
+    flex-shrink: 0; /* Prevent items from shrinking */
+    min-height: 130px;
+  }
+
+  .item-card {
+    padding: var(--spacing-sm);
+  }
+
+  #cart-screen {
+    max-width: 95%;
+    padding: var(--spacing-sm);
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: var(--spacing-md);
+  }
 }
 
 

@@ -43,24 +43,24 @@ body {
 
 /* Menu Container - Görsel ve Boşluk Optimizasyonu */
 .menu-container {
-  width: 100%; 
-  height: calc(100vh - 160px);
-  padding: var(--spacing-md);
-  padding-top: var(--spacing-lg);
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  height: calc(100vh - 130px);
+  min-height: auto;
+  margin: 0;
+  padding: 15px;
+  padding-top: 30px;
+  overflow-y: auto;
+  box-shadow: none;
+  border-radius: 0;
+  top: 80px;
+  left: 0;
+  transform: none;
   background-color: var(--background-white);
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  justify-content: flex-start;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--border-radius-lg);
-  overflow-y: auto; /* İçerik taşarsa kaydırma çubuğu ekle */
-  max-height: 70vh; /* Maksimum yükseklik */
+  justify-content: center;
 }
 
 /* Başlık */
@@ -95,11 +95,21 @@ body {
 /* Seçeneklerin düzeni */
 .menu-options {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 5px;
+  -webkit-overflow-scrolling: touch;
   justify-content: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-sm);
+  align-items: center;
+  gap: 10px;
   width: 100%;
+  /* Mobil scrollbar yok */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-top: 0;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 /* Her bir seçenek */
@@ -178,7 +188,6 @@ body {
     gap: var(--spacing-sm);
     overflow-x: auto;
     padding: var(--spacing-sm);
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
   
@@ -187,7 +196,6 @@ body {
     min-height: 120px;
     padding: var(--spacing-sm);
     flex: 0 0 auto;
-    scroll-snap-align: start;
   }
   
   .menu-option img {
@@ -565,40 +573,55 @@ body {
 /* Sabit genel container: Tüm ekranı kaplar */
 /* Tüm ekranı kaplayan ana bölüm */
 #item-list-section {
+  position: fixed;
   width: 100%;
-  height: calc(100vh - 160px);
-  padding: var(--spacing-md);
-  padding-top: var(--spacing-lg);
+  max-width: 100%;
+  height: calc(100vh - 130px);
+  min-height: auto;
+  margin: 0;
+  padding: 15px;
+  padding-top: 50px; /* Increased from 30px to move content lower */
+  box-shadow: none;
+  overflow-y: auto;
+  top: 80px;
+  left: 0;
+  transform: none;
+  border-radius: 0;
   background-color: var(--background-white);
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  justify-content: flex-start;
-  position: fixed;
-  top: 59%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--border-radius-lg);
-  overflow-y: auto; /* Kaydırılabilir içerik */
+  justify-content: flex-start; /* Changed from center to flex-start */
+  align-items: center; /* Added to center horizontally */
 }
 
 /* Üstteki "Available Items" alanı */
 
 /* Kategori kartlarını içeren alan - Optimize edilmiş */
 .category-cards-container {
-  width: 100%;
-  max-width: 800px;
-  padding: var(--spacing-sm);
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: var(--spacing-md);
-  overflow: auto;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  padding: 5px;
+  -webkit-overflow-scrolling: touch;
+  justify-content: flex-start;
+  width: 90%;
   margin: 0 auto;
+  margin-top: 30px;
+  /* Mobil scrollbar yok */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  gap: 20px;
+  /* Add visual indication of scrollability */
+  position: relative;
+  cursor: grab;
+}
+
+/* Make sure scrollbar is hidden but scrolling is smooth */
+.category-cards-container::-webkit-scrollbar {
+  display: none;
 }
 
 /* Seçeneklerin düzeni */
@@ -610,7 +633,9 @@ body {
   border-radius: var(--border-radius-md);
   text-align: center;
   padding: var(--spacing-md);
-  width: 100px;
+  width: 220px;
+  min-width: 220px;
+  flex: 0 0 auto;
   height: auto;
   min-height: 150px;
   display: flex;
@@ -1097,32 +1122,35 @@ body {
 
   /* Üstteki boşluğu düzelt */
   #app {
-    margin-top: 0;
-    padding-top: 0;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     height: 100vh;
-    padding-top: 90px; /* Header height */
+    width: 100%;
   }
   
-  /* Menu container pozisyonu düzeltme */
+  /* Menu container pozisyonu düzeltme - tam ekran */
   .menu-container {
-    position: absolute;
-    width: 90%;
-    max-width: 400px;
-    height: auto;
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - 130px);
     min-height: auto;
-    max-height: calc(100vh - 160px);
-    margin: 0 auto;
+    margin: 0;
     padding: 15px;
     overflow-y: auto;
-    box-shadow: var(--shadow-md);
-    border-radius: var(--border-radius-lg);
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
+    box-shadow: none;
+    border-radius: 0;
+    top: 80px;
+    left: 0;
+    transform: none;
+    background-color: var(--background-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Dikey ortalama */
   }
   
   /* Item list ve Cleaning request yan yana için */
@@ -1135,12 +1163,17 @@ body {
     -webkit-overflow-scrolling: touch;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    width: 100%;
+    gap: 20px; /* Aralarında daha fazla boşluk */
+    width: 90%; /* Kenarlardan biraz içeride */
+    margin: 0 auto;
     /* Mobil scrollbar yok */
     scrollbar-width: none;
     -ms-overflow-style: none;
-    margin-top: 0;
+    padding-bottom: 15px;
+    margin-top: 20px; /* Üstten daha fazla boşluk */
+    margin-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
   }
   
   .menu-options::-webkit-scrollbar {
@@ -1149,13 +1182,13 @@ body {
   
   .menu-option {
     flex: 0 0 auto;
-    width: 130px;
-    min-width: 130px;
-    max-width: 150px;
-    min-height: 140px;
-    max-height: 180px;
+    width: 140px; /* Biraz daha büyük */
+    min-width: 140px;
+    max-width: 160px;
+    min-height: 150px; /* Biraz daha yüksek */
+    max-height: 190px;
     margin: 5px;
-    padding: 10px;
+    padding: 15px; /* Daha fazla iç boşluk */
     scroll-snap-align: center;
     margin-top: 0;
   }
@@ -1183,86 +1216,108 @@ body {
     margin-bottom: 5px;
   }
   
+  /* Item list section positioning - tam ekran */
+  #item-list-section {
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - 130px);
+    min-height: auto;
+    margin: 0;
+    padding: 15px;
+    padding-top: 50px; /* Increased to move content down */
+    box-shadow: none;
+    overflow-y: auto;
+    top: 80px;
+    left: 0;
+    transform: none;
+    border-radius: 0;
+    background-color: var(--background-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Changed from center to flex-start */
+  }
+  
   /* Kategori seçenekleri için yatay kaydırma */
   .category-cards-container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: 5px;
-    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    padding: 5px 0;
     -webkit-overflow-scrolling: touch;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
+    width: 90%;
     margin: 0 auto;
+    margin-top: 30px;
     /* Mobil scrollbar yok */
     scrollbar-width: none;
     -ms-overflow-style: none;
-  }
-  
-  .category-cards-container::-webkit-scrollbar {
-    display: none;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    gap: 20px;
+    cursor: grab;
   }
   
   .dynamic-menu-option {
+    width: 200px;
+    min-width: 200px;
     flex: 0 0 auto;
-    width: 130px;
-    min-width: 130px;
-    max-width: 150px;
-    min-height: 140px;
-    max-height: 180px;
-    margin: 5px;
-    padding: 10px;
-    scroll-snap-align: center;
+    margin-right: 0;
   }
   
-  .dynamic-menu-option img {
-    width: 28px;
-    height: 28px;
-    margin-bottom: 5px;
+  /* Add scroll hint arrows for mobile */
+  .category-cards-container::after {
+    content: "→";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--secondary-color);
+    animation: pulse 1.5s infinite;
+    pointer-events: none;
+    z-index: 100;
   }
   
-  .dynamic-menu-option h3 {
-    font-size: 14px;
-    margin: 5px 0;
+  @keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
   }
   
-  .dynamic-menu-option p {
-    font-size: 12px;
-    margin-bottom: 5px;
-    line-height: 1.2;
+  /* Scroll indicators adjustment */
+  .scroll-indicator {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    opacity: 0.95;
+    z-index: 200;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    border: 1px solid #e0e0e0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
   
-  .dynamic-menu-option button {
-    padding: 6px 12px;
-    font-size: 12px;
-    margin-top: 5px;
+  .scroll-left {
+    left: 8px;
+  }
+  
+  .scroll-right {
+    right: 8px;
   }
   
   /* Kaydırılabilir konteyner içini uygun şekilde yerleşim */
   .scroll-container {
     position: relative;
-    padding: 0 20px;
+    padding: 0;
     width: 100%;
     box-sizing: border-box;
-  }
-  
-  /* Item list section positioning */
-  #item-list-section {
-    position: absolute;
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-    min-height: auto;
-    max-height: calc(100vh - 160px);
-    margin: 0 auto;
-    padding: 15px;
-    box-shadow: var(--shadow-md);
-    overflow-y: auto;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: var(--border-radius-lg);
   }
 
   /* Diğer mobil düzenlemeler */
@@ -1298,22 +1353,7 @@ body {
     font-size: 10px;
   }
   
-  /* Scroll indicators adjustment */
-  .scroll-indicator {
-    display: flex;
-    width: 30px;
-    height: 30px;
-    opacity: 0.8;
-    z-index: 100;
-  }
-  
-  .scroll-left {
-    left: 0;
-  }
-  
-  .scroll-right {
-    right: 0;
-  }
+  /* Scroll indicators styles remain */
 }
 
 /* Çok küçük ekranlar için özel düzenlemeler */
@@ -1480,7 +1520,6 @@ body {
 /* Daha iyi kaydırma deneyimi için */
 .items-container, .cart-items-container {
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
 }
 
 /* Kategori sayfası geri butonu */
@@ -1542,120 +1581,138 @@ body {
 
 /* Scroll indicator arrows */
 .scroll-indicator {
-  display: none; /* Default hidden, only shown on mobile */
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 50;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  transform: translateY(-50%);
+  display: none; /* Hide completely */
 }
 
-.scroll-left {
-  left: 0;
-}
-
-.scroll-right {
-  right: 0;
-}
-
-.scroll-indicator:before {
-  content: '';
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-top: 2px solid var(--secondary-color);
-  border-right: 2px solid var(--secondary-color);
-  position: relative;
-}
-
-.scroll-left:before {
-  transform: rotate(-135deg);
-  left: 3px;
-}
-
-.scroll-right:before {
-  transform: rotate(45deg);
-  right: 3px;
-}
-
-.scroll-indicator:hover {
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.scroll-left, .scroll-right {
+  display: none; /* Hide completely */
 }
 
 @media (max-width: 600px) {
-  /* Show scroll indicators on mobile */
-  .scroll-container {
-    position: relative;
-    padding: 0 20px;
-  }
-  
-  .menu-options,
-  .category-cards-container {
-    position: relative;
-    scroll-behavior: smooth;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  
-  .scroll-indicator {
-    display: flex;
-    width: 30px;
-    height: 30px;
-    opacity: 0.8;
-    background-color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .scroll-left {
-    left: 0;
-  }
-  
-  .scroll-right {
-    right: 0;
-  }
-  
-  /* Menu container pozisyonu düzeltme */
+  /* Menu container pozisyonu düzeltme - tam ekran */
   .menu-container {
-    position: absolute;
-    width: 90%;
-    max-width: 400px;
-    height: auto;
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - 130px);
     min-height: auto;
-    max-height: calc(100vh - 160px);
-    margin: 0 auto;
+    margin: 0;
     padding: 15px;
     overflow-y: auto;
-    box-shadow: var(--shadow-md);
-    border-radius: var(--border-radius-lg);
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
+    box-shadow: none;
+    border-radius: 0;
+    top: 80px;
+    left: 0;
+    transform: none;
+    background-color: var(--background-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Dikey ortalama */
   }
   
-  /* Item list section positioning */
-  #item-list-section {
-    position: absolute;
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-    min-height: auto;
-    max-height: calc(100vh - 160px);
+  /* Item list ve Cleaning request yan yana için */
+  .menu-options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 5px;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Aralarında daha fazla boşluk */
+    width: 90%; /* Kenarlardan biraz içeride */
     margin: 0 auto;
+    /* Mobil scrollbar yok */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 15px;
+    margin-top: 20px; /* Üstten daha fazla boşluk */
+    margin-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* Item list section positioning - tam ekran */
+  #item-list-section {
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - 130px);
+    min-height: auto;
+    margin: 0;
     padding: 15px;
-    box-shadow: var(--shadow-md);
+    padding-top: 50px; /* Increased to move content down */
+    box-shadow: none;
     overflow-y: auto;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: var(--border-radius-lg);
+    top: 80px;
+    left: 0;
+    transform: none;
+    border-radius: 0;
+    background-color: var(--background-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Changed from center to flex-start */
+  }
+  
+  /* Kategori seçenekleri için yatay kaydırma */
+  .category-cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding: 5px 0;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    /* Mobil scrollbar yok */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    gap: 20px;
+    cursor: grab;
+  }
+  
+  .dynamic-menu-option {
+    width: 200px;
+    min-width: 200px;
+    flex: 0 0 auto;
+    margin-right: 0;
+  }
+  
+  /* Add scroll hint arrows for mobile */
+  .category-cards-container::after {
+    content: "→";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--secondary-color);
+    animation: pulse 1.5s infinite;
+    pointer-events: none;
+    z-index: 100;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+  }
+  
+  /* Scroll indicators should be completely hidden on mobile */
+  .scroll-indicator {
+    display: none;
+  }
+  
+  .scroll-left, .scroll-right {
+    display: none;
   }
 }
 

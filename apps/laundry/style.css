@@ -1095,6 +1095,9 @@ body {
   transform: scale(1.05);
   opacity: 0.95;
 }
+/* buraya kadar housekeeping ile aynı */
+
+
 
 /* Responsive - Optimize edilmiş */
 @media (max-width: 600px) {

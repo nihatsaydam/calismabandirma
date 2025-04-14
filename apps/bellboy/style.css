@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  max-height: 100vh;
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
@@ -39,15 +39,7 @@ body {
   --safe-area-inset: env(safe-area-inset-bottom, 0px);
 }
 
-* {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
 
-html {
-  height: -webkit-fill-available;
-  scroll-behavior: smooth;
-}
 
 
 /* Beyaz alan (menü kapsayıcı) */
@@ -62,14 +54,14 @@ html {
   gap: 15px;
   justify-content: flex-start;
   position: fixed;
-  top: 59%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: var(--shadow-lg);
   border-radius: var(--border-radius-lg);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  max-height: 70vh;
+  max-height: 100vh;
 }
 
 /* Başlık */
@@ -406,6 +398,10 @@ html {
   height: 120px; /* Daha kompakt yükseklik */
   background-color: var(--primary-color);
   padding: var(--spacing-md);
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -814,10 +810,6 @@ html {
 @supports (padding: max(0px)) {
   #footer-container, #action-container {
     padding-bottom: max(10px, env(safe-area-inset-bottom));
-  }
-  
-  .header-container {
-    padding-top: max(10px, env(safe-area-inset-top));
   }
   
   body {

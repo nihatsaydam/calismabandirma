@@ -41,39 +41,39 @@ body {
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Menu Container - Görsel ve Boşluk Optimizasyonu */
+/* Beyaz alan (menü kapsayıcı) */
 .menu-container {
-  width: 100%; 
+  width: 100%;
   height: calc(100vh - 160px);
-  padding: var(--spacing-md);
-  padding-top: var(--spacing-lg);
-  background-color: var(--background-white);
+  padding: 20px 15px;
+  background-color: var(--white);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: 15px;
   justify-content: flex-start;
   position: fixed;
-  top: 59%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   border-radius: var(--border-radius-lg);
-  overflow-y: auto; /* İçerik taşarsa kaydırma çubuğu ekle */
-  max-height: 70vh; /* Maksimum yükseklik */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 100vh;
 }
 
 /* Başlık */
 #menu-header {
   text-align: center;
-  margin-bottom: var(--spacing-lg);
-  width: 100%;
+  margin-bottom: 20px;
+  padding: 0 10px;
 }
 
 #menu-header h2 {
-  font-size: var(--font-size-lg);
-  color: var(--secondary-color);
-  margin-bottom: var(--spacing-sm);
+  font-size: 20px;
+  color: var(--accent-color);
+  margin-bottom: 15px;
   font-weight: 600;
 }
 
@@ -82,9 +82,9 @@ body {
   max-width: 100%;
   margin: 0 auto;
   padding: 12px 18px;
-  background-color: var(--background-light);
+  background-color: var(--secondary-color);
   color: var(--text-color);
-  font-size: var(--font-size-sm);
+  font-size: 0.9rem;
   line-height: 1.4;
   border-radius: 0 26px 26px 26px;
   word-break: break-word;
@@ -406,7 +406,10 @@ body {
   width: 100%;
   height: 120px; /* Daha kompakt yükseklik */
   background-color: var(--primary-color);
-  padding: var(--spacing-md);
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1095,10 +1098,7 @@ body {
   transform: scale(1.05);
   opacity: 0.95;
 }
-/* buraya kadar housekeeping ile aynı */
-
-
-
+/* buraya kadar housekeeping ile aynıııı */ 
 /* Responsive - Optimize edilmiş */
 @media (max-width: 600px) {
   html, body {

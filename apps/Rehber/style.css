@@ -1738,9 +1738,9 @@ body {
   border-radius: var(--border-radius-md);
   text-align: center;
   padding: var(--spacing-md);
-  width: 120px;
+  width: 180px;
   height: auto;
-  min-height: 150px;
+  min-height: 110px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;

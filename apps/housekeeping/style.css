@@ -127,8 +127,9 @@ body {
   align-items: center;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
-  margin-top: 100px;
+  margin-top: 10px;
   position: relative;
+  
 }
 
 .menu-option:hover {
@@ -188,9 +189,6 @@ body {
     flex-wrap: nowrap;
     overflow-x: auto;
     justify-content: flex-start; /* Align items to the start */
-    padding-left: var(--spacing-md); /* Add some padding to the left */
-    padding-right: var(--spacing-md); /* Add some padding to the right */
-    /* Optional: Hide scrollbar */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
   }
@@ -205,7 +203,6 @@ body {
     width: 130px; /* Set a fixed width for slider items */
     flex-shrink: 0; /* Prevent items from shrinking */
     min-height: 120px;
-    padding: var(--spacing-sm);
   }
 
   .menu-option img, .dynamic-menu-option img { /* Adjust image size if needed */
@@ -250,7 +247,6 @@ body {
 
 .menu-item .item-details {
   flex-grow: 1;
-  margin-left: 10px;
 }
 
 .menu-item .item-name {

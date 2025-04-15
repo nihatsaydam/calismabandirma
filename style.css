@@ -163,7 +163,7 @@ header .logo {
   width: 90%;
   max-width: 400px;
   background-color: transparent;
-  padding: 5px;
+  padding: 20px;
   margin-top: -60px;
   transition: transform 0.3s ease;
 }
@@ -176,7 +176,7 @@ header .logo {
 
 /* Form Elemanları */
 input {
-  width: 100%;
+  width: 92%;
   padding: 12px;
   margin: 10px 0;
   border: 1px solid #ddd;

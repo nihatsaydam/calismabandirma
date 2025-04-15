@@ -1044,35 +1044,56 @@ function showGuideSection(sectionKey) {
       
       // Create section header
       const sectionHeader = document.createElement('div');
-      sectionHeader.classList.add('guide-section-header');
       const sectionTitle = document.createElement('h2');
-      sectionTitle.textContent = section.title;
-      sectionHeader.appendChild(sectionTitle);
+      sectionTitle.textContent = section.title || sectionKey;
       itemListDiv.appendChild(sectionHeader);
       
-      // Display items based on their format (string or object)
-      section.items.forEach(item => {
-        const itemCard = document.createElement('div');
-        itemCard.classList.add('guide-item-card');
+      // Special handling for TV channels
+      if (sectionKey === 'tv_channel_list') {
+        // Create a container for all TV channel columns
+        const tvChannelsContainer = document.createElement('div');
+        tvChannelsContainer.id = 'tv-channels-container';
+        itemListDiv.appendChild(tvChannelsContainer);
         
-        if (typeof item === 'string') {
-          // For simple string items (like TV channels)
-          itemCard.textContent = item;
-        } else {
-          // For complex items with name/description
-          const itemName = document.createElement('h4');
-          itemName.textContent = item.name;
-          itemCard.appendChild(itemName);
+        // Create a single column for all channels
+        const columnCard = document.createElement('div');
+        columnCard.classList.add('tv-channel-vertical');
+        
+        // Add all channels to the single container
+        section.items.forEach(channelItem => {
+          const channelElement = document.createElement('div');
+          channelElement.classList.add('tv-channel-item');
+          channelElement.textContent = channelItem;
+          columnCard.appendChild(channelElement);
+        });
+        
+        tvChannelsContainer.appendChild(columnCard);
+      } else {
+        // Regular handling for other sections
+        // Display items based on their format (string or object)
+        section.items.forEach(item => {
+          const itemCard = document.createElement('div');
+          itemCard.classList.add('guide-item-card');
           
-          if (item.description) {
-            const itemDesc = document.createElement('p');
-            itemDesc.textContent = item.description;
-            itemCard.appendChild(itemDesc);
+          if (typeof item === 'string') {
+            // For simple string items
+            itemCard.textContent = item;
+          } else {
+            // For complex items with name/description
+            const itemName = document.createElement('h4');
+            itemName.textContent = item.name;
+            itemCard.appendChild(itemName);
+            
+            if (item.description) {
+              const itemDesc = document.createElement('p');
+              itemDesc.textContent = item.description;
+              itemCard.appendChild(itemDesc);
+            }
           }
-        }
-        
-        itemListDiv.appendChild(itemCard);
-      });
+          
+          itemListDiv.appendChild(itemCard);
+        });
+      }
       
       // Center menu containers and enable mobile scrolling
       centerMenuContainers();

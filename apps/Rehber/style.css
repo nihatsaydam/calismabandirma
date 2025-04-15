@@ -100,16 +100,18 @@ body {
   overflow-x: auto;
   padding: 5px;
   -webkit-overflow-scrolling: touch;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   width: 100%;
   /* Mobil scrollbar yok */
   scrollbar-width: none;
   -ms-overflow-style: none;
-  margin-top: 0;
+  margin-top: 20px;
   padding-bottom: 15px;
   margin-bottom: 30px;
+  padding-left: 5px;
+  padding-right: 0;
 }
 
 /* Her bir seçenek */
@@ -580,7 +582,8 @@ body {
   min-height: auto;
   margin: 0;
   padding: 15px;
-  padding-top: 50px; /* Increased from 30px to move content lower */
+  padding-top: 50px; /* Increased to move content down */
+  padding-left: 0; /* Removed left padding completely */
   box-shadow: none;
   overflow-y: auto;
   top: 80px;
@@ -590,8 +593,6 @@ body {
   background-color: var(--background-white);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Changed from center to flex-start */
-  align-items: center; /* Added to center horizontally */
 }
 
 /* Üstteki "Available Items" alanı */
@@ -602,11 +603,12 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: scroll;
-  padding: 5px;
+  padding: 5px 0;
   -webkit-overflow-scrolling: touch;
   justify-content: flex-start;
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
   margin-top: 30px;
   /* Mobil scrollbar yok */
   scrollbar-width: none;
@@ -614,8 +616,6 @@ body {
   padding-bottom: 15px;
   margin-bottom: 30px;
   gap: 20px;
-  /* Add visual indication of scrollability */
-  position: relative;
   cursor: grab;
 }
 
@@ -1161,18 +1161,18 @@ body {
     overflow-x: auto;
     padding: 5px;
     -webkit-overflow-scrolling: touch;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 20px; /* Aralarında daha fazla boşluk */
-    width: 90%; /* Kenarlardan biraz içeride */
-    margin: 0 auto;
+    gap: 20px;
+    width: 100%;
+    margin: 0;
     /* Mobil scrollbar yok */
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-bottom: 15px;
-    margin-top: 20px; /* Üstten daha fazla boşluk */
+    margin-top: 20px;
     margin-bottom: 30px;
-    padding-left: 0;
+    padding-left: 5px;
     padding-right: 0;
   }
   
@@ -1226,6 +1226,7 @@ body {
     margin: 0;
     padding: 15px;
     padding-top: 50px; /* Increased to move content down */
+    padding-left: 0; /* Removed left padding completely */
     box-shadow: none;
     overflow-y: auto;
     top: 80px;
@@ -1235,7 +1236,6 @@ body {
     background-color: var(--background-white);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Changed from center to flex-start */
   }
   
   /* Kategori seçenekleri için yatay kaydırma */
@@ -1247,8 +1247,9 @@ body {
     padding: 5px 0;
     -webkit-overflow-scrolling: touch;
     justify-content: flex-start;
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
     margin-top: 30px;
     /* Mobil scrollbar yok */
     scrollbar-width: none;
@@ -1618,18 +1619,18 @@ body {
     overflow-x: auto;
     padding: 5px;
     -webkit-overflow-scrolling: touch;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 20px; /* Aralarında daha fazla boşluk */
-    width: 90%; /* Kenarlardan biraz içeride */
-    margin: 0 auto;
+    gap: 20px;
+    width: 100%;
+    margin: 0;
     /* Mobil scrollbar yok */
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-bottom: 15px;
-    margin-top: 20px; /* Üstten daha fazla boşluk */
+    margin-top: 20px;
     margin-bottom: 30px;
-    padding-left: 0;
+    padding-left: 5px;
     padding-right: 0;
   }
   
@@ -1643,6 +1644,7 @@ body {
     margin: 0;
     padding: 15px;
     padding-top: 50px; /* Increased to move content down */
+    padding-left: 0; /* Removed left padding completely */
     box-shadow: none;
     overflow-y: auto;
     top: 80px;
@@ -1652,7 +1654,6 @@ body {
     background-color: var(--background-white);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Changed from center to flex-start */
   }
   
   /* Kategori seçenekleri için yatay kaydırma */
@@ -1663,9 +1664,9 @@ body {
     overflow-x: scroll;
     padding: 5px 0;
     -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
     margin-top: 30px;
     /* Mobil scrollbar yok */
     scrollbar-width: none;
@@ -1774,6 +1775,46 @@ body {
   padding: 10px 15px;
   font-size: 0.95rem;
   color: #444;
+}
+
+/* TV channel cards in vertical layout */
+.tv-channel-vertical {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5eede;
+  border: 2px solid #9b795c;
+  border-radius: var(--border-radius-md);
+  margin: 20px auto;
+  padding: 15px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--shadow-md);
+}
+
+.tv-channel-item {
+  padding: 12px 15px;
+  margin: 5px 0;
+  background-color: #f5eede;
+  border-bottom: 1px solid rgba(75, 121, 92, 0.2);
+  font-size: 0.95rem;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.tv-channel-item:last-child {
+  border-bottom: none;
+}
+
+.tv-channel-item:hover {
+  background-color: #f5eede;
+  transform: translateX(5px);
+}
+
+#tv-channels-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 

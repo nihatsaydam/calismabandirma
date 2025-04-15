@@ -1355,12 +1355,8 @@ input[type="date"] {
   padding-top: var(--spacing-lg);
   background-color: var(--background-white);
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  justify-content: flex-start;
   position: fixed;
-  top: 59%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: var(--shadow-lg);
@@ -1370,6 +1366,7 @@ input[type="date"] {
   scrollbar-width: thin;
   scrollbar-color: #ccc #f1f1f1;
   z-index: 10;
+  max-height: 100vh; /* Maksimum yükseklik */
 }
 
 /* Kaydırma çubuğu tasarımı */

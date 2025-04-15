@@ -582,12 +582,13 @@ body {
   gap: var(--spacing-sm);
   justify-content: flex-start;
   position: fixed;
-  top: 59%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-lg);
   overflow-y: auto; /* Kaydırılabilir içerik */
+  max-height: 100vh;
 }
 
 /* Üstteki "Available Items" alanı */

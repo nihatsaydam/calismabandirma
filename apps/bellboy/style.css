@@ -121,7 +121,7 @@ body {
   text-align: center;
   padding: 15px;
   width: 110px;
-  height: 300px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -383,7 +383,7 @@ body {
 .action-item p {
   margin: 0;
   font-size: 11px;
-  color: var(--background-white);
+  color: var(--white);
   text-align: center;
   font-weight: 500;
 }

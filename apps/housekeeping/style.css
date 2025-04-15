@@ -95,58 +95,66 @@ body {
 /* Seçeneklerin düzeni */
 .menu-options {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-sm);
-  width: 100%;
+  gap: 12px;
+  padding: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  margin: 0 -5px;
+  padding: 5px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.menu-options::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Her bir seçenek */
 .menu-option {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
   background-color: var(--background-light);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-md);
   text-align: center;
-  padding: var(--spacing-md);
+  padding: 15px;
   width: 110px;
-  height: auto;
-  min-height: 150px;
-  max-height: 250px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
-  margin-top: 20px;
+  margin-top: 100px;
+  position: relative;
 }
 
 .menu-option:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 /* Kart içindeki görsel */
 .menu-option img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
   object-fit: contain;
-  margin-bottom: var(--spacing-sm);
 }
 
 .menu-option h3 {
-  font-size: var(--font-size-md);
+  font-size: 14px;
   color: var(--text-color);
-  margin: var(--spacing-xs) 0;
+  margin: 0 0 8px 0;
   font-weight: 600;
 }
 
 .menu-option p {
-  font-size: var(--font-size-sm);
+  font-size: 12px;
   color: var(--text-color);
-  margin: 0 0 var(--spacing-sm) 0;
-  flex-grow: 1;
+  margin: 0 0 10px 0;
 }
 
 .menu-option button {
@@ -155,17 +163,21 @@ body {
   border-radius: var(--border-radius-sm);
   background-color: var(--background-white);
   color: var(--text-color);
-  font-size: var(--font-size-sm);
+  font-size: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: auto;
   box-shadow: var(--shadow-sm);
+  font-weight: 500;
 }
 
 .menu-option button:hover {
   background-color: var(--secondary-color);
   color: var(--background-white);
-  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+.menu-option button:active {
+  transform: scale(0.95);
 }
 
 /* Responsive tasarım için medya sorgusu */
@@ -215,15 +227,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--background-light);
-  border: 1px solid var(--border-color);
+  background: var(--secondary-color);
+  border: 1px solid var(--accent-light);
   border-radius: var(--border-radius-md);
-  padding: var(--spacing-md);
-  gap: var(--spacing-sm);
+  padding: 15px;
+  gap: 10px;
   box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
-  width: 100%;
-  margin-bottom: var(--spacing-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu-item:hover {
@@ -234,47 +244,46 @@ body {
 .menu-item img {
   width: 50px;
   height: 50px;
-  border-radius: var(--border-radius-sm);
+  border-radius: 10px;
   object-fit: cover;
 }
 
 .menu-item .item-details {
   flex-grow: 1;
-  margin-left: var(--spacing-sm);
+  margin-left: 10px;
 }
 
 .menu-item .item-name {
-  font-size: var(--font-size-md);
+  font-size: 1rem;
   font-weight: bold;
   color: var(--text-color);
-  margin-bottom: 4px;
 }
 
 .menu-item .item-description {
-  font-size: var(--font-size-sm);
-  color: #7a6c5e;
+  font-size: 0.85rem;
+  color: var(--accent-color);
 }
 
 .menu-item .item-price {
-  font-size: var(--font-size-md);
+  font-size: 0.9rem;
   font-weight: 600;
-  color: var(--secondary-color);
+  color: var(--accent-color);
 }
 
 .menu-item button {
-  background-color: var(--background-white);
+  background-color: var(--white);
   color: var(--text-color);
   border: none;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: var(--shadow-sm);
+  font-weight: 500;
 }
 
 .menu-item button:hover {
-  background-color: var(--secondary-color);
-  color: var(--background-white);
+  background-color: var(--accent-color);
+  color: var(--white);
 }
 
 /* Responsive kart görünümü */

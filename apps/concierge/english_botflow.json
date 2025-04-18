@@ -1,6 +1,6 @@
 {
     "start": {
-      "question": " Welcome to the Concierge Desk at [Hotel Name]. My name is Keepsty, and I am your dedicated concierge. I am here to ensure that your stay with us is as smooth and enjoyable as possible. Whether you need restaurant reservations, local recommendations, or assistance with transportation, I am always ready to help.With deep knowledge of the city and a passion for personalized service, I hold the keys to unlocking the best experiences [City Name] has to offer. I am at your service, anytime and anywhere, to provide you with the finest the city has to offer.",
+      "question": "Welcome to the Concierge Desk at [Hotel Name]. My name is Keepsty, and I am your dedicated concierge. I am here to ensure that your stay with us is as smooth and enjoyable as possible. Whether you need restaurant reservations, local recommendations, or assistance with transportation, I am always ready to help.With deep knowledge of the city and a passion for personalized service, I hold the keys to unlocking the best experiences [City Name] has to offer. I am at your service, anytime and anywhere, to provide you with the finest the city has to offer.",
       "options": [
         { "text": "Hello Keepsty", "next": "english_service_list" }
       ]

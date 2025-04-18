@@ -1,7 +1,7 @@
 {
 
     "start": {
-      "question": "<b>Keepsty Technic'e hoş geldiniz!</b> Konaklamanız süresince karşılaştığınız tüm teknik, mekanik ve IT ile ilgili sorunların hızlı ve verimli bir şekilde çözülmesini sağlamak için buradayım. Herhangi bir zorlukla karşılaşırsanız, lütfen bana bildirin, ve gerekli ekip hemen bilgilendirilecektir.\n\n<b>Karşılaştığınız sorunu kısaca açıklayabilir misiniz?<b/>",
+      "question": "<b>Keepsty Technic'e Hoş Geldiniz!</b> Konaklamanız süresince karşılaştığınız tüm teknik, mekanik ve IT ile ilgili sorunların hızlı ve verimli bir şekilde çözülmesini sağlamak için buradayım. Herhangi bir zorlukla karşılaşırsanız, lütfen bana bildirin, ve gerekli ekip hemen bilgilendirilecektir.\n\n<b>Karşılaştığınız sorunu kısaca açıklayabilir misiniz?<b/>",
       "options": [
         { "text": "Lütfen karşılaştığınız sorununuzu yazınız.", "input": "text", "next": "start1" }
       ]

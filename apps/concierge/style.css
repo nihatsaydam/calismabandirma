@@ -1,60 +1,111 @@
 /* Genel Ayarlar */
+:root {
+  --primary-color: #99d3d5;
+  --secondary-color: #f5eede;
+  --text-color: #4a4a4a;
+  --text-dark: #333333;
+  --text-light: #7a6c5e;
+  --accent-color: #9b795c;
+  --accent-light: #d8cdbf;
+  --white: #ffffff;
+  --bot-message-bg: #f5eede;
+  --user-message-bg: #d6e9f5;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 20px;
+  --header-height: 150px;
+  --footer-height: 60px;
+  --safe-area-inset: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: -webkit-fill-available;
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat';
-  background-color: #f5eede;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: calc(var(--footer-height) + var(--safe-area-inset));
 }
-/* dil seçim ekranı */
+
+/* Dil seçim ekranı */
 #language-selection {
   display: flex;
-  justify-content: center; /* Ortaya hizalama */
-  align-items: center; /* Dikey ortalama */
-  gap: 20px; /* Bayraklar arasındaki boşluk */
-  flex-wrap: wrap; /* Küçük ekranlarda bayrakların taşmasını önlemek için */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
   padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: max(20px, env(safe-area-inset-top));
 }
 
 #language-selection button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-  color: #333;
-  padding: 10px 15px; /* Daha küçük boyut için padding */
-  font-size: 0.9rem; /* Daha küçük yazı boyutu */
+  background-color: var(--white);
+  color: var(--text-dark);
+  padding: 12px 18px;
+  font-size: 0.9rem;
   font-weight: 600;
-  border: 1px solid #d8cdbf; /* Hafif kahverengi kenarlık */
-  border-radius: 12px;
+  border: 1px solid var(--accent-light);
+  border-radius: var(--border-radius-md);
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  gap: 10px; /* Bayrak ve metin arası boşluk */
+  box-shadow: var(--shadow-sm);
+  gap: 10px;
+  width: 150px;
 }
 
 #language-selection button:hover {
-  background-color: #f0e8d8; /* Krem hover efekti */
-  color: #7a6c5e;
+  background-color: #f0e8d8;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+#language-selection button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 #language-selection button img.flag {
-  width: 30px; /* Bayrak boyutunu küçültme */
+  width: 30px;
   height: 20px;
   object-fit: cover;
   border-radius: 3px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .message.typing-message {
   display: flex;
   align-items: center;
   gap: 5px;
   font-style: italic;
-  color: #7a6c5e;
+  color: var(--text-light);
 }
 
 .dots {
@@ -65,7 +116,7 @@ body {
 .dot {
   width: 8px;
   height: 8px;
-  background-color: #7a6c5e;
+  background-color: var(--text-light);
   border-radius: 50%;
   animation: typingDots 1.5s infinite ease-in-out;
 }
@@ -98,40 +149,38 @@ body {
 #chatbot {
   width: 100%;
   max-width: 600px;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   position: fixed;
+  top: 0;
+  bottom: var(--footer-height);
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
 }
-
-
 
 
 /* Sohbet Kutusu */
 #chat-box {
   width: 100%; /* Tam genişlik */
-  height: calc(100vh - 130px); /* Chat ekranı yüksekliği */
+  height: calc(100vh - 130px - var(--safe-area-inset)); /* Chat ekranı yüksekliği */
   padding: 10px; /* Genel iç kenarlıklar */
   padding-bottom: 70px; /* Mesajların altını yukarı çekmek için ek boşluk */
   overflow-y: auto; /* Kaydırma çubuğu ekle */
-  background-color: #fff; /* Beyaz arka plan */
+  background-color: var(--white);
   box-sizing: border-box; /* Kenarlık ve padding dahil */
   display: flex;
   flex-direction: column; /* Mesajları dikey hizala */
-  gap: 10px; /* Mesajlar arası boşluk */
+  gap: 15px; /* Mesajlar arası boşluk */
   justify-content: flex-start; /* Mesajları yukarıda tut */
-  padding-top: 140px;
-}
-@media (max-width: 768px) {
-  #chat-box {
-    height: calc(100dvh - 130px); /* dvh, mobil tarayıcılarda daha doğru çalışır */
-    padding-bottom: 60px; /* Alt boşluğu daha iyi optimize et */
-    padding-top: 140px; /* Üst boşluğu küçült */
-  }
+  padding-top: calc(var(--header-height) - 10px);
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 
@@ -174,7 +223,7 @@ body {
 
   #chat-box .user-message {
     align-self: flex-end;
-    background-color: #d6e9f5;
+    background-color: var(--user-message-bg);
   }
 
 /* Yazıyor Göstergesi */
@@ -237,7 +286,7 @@ body {
 }
 
 .circle img {
-  width: 95px; /* Görsel genişliği artırıldı */
+  width: 90px; /* Görsel genişliği artırıldı */
   height: auto; /* Oran koruma */
   object-fit: contain;
 }
@@ -300,7 +349,8 @@ body {
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1); /* Daha ince gölge efekti */
   z-index: 10; /* Footer'ın altında */
   box-sizing: border-box;
-  height: 60px; /* Sabit bir yükseklik (Twitter benzeri) */
+  height: var(--footer-height);
+  padding-bottom: calc(5px + var(--safe-area-inset));
 }
 
 /* Görsel Kutuları (Renk Korundu) */
@@ -330,109 +380,115 @@ body {
   font-size: 12px; /* Daha küçük yazı */
   color: #fff; /* Mevcut beyaz yazı rengi korundu */
   text-align: center;
+  font-weight: 500;
 }
 
-/* Kullanıcı ve bot mesajlarını hizalama */
+/* Kullanıcı ve bot mesajları */
 .message.bot {
-  align-self: flex-start; /* Sol tarafa hizala */
-  text-align: left; /* Metin sol hizalı */
-  margin-right: auto; /* Sol tarafa yasla */
+  align-self: flex-start;
+  text-align: left;
+  margin-right: auto;
+  position: relative;
+  max-width: 80%;
+  margin: 20px 0;
+  padding: 12px 18px;
+  background-color: var(--bot-message-bg);
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border-radius: 0 26px 26px 26px;
+  word-break: break-word;
+  white-space: pre-wrap;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 .message.user {
-  align-self: flex-end; /* Sağ tarafa hizala */
-  text-align: right; /* Metin sağ hizalı */
-  margin-left: auto; /* Sağ tarafa yasla */
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
 }
-.message.bot {
-  position: relative; /* Uç eklemek için gerekli */
-  max-width: 80%; /* Mesaj genişliği */
-  margin: 10px 0; /* Mesajlar arası boşluk */
-  padding: 12px 18px; /* İçerik kenarlıkları */
-  background-color: #f5eede; /* Arka plan rengi */
-  color: #333; /* Yazı rengi */
-  font-size: 0.9rem; /* Yazı boyutu */
-  line-height: 1.4; /* Satır yüksekliği */
-  border-radius: 0 26px 26px 26px; /* Sol üst düz, diğer köşeler oval */
-  word-break: break-word; /* Kelimeleri böl */
-  white-space: pre-wrap; /* Boşlukları koru */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-}
-
-
 
 .message.user p {
-  background-color: #f5eede; 
-  color: #000000; 
-  border-radius: 26px 26px 0px 26px; 
+  background-color: var(--bot-message-bg);
+  color: var(--text-dark);
+  border-radius: 26px 26px 0px 26px;
   padding: 12px 18px;
   font-size: 0.9rem;
   line-height: 1.4;
   word-break: break-word;
   white-space: pre-wrap;
-
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 
-/* Mobil Uyumluluk */
-@media (max-width: 768px) {
-  
-
-  #footer-container {
-    flex-wrap: wrap; /* Küçük ekranlarda daha iyi görünüm için */
-    justify-content: center; /* Elemanları ortala */
-  }
-}
+/* Footer container */
 #footer-container {
-  position: fixed; /* Sabit pozisyon */
-  bottom: 0px; /* Action Container'ın hemen üstüne yerleştir */
-  left: 0; /* Sol hizalı */
-  width: 100%; /* Tam genişlik */
-  background-color: #99d3d5; /* Beyaz arka plan */
-  padding: 10px 20px; /* İçerik boşlukları */
-  display: flex; /* Esnek düzen */
-  gap: 10px; /* Elemanlar arası boşluk */
-  align-items: center; /* Dikey ortala */
-  z-index: 20; /* Diğer elemanların üstünde */
+  position: fixed;
+  bottom: var(--safe-area-inset);
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 10px 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 20;
   box-sizing: border-box;
-  border-top: 1px solid rgba(0, 0, 0, 0.2); /* Hafif üst kenar çerçevesi */
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  height: var(--footer-height);
+  padding-bottom: calc(10px + var(--safe-area-inset));
 }
 
 /* Mesaj Giriş Alanı */
 #message-input-container {
-  display: fixed; /* Esnek düzen */
-  align-items: center; /* Dikey ortala */
-  gap: 10px; /* Elemanlar arası boşluk */
-  flex: 1; /* Kapsayıcı alanı doldur */
-  border-radius: 226px 26px 0px 26px; /* Sol üst köşe yuvarlak değil */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  border-radius: 26px;
+  width: 100%;
 }
 
 #message-input {
-  flex: 1; /* Geniş alan kapla */
+  flex: 1;
   width: 80%;
-  height: 50px; /* Daha uzun bir giriş alanı */
-  border: 1px solid rgba(0, 0, 0, 0.2); /* Hafif kenarlık */
-  border-radius: 5px; /* Köşeleri yuvarlat */
-  padding: 10px; /* İçerik boşlukları */
-  font-size: 16px; /* Daha büyük yazı */
-  box-sizing: border-box; /* Padding ve border dahil */
-  border-radius: 8px 8px 8px 8px; /* Sol üst köşe yuvarlak değil */
+  height: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-sm);
+  padding: 10px 15px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm) inset;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
 /* Gönder Butonu */
 #send-button {
-  background-color: #607d8b; /* Buton arka plan rengi */
-  color: #fff; /* Beyaz yazı */
-  border: none; /* Kenarlık yok */
-  border-radius: 8px 8px 8px 8px; /* Sol üst köşe yuvarlak değil */
-  padding: 15px 20px; /* Daha büyük buton */
-  font-size: 14px; /* Daha büyük yazı */
-  cursor: pointer; /* Tıklanabilir işaretçi */
-  position: fixed;
+  background-color: #607d8b;
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 12px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  font-weight: 500;
 }
 
 #send-button:hover {
-  background-color: #4a4a4a; /* Hover sırasında daha koyu renk */
+  background-color: #4a4a4a;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+#send-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 
@@ -473,11 +529,12 @@ body {
   padding: 10px;
   flex-grow: 1;
   max-width: 90%; /* Butonların fazla genişlemesini önler */
+  
 }
 
 /* Scrollbar özelleştirme */
 #chat-options::-webkit-scrollbar {
-  height: 6px;
+  height: 8px;
 }
 
 #chat-options::-webkit-scrollbar-track {
@@ -507,17 +564,7 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease;
   flex: 0 0 auto; /* Scroll içinde kaydırılabilir hale getirir */
   margin-top: -10px; /* Mobilde düzeltilmiş margin */
-}
-
-/* Mobil Düzenleme */
-@media (max-width: 768px) {
-
-
-  #chat-options button {
-    font-size: 13px; /* Küçük ekranlar için daha iyi görünüm */
-    padding: 8px 12px;
-    margin-top: -10px; /* Margin hatası düzeltildi */
-  }
+  margin-left: 40px;
 }
 
 #chat-options button:hover {
@@ -540,9 +587,6 @@ body {
   font-size: 18px;
   border-radius: 50%;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
 }
 
 .scroll-btn:hover {
@@ -555,4 +599,141 @@ body {
 
 #scroll-right {
   right: 5px;
+}
+
+/* Responsive Ayarlamalar */
+@media (max-width: 768px) {
+  #chatbot {
+    margin-top: 0;
+    border-radius: 0;
+  }
+  
+  #footer-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .header-container {
+    height: 140px;
+  }
+  
+  .circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .circle img {
+    width: 80px;
+  }
+  
+  .title, .subtitle {
+    font-size: 20px;
+  }
+  
+  .tagline {
+    font-size: 16px;
+  }
+}
+
+/* Daha küçük mobil cihazlar için */
+@media (max-width: 480px) {
+  #chat-box {
+    padding-top: 120px;
+  }
+  
+  .header-container {
+    height: 120px;
+  }
+  
+  .circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .circle img {
+    width: 70px;
+  }
+  
+  .title, .subtitle {
+    font-size: 18px;
+  }
+  
+  .tagline {
+    font-size: 14px;
+  }
+  
+  #language-selection button {
+    width: 130px;
+    padding: 10px 15px;
+  }
+  
+  .action-item img {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .action-item p {
+    font-size: 11px;
+  }
+}
+
+/* iPhone SE gibi küçük ekranlar için */
+@media (max-width: 375px) {
+  .header-container {
+    height: 110px;
+  }
+  
+  .circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .circle img {
+    width: 60px;
+  }
+  
+  .title, .subtitle {
+    font-size: 16px;
+  }
+  
+  .tagline {
+    font-size: 12px;
+  }
+  
+  #message-input {
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  #send-button {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+}
+
+/* iPhone X ve üstü için güvenli alan ayarları */
+@supports (padding: max(0px)) {
+  #footer-container, #action-container {
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+  
+  .header-container {
+    padding-top: max(10px, env(safe-area-inset-top));
+  }
+  
+  body {
+    padding-bottom: calc(var(--footer-height) + env(safe-area-inset-bottom));
+  }
+  
+  #chat-box {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Animasyonları devre dışı bırakma tercihi için */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01s !important;
+    transition-duration: 0.01s !important;
+  }
 }

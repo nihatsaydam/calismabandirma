@@ -1,6 +1,6 @@
 {
   "start": {
-    "question": " Hotel 54 Concierge Masasına Hoş Geldiniz.\nBen Keepsty, sizin özel concierge danışmanınızım. Konaklamanızın olabildiğince sorunsuz ve keyifli geçmesini sağlamak için buradayım. Restoran rezervasyonları, şehirle ilgili öneriler veya ulaşım konusunda yardıma ihtiyacınız olursa her zaman yanınızdayım.\nŞehri derinlemesine bilen biri olarak ve kişiye özel hizmet anlayışıyla, Sakarya'nın sunduğu en iyi deneyimlere ulaşmanızı sağlıyorum. Günün her saati, her yerde size şehrin en özel imkanlarını sunmak için buradayım.",
+    "question": "Hotel 54 Concierge Masasına Hoş Geldiniz.\nBen Keepsty, sizin özel concierge danışmanınızım. Konaklamanızın olabildiğince sorunsuz ve keyifli geçmesini sağlamak için buradayım. Restoran rezervasyonları, şehirle ilgili öneriler veya ulaşım konusunda yardıma ihtiyacınız olursa her zaman yanınızdayım.\nŞehri derinlemesine bilen biri olarak ve kişiye özel hizmet anlayışıyla, Sakarya'nın sunduğu en iyi deneyimlere ulaşmanızı sağlıyorum. Günün her saati, her yerde size şehrin en özel imkanlarını sunmak için buradayım.",
     "options": [
       { "text": "Merhaba Keepsty", "next": "english_service_list" }
     ]

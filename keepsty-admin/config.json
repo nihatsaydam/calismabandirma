@@ -1,0 +1,11 @@
+{
+  "hotelId": "demo-hotel",
+  "hotelName": "Demo Hotel",
+  "adminUsername": "admin",
+  "adminPassword": "admin",
+  "apiUrl": "https://api.keepsty.com",
+  "theme": {
+    "primaryColor": "#9b795c",
+    "secondaryColor": "#343a40"
+  }
+} 

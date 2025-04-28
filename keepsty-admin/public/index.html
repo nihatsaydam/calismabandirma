@@ -3,45 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keepsty Room Service Admin Panel</title>
+  <title>Keepsty Admin Panel</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <div class="logo">
-      <h1>Keepsty RoomService Admin</h1>
+      <h1>Keepsty Admin Panel</h1>
     </div>
-    <div class="hotel-selector">
-      <select id="hotel-select">
-        <!-- Otel listesi JavaScript ile doldurulacak -->
-        <option value="" disabled selected>Otel Seçin</option>
-      </select>
-      <button id="add-hotel-btn">Yeni Otel Ekle</button>
+    <div class="hotel-info">
+      <span id="hotel-name">Loading...</span>
     </div>
   </header>
-  
-  <!-- Yeni Otel Ekleme Modalı -->
-  <div id="hotel-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Yeni Otel Ekle</h2>
-      <form id="hotel-form">
-        <div class="form-group">
-          <label for="hotel-id">Otel ID (benzersiz kod):</label>
-          <input type="text" id="hotel-id" required placeholder="ornek-otel">
-        </div>
-        <div class="form-group">
-          <label for="hotel-name">Otel Adı:</label>
-          <input type="text" id="hotel-name" required placeholder="Örnek Otel">
-        </div>
-        <div class="form-group">
-          <label for="hotel-active">Aktif:</label>
-          <input type="checkbox" id="hotel-active" checked>
-        </div>
-        <button type="submit">Kaydet</button>
-      </form>
-    </div>
-  </div>
   
   <div class="container">
     <div class="sidebar">
@@ -66,7 +39,7 @@
     <div class="content">
       <div id="initial-message" class="initial-message">
         <h2>Hoş Geldiniz!</h2>
-        <p>Başlamak için lütfen bir otel ve dil seçin.</p>
+        <p>Başlamak için lütfen bir dil seçin.</p>
       </div>
       
       <div id="menu-editor" class="hidden">
@@ -107,6 +80,24 @@
     </div>
   </div>
   
+  <footer>
+    <p>Keepsty Admin Panel &copy; 2023</p>
+    <p id="hotel-config">Hotel ID: <span id="hotel-id"></span></p>
+  </footer>
+
+  <script>
+    // Otel konfigürasyonunu yükle
+    fetch('/api/hotel')
+      .then(response => response.json())
+      .then(hotel => {
+        document.getElementById('hotel-name').textContent = hotel.name;
+        document.getElementById('hotel-id').textContent = hotel.id;
+        document.title = `${hotel.name} - Keepsty Admin`;
+      })
+      .catch(error => {
+        console.error('Otel bilgileri yüklenemedi:', error);
+      });
+  </script>
   <script src="admin.js"></script>
 </body>
 </html> 

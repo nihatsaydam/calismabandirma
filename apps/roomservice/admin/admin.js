@@ -26,12 +26,45 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize product form
   initProductForm();
+  
+  // Otel listesini yükle
+  loadHotels();
+  
+  // Olay dinleyicilerini ayarla
+  setupEventListeners();
 });
 
 // Global variables to store menu data
 let currentMenuData = {};
 let selectedCategory = null;
 let selectedProduct = null;
+
+// Global değişkenler
+let currentLanguage = 'tr';
+let currentHotelId = '';
+let menuData = null;
+let translations = null;
+let selectedCategoryIndex = -1;
+
+// DOM elementleri
+const hotelSelect = document.getElementById('hotel-select');
+const addHotelBtn = document.getElementById('add-hotel-btn');
+const hotelModal = document.getElementById('hotel-modal');
+const hotelForm = document.getElementById('hotel-form');
+const closeModal = document.querySelector('.close');
+const langButtons = document.querySelectorAll('.lang-btn');
+const categoryList = document.getElementById('category-list');
+const addCategoryBtn = document.getElementById('add-category-btn');
+const initialMessage = document.getElementById('initial-message');
+const menuEditor = document.getElementById('menu-editor');
+const categoryName = document.getElementById('category-name');
+const categoryNameInput = document.getElementById('category-name-input');
+const categoryKeyInput = document.getElementById('category-key-input');
+const categoryImageInput = document.getElementById('category-image-input');
+const saveCategoryBtn = document.getElementById('save-category-btn');
+const deleteCategoryBtn = document.getElementById('delete-category-btn');
+const itemsList = document.getElementById('items-list');
+const addItemBtn = document.getElementById('add-item-btn');
 
 // Initialize Menu Management
 function initMenuManagement() {
@@ -443,4 +476,325 @@ function saveTranslations(data) {
     console.error('Error saving translations:', error);
     alert(`Çeviriler kaydedilirken bir hata oluştu: ${error.message}`);
   });
+}
+
+// Otelleri API'den yükle
+async function loadHotels() {
+  try {
+    const response = await fetch('/api/hotels');
+    const data = await response.json();
+    
+    // Select'i doldur
+    hotelSelect.innerHTML = '<option value="" disabled selected>Otel Seçin</option>';
+    data.hotels.forEach(hotel => {
+      const option = document.createElement('option');
+      option.value = hotel.id;
+      option.textContent = hotel.name;
+      option.disabled = !hotel.active;
+      hotelSelect.appendChild(option);
+    });
+  } catch (error) {
+    console.error('Oteller yüklenirken hata oluştu:', error);
+    alert('Otel listesi yüklenemedi. Lütfen daha sonra tekrar deneyin.');
+  }
+}
+
+// Olay dinleyicilerini ayarla
+function setupEventListeners() {
+  // Otel değiştiğinde
+  hotelSelect.addEventListener('change', () => {
+    currentHotelId = hotelSelect.value;
+    selectedCategoryIndex = -1;
+    if (currentHotelId) {
+      loadMenuData();
+      initialMessage.classList.add('hidden');
+      menuEditor.classList.remove('hidden');
+    }
+  });
+  
+  // Yeni otel ekleme modalını göster
+  addHotelBtn.addEventListener('click', () => {
+    hotelModal.style.display = 'block';
+  });
+  
+  // Modalı kapat
+  closeModal.addEventListener('click', () => {
+    hotelModal.style.display = 'none';
+  });
+  
+  // Modal dışına tıklandığında kapat
+  window.addEventListener('click', (event) => {
+    if (event.target === hotelModal) {
+      hotelModal.style.display = 'none';
+    }
+  });
+  
+  // Otel formu gönderildiğinde
+  hotelForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const hotelId = document.getElementById('hotel-id').value;
+    const hotelName = document.getElementById('hotel-name').value;
+    const hotelActive = document.getElementById('hotel-active').checked;
+    
+    try {
+      const response = await fetch('/api/hotels', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: hotelId,
+          name: hotelName,
+          active: hotelActive
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        alert('Otel başarıyla eklendi!');
+        hotelModal.style.display = 'none';
+        hotelForm.reset();
+        loadHotels();
+      } else {
+        alert(`Hata: ${data.error || 'Bilinmeyen bir hata oluştu.'}`);
+      }
+    } catch (error) {
+      console.error('Otel eklenirken hata oluştu:', error);
+      alert('Otel eklenemedi. Lütfen daha sonra tekrar deneyin.');
+    }
+  });
+  
+  // Dil değiştiğinde
+  langButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      currentLanguage = button.getAttribute('data-lang');
+      
+      if (currentHotelId) {
+        loadMenuData();
+      }
+    });
+  });
+  
+  // Kategori ekle butonu
+  addCategoryBtn.addEventListener('click', () => {
+    if (!menuData) return;
+    
+    menuData.menu.push({
+      key: `new-category-${Date.now()}`,
+      name: 'Yeni Kategori',
+      items: []
+    });
+    
+    renderCategories();
+    selectedCategoryIndex = menuData.menu.length - 1;
+    renderCategoryDetails();
+    saveMenuData();
+  });
+  
+  // Kategori kaydet butonu
+  saveCategoryBtn.addEventListener('click', () => {
+    if (selectedCategoryIndex === -1 || !menuData) return;
+    
+    const category = menuData.menu[selectedCategoryIndex];
+    category.name = categoryNameInput.value;
+    category.key = categoryKeyInput.value;
+    
+    // Image değeri varsa ekle, yoksa undefined olarak bırak
+    if (categoryImageInput.value) {
+      category.image = categoryImageInput.value;
+    }
+    
+    renderCategories();
+    saveMenuData();
+  });
+  
+  // Kategori sil butonu
+  deleteCategoryBtn.addEventListener('click', () => {
+    if (selectedCategoryIndex === -1 || !menuData) return;
+    
+    if (confirm('Bu kategoriyi silmek istediğinizden emin misiniz?')) {
+      menuData.menu.splice(selectedCategoryIndex, 1);
+      selectedCategoryIndex = -1;
+      renderCategories();
+      menuEditor.classList.add('hidden');
+      initialMessage.classList.remove('hidden');
+      saveMenuData();
+    }
+  });
+  
+  // Ürün ekle butonu
+  addItemBtn.addEventListener('click', () => {
+    if (selectedCategoryIndex === -1 || !menuData) return;
+    
+    const newItem = {
+      name: 'Yeni Ürün',
+      price: '0 TL'
+    };
+    
+    menuData.menu[selectedCategoryIndex].items.push(newItem);
+    renderItems();
+    saveMenuData();
+  });
+}
+
+// Seçilen otelin menü verilerini yükle
+async function loadMenuData() {
+  if (!currentHotelId || !currentLanguage) return;
+  
+  try {
+    const response = await fetch(`/api/hotels/${currentHotelId}/menu/${currentLanguage}`);
+    menuData = await response.json();
+    
+    renderCategories();
+  } catch (error) {
+    console.error('Menü verileri yüklenirken hata oluştu:', error);
+    alert('Menü verileri yüklenemedi. Lütfen daha sonra tekrar deneyin.');
+  }
+}
+
+// Kategorileri render et
+function renderCategories() {
+  if (!menuData || !menuData.menu) return;
+  
+  categoryList.innerHTML = '';
+  
+  menuData.menu.forEach((category, index) => {
+    const li = document.createElement('li');
+    li.textContent = category.name;
+    
+    if (index === selectedCategoryIndex) {
+      li.classList.add('active');
+    }
+    
+    li.addEventListener('click', () => {
+      selectedCategoryIndex = index;
+      renderCategoryDetails();
+      
+      // Seçili kategoriyi vurgula
+      document.querySelectorAll('#category-list li').forEach(item => {
+        item.classList.remove('active');
+      });
+      li.classList.add('active');
+      
+      // Kategori düzenleme bölümünü göster
+      initialMessage.classList.add('hidden');
+      menuEditor.classList.remove('hidden');
+    });
+    
+    categoryList.appendChild(li);
+  });
+}
+
+// Seçili kategori detaylarını render et
+function renderCategoryDetails() {
+  if (selectedCategoryIndex === -1 || !menuData) return;
+  
+  const category = menuData.menu[selectedCategoryIndex];
+  
+  categoryName.textContent = category.name;
+  categoryNameInput.value = category.name;
+  categoryKeyInput.value = category.key;
+  categoryImageInput.value = category.image || '';
+  
+  renderItems();
+}
+
+// Ürünleri render et
+function renderItems() {
+  if (selectedCategoryIndex === -1 || !menuData) return;
+  
+  const items = menuData.menu[selectedCategoryIndex].items;
+  itemsList.innerHTML = '';
+  
+  items.forEach((item, index) => {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'item';
+    
+    const itemContent = `
+      <div class="item-header">
+        <h4>${item.name}</h4>
+        <span class="price">${item.price}</span>
+      </div>
+      <div class="item-actions">
+        <button class="edit-item" data-index="${index}">Düzenle</button>
+        <button class="delete-item" data-index="${index}">Sil</button>
+      </div>
+    `;
+    
+    itemDiv.innerHTML = itemContent;
+    
+    // Ürün düzenleme butonu
+    itemDiv.querySelector('.edit-item').addEventListener('click', () => {
+      editItem(index);
+    });
+    
+    // Ürün silme butonu
+    itemDiv.querySelector('.delete-item').addEventListener('click', () => {
+      deleteItem(index);
+    });
+    
+    itemsList.appendChild(itemDiv);
+  });
+}
+
+// Ürün düzenleme
+function editItem(itemIndex) {
+  if (selectedCategoryIndex === -1 || !menuData) return;
+  
+  const item = menuData.menu[selectedCategoryIndex].items[itemIndex];
+  
+  const namePrompt = prompt('Ürün Adı:', item.name);
+  if (namePrompt === null) return;
+  
+  const pricePrompt = prompt('Fiyat:', item.price);
+  if (pricePrompt === null) return;
+  
+  item.name = namePrompt;
+  item.price = pricePrompt;
+  
+  renderItems();
+  saveMenuData();
+}
+
+// Ürün silme
+function deleteItem(itemIndex) {
+  if (selectedCategoryIndex === -1 || !menuData) return;
+  
+  if (confirm('Bu ürünü silmek istediğinizden emin misiniz?')) {
+    menuData.menu[selectedCategoryIndex].items.splice(itemIndex, 1);
+    renderItems();
+    saveMenuData();
+  }
+}
+
+// Menü verilerini API'ye kaydet
+async function saveMenuData() {
+  if (!currentHotelId || !currentLanguage || !menuData) return;
+  
+  try {
+    const response = await fetch(`/api/hotels/${currentHotelId}/menu/${currentLanguage}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(menuData)
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
+      console.log('Menü başarıyla kaydedildi!');
+    } else {
+      console.error('Menü kaydedilirken hata oluştu:', data.error);
+      alert(`Menü kaydedilemedi: ${data.error || 'Bilinmeyen bir hata oluştu.'}`);
+    }
+  } catch (error) {
+    console.error('Menü kaydedilirken hata oluştu:', error);
+    alert('Menü kaydedilemedi. Lütfen daha sonra tekrar deneyin.');
+  }
 } 

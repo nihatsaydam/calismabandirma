@@ -2,19 +2,47 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Konfigürasyon dosyasını yükle
+let hotelConfig = { hotelId: 'demo-hotel' };
+try {
+  if (fs.existsSync(path.join(__dirname, 'config.json'))) {
+    const configData = fs.readFileSync(path.join(__dirname, 'config.json'), 'utf8');
+    hotelConfig = JSON.parse(configData);
+    console.log('Otel yapılandırması yüklendi:', hotelConfig);
+  } else {
+    console.log('config.json bulunamadı, varsayılan demo-hotel kullanılıyor');
+    
+    // Varsayılan config.json dosyasını oluştur
+    const defaultConfig = { 
+      hotelId: 'demo-hotel',
+      hotelName: 'Demo Hotel',
+      adminUsername: 'admin',
+      adminPassword: 'admin'
+    };
+    fs.writeFileSync(path.join(__dirname, 'config.json'), JSON.stringify(defaultConfig, null, 2), 'utf8');
+    console.log('Varsayılan config.json dosyası oluşturuldu');
+  }
+} catch (error) {
+  console.error('Konfigürasyon yüklenirken hata oluştu:', error);
+}
 
 // Çalışma dizinini göster
 console.log('Çalışma dizini:', process.cwd());
 console.log('__dirname:', __dirname);
 
+// CORS ayarları
+app.use(cors());
+
 // Gerekli dizinlerin ve dosyaların varlığını kontrol et ve oluştur
 function ensureDirectoriesAndFiles() {
-  const dataDir = path.join(__dirname, '..', 'data');
+  const dataDir = path.join(__dirname, 'data');
   const hotelsDir = path.join(dataDir, 'hotels');
   const hotelsFile = path.join(dataDir, 'hotels.json');
-  const translationsFile = path.join(__dirname, '..', 'translations.json');
+  const translationsFile = path.join(__dirname, 'translations.json');
   
   // data dizini yoksa oluştur
   if (!fs.existsSync(dataDir)) {
@@ -34,8 +62,8 @@ function ensureDirectoriesAndFiles() {
     const defaultHotels = {
       hotels: [
         {
-          id: "demo-hotel",
-          name: "Demo Hotel",
+          id: hotelConfig.hotelId || "demo-hotel",
+          name: hotelConfig.hotelName || "Demo Hotel",
           active: true
         }
       ]
@@ -45,7 +73,7 @@ function ensureDirectoriesAndFiles() {
   
   // Varsayılan otel için menü dosyaları oluştur
   const languages = ['tr', 'en', 'fr', 'ar'];
-  const defaultHotelId = "demo-hotel";
+  const defaultHotelId = hotelConfig.hotelId || "demo-hotel";
   const hotelDir = path.join(hotelsDir, defaultHotelId);
   
   if (!fs.existsSync(hotelDir)) {
@@ -72,18 +100,6 @@ function ensureDirectoriesAndFiles() {
         ]
       };
       fs.writeFileSync(menuFile, JSON.stringify(defaultMenu, null, 2), 'utf8');
-    }
-  });
-  
-  // Mevcut menüleri taşı (ilk çalıştırmada)
-  languages.forEach(lang => {
-    const oldMenuFile = path.join(dataDir, `menu_${lang}.json`);
-    const newMenuFile = path.join(hotelDir, `menu_${lang}.json`);
-    
-    if (fs.existsSync(oldMenuFile) && !fs.existsSync(newMenuFile)) {
-      console.log(`Mevcut menu_${lang}.json dosyası ${defaultHotelId} klasörüne taşınıyor...`);
-      const menuData = fs.readFileSync(oldMenuFile, 'utf8');
-      fs.writeFileSync(newMenuFile, menuData, 'utf8');
     }
   });
   
@@ -154,8 +170,7 @@ function ensureDirectoriesAndFiles() {
 ensureDirectoriesAndFiles();
 
 // Statik dosyaları sunma (CSS, JS, vb.)
-app.use(express.static(path.join(__dirname, '..')));
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // JSON verileri parse etme
 app.use(bodyParser.json());
@@ -168,9 +183,17 @@ app.use((req, res, next) => {
 
 // API endpoint'lerini tanımlama
 
+// Otel bilgisini getir
+app.get('/api/hotel', (req, res) => {
+  res.json({ 
+    id: hotelConfig.hotelId || "demo-hotel", 
+    name: hotelConfig.hotelName || "Demo Hotel" 
+  });
+});
+
 // Otel listesini getir
 app.get('/api/hotels', (req, res) => {
-  const filePath = path.join(__dirname, '..', 'data', 'hotels.json');
+  const filePath = path.join(__dirname, 'data', 'hotels.json');
   
   try {
     if (fs.existsSync(filePath)) {
@@ -187,7 +210,7 @@ app.get('/api/hotels', (req, res) => {
 
 // Yeni otel ekle
 app.post('/api/hotels', (req, res) => {
-  const filePath = path.join(__dirname, '..', 'data', 'hotels.json');
+  const filePath = path.join(__dirname, 'data', 'hotels.json');
   const newHotel = req.body;
   
   if (!newHotel.id || !newHotel.name) {
@@ -220,7 +243,7 @@ app.post('/api/hotels', (req, res) => {
     fs.writeFileSync(filePath, JSON.stringify(hotels, null, 2), 'utf8');
     
     // Otel için dizin oluştur
-    const hotelDir = path.join(__dirname, '..', 'data', 'hotels', newHotel.id);
+    const hotelDir = path.join(__dirname, 'data', 'hotels', newHotel.id);
     if (!fs.existsSync(hotelDir)) {
       fs.mkdirSync(hotelDir, { recursive: true });
     }
@@ -260,7 +283,7 @@ app.post('/api/hotels', (req, res) => {
 app.put('/api/hotels/:hotelId', (req, res) => {
   const hotelId = req.params.hotelId;
   const updatedHotel = req.body;
-  const filePath = path.join(__dirname, '..', 'data', 'hotels.json');
+  const filePath = path.join(__dirname, 'data', 'hotels.json');
   
   try {
     if (fs.existsSync(filePath)) {
@@ -296,7 +319,7 @@ app.put('/api/hotels/:hotelId', (req, res) => {
 // Otel sil
 app.delete('/api/hotels/:hotelId', (req, res) => {
   const hotelId = req.params.hotelId;
-  const filePath = path.join(__dirname, '..', 'data', 'hotels.json');
+  const filePath = path.join(__dirname, 'data', 'hotels.json');
   
   try {
     if (fs.existsSync(filePath)) {
@@ -329,7 +352,7 @@ app.delete('/api/hotels/:hotelId', (req, res) => {
 app.get('/api/hotels/:hotelId/menu/:lang', (req, res) => {
   const hotelId = req.params.hotelId;
   const lang = req.params.lang;
-  const filePath = path.join(__dirname, '..', 'data', 'hotels', hotelId, `menu_${lang}.json`);
+  const filePath = path.join(__dirname, 'data', 'hotels', hotelId, `menu_${lang}.json`);
   
   console.log('Menü dosyası yolu:', filePath);
   
@@ -358,7 +381,7 @@ app.get('/api/hotels/:hotelId/menu/:lang', (req, res) => {
       };
       
       // Otel dizini kontrol et ve yoksa oluştur
-      const hotelDir = path.join(__dirname, '..', 'data', 'hotels', hotelId);
+      const hotelDir = path.join(__dirname, 'data', 'hotels', hotelId);
       if (!fs.existsSync(hotelDir)) {
         fs.mkdirSync(hotelDir, { recursive: true });
       }
@@ -379,14 +402,14 @@ app.get('/api/hotels/:hotelId/menu/:lang', (req, res) => {
 app.post('/api/hotels/:hotelId/menu/:lang', (req, res) => {
   const hotelId = req.params.hotelId;
   const lang = req.params.lang;
-  const filePath = path.join(__dirname, '..', 'data', 'hotels', hotelId, `menu_${lang}.json`);
+  const filePath = path.join(__dirname, 'data', 'hotels', hotelId, `menu_${lang}.json`);
   const data = req.body;
   
   console.log('Menü güncelleme dosya yolu:', filePath);
   
   try {
     // Otel dizini kontrol et ve yoksa oluştur
-    const hotelDir = path.join(__dirname, '..', 'data', 'hotels', hotelId);
+    const hotelDir = path.join(__dirname, 'data', 'hotels', hotelId);
     if (!fs.existsSync(hotelDir)) {
       fs.mkdirSync(hotelDir, { recursive: true });
     }
@@ -403,11 +426,11 @@ app.post('/api/hotels/:hotelId/menu/:lang', (req, res) => {
   }
 });
 
-// Geriye dönük uyumluluk için eski API endpoint'leri
+// Kolay erişim için konfigürasyon dosyasındaki otel ID'sine yönlendirme
 app.get('/api/menu/:lang', (req, res) => {
   const lang = req.params.lang;
-  // Varsayılan otel (demo-hotel) için menüyü getir
-  const filePath = path.join(__dirname, '..', 'data', 'hotels', 'demo-hotel', `menu_${lang}.json`);
+  const hotelId = hotelConfig.hotelId || 'demo-hotel';
+  const filePath = path.join(__dirname, 'data', 'hotels', hotelId, `menu_${lang}.json`);
   
   try {
     if (fs.existsSync(filePath)) {
@@ -424,12 +447,12 @@ app.get('/api/menu/:lang', (req, res) => {
 
 app.post('/api/menu/:lang', (req, res) => {
   const lang = req.params.lang;
-  // Varsayılan otel (demo-hotel) için menüyü güncelle
-  const filePath = path.join(__dirname, '..', 'data', 'hotels', 'demo-hotel', `menu_${lang}.json`);
+  const hotelId = hotelConfig.hotelId || 'demo-hotel';
+  const filePath = path.join(__dirname, 'data', 'hotels', hotelId, `menu_${lang}.json`);
   const data = req.body;
   
   try {
-    const hotelDir = path.join(__dirname, '..', 'data', 'hotels', 'demo-hotel');
+    const hotelDir = path.join(__dirname, 'data', 'hotels', hotelId);
     if (!fs.existsSync(hotelDir)) {
       fs.mkdirSync(hotelDir, { recursive: true });
     }
@@ -445,7 +468,7 @@ app.post('/api/menu/:lang', (req, res) => {
 
 // Çeviri dosyasını yükleme
 app.get('/api/translations', (req, res) => {
-  const filePath = path.join(__dirname, '..', 'translations.json');
+  const filePath = path.join(__dirname, 'translations.json');
   
   console.log('Çeviri dosyası yolu:', filePath);
   
@@ -526,7 +549,7 @@ app.get('/api/translations', (req, res) => {
 
 // Çeviri dosyasını güncelleme
 app.post('/api/translations', (req, res) => {
-  const filePath = path.join(__dirname, '..', 'translations.json');
+  const filePath = path.join(__dirname, 'translations.json');
   const data = req.body;
   
   console.log('Çeviri güncelleme dosya yolu:', filePath);
@@ -544,22 +567,13 @@ app.post('/api/translations', (req, res) => {
   }
 });
 
-// Admin paneli ana sayfasını sunma
+// Ana sayfa
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-// Admin paneline yönlendirme
-app.get('/admin', (req, res) => {
-  res.redirect('/admin/');
-});
-
-app.get('/admin/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // Sunucuyu başlatma
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  console.log(`Admin panel: http://localhost:${PORT}/admin/`);
+  console.log(`Admin panel: http://localhost:${PORT}`);
 }); 

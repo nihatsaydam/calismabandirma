@@ -1,0 +1,209 @@
+/* Admin Panel Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+}
+
+.logo {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #444;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 20px 0;
+}
+
+nav ul li {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+nav ul li:hover {
+  background-color: #444;
+}
+
+nav ul li.active {
+  background-color: #007bff;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+h3 {
+  margin: 15px 0;
+  color: #555;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0069d9;
+}
+
+/* Language Selector */
+.language-selector {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.language-selector label {
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+
+.language-selector select {
+  width: 150px;
+}
+
+/* Categories and Products */
+.category-list, .product-list {
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category-item, .product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.category-item:last-child, .product-item:last-child {
+  border-bottom: none;
+}
+
+.item-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Translation Editor */
+.translation-editor {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.translation-item {
+  margin-bottom: 15px;
+}
+
+.translation-item label {
+  font-weight: 500;
+}
+
+#save-translations {
+  margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  nav ul {
+    display: flex;
+    padding: 10px 0;
+    overflow-x: auto;
+  }
+  
+  nav ul li {
+    padding: 8px 15px;
+    white-space: nowrap;
+  }
+} 

@@ -1,0 +1,231 @@
+{
+  "menu": [
+    {
+      "key": "Spa Service",
+      "name": "Aliva Spa",
+      "description": "Tesis Bilgilerini İçerir",
+      "image": "",
+      "items": [
+        {
+          "name": "3 Kapali Havuz (+12)",
+          "image": ""
+        },
+        {
+          "name": "Türk Hamamı",
+          "image": ""
+        }, 
+        {
+          "name": "Sauna",
+          "image": ""
+        },
+        {
+          "name": "Aromaterapi-Kromaterapi Buhar Odası",
+          "image": ""
+        },
+        {
+          "name": "Kar Çeşmesi",
+          "image": ""
+        }, 
+        {
+          "name": "Hamam",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "key": "Spa Service",
+      "name": "Masaj Menüsü",
+      "description": "Uzman terapistlerin, ruhu ve bedeni yenileyen şifa metotları ve dünyanın farklı SPA kültürleri, Aliva SPA'nın iyileştirici gücünde. 'SPA Oteli' denince akla ilk gelen otel olmanın sorumluluğuyla ayrıcalıklı hizmetlerimiz ve yenilikçi bakış açımızla her geçen gün bizde kendimizi yeniliyoruz.",
+      "image": "",
+      "items": [
+        {
+          "name": "Baskılı Masajlar",
+          "items": [
+            {
+              "name": "Spor Masajı",
+              "description": "Spor öncesi kaslarını aktif hâle getirmek isteyen ve sonrasında kaslarını dinlendirmek isteyen misafirlerimizin özel tercihi."
+            },
+            {
+              "name": "Lenf Drenaj Masajı",
+              "description": "Vücuttaki lenf bezi bölgelerine uygulanan lenf drenaj masajı ile vücuttaki kan dolaşımını hızlandıran özel bir masaj tekniği. Vücutta biriken ödem ve toksinlerin dışarı atımını kolaylaştırmak ve bağışıklık sistemini güçlendirmek isteyen misafirlerimizin en sağlıklı tercihi."
+            },
+            {
+              "name": "Anti-Selülit Masajı",
+              "description": "Selülitli bölgelerde gözle görülür bir iyileşme sağlayan, bölgesel etkileriyle incelemeyi destekleyen kür uygulamasına sahip bir masaj tekniği."
+            },
+            {
+              "name": "Refleksoloji Masajı",
+              "description": "Nokta Terapi olarak da bilinen, beden dengesini korumak ve iyileştirmek için özel el teknikleriyle ayaklara uygulanan bir masaj türü. Bedende bloke olmuş enerjileri çözerek, serbest kalmış enerji akışı sayesinde fiziksel ve ruhsal yaşama denge sağlıyor."
+            },
+            {
+              "name": "Shiatsu Masajı",
+              "description": "Parmak, dirsek ve el baskısı tekniklerini içeren özel bir terapi yöntemi. Bağışıklık sistemini geliştirmek ve yeni masaj teknikleriyle tanışmak isteyen misafirlerimiz için en orijinal seçenek."
+            },
+            {
+              "name": "İsveç Masajı",
+              "description": "Hücre dokularını canlandıran ve kan dolaşımında denge sağlayan İsveç Masajı, cilt rengine gözle görülür bir iyileşme ve parlaklık kazandırıyor."
+            }
+          ]
+        },
+        {
+          "name": "Ayurvedik Masajlar",
+          "items": [
+            {
+              "name": "Shirodhara",
+              "description": "Baş ağrısı, uykusuzluk ve halsizlik hisseden misafirlerimizin öncelikli tercihi Shirodhara, sıcak ayurveda yağının yavaş ve sabit biçimde uygulanmasını içerir. Sağladığı zindelik ve enerjinin yanında, baş ağrılarını yok etmek için en etkili ve doğru tercih."
+            },
+            {
+              "name": "Abhyanga",
+              "description": "Kan dolaşımını hızlandıran ve harekete geçiren etkisiyle Abhyanga, vücutta biriken zararlı maddelerin emisyonunu sağlar. Tüm dünyada bilinen, Hindistan'ın geleneksel sağlık terapisi Abhyanga, son yılların trend terapi yöntemlerinin başında geliyor."
+            },
+            {
+              "name": "Abhyanga Senkron (Dört El)",
+              "description": "İki uzman terapist tarafından uygulanan, dört elle senkronize gerçekleştirilen bir masaj tekniği. Ayurveda geleneğinin en eski tekniklerinden Abhyanga Senkron, eşsiz ve farklı bir iyileşme deneyimi arayan misafirlerimiz için ideal bir seçim sunuyor."
+            }
+          ]
+        },
+        {
+          "name": "Uzakdoğu Masajlar",
+          "items": [
+            {
+              "name": "Geleneksel Bali Masajı",
+              "description": "Vücuttaki refleks noktalarına uygulanan dengeli baskılarla, enerji akışının düzenlenmesi ve vücudun dengelenmesi amaçlanır. Geleneksel Bali Masajı, uzak doğunun en seçkin terapi yöntemlerinden olup dünyada çok yaygın biçimde rağbet görüyor."
+            },
+            {
+              "name": "Bali Baş, Boyun ve Omuz Masajı",
+              "description": "Baş, boyun ve omuz bölgelerine uygulanan, vücudu etkili bir dengeyle buluşturan geleneksel masaj tekniği. Modern hayatın stresinden arındırmaya yönelik yöntem, uzak doğunun en kadim terapi yöntemlerinden biri olarak karşımıza çıkıyor."
+            },
+            {
+              "name": "Bali Bacak ve Ayak Masajı",
+              "description": "Özellikle bacak ve ayak bölgesine uygulanarak, uzun süre ayakta durma ve yorgunluktan kaynaklanan ağrıları gidermeye, vücudun denge seviyesini artırmaya yardımcı oluyor."
+            },
+            {
+              "name": "Geleneksel Thai Masajı",
+              "description": "Temel öğretisini Antik Çin tıbbından ve Hindistan'ın yoga kültüründen alan Geleneksel Thai Masajı, yer minderinde stretching ve baskı teknikleriyle uygulanıyor."
+            },
+            {
+              "name": "Lomi Lomi Nui Masajı",
+              "description": "Hawai Adaları'nda yaşayan geleneksel Kahuna Şifacıları'nın tapınak masajı olarak krallara uyguladığı bu özel masaj, ruh ve bedeni dinlendirir, pozitif enerjiyi ortaya çıkarıyor."
+            },
+            {
+              "name": "Bali Mandara (Dört El)",
+              "description": "Stresten arınmak ve orijinal bir masaj deneyimi yaşamak isteyen misafirlerimizin seçkin tercihi Bali Mandara, kadın ve erkek olmak üzere iki terapistin senkronize olarak uyguladığı geleneksel bir masaj türü."
+            }
+          ]
+        },
+        {
+          "name": "Aliva Dokunuşları",
+          "items": [
+            {
+              "name": "Hamile Masajı",
+              "description": "Hamilelik dönemi sağlığında etkili sonuçlara sahip Hamilelik Masajı, dinlendirici, gevşetici ve rahatlatıcı etkisiyle hamile misafirlerimizin eşsiz tercihi."
+            },
+            {
+              "name": "Aliva Aromaterapi",
+              "description": "Doğal bitki ve çiçek özleri ve baz yağı karışımıyla elde edilen aromaterapik yağlar, mis kokulu rahatlatıcı etkisi, yumuşak ve dinlendirici masaj tekniğiyle büyüleyici bir deneyim sunuyor."
+            },
+            {
+              "name": "Sıcak Taş Masajı",
+              "description": "Pürüzsüz, sıcak volkanik taşlarla bloke olmuş enerjiyi çözüp enerji akışını düzenlemeyi amaçlayan terapi, anksiyeteyi azaltan, huzur ve dinginlik veren ve dünyada en çok tercih edilen masaj türlerinin başında geliyor."
+            },
+            {
+              "name": "Aliva Dokunuşu",
+              "description": "Uzman terapistler tarafından bölgeye özgü tedavi uygulayan Aliva Dokunuşu, eklem ve kas ağrılarını giderecek eşsiz bir rahatlama deneyimi sağlar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "Spa Service",
+      "name": "Bakım Menüsü",
+      "description": "Sothy's, Sjal, Aura Chake ve Environ gibi dünyanın elit SPA kozmetik markalarıyla, cildinizin ihtiyacı belirlenir ve en doğru bakım teknikleriyle ihtiyaçlar, NG Sapanca'da karşılanır.",
+      "image": "",
+      "items": [
+        {
+          "name": "Vücut Arındırma Bakımları",
+          "items": [
+            {
+              "name": "Parafin Bakımları",
+              "description": "Kuru ve yıpranmış cilt yapısını göz alıcı güzellikte bir renge kavuşturur, bakım sonrası oluşan yumuşaklık ve sağlıklı nem oranıyla cildinizi uzun süreler korur."
+            },
+            {
+              "name": "Sultan Hamam Sefası",
+              "description": "Türk hamamının eğlencesiyle, nem dengeleyici bakım sunar; yüksek oranda cildi besleyen köpük masajı ile cildin yumuşaklığını artırır."
+            },
+            {
+              "name": "Harem Ritüeli",
+              "description": "Güzelliğin en geleneksel hâli Harem Ritüeli, kese ve köpük masajıyla vücudu nemlendirir, cilde ferahlık veren bir ışıltı katar."
+            },
+            {
+              "name": "Ayak Masajı",
+              "description": "Uzmanlar tarafından özel ayak peeling'i uygulanır ve gül suyu durulamasıyla ayaklara yumuşaklık ve pürüzsüzlük verir."
+            },
+            {
+              "name": "Yenileyici Peeling Bakımı",
+              "description": "Kahve keyfi, meyve özleri ve altın ışıltısı peeling seçenekleriyle cildi ölü derilerden arındırır, dengeli nem seviyesi ile pürüzsüzlük ve ışıltılı görünüm sağlar."
+            }
+          ]
+        },
+        {
+          "name": "Hidro Bakımı",
+          "items": [
+            {
+              "name": "Kleopatra Bakımı",
+              "description": "BSüit odada, jakuzi keyine eşlik eden aromatik kokular ve mineralli köpüklerle ruha iyi gelen bir bakım deneyimi."
+            }
+          ]
+        },
+        {
+          "name": "Cilt Bakımları",
+          "items": [
+            {
+              "name": "Temel Cilt Bakımı",
+              "description": "Normal cilt tipleri için profesyonel ekip ve ürünlerle uygulanan Temel Cilt Bakımı, ölü hücrelerden arındırıp yenileyen özelliğiyle cilde ışıltı ve yumuşaklık kazandırır."
+            },
+            {
+              "name": "Mevsimsel Cilt Bakımı",
+              "description": "Mevsim geçişlerinde yaşanan cilt kurulukları ve dökülmelere karşı özel olarak geliştirilen Mevsimsel Cilt Bakımı, yıpranma karşıtı egzotik meyve özleriyle, mevsim geçişlerinin en etkili cilt bakımı yöntemi."
+            },
+            {
+              "name": "Yağlı Ciltlere Özel Arındırıcı Bakım",
+              "description": "Yağlı cilt tipleri için özel geliştirilen arındırıcı bakım, derin bir temizleme ve arındırma işlemi yaparak göz alıcı görünüme kavuşturur."
+            },
+            {
+              "name": "Hassas Ciltlere Özel Cilt Bakımı",
+              "description": "Kılcal damar problemi olan, hassas ve alerjik cilt sahibi misafirlerimize özel cilt bakımı, özel geliştirilmiş maskesiyle hassas bakım sağlar, sakinleştirici bir etki yaratır."
+            },
+            {
+              "name": "Yoğun Nemlendirici Cilt Bakımı",
+              "description": "Lotus çiçeği sütünün yenileyici etkisi, ipek proteinlerinin nemlendirici özelliği ve aloe veranın iyileştirici gücü ile besleyici bir cilt bakımı. Cildin nem dengesini koruyarak zinde ve genç bir görünüm sağlar."
+            },
+            {
+              "name": "Erkeklere Özel Cilt Bakımı",
+              "description": "Erkek cilt tipine özel geliştirilmiş cilt bakım tekniği, cildin kuruluğuna karşı nem dengesini sağlar ve traş sonrası yaşanan kızarıklık ve tahriş gibi cilt problemlerini giderir."
+            },
+            {
+              "name": "Anti-Aging Cilt Bakımı",
+              "description": "Olgun ciltlere özel C vitaminin gençleştirici gücünden yararlanan Anti-Aging Cilt Bakımı, kırışıklık oluşumunu engeller ve cilde daha sıkı bir görünüm kazandırır."
+            },
+            {
+              "name": "Çizgi Açıcı Cilt Bakımı",
+              "description": "Ciltte bulunan ince çizgileri ve ton düzensizliklerini gideren etkisiyle daha parlak, genç ve sıkı bir cilt görünümü kazandırır."
+            },
+            {
+              "name": "Yenileyici Göz ve Dudak Bakımı",
+              "description": "Göz ve dudak çevresinde beliren çizgileri özel nem takviyesiyle gideren Yenileyici Göz ve Dudak Bakımı, kırışıklıkları önceleyen etkisiyle pürüzsüz ve canlı bir görünüm sağlar. Temel bakımla birlikte uygulanan göz ve dudak bakımı, bütünsel bir iyileşmenin vazgeçilmez parçası."
+            },
+            {
+              "name": "Aliva Secret Cilt Bakımı",
+              "description": "Aliva SPA uzmanları tarafından özel geliştirilen Aliva Secret Cilt Bakımı, yıpranmış ciltleri tazeler ve yoğun bakım teknikleriyle cilde özel ışıltılı bir görünüm kazandırır."
+            },
+            {
+              "name": "Lymhobiony Cilt Bakımı",
+              "description": "Toksinlerden arındırıcı yöntemiyle anti-aging etkisi yaşatan Lymphobiony Cilt Bakımı, genç ve olgun tüm cilt tipleri için uygunluk taşır."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
